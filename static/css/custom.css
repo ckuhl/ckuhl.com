@@ -1,0 +1,30 @@
+/* Lists
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+div #header {
+    margin-top: 2rem;
+}
+
+div #header ul {
+    text-align: center;
+}
+
+div #header ul li {
+    display: inline;
+    list-style-type: none;
+}
+
+
+/* Divs
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+div #education .row {
+    text-align: center;
+}
+
+div #education,
+div #skills,
+div #portfolio,
+div #experience,
+div #contact {
+    margin-top: 5rem;
+}
