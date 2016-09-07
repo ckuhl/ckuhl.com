@@ -28,3 +28,22 @@ div #experience,
 div #contact {
     margin-top: 5rem;
 }
+
+
+/* Horizontal rules (hr)
+-------------------------------------------------- */
+
+hr.fancy {
+	border-top: 1px solid #8c8c8c;
+	text-align: center;
+}
+hr.fancy:after {
+	content: '§';
+	display: inline-block;
+	position: relative;
+	top: -14px;
+	padding: 0 10px;
+	background: #FFFFFF;
+	color: #8c8b8b;
+	font-size: 18px;
+}
