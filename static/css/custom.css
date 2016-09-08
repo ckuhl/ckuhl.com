@@ -1,4 +1,10 @@
-/* Lists
+/* General stuff
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+body {
+	color: #4c4c4c;
+}
+
+/* Header
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 div #header {
     margin-top: 2rem;
@@ -6,11 +12,31 @@ div #header {
 
 div #header ul {
     text-align: center;
+	padding-top: 0;
 }
 
 div #header ul li {
     display: inline;
     list-style-type: none;
+	font-size: larger;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+div #header ul li a {
+	text-decoration: none;
+	font-weight: bold;
+}
+
+div #header ul li a:visited {
+	color: #ba55d3;
+}
+
+div #header h1 {
+	font-size: 8rem;
+
+	margin-bottom: 0;
+	text-align: center;
 }
 
 
@@ -37,6 +63,7 @@ hr.fancy {
 	border-top: 1px solid #8c8c8c;
 	text-align: center;
 }
+
 hr.fancy:after {
 	content: '§';
 	display: inline-block;
@@ -44,6 +71,6 @@ hr.fancy:after {
 	top: -14px;
 	padding: 0 10px;
 	background: #FFFFFF;
-	color: #8c8b8b;
+	color: #8c8c8c;
 	font-size: 18px;
 }
