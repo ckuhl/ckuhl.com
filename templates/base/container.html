@@ -4,8 +4,8 @@
 
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
-    <title>{% block title %}Christian Kuhl's website{% endblock %}</title>
-    <meta name="description" content="Christian Kuhl's Personal Website">
+    <title>{% block title %}Christian Kuhl{% endblock %}</title>
+    <meta name="description" content="The personal site of Christian Kuhl">
     <meta name="author" content="Christian Kuhl">
 
     <!-- Mobile Specific Metas -->
@@ -14,9 +14,11 @@
     <!-- Fonts -->
 
     <!-- CSS -->
+    <!-- TODO: Update CSS to only what I need
     <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/skeleton.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    -->
     {% block styles %}{% endblock %}
 
     <!-- Favicon -->
@@ -27,9 +29,9 @@
 
     <!-- Primary Page Layout -->
     <div class="container">
-        {% include "basic/header.html" %}
+        {% include "base/header.html" %}
         {% block content %}{% endblock %}
-        {% include "basic/footer.html" %}
+        {% include "base/footer.html" %}
     </div>
 
 <!-- End Document -->

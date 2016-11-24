@@ -1,6 +1,18 @@
-{% extends "basic/container.html" %}
-{% block title %}Blog | christiankuhl.com{% endblock %}
+{% extends "base/container.html" %}
+{% block title %}Blog | Christian Kuhl{% endblock %}
 {% block styles %}{% endblock %}
 {% block content %}
-This is a placeholder for my blog, if I create one. Probably not...
+
+<h1 class="title">Words</h1>
+<h2 class="subtitle">Some collections of words I'm proud of</h2>
+{% if pages %}<ul>{% endif %}
+{% for page in pages %}
+    <li>
+        <a href="{{ url_for("blog_post", path=page.path) }}">{{ page.title }}</a>
+    </li>
+{% else %}
+    <p>Nothing here! Expect some writings in the future.</p>
+{% endfor %}
+{% if pages %}</ul>{% endif %}
+
 {% endblock %}

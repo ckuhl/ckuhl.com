@@ -1,4 +1,6 @@
 title: Hello World
-date: 2012-03-04
+date: 2016-11-24
+type: blog_post
+tags: testing
 
-**Hello World**, from a *page*!
+This is a test blog post, written to a simple markdown file.
