@@ -18,5 +18,6 @@ server and creates the changes
 * add a resume section (replace /about with this?)
 
 ## Inspiration
-* http://www.marcogoingplaces.com/home/trekking-to-chota-bangal
-* https://nicolas.perriault.net/
+* Style: http://www.marcogoingplaces.com/home/trekking-to-chota-bangal
+* Style & structure: https://nicolas.perriault.net/
+* Simplicity: http://rudenoise.uk/

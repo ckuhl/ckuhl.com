@@ -13,7 +13,7 @@ pages = FlatPages(app)
 
 @app.route("/")
 def main():
-    return render_template("pages/home_page.html")
+    return render_template("pages/home.html")
 
 
 @app.route("/contact")
@@ -42,6 +42,18 @@ def about():
 def blog_post(path):
     page = pages.get_or_404(path)
     return render_template('blog/blog_post.html', page=page)
+
+
+@app.route("/Del")
+def danielle():
+    return render_template("pages/del.html")
+
+
+@app.route('/.well-known/acme-challenge/<token_value>')
+def letsencrpyt(token_value):
+    with open('.well-known/acme-challenge/{}'.format(token_value)) as f:
+        answer = f.readline().strip()
+    return answer
 
 
 if __name__ == "__main__":
