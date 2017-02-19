@@ -2,7 +2,8 @@ from flask import Flask
 from flask import render_template
 from flask_flatpages import FlatPages
 
-DEBUG = True
+# TODO: Set easy way to switch debug state / caching state
+DEBUG = False
 FLATPAGES_AUTO_RELOAD = DEBUG
 FLATPAGES_EXTENSION = '.md'
 
