@@ -2,7 +2,7 @@
 {% block title %}{{ page.title }} | Christian Kuhl{% endblock %}
 {% block styles %}{% endblock %}
 {% block content %}
-<h1 class="blog_post">{{ page.title }}</h1>
-<h3 class="blog_post">{{ page.date }}</h3>
-<p class="blog_post">{{ page.html|safe }}</p>
+<h1 class="blog-title">{{ page.title }}</h1>
+<h3 class="blog-byline">Written on {{ page.date }}</h3>
+<div class="blog-post">{{ page.html|safe }}</div>
 {% endblock %}
