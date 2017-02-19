@@ -1,30 +1,60 @@
-/* General stuff
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-body {
-	color: #4c4c4c;
+/* General stuff --------------------------------------------------------- */
+@media (min-width: 550px) {
+    .container {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+        align-content: center;
+    }
 }
 
-/* Header
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@media (min-width: 1024px) {
+    .container {
+        width: 65%;
+        margin-left: 17.5%;
+        margin-right: 17.5%;
+        align-content: center;
+    }
+}
+
+html {
+    font-size: 62.5%;  /* this way 1.5 rems == 15 px (approximately) */
+}
+
+body {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    font-weight: 400;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #4c4c4c;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* Header ---------------------------------------------------------------- */
 div #header {
     margin-top: 2rem;
 }
 
 div #header ul {
-    text-align: center;
-	padding-top: 0;
+    text-align: right;
+	display: inline;
+	padding: 0;
 }
 
 div #header ul li {
     display: inline;
     list-style-type: none;
-	font-size: larger;
 	padding-left: 0.2rem;
 	padding-right: 0.2rem;
 }
 
 div #header ul li a {
-	text-decoration: none;
+	font-size: 2.2rem;
+
 	font-weight: bold;
 }
 
@@ -33,15 +63,18 @@ div #header ul li a:visited {
 }
 
 div #header h1 {
-	font-size: 8rem;
-
+	display: inline;
+	font-size: 3rem;
 	margin-bottom: 0;
-	text-align: center;
+	padding: 0;
+	text-align: left;
+}
+
+div #header h1 a {
 }
 
 
-/* Divs
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* Divs ------------------------------------------------------------------ */
 
 div #education .row {
     text-align: center;
@@ -56,14 +89,14 @@ div #contact {
 }
 
 
-/* Horizontal rules (hr)
--------------------------------------------------- */
+/* Horizontal rules (hr) ------------------------------------------------- */
 
 hr.fancy {
 	border-top: 1px solid #8c8c8c;
 	text-align: center;
-}
 
+}
+/*  Removed for now -- doesn't play nice on Firefox 51
 hr.fancy:after {
 	content: '§';
 	display: inline-block;
@@ -73,4 +106,44 @@ hr.fancy:after {
 	background: #FFFFFF;
 	color: #8c8c8c;
 	font-size: 18px;
+}
+*/
+
+/* Footer ---------------------------------------------------------------- */
+
+div #footer p {
+	text-align: center;
+}
+
+
+/* Blog post ------------------------------------------------------------- */
+.blog-title {
+    margin-bottom: 0;
+}
+
+.blog-byline:before {
+    content: "\00a0\00a0";  /* unicode nbsp */
+}
+.blog-byline {
+    margin-top: 0;
+    color: #8c8c8c;
+    font-weight: normal;
+}
+
+.blog-post {
+    font-size: 2.1rem;
+}
+
+
+/* Miscellaneous --------------------------------------------------------- */
+div.left {
+    float: left;
+}
+
+div.right {
+    float: right;
+}
+
+div.clear {
+    clear: both;
 }
