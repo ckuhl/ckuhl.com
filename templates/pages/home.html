@@ -5,9 +5,25 @@
 The always-under-construction, never-quite-perfect homepage of Christian Kuhl.
 <br>
 Things to expect on this page eventually:
-    <ul>
-        <li>my latest blog posts (1, 2, more?)</li>
-        <li>things I've made / am working on / etc.</li>
-        <li>quick link to my resume / brag page</li>
-    </ul>
+<ul>
+    <li><strike>my latest blog posts (1, 2, more?)</strike></li>
+    <li>things I've made / am working on / etc.</li>
+    <li>quick link to my resume / brag page</li>
+</ul>
+
+
+<h3>Some of my writings</h3>
+{% if articles %}<ul>{% endif %}
+{% for a in articles %}
+    <li>
+        <div>
+            <b>{{ a.created }}</b>
+            <a href="{{ url_for("blog_post", path=a.path) }}">{{ a.title }}</a>
+        </div>
+    </li>
+{% else %}
+<p>Nothing here! Expect some writings in the future.</p>
+{% endfor %}
+{% if articles %}</ul>{% endif %}
+<p>Want more? See <a href="/blog">everything I've written</a> on my blog!</p>
 {% endblock %}

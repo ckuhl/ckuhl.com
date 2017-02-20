@@ -4,25 +4,36 @@ from flask import render_template
 from flask_flatpages import FlatPages
 
 
-# App constants
+# App setup
 DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
 FLATPAGES_EXTENSION = '.md'
 FLATPAGES_ROOT = 'static/posts'
 FLATPAGES_MARKDOWN_EXTENSIONS = []
 
-
-# Flask init
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-# Flask-Flatpages init
 pages = FlatPages(app)
 
 
+# Helper code
+
+def get_articles(n=999):
+    # Articles are pages with a publication date
+    articles = [p for p in pages if 'published' in p.meta
+                and p.meta['published'] is True]
+    latest = sorted(articles, reverse=True,
+                    key=lambda p: p.meta['created'])
+    return latest[:n]
+
+
+# Page routing
+
 @app.route("/")
 def main():
-    return render_template("pages/home.html")
+    latest_posts = get_articles(5)[:5]
+    return render_template("pages/home.html", articles=latest_posts)
 
 
 @app.route("/contact/")
@@ -31,13 +42,8 @@ def contact():
 
 
 @app.route("/blog/")
-def blog():
-    # Articles are pages with a publication date
-    articles = [p for p in pages if 'published' in p.meta
-                and p.meta['published'] is True]
-    latest = sorted(articles, reverse=True,
-                    key=lambda p: p.meta['created'])
-    return render_template("blog/blog.html", articles=latest)
+def blog(n=999):
+    return render_template("blog/blog.html", articles=get_articles(n=n)[:n])
 
 
 @app.route("/portfolio/")
@@ -74,6 +80,8 @@ def letsencrpyt(token_value):
     return answer
 
 
+# HTTP error codes
+
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('errors/404.html'), 404
@@ -85,4 +93,4 @@ def page_forbidden(e):
 
 
 if __name__ == "__main__":
-    app.run(debug=DEBUG, host='0.0.0.0')
+    app.run(debug=DEBUG, host='0.0.0.0', port=5000)
