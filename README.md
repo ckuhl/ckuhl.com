@@ -1,15 +1,21 @@
-# personal_site
-## ChristianKuhl.com
+# My `personal_site` — ChristianKuhl.com
 The personal website, resume, and blog of Christian Kuhl.
 
 This is intended to be a showcase of my abilities, both from a computer
 science perspective and from a business / communication perspective.
 
+Built primarily using Python3, Flask, and Flask-Flatpages.
 
-## Setting up the site
-Python requirements are stored in `requirements.txt` and the
-virtualenvironment is stored in `.venv/` (but it is git ignored so that
-everyone builds their own from the latest sources).
+
+## Running the project
+Required packages are listed in `requirements.txt` and the
+virtual environment is stored in `.venv/`. However it's git-ignored so that
+everyone builds their own from the latest versions). In theory all you should
+need to do to run this site is:
+1. `git clone https://github.com/k-u-h-l/personal_site.git`
+2. `cd personal_site`
+3. `virtualenv -p python3 .venv`
+4. `pip3 install requirements.txt`
 
 
 ## Project structure
@@ -25,38 +31,27 @@ everyone builds their own from the latest sources).
 		* `/pages` display pages off of the main site
 
 
-## Site structure
+## Website structure
 * `/` (homepage)
     * `/about`
     * `/contact`
     * `/blog`
-        * `/posts`
+        * `/posts` -- only used with a slug for each blog post
     * `/portfolio`
 
 
-## Links I've used
+## Things I've used
 ### Resources
-Server setup:
-* https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04
-* http://toroid.org/git-website-howto
-
-
-* http://askubuntu.com/questions/155791/how-do-i-sudo-a-command-in-a-script-without-being-asked-for-a-password
-
-
-Flask setup:
-* https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04
-
-
-LetsEncrypt setup:
-* https://hjlog.me/post/177
-
-
-Javascript:
-* http://instantclick.io/
+* Server setup:
+	* [Initial Server Setup for Ubuntu 14.04 ](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04)
+	* [Using Git to manage a web site](http://toroid.org/git-website-howto)
+	* [How to run sudo from a script without a password](http://askubuntu.com/questions/155791/)
+* Flask setup: [Serve Flask Applications with uWSGI and Nginx on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04)
+* LetsEncrypt setup: [Let's Encrypt your Ubuntu 14.04 + Flask + Nginx server](https://hjlog.me/post/177)
+* Javascript: [InstantClick - Preload pages on hover](http://instantclick.io/)
 
 
 ### Inspiration
-* Style: http://www.marcogoingplaces.com/home/trekking-to-chota-bangal
-* Style & structure: https://nicolas.perriault.net/
-* Simplicity: http://rudenoise.uk/
+* Style: [Marco Going Places](http://www.marcogoingplaces.com/home/trekking-to-chota-bangal)
+* Style & structure: [Nicolas Perriault's blog](https://nicolas.perriault.net/)
+* Simplicity: [Focus is on content, not style](http://rudenoise.uk/)

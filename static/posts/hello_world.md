@@ -1,7 +1,9 @@
 title: Hello World from ChristianKuhl.com!
-date: 2017-02-15
 type: blog_post
-tags: testing, news
+created: 2017-02-15
+updated: 2017-02-18
+tags: news
+published: yes
 
 This is my first blog post to ChristianKuhl.com -- as much a `Hello World`
 to test that my site in fact works, as it is a blog post.
