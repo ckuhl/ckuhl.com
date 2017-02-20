@@ -1,4 +1,4 @@
-/* General stuff --------------------------------------------------------- */
+/* Viewports --------------------------------------------------------- */
 @media (min-width: 550px) {
     .container {
         width: 80%;
@@ -17,16 +17,21 @@
     }
 }
 
+
+/* Whole document stuff -------------------------------------------------- */
+
 html {
     font-size: 62.5%;  /* this way 1.5 rems == 15 px (approximately) */
 }
 
 body {
-    font-size: 1.5rem;
     line-height: 1.6;
-    font-weight: 400;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #4c4c4c;
+    font-size: 1.5rem;
+    font-weight: 400;
+    /* System Fonts as used by WordPress */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
 }
 
 a {
@@ -40,9 +45,10 @@ div #header {
 }
 
 div #header ul {
-    text-align: right;
 	display: inline;
 	padding: 0;
+
+    text-align: right;
 }
 
 div #header ul li {
@@ -54,7 +60,6 @@ div #header ul li {
 
 div #header ul li a {
 	font-size: 2.2rem;
-
 	font-weight: bold;
 }
 
@@ -64,23 +69,16 @@ div #header ul li a:visited {
 
 div #header h1 {
 	display: inline;
-	font-size: 3rem;
 	margin-bottom: 0;
 	padding: 0;
-	text-align: left;
-}
 
-div #header h1 a {
+    font-size: 3rem;
+	text-align: left;
 }
 
 
 /* Divs ------------------------------------------------------------------ */
 
-div #education .row {
-    text-align: center;
-}
-
-div #education,
 div #skills,
 div #portfolio,
 div #experience,
@@ -89,7 +87,7 @@ div #contact {
 }
 
 
-/* Horizontal rules (hr) ------------------------------------------------- */
+/* Horizontal rules ------------------------------------------------------ */
 
 hr.fancy {
 	border-top: 1px solid #8c8c8c;
@@ -135,7 +133,7 @@ div #footer p {
 }
 
 
-/* Miscellaneous --------------------------------------------------------- */
+/* To allow divs on left and right with space in the middle -------------- */
 div.left {
     float: left;
 }
