@@ -1,6 +1,8 @@
 from flask import Flask
+from flask import abort
 from flask import render_template
 from flask_flatpages import FlatPages
+
 
 # App constants
 DEBUG = True
@@ -51,6 +53,10 @@ def about():
 @app.route('/blog/<path:path>/')
 def blog_post(path):
     post = pages.get_or_404(path)
+
+    if post.meta['published'] is False:
+        abort(403)
+
     return render_template('blog/blog_post.html', post=post)
 
 
@@ -66,6 +72,16 @@ def letsencrpyt(token_value):
     with open('.well-known/acme-challenge/{}'.format(token_value)) as f:
         answer = f.readline().strip()
     return answer
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('errors/404.html'), 404
+
+
+@app.errorhandler(403)
+def page_forbidden(e):
+    return render_template('errors/403.html'), 403
 
 
 if __name__ == "__main__":
