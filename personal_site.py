@@ -2,11 +2,10 @@ from flask import Flask
 from flask import abort
 from flask import render_template
 from flask_flatpages import FlatPages
-
+from settings import SETTINGS
 
 # App setup
-DEBUG = False
-FLATPAGES_AUTO_RELOAD = DEBUG
+FLATPAGES_AUTO_RELOAD = SETTINGS['DEBUG']
 FLATPAGES_EXTENSION = '.md'
 FLATPAGES_ROOT = 'static/posts'
 FLATPAGES_MARKDOWN_EXTENSIONS = []
@@ -93,4 +92,4 @@ def page_forbidden(e):
 
 
 if __name__ == '__main__':
-    app.run(debug=DEBUG, host='0.0.0.0', port=5000)
+    app.run(debug=SETTINGS['DEBUG'], host='0.0.0.0', port=5000)

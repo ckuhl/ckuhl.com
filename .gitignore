@@ -7,3 +7,6 @@
 # compiled (to bytecode) python files
 __pycache__/
 *.py[cod]
+
+# Project settings
+settings.py
