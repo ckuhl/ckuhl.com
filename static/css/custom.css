@@ -1,29 +1,7 @@
-/* Viewports --------------------------------------------------------- */
-
-@media (min-width: 550px) {
-    .container {
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
-        align-content: center;
-    }
-}
-
-@media (min-width: 1024px) {
-    .container {
-        width: 65%;
-        margin-left: 17.5%;
-        margin-right: 17.5%;
-        align-content: center;
-    }
-}
-
-
 /* Whole document stuff -------------------------------------------------- */
 
-html {
-    font-size: 62.5%;  /* this way 1.5 rems == 15 px (approximately) */
-}
+/* this way 1.5 rems ~= 15 px */
+html {font-size: 62.5%;}
 
 body {
     line-height: 1.6;
@@ -35,16 +13,12 @@ body {
 
 }
 
-a {
-    text-decoration: none;
-}
+a {text-decoration: none;}
 
 
 /* Header ---------------------------------------------------------------- */
 
-div #header {
-    margin-top: 2rem;
-}
+div #header {margin-top: 2rem;}
 
 div #header ul {
 	display: inline;
@@ -65,9 +39,7 @@ div #header ul li a {
 	font-weight: bold;
 }
 
-div #header ul li a:visited {
-	color: #ba55d3;
-}
+div #header ul li a:visited {color: #ba55d3;}
 
 div #header h1 {
 	display: inline;
@@ -96,24 +68,10 @@ hr.fancy {
 	text-align: center;
 
 }
-/*  Removed for now -- doesn't play nice on Firefox 51
-hr.fancy:after {
-	content: '§';
-	display: inline-block;
-	position: relative;
-	top: -14px;
-	padding: 0 10px;
-	background: #FFFFFF;
-	color: #8c8c8c;
-	font-size: 18px;
-}
-*/
 
 /* Footer ---------------------------------------------------------------- */
 
-div #footer p {
-	text-align: center;
-}
+div #footer p {text-align: center;}
 
 
 /* Error pages ----------------------------------------------------------- */
@@ -131,34 +89,74 @@ p.error {
 
 /* Blog post ------------------------------------------------------------- */
 
-.blog-title {
-    margin-bottom: 0;
-}
+.blog-title {margin-bottom: 0;}
 
-.blog-byline:before {
-    content: "\00a0\00a0";  /* unicode nbsp */
-}
+/* unicode nbsp */
+.blog-byline:before {content: "\00a0\00a0";}
+
 .blog-byline {
     margin-top: 0;
     color: #8c8c8c;
     font-weight: normal;
 }
 
-.blog-post {
-    font-size: 2.1rem;
-}
+.blog-post {font-size: 2.1rem;}
 
 
 /* To allow divs on left and right with space in the middle -------------- */
 
-div.left {
-    float: left;
+div.left {float: left;}
+div.right {float: right;}
+div.clear {clear: both;}
+
+
+/* Viewports ---------------------------------------------------------
+     These are set up so that headings are centred on mobile, and
+     content column fits in a person's view regardless of screen size.
+
+     This is placed at the end to override any default stylings.*/
+
+@media (max-width: 549px) {
+    div.left {
+        float: none;
+        text-align: center;
+    }
+    div.right {
+        float: none;
+        text-align: center;
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    ul {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
 }
 
-div.right {
-    float: right;
+@media (min-width: 550px) {
+    .container {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }
 
-div.clear {
-    clear: both;
+@media (min-width: 1024px) {
+    .container {
+        width: 65%;
+        margin-left: 17.5%;
+        margin-right: 17.5%;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        width: 50%;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
 }
