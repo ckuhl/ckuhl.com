@@ -1,33 +1,16 @@
-/* Viewports --------------------------------------------------------- */
-
-@media (min-width: 550px) {
-    .container {
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
-        align-content: center;
-    }
-}
-
-@media (min-width: 1024px) {
-    .container {
-        width: 65%;
-        margin-left: 17.5%;
-        margin-right: 17.5%;
-        align-content: center;
-    }
-}
-
-
 /* Whole document stuff -------------------------------------------------- */
 
+/* TODO: Use http://paletton.com to come up with a coherent theme */
+
+/* this way 1.5 rems ~= 15 px */
 html {
-    font-size: 62.5%;  /* this way 1.5 rems == 15 px (approximately) */
+    font-size: 62.5%;
+    background-color: #EAF2E2;
 }
 
 body {
     line-height: 1.6;
-    color: #4c4c4c;
+    color: #1D1100;
     font-size: 1.5rem;
     font-weight: 400;
     /* System Fonts as used by WordPress */
@@ -35,16 +18,25 @@ body {
 
 }
 
-a {
-    text-decoration: none;
+.main {margin-bottom: 1rem;}
+
+.main_list {
+    list-style-type: none;
+    padding-left: 0;
 }
 
+a {
+    text-decoration: none;
+    color: #583403;
+}
+
+a:visited {
+    color: #583403;
+}
 
 /* Header ---------------------------------------------------------------- */
 
-div #header {
-    margin-top: 2rem;
-}
+div #header {margin-top: 2rem;}
 
 div #header ul {
 	display: inline;
@@ -63,11 +55,10 @@ div #header ul li {
 div #header ul li a {
 	font-size: 2.2rem;
 	font-weight: bold;
+    color: #AA7939;
 }
 
-div #header ul li a:visited {
-	color: #ba55d3;
-}
+div #header ul li a:visited {color: #583403;}
 
 div #header h1 {
 	display: inline;
@@ -76,6 +67,11 @@ div #header h1 {
 
     font-size: 3rem;
 	text-align: left;
+    color: #AA7939;
+}
+
+div #header h1:visited {
+    color: #583403;
 }
 
 
@@ -96,24 +92,10 @@ hr.fancy {
 	text-align: center;
 
 }
-/*  Removed for now -- doesn't play nice on Firefox 51
-hr.fancy:after {
-	content: '§';
-	display: inline-block;
-	position: relative;
-	top: -14px;
-	padding: 0 10px;
-	background: #FFFFFF;
-	color: #8c8c8c;
-	font-size: 18px;
-}
-*/
 
 /* Footer ---------------------------------------------------------------- */
 
-div #footer p {
-	text-align: center;
-}
+div #footer p {text-align: center;}
 
 
 /* Error pages ----------------------------------------------------------- */
@@ -131,13 +113,11 @@ p.error {
 
 /* Blog post ------------------------------------------------------------- */
 
-.blog-title {
-    margin-bottom: 0;
-}
+.blog-title {margin-bottom: 0;}
 
-.blog-byline:before {
-    content: "\00a0\00a0";  /* unicode nbsp */
-}
+/* unicode nbsp */
+.blog-byline:before {content: "\00a0\00a0";}
+
 .blog-byline {
     margin-top: 0;
     color: #8c8c8c;
@@ -146,19 +126,69 @@ p.error {
 
 .blog-post {
     font-size: 2.1rem;
+    line-height: 1.8;
 }
 
 
 /* To allow divs on left and right with space in the middle -------------- */
 
-div.left {
-    float: left;
+div.left {float: left;}
+div.right {float: right;}
+div.clear {clear: both;}
+
+
+/* Viewports ---------------------------------------------------------
+     These are set up so that headings are centred on mobile, and
+     content column fits in a person's view regardless of screen size.
+
+     This is placed at the end to override any default stylings.*/
+
+@media (max-width: 549px) {
+    div.left {
+        float: none;
+        text-align: center;
+    }
+    div.right {
+        float: none;
+        text-align: center;
+    }
+
+    h1,h2,h3,h4,h5,h6 {
+        margin-top: 0;
+        text-align: center;
+    }
+
+    ul {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .blog-post {
+        font-size: 1.6rem;
+        line-height: 1.8;
+    }
 }
 
-div.right {
-    float: right;
+@media (min-width: 550px) {
+    .container {
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
 }
 
-div.clear {
-    clear: both;
+@media (min-width: 1024px) {
+    .container {
+        width: 65%;
+        margin-left: 17.5%;
+        margin-right: 17.5%;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        width: 50%;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
 }

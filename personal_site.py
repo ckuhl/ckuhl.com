@@ -2,11 +2,10 @@ from flask import Flask
 from flask import abort
 from flask import render_template
 from flask_flatpages import FlatPages
-
+from settings import SETTINGS
 
 # App setup
-DEBUG = True
-FLATPAGES_AUTO_RELOAD = DEBUG
+FLATPAGES_AUTO_RELOAD = SETTINGS['DEBUG']
 FLATPAGES_EXTENSION = '.md'
 FLATPAGES_ROOT = 'static/posts'
 FLATPAGES_MARKDOWN_EXTENSIONS = []
@@ -30,30 +29,30 @@ def get_articles(n=999):
 
 # Page routing
 
-@app.route("/")
+@app.route('/')
 def main():
     latest_posts = get_articles(5)[:5]
-    return render_template("pages/home.html", articles=latest_posts)
+    return render_template('pages/home.html', articles=latest_posts)
 
 
-@app.route("/contact/")
+@app.route('/contact/')
 def contact():
-    return render_template("pages/contact.html")
+    return render_template('pages/contact.html')
 
 
-@app.route("/blog/")
+@app.route('/blog/')
 def blog(n=999):
-    return render_template("blog/blog.html", articles=get_articles(n=n)[:n])
+    return render_template('blog/blog.html', articles=get_articles(n=n)[:n])
 
 
-@app.route("/portfolio/")
+@app.route('/portfolio/')
 def portfolio():
-    return render_template("pages/portfolio.html")
+    return render_template('pages/portfolio.html')
 
 
-@app.route("/about/")
+@app.route('/about/')
 def about():
-    return render_template("pages/about.html")
+    return render_template('pages/about.html')
 
 
 @app.route('/blog/<path:path>/')
@@ -67,9 +66,9 @@ def blog_post(path):
 
 
 # turns out, you can't use `del` as a function name... Oops!
-@app.route("/Del/")
+@app.route('/Del/')
 def danielle():
-    return render_template("pages/del.html")
+    return render_template('pages/del.html')
 
 
 # Pass through for Let's Encrypt's certbot to do its thing
@@ -92,5 +91,5 @@ def page_forbidden(e):
     return render_template('errors/403.html'), 403
 
 
-if __name__ == "__main__":
-    app.run(debug=DEBUG, host='0.0.0.0', port=5000)
+if __name__ == '__main__':
+    app.run(debug=SETTINGS['DEBUG'], host='0.0.0.0', port=5000)
