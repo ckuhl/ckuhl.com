@@ -8,5 +8,3 @@
 __pycache__/
 *.py[cod]
 
-# Project settings
-settings.py

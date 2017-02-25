@@ -1,11 +1,16 @@
 /* Whole document stuff -------------------------------------------------- */
 
+/* TODO: Use http://paletton.com to come up with a coherent theme */
+
 /* this way 1.5 rems ~= 15 px */
-html {font-size: 62.5%;}
+html {
+    font-size: 62.5%;
+    background-color: #EAF2E2;
+}
 
 body {
     line-height: 1.6;
-    color: #4c4c4c;
+    color: #1D1100;
     font-size: 1.5rem;
     font-weight: 400;
     /* System Fonts as used by WordPress */
@@ -13,8 +18,21 @@ body {
 
 }
 
-a {text-decoration: none;}
+.main {margin-bottom: 1rem;}
 
+.main_list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #583403;
+}
+
+a:visited {
+    color: #583403;
+}
 
 /* Header ---------------------------------------------------------------- */
 
@@ -37,9 +55,10 @@ div #header ul li {
 div #header ul li a {
 	font-size: 2.2rem;
 	font-weight: bold;
+    color: #AA7939;
 }
 
-div #header ul li a:visited {color: #ba55d3;}
+div #header ul li a:visited {color: #583403;}
 
 div #header h1 {
 	display: inline;
@@ -48,6 +67,11 @@ div #header h1 {
 
     font-size: 3rem;
 	text-align: left;
+    color: #AA7939;
+}
+
+div #header h1:visited {
+    color: #583403;
 }
 
 
@@ -100,7 +124,10 @@ p.error {
     font-weight: normal;
 }
 
-.blog-post {font-size: 2.1rem;}
+.blog-post {
+    font-size: 2.1rem;
+    line-height: 1.8;
+}
 
 
 /* To allow divs on left and right with space in the middle -------------- */
@@ -134,6 +161,11 @@ div.clear {clear: both;}
     ul {
         padding-left: 5%;
         padding-right: 5%;
+    }
+
+    .blog-post {
+        font-size: 1.6rem;
+        line-height: 1.8;
     }
 }
 

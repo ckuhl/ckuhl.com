@@ -2,28 +2,43 @@
 {% block title %}Home | Christian Kuhl{% endblock %}
 {% block styles %}{% endblock %}
 {% block content %}
-The always-under-construction, never-quite-perfect homepage of Christian Kuhl.
-<br>
-Things to expect on this page eventually:
-<ul>
-    <li><strike>my latest blog posts (1, 2, more?)</strike></li>
-    <li>things I've made / am working on / etc.</li>
-    <li>quick link to my resume / brag page</li>
-</ul>
+<!-- nb. this should mirror the order of the header -->
+<h2 class="main">About me</h2>
+<section>
+    Intern and student, businessman and computer scientist.
+</section>
 
+<h2 class="main">What I've done</h2>
+<section>
+    <ul class="main_list">
+        <li class="main_list">Wrote a game back in high school</li>
+        <li class="main_list">Made an entire website, from scratch</li>
+    </ul>
+</section>
 
-<h3>Some of my writings</h3>
-{% if articles %}<ul>{% endif %}
-{% for a in articles %}
-    <li>
-        <div>
-            <b>{{ a.created }}</b>
-            <a href="{{ url_for("blog_post", path=a.path) }}">{{ a.title }}</a>
-        </div>
-    </li>
-{% else %}
-<p>Nothing here! Expect some writings in the future.</p>
-{% endfor %}
-{% if articles %}</ul>{% endif %}
-<p>Want more? See <a href="/blog">everything I've written</a> on my blog!</p>
+<h2 class="main">Some of my writings</h2>
+<section>
+    {% if articles %}<ul class="main_list">{% endif %}
+    {% for a in articles %}
+        <li class="main_list">
+            <div>
+                <b>{{ a.created }}</b>
+                <a href="{{ url_for("blog_post", path=a.path) }}">{{ a.title }}</a>
+            </div>
+        </li>
+    {% else %}
+    <p>Nothing here! Expect some writings in the future.</p>
+    {% endfor %}
+    {% if articles %}</ul>{% endif %}
+    <p>
+        Want to read more? See <a href="/blog">everything I've written</a> on
+        my blog!
+    </p>
+</section>
+
+<h2 class="main">Like what you see?</h2>
+<section>
+    Feel free to drop me a line at
+    <a href="mailto:contact@christiankuhl.com">contact@christiankuhl.com</a>.
+</section>
 {% endblock %}
