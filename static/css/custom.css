@@ -32,6 +32,12 @@ a:visited {
     color: var(--main-color);
 }
 
+a:hover {
+    text-decoration: underline;
+    background-color: var(--main-color);
+    color: #FFFFFF;
+}
+
 /* Header ---------------------------------------------------------------- */
 
 div #header {margin-top: 2rem;}
@@ -53,10 +59,9 @@ div #header ul li {
 div #header ul li a {
 	font-size: 2.2rem;
 	font-weight: bold;
-    color: var(--main-lite1);
 }
 
-div #header ul li a:visited {color: var(--main-color);}
+div #header ul li a:visited {}
 
 div #header h1 {
 	display: inline;
@@ -65,11 +70,9 @@ div #header h1 {
 
     font-size: 3rem;
 	text-align: left;
-    color: var(--main-lite1);
 }
 
 div #header h1:visited {
-    color: var(--main-color);
 }
 
 
@@ -152,7 +155,7 @@ div.clear {clear: both;}
 
     h1,h2,h3,h4,h5,h6 {
         margin-top: 0;
-        text-align: center;
+        text-align: left;
     }
 
     ul {
