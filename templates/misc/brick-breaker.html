@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Brick Breaker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/brick-breaker.css') }}">
+</head>
+
+<body>
+    <canvas width="100%" height="100%" id="brick-breaker"></canvas>
+<script src="{{ url_for('static', filename='js/jquery-3.1.1.js') }}" data-no-instant></script>
+<script src="{{ url_for('static', filename='js/brick-breaker.js') }}" data-no-instant></script>
+<script>
+    var canvas = document.getElementById("brick-breaker");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    var context = canvas.getContext("2d");
+
+    var Ball = {
+        x: 20,
+        y: 20,
+        d: 10,
+        dx: 3,
+        dy: 3,
+        draw: function (){
+            context.beginPath();
+            context.arc(Ball.x, Ball.y, Ball.d, 0, Math.PI*2);
+            context.fillStyle = "#0095DD";
+            context.fill();
+            context.closePath();
+        },
+        update: function(){
+            Ball.x += Ball.dx;
+            Ball.y += Ball.dy;
+        }
+    };
+
+    var Game = {
+        draw: function(){
+            context.clearRect(0, 0,
+                    canvas.width,
+                    canvas.height);
+            Ball.draw();
+        },
+        update: function(){
+            Game.collision_check();
+            Ball.update();
+        },
+        collision_check: function(){
+            if ( (Ball.x - Ball.d) <= 0 || (Ball.x + Ball.d) >= canvas.width) {
+                Ball.dx *= -1
+            }
+            if ( (Ball.y - Ball.d) <= 0 || (Ball.y + Ball.d) >= canvas.height) {
+                Ball.dy *= -1
+            }
+        }
+    };
+
+    setInterval(Game.draw, 10);
+    setInterval(Game.update, 10);
+
+</script>
+</body>
+</html>

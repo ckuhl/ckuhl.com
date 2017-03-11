@@ -10,17 +10,17 @@
 
 <h2 class="main">What I've done</h2>
 <section>
-    <ul class="main_list">
-        <li class="main_list">Wrote a game back in high school</li>
-        <li class="main_list">Made an entire website, from scratch</li>
+    <ul class="main-list">
+        <li class="main-list">Wrote a game back in high school</li>
+        <li class="main-list">Made an entire website, from scratch</li>
     </ul>
 </section>
 
 <h2 class="main">Some of my writings</h2>
 <section>
-    {% if articles %}<ul class="main_list">{% endif %}
+    {% if articles %}<ul class="main-list">{% endif %}
     {% for a in articles %}
-        <li class="main_list">
+        <li class="main-list">
             <div>
                 <b>{{ a.created }}</b>
                 <a href="{{ url_for("blog_post", path=a.path) }}">{{ a.title }}</a>

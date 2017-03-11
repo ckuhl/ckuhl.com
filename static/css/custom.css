@@ -1,16 +1,14 @@
-/* Whole document stuff -------------------------------------------------- */
-
-/* TODO: Use http://paletton.com to come up with a coherent theme */
+/* Whole site styles ----------------------------------------------------- */
 
 /* this way 1.5 rems ~= 15 px */
 html {
     font-size: 62.5%;
-    background-color: #EAF2E2;
+    background-color: #FFFFFF;
 }
 
 body {
     line-height: 1.6;
-    color: #1D1100;
+    color: var(--accent-dark2);
     font-size: 1.5rem;
     font-weight: 400;
     /* System Fonts as used by WordPress */
@@ -20,18 +18,24 @@ body {
 
 .main {margin-bottom: 1rem;}
 
-.main_list {
+.main-list {
     list-style-type: none;
     padding-left: 0;
 }
 
 a {
     text-decoration: none;
-    color: #583403;
+    color: var(--main-lite1);
 }
 
 a:visited {
-    color: #583403;
+    color: var(--main-color);
+}
+
+a:hover {
+    text-decoration: underline;
+    background-color: var(--main-color);
+    color: #FFFFFF;
 }
 
 /* Header ---------------------------------------------------------------- */
@@ -55,10 +59,9 @@ div #header ul li {
 div #header ul li a {
 	font-size: 2.2rem;
 	font-weight: bold;
-    color: #AA7939;
 }
 
-div #header ul li a:visited {color: #583403;}
+div #header ul li a:visited {}
 
 div #header h1 {
 	display: inline;
@@ -67,11 +70,9 @@ div #header h1 {
 
     font-size: 3rem;
 	text-align: left;
-    color: #AA7939;
 }
 
 div #header h1:visited {
-    color: #583403;
 }
 
 
@@ -88,9 +89,8 @@ div #contact {
 /* Horizontal rules ------------------------------------------------------ */
 
 hr.fancy {
-	border-top: 1px solid #8c8c8c;
+	border-top: 1px solid var(--compl2-lite1);
 	text-align: center;
-
 }
 
 /* Footer ---------------------------------------------------------------- */
@@ -115,7 +115,7 @@ p.error {
 
 .blog-title {margin-bottom: 0;}
 
-/* unicode nbsp */
+/* 2 unicode &nbsp; */
 .blog-byline:before {content: "\00a0\00a0";}
 
 .blog-byline {
@@ -155,7 +155,7 @@ div.clear {clear: both;}
 
     h1,h2,h3,h4,h5,h6 {
         margin-top: 0;
-        text-align: center;
+        text-align: left;
     }
 
     ul {
@@ -191,4 +191,32 @@ div.clear {clear: both;}
         margin-left: 25%;
         margin-right: 25%;
     }
+}
+
+
+/* CSS colour variables -------------------------------------------------- */
+:root {
+    --main-lite2:   #669999;
+    --main-lite1:   #407F7F;
+    --main-color:   #226666;
+    --main-dark1:   #0D4D4D;
+    --main-dark2:   #003333;
+
+    --accent-lite2: #7887AB;
+    --accent-lite1: #4F628E;
+    --accent-color: #2E4272;
+    --accent-dark1: #162955;
+    --accent-dark2: #061539;
+
+    --compl1-lite2: #FFE3AA;
+    --compl1-lite1: #D4B16A;
+    --compl1-color: #AA8439;
+    --compl1-dark1: #805C15;
+    --compl1-dark2: #553900;
+
+    --compl2-lite2: #FFD1AA;
+    --compl2-lite1: #D49A6A;
+    --compl2-color: #AA6C39;
+    --compl2-dark1: #804515;
+    --compl2-dark2: #552700;
 }

@@ -65,6 +65,11 @@ def blog_post(path):
     return render_template('blog/blog_post.html', post=post)
 
 
+@app.route('/misc/brick-breaker')
+def brick_breaker():
+    return render_template('misc/brick-breaker.html')
+
+
 # turns out, you can't use `del` as a function name... Oops!
 @app.route('/Del/')
 def danielle():
