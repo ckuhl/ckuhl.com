@@ -22,7 +22,7 @@
     // Listen for user controls
     var mousePosX = window.innerWidth / 2;
     document.addEventListener("mousemove", mouseMoveHandler, false);
-    document.addEventListener("touchstart", mouseMoveHandler, false);
+    document.addEventListener("touchmove", mouseMoveHandler, false);
     function mouseMoveHandler(e) {
         mousePosX = e.clientX;
     }
@@ -59,19 +59,48 @@
                         && (Ball.y + Ball.r > b.y)
                         && (Ball.y - Ball.r < (b.y + b.h))) {
                     b.kill();
+                    InfoBar.updateScore(1, 1);
                     Ball.dy *= -1;
                 }
             }
         }
     }
 
+
+    var InfoBar = {
+        score: 0,
+        lives: 3,
+        updateScore: function(brick, level) {
+            this.score += (brick * level);
+        },
+        loseLife: function(){
+            this.lives -= 1;
+        },
+        livesString: function(){
+            ls = "";
+            for (var i = 0; i < this.lives; i ++ ){
+                ls += "❤";
+            }
+            return ls;
+        },
+        draw: function(){
+            context.font = "x-large Arial";
+            context.fillStyle = "#000000";
+            context.fillRect(0, 0, canvas.width, canvas.height / 16);
+            context.fillStyle = "#FFFFFF";
+            context.fillText(this.livesString(), canvas.width / 32, canvas.height / 64 * 3);
+            context.fillText(this.score.toString(), (canvas.width / 8) * 7, canvas.height / 64 * 3);
+        },
+    };
+
+
     // ball that breaks bricks
     var Ball = {
         x: canvas.width / 2,
         y: canvas.height / 8 * 5,
         r: 10,
-        dx: 3,
-        dy: 3,
+        dx: 2,
+        dy: 2,
         draw: function (){
             context.beginPath();
             context.arc(Ball.x, Ball.y, Ball.r, 0, Math.PI*2);
@@ -82,6 +111,10 @@
         update: function(){
             Ball.x += Ball.dx;
             Ball.y += Ball.dy;
+        },
+        reset: function(){
+            Ball.x = canvas.width / 2;
+            Ball.y = canvas.height / 8 * 5
         }
     };
 
@@ -113,6 +146,7 @@
             Ball.draw();
             Paddle.draw();
             draw_bricks();
+            InfoBar.draw();
         },
 
         update: function(){
@@ -126,8 +160,12 @@
             if ( (Ball.x - Ball.r) < 0 || (Ball.x + Ball.r) > canvas.width) {
                 Ball.dx *= -1
             }
-            if ( (Ball.y - Ball.r) < 0 || (Ball.y + Ball.r) > canvas.height) {
+            if ( (Ball.y - Ball.r) < 0) {
                 Ball.dy *= -1
+            }
+            if ((Ball.y + Ball.r) > canvas.height){
+                InfoBar.loseLife();
+                Ball.reset();
             }
 
             if ( (Ball.x + Ball.r > Paddle.x) && (Ball.x - Ball.r < (Paddle.x + Paddle.w))
