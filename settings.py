@@ -1,3 +1,3 @@
 SETTINGS = {
-    'DEBUG': False,
+    'DEBUG': True,
 }
