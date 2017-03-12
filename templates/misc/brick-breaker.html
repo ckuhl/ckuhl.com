@@ -20,54 +20,19 @@
 
 
     // Listen for user controls
-    var mousePosX = window.innerWidth / 2;
+    var paddlePosX = window.innerWidth / 2;
     document.addEventListener("mousemove", mouseMoveHandler, false);
-    document.addEventListener("touchmove", mouseMoveHandler, false);
+    document.addEventListener("touchmove", touchMoveHandler, false);
     function mouseMoveHandler(e) {
-        mousePosX = e.clientX;
+        paddlePosX = e.clientX;
     }
-
-    var bricks = [];
-    for (var x = 0; x < 6; x++) {
-        bricks[x] = [];
-        for (var y = 0; y < 3; y++) {
-            var wf = canvas.width / 8;
-            var pdd = 4;
-            bricks[x][y] = new Brick(pdd + (pdd + wf) * x,
-                    pdd + (pdd + wf) * y, wf, wf);
-            console.log(wf + wf * x, wf + wf * y, wf, wf);
-        }
+    function touchMoveHandler(e) {
+        paddlePosX = e.touches[0].clientX;
     }
-    function draw_bricks() {
-        for (var i = 0; i < 6; i++) {
-            for (var j = 0; j < 3; j++) {
-                b = bricks[i][j];
-                if ( b.is_alive ) {
-                    context.fillStyle = "#AD2323";
-                    context.fillRect(b.x, b.y, b.w, b.h);
-                }
-            }
-        }
-    }
-    function bricks_collision() {
-        for (var i = 0; i < 6; i++) {
-            for (var j = 0; j < 3; j++) {
-                b = bricks[i][j];
-                if (b.is_alive
-                        && (Ball.x + Ball.r > b.x)
-                        && (Ball.x - Ball.r < (b.x + b.w))
-                        && (Ball.y + Ball.r > b.y)
-                        && (Ball.y - Ball.r < (b.y + b.h))) {
-                    b.kill();
-                    InfoBar.updateScore(1, 1);
-                    Ball.dy *= -1;
-                }
-            }
-        }
-    }
-
-
+    // top bar
     var InfoBar = {
+        height: canvas.height / 16,
+        width: canvas.width,
         score: 0,
         lives: 3,
         updateScore: function(brick, level) {
@@ -77,21 +42,78 @@
             this.lives -= 1;
         },
         livesString: function(){
-            ls = "";
-            for (var i = 0; i < this.lives; i ++ ){
-                ls += "❤";
+            var return_string = "";
+            for ( var i = 0; i < this.lives; i++ ){
+                return_string += "❤";
             }
-            return ls;
+            return return_string;
         },
         draw: function(){
             context.font = "x-large Arial";
             context.fillStyle = "#000000";
-            context.fillRect(0, 0, canvas.width, canvas.height / 16);
+            context.fillRect(0, 0, this.width, this.height);
             context.fillStyle = "#FFFFFF";
             context.fillText(this.livesString(), canvas.width / 32, canvas.height / 64 * 3);
             context.fillText(this.score.toString(), (canvas.width / 8) * 7, canvas.height / 64 * 3);
-        },
+        }
     };
+
+
+    // Main game field
+    var PlayField = {
+        x: 0,
+        y: InfoBar.height,
+        width: canvas.width,
+        height: canvas.height - InfoBar.height
+    };
+
+
+    var bricks = [];
+    var b_cols = 6;
+    var b_rows = 3;
+    for (var x = 0; x < b_cols; x++) {
+        bricks[x] = [];
+        for (var y = 0; y < b_rows; y++) {
+            var b_width = PlayField.width / (b_cols * 2 - 1);
+            var pad = b_width;
+            bricks[x][y] = new Brick(PlayField.x + pad + (b_width + pad) * x,
+                    PlayField.y + pad + (b_width + pad) * y,
+                    b_width,
+                    b_width);
+        }
+    }
+    function draw_bricks() {
+        for (var i = 0; i < b_cols; i++) {
+            for (var j = 0; j < b_rows; j++) {
+                b = bricks[i][j];
+                if ( b.is_alive ) {
+                    context.fillStyle = "#AD2323";
+                    context.fillRect(b.x, b.y, b.width, b.height);
+                }
+            }
+        }
+    }
+    function bricks_collision() {
+        for (var i = 0; i < b_cols; i++) {
+            for (var j = 0; j < b_rows; j++) {
+                b = bricks[i][j];
+                if (b.is_alive
+                        && (Ball.x + Ball.r > b.x)
+                        && (Ball.x - Ball.r < (b.x + b.width))
+                        && (Ball.y + Ball.r > b.y)
+                        && (Ball.y - Ball.r < (b.y + b.height))) {
+                    if ((b.x + b.width / 2) - Ball.x > (b.y + b.height / 2) - Ball.y){
+                        Ball.dy *= -1;
+                    }else{
+                        Ball.dx *= -1;
+                    }
+                    b.kill();
+                    InfoBar.updateScore(1, 1);
+                    Ball.dy *= -1;
+                }
+            }
+        }
+    }
 
 
     // ball that breaks bricks
@@ -121,18 +143,18 @@
 
     // player controlled paddle
     var Paddle = {
-        x: mousePosX,
+        x: paddlePosX,
         y: canvas.height - 58,
-        w: 60,
-        h: 8,
+        width: 60,
+        height: 8,
         dx: 3,
         dy: 0,
         draw: function() {
             context.fillStyle = "#FFF000";
-            context.fillRect(this.x, this.y, this.w, this.h);
+            context.fillRect(this.x, this.y, this.width, this.height);
         },
         update: function() {
-            Paddle.x = mousePosX - (Paddle.w / 2);
+            this.x = paddlePosX - (this.width / 2);
         }
     };
 
@@ -168,8 +190,8 @@
                 Ball.reset();
             }
 
-            if ( (Ball.x + Ball.r > Paddle.x) && (Ball.x - Ball.r < (Paddle.x + Paddle.w))
-            && (Ball.y + Ball.r > Paddle.y) && (Ball.y - Ball.r < (Paddle.y + Paddle.h))) {
+            if ( (Ball.x + Ball.r > Paddle.x) && (Ball.x - Ball.r < (Paddle.x + Paddle.width))
+            && (Ball.y + Ball.r > Paddle.y) && (Ball.y - Ball.r < (Paddle.y + Paddle.height))) {
                 Ball.dy *= -1;
             }
 
