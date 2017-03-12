@@ -16,15 +16,30 @@
     canvas.height = window.innerHeight;
     var context = canvas.getContext("2d");
 
+
+    var mousePosX = window.innerWidth / 2;
+    document.addEventListener("mousemove", mouseMoveHandler, false);
+    function mouseMoveHandler(e) {
+        console.log(e, mousePosX);
+        mousePosX = e.clientX;
+    }
+
+    function Block() {
+        this.x = 0;
+        this.y = 0;
+        this.w = 10;
+        this.h = 10;
+    }
+
     var Ball = {
         x: 20,
         y: 20,
-        d: 10,
+        r: 10,
         dx: 3,
         dy: 3,
         draw: function (){
             context.beginPath();
-            context.arc(Ball.x, Ball.y, Ball.d, 0, Math.PI*2);
+            context.arc(Ball.x, Ball.y, Ball.r, 0, Math.PI*2);
             context.fillStyle = "#0095DD";
             context.fill();
             context.closePath();
@@ -35,23 +50,49 @@
         }
     };
 
+    var Paddle = {
+        x: mousePosX,
+        y: canvas.height - 58,
+        w: 60,
+        h: 8,
+        dx: 3,
+        dy: 0,
+        draw: function() {
+            context.fillStyle = "#FFF000";
+            context.fillRect(this.x, this.y, this.w, this.h);
+        },
+        update: function() {
+            Paddle.x = mousePosX - (Paddle.w / 2);
+        }
+    };
+
     var Game = {
         draw: function(){
             context.clearRect(0, 0,
                     canvas.width,
                     canvas.height);
             Ball.draw();
+            Paddle.draw();
         },
+
         update: function(){
             Game.collision_check();
             Ball.update();
+            Paddle.update();
         },
+
         collision_check: function(){
-            if ( (Ball.x - Ball.d) <= 0 || (Ball.x + Ball.d) >= canvas.width) {
+            // Walls
+            if ( (Ball.x - Ball.r) <= 0 || (Ball.x + Ball.r) >= canvas.width) {
                 Ball.dx *= -1
             }
-            if ( (Ball.y - Ball.d) <= 0 || (Ball.y + Ball.d) >= canvas.height) {
+            if ( (Ball.y - Ball.r) <= 0 || (Ball.y + Ball.r) >= canvas.height) {
                 Ball.dy *= -1
+            }
+
+            if ( (Ball.x + Ball.r > Paddle.x) && (Ball.x - Ball.r < (Paddle.x + Paddle.w))
+            && (Ball.y + Ball.r > Paddle.y) && (Ball.y - Ball.r < (Paddle.y + Paddle.h))) {
+                Ball.dy *= -1;
             }
         }
     };
