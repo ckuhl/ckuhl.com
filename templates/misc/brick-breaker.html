@@ -1,278 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--
+      ___           ___           ___           ___
+     /\__\         /\__\         /\__\         /\__\
+    /:/  /        /:/  /        /:/  /        /:/  /
+   /:/__/        /:/  /        /:/__/        /:/  /
+  /::\__\____   /:/  /  ___   /::\  \ ___   /:/  /
+ /:/\:::::\__\ /:/__/  /\__\ /:/\:\  /\__\ /:/__/
+ \/_|:|~~|~    \:\  \ /:/  / \/__\:\/:/  / \:\  \
+    |:|  |      \:\  /:/  /       \::/  /   \:\  \
+    |:|  |       \:\/:/  /        /:/  /     \:\  \
+    |:|  |        \::/  /        /:/  /       \:\__\
+     \|__|         \/__/         \/__/         \/__/
+
+                 ASCII@ChristianKuhl.com
+     -->
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width; initial-scale = 1.0; maximum-scale=1.0; user-scalable=no"/>
     <title>Brick Breaker</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/brick-breaker.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 
 <body>
     <canvas width="100%" height="100%" id="brick-breaker"></canvas>
-<script src="{{ url_for('static', filename='js/jquery-3.1.1.js') }}" data-no-instant></script>
 <script src="{{ url_for('static', filename='js/brick-breaker.js') }}" data-no-instant></script>
-<script>
-    // initialize canvas object
-    // TODO: Do something about perspective on desktop vs mobile
-    var canvas = document.getElementById("brick-breaker");
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    var context = canvas.getContext("2d");
-
-
-    // Listen for user controls
-    var paddlePos = {
-        x: window.innerWidth / 2,
-        y: window.innerHeight / 2
-    };
-    document.addEventListener("mousemove", mouseMoveHandler, false);
-    document.addEventListener("touchmove", touchMoveHandler, false);
-    function mouseMoveHandler(e) {
-        paddlePos.x = e.clientX;
-        paddlePos.y = e.clientY;
-    }
-    function touchMoveHandler(e) {
-        paddlePos.x = e.touches[0].clientX;
-        paddlePos.y = e.touches[0].clientY;
-    }
-
-
-    // top bar
-    var InfoBar = {
-        height: canvas.height / 16,
-        width: canvas.width,
-        score: 0,
-        lives: 3,
-
-        updateScore: function(brick, level) {
-            this.score += (brick * level);
-        },
-
-        loseLife: function(){
-            this.lives -= 1;
-        },
-
-        livesString: function(){
-            var return_string = "";
-            for ( var i = 0; i < this.lives; i++ ){
-                return_string += "❤";
-            }
-            return return_string;
-        },
-
-        draw: function(){
-            context.font = "x-large Arial";
-            context.fillStyle = "#003333";
-            context.fillRect(0, 0, this.width, this.height);
-            context.fillStyle = "#FFFFFF";
-            context.fillText(this.livesString(), canvas.width / 32, canvas.height / 64 * 3);
-            context.fillText(this.score.toString(), (canvas.width / 8) * 7, canvas.height / 64 * 3);
-        }
-    };
-
-
-    // main game field
-    var PlayField = {
-        x: 0,
-        y: InfoBar.height,
-        width: canvas.width,
-        height: canvas.height - InfoBar.height
-    };
-
-
-    // array of bricks
-var Bricks = {
-    // TODO: Eventually import level layouts from JSON array (LevelFactory?)
-    bricks: [],
-    b_cols: 4,
-    b_rows: 3,
-
-    init: function() {
-        for (var x = 0; x < this.b_cols; x++) {
-            Bricks.bricks[x] = [];
-            for (var y = 0; y < this.b_rows; y++) {
-                var b_width = PlayField.width / (this.b_cols * 2 + 1);
-                var pad = b_width;
-                // TODO: Fix the brick placement calculation (see: LevelFactory)
-                Bricks.bricks[x][y] = new Brick(PlayField.x + pad + (b_width + pad) * x,
-                        PlayField.y + pad + (b_width + pad) * y,
-                        b_width,
-                        b_width / 2);
-            }
-        }
-    },
-
-    draw: function() {
-        for (var i = 0; i < this.b_cols; i++) {
-            for (var j = 0; j < this.b_rows; j++) {
-                b = Bricks.bricks[i][j];
-                if ( b.is_alive ) {
-                    context.fillStyle = "#AA8439";
-                    context.fillRect(b.x, b.y, b.width, b.height);
-                }
-            }
-        }
-    },
-
-    // TODO: Fix collision detection algorithm
-    collision: function() {
-        for (var i = 0; i < this.b_cols; i++) {
-            for (var j = 0; j < this.b_rows; j++) {
-                var b = Bricks.bricks[i][j];
-
-                // check that the ball is (slightly) within the box
-                if (b.is_alive
-                        && (Ball.x + Ball.r / 3 * 2 > b.x)
-                        && (Ball.x - Ball.r / 3 * 2 < (b.x + b.width))
-                        && (Ball.y + Ball.r / 3 * 2 > b.y)
-                        && (Ball.y - Ball.r / 3 * 2 < (b.y + b.height))) {
-
-                    // differences between centre of box and ball x/y coord
-                    var xDiff = Ball.x - (b.x + b.width / 2);
-                    var yDiff = Ball.y - (b.y + b.height / 2);
-
-                    // reflections
-                    if (Math.abs(xDiff) > Math.abs(yDiff)){
-                        Ball.dx *= -1;
-                    }else{
-                        Ball.dy *= -1;
-                    }
-                    b.kill();
-                    InfoBar.updateScore(1, 1);  // TODO: Replace with level & brick score eventually
-                }
-            }
-        }
-    }
-};
-
-
-    // ball that breaks bricks
-    var Ball = {
-        x: canvas.width / 2,
-        y: canvas.height / 8 * 5,
-        r: 10,
-        dx: 1,
-        dy: 1,
-
-        draw: function (){
-            context.beginPath();
-            context.arc(Ball.x, Ball.y, Ball.r, 0, Math.PI*2);
-            context.fillStyle = "#407F7F";
-            context.fill();
-            context.closePath();
-        },
-
-        update: function(){
-            Ball.x += Ball.dx;
-            Ball.y += Ball.dy;
-        },
-
-        reset: function(){
-            Ball.x = canvas.width / 2;
-            Ball.y = canvas.height / 8 * 5
-        }
-    };
-
-
-    // player controlled paddle
-    var Paddle = {
-        x: paddlePos.x,
-        y: canvas.height - 58,
-        width: 60,
-        height: 18,
-        // TODO: Maybe remove this since they're not used...
-        dx: 3,
-        dy: 0,
-
-        draw: function() {
-            context.fillStyle = "#003333";
-            context.fillRect(this.x, this.y, this.width, this.height);
-
-            // left curve
-            context.beginPath();
-            context.arc(this.x,
-                    this.y + this.height / 2,
-                    this.height / 2,
-                    Math.PI / 2,
-                    Math.PI / 2 * 3);
-            context.fill();
-            context.closePath();
-
-            // right curve
-            context.beginPath();
-            context.arc(this.x + this.width,
-                    this.y + this.height / 2,
-                    this.height / 2,
-                    Math.PI / 2 * 3,
-                    Math.PI / 2 );
-            context.fill();
-            context.closePath();
-        },
-
-        update: function() {
-            this.x = paddlePos.x - (this.width / 2);
-        }
-    };
-
-
-    // the game coordinates all the other objects
-    var Game = {
-        draw: function(){
-            context.clearRect(0, 0,
-                    canvas.width,
-                    canvas.height);
-            Ball.draw();
-            Paddle.draw();
-            Bricks.draw();
-            InfoBar.draw();
-        },
-
-        update: function(){
-            Game.collision_check();
-            Ball.update();
-            Paddle.update();
-        },
-
-        collision_check: function(){
-            // Walls
-            if ( (Ball.x - Ball.r) < PlayField.x
-                    || (Ball.x + Ball.r) > PlayField.width + PlayField.x) {
-                Ball.dx *= -1
-            }
-            if ( (Ball.y - Ball.r) < PlayField.y) {
-                Ball.dy *= -1
-            }
-            if ((Ball.y + Ball.r) > PlayField.height + PlayField.y){
-                InfoBar.loseLife();
-                Ball.reset();
-
-                // TODO: Implement a better gamestate handler
-                if ( InfoBar.lives === 0 ) {
-                    window.alert("Game Over!");
-                    location.reload();
-                }
-            }
-
-            if ( (Ball.x + (Ball.r / 2) > Paddle.x)
-                    && (Ball.x - (Ball.r / 2) < (Paddle.x + Paddle.width))
-                    && (Ball.y + (Ball.r / 2) > Paddle.y)
-                    && (Ball.y - (Ball.r / 2) < (Paddle.y + Paddle.height))) {
-                Ball.dy *= -1;
-            }
-
-            Bricks.collision();
-        }
-    };
-
-
-    // Pre-game initialization
-    Bricks.init();
-
-
-    // Running the game
-    setInterval(Game.draw, 10);
-    setInterval(Game.update, 10);
-
-</script>
+<script data-no-instant>var bb = new BrickBreaker(document, location); bb.run();</script>
 </body>
 </html>
