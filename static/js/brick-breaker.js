@@ -122,8 +122,10 @@ function BrickArray(){
 
 
 function Ball(canvas) {
-    this.x = canvas.width / 2;
-    this.y = canvas.height / 8 * 5;
+    this.default_x = canvas.width / 2;
+    this.default_y = canvas.height / 8 * 5;
+    this.x = this.default_x;
+    this.y = this.default_y;
     this.r = 10;
     this.dx = 1;
     this.dy = 1;
@@ -141,21 +143,25 @@ function Ball(canvas) {
         this.y += this.dy;
     };
 
-    this.reset = function(canvas) {
-        this.x = canvas.width / 2;
-        this.y = canvas.height / 8 * 5
+    this.reset = function() {
+        this.x = this.default_x;
+        this.y = this.default_y;
+        this.dx = 1;
+        this.dy = 1;
     };
+
+    this.stop = function() {
+        this.dx = 0;
+        this.dy = 0;
+    }
 }
 
 
 function Paddle(canvas) {
-    this.x = canvas.width / 2;
-    this.y = canvas.height - 58;
     this.width = 60;
     this.height = 18;
-    // TODO: Maybe remove this since they're not used...
-    this.dx = 0;
-    this.dy = 0;
+    this.x = (canvas.width - this.width) / 2;
+    this.y = canvas.height * (7/8);
 
     this.draw = function(context) {
         context.fillStyle = "#003333";
@@ -202,6 +208,8 @@ var BrickBreaker = function(document, location) {
     this.ball = new Ball(this.canvas);
     this.brickArray = new BrickArray(this.canvas, this.playField, this.ball);
 
+    this.isPaused = false;
+
     // bind this to _this in order to get it into the listeners
     var game = this;
     function mouseMoveListener(e) {
@@ -223,21 +231,73 @@ var BrickBreaker = function(document, location) {
 
     this.draw = function() {
         // clear the screen
-        game.context.clearRect(0, 0,
-                game.canvas.width,
-                game.canvas.height);
+        if (game.isPaused === false) {
+            game.context.clearRect(0, 0,
+            game.canvas.width,
+            game.canvas.height);
 
-        // draw everything
-        game.ball.draw(game.context);
-        game.paddle.draw(game.context);
-        game.brickArray.draw(game.context);
-        game.infoBar.draw(game.context, game.canvas);
+            // draw everything
+            game.ball.draw(game.context);
+            game.paddle.draw(game.context);
+            game.brickArray.draw(game.context);
+            game.infoBar.draw(game.context, game.canvas);
+        } else {
+            game.context.fillStyle = "#FFD1AA";
+            game.context.fillRect(game.playField.width * (1/8),
+                game.playField.height * (3/8),
+                game.playField.width * (6/8),
+                game.playField.height * (1/8));
+
+            game.context.font = "x-large Arial";
+            game.context.fillStyle = "#FFFFFF";
+            game.context.fillText("Click or tap to start",
+                game.playField.width * (1.5/8),
+                game.playField.height * (3.5/8));
+        }
+    };
+
+    this.wait_for_start = function() {
+        game.isPaused = true;
+        game.ball.stop();
+
+        var startX = -1;
+        var startY = -1;
+
+        function mouseDownListener(e) {
+            startX = e.clientX;
+            startY = e.clientY;
+        }
+
+        function touchStartListener(e) {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        }
+
+        game.canvas.addEventListener("click", mouseDownListener, false);
+        game.canvas.addEventListener("touchstart", touchStartListener, false);
+
+        function wait_for_start() {
+            if (startX > game.playField.width * (1/8) &&
+                    startY > game.playField.height * (3/8) &&
+                    startX < game.playField.width * (7/8) &&
+                    startY < game.playField.height * (4/8)) {
+                clearInterval(wait_interval);
+                game.ball.reset();
+                game.canvas.removeEventListener("click", mouseDownListener, false);
+                game.canvas.removeEventListener("touchstart", touchStartListener, false);
+                game.isPaused = false;
+            }
+        }
+
+        var wait_interval = setInterval(wait_for_start, 10);
     };
 
     this.update = function() {
-        game.collision_check();
-        game.ball.update();
-        game.paddle.update();
+        if (game.isPaused === false) {
+            game.collision_check();
+            game.ball.update();
+            game.paddle.update();
+        }
     };
 
     this.collision_check = function() {
@@ -251,7 +311,8 @@ var BrickBreaker = function(document, location) {
         }
         if ((game.ball.y + game.ball.r) > game.playField.height + game.playField.y){
             game.infoBar.loseLife();
-            game.ball.reset(game.canvas);
+            game.ball.reset();
+            game.wait_for_start();
 
             // TODO: Implement a better gamestate handler
             if ( game.infoBar.lives === 0 ) {
@@ -272,6 +333,9 @@ var BrickBreaker = function(document, location) {
 
     this.run = function() {
         game.init();
+
+        game.draw();
+        game.wait_for_start();
 
         setInterval(game.draw, 10);
         setInterval(game.update, 10);
