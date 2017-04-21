@@ -45,10 +45,22 @@ function InfoBar(canvas) {
 
 
 function PlayField(canvas, infoBar){
-    this.x = 0;
-    this.y = infoBar.height;
-    this.width = canvas.width;
-    this.height = canvas.height - infoBar.height;
+    if ( canvas.width / canvas.height > 1 ) {
+        this.x = canvas.width / 4;
+        this.y = infoBar.height;
+        this.width = canvas.width / 2;
+        this.height = canvas.height - infoBar.height;
+    } else {
+        this.x = 0;
+        this.y = infoBar.height;
+        this.width = canvas.width;
+        this.height = canvas.height - infoBar.height;
+    }
+
+    this.draw = function(context) {
+        context.fillStyle = "#FFE3AA";
+        context.fillRect(this.x, this.y, this.width, this.height);
+    }
 }
 
 
@@ -233,26 +245,34 @@ var BrickBreaker = function(document, location) {
         // clear the screen
         if (game.isPaused === false) {
             game.context.clearRect(0, 0,
-            game.canvas.width,
-            game.canvas.height);
+                game.canvas.width,
+                game.canvas.height);
 
             // draw everything
+            game.playField.draw(game.context);
             game.ball.draw(game.context);
             game.paddle.draw(game.context);
             game.brickArray.draw(game.context);
             game.infoBar.draw(game.context, game.canvas);
         } else {
-            game.context.fillStyle = "#FFD1AA";
-            game.context.fillRect(game.playField.width * (1/8),
-                game.playField.height * (3/8),
+            // border (i.e. slightly larger rect)
+            game.context.fillStyle = "#552700";
+            game.context.fillRect(game.playField.x + game.playField.width * (1/8),
+                game.playField.y + game.playField.height * (3/8),
                 game.playField.width * (6/8),
                 game.playField.height * (1/8));
+            // inner rect.
+            game.context.fillStyle = "#FFD1AA";
+            game.context.fillRect(game.playField.x + game.playField.width * (1/8) + 2,
+                game.playField.y + game.playField.height * (3/8) + 2,
+                game.playField.width * (6/8) - 4,
+                (game.playField.height * (1/8)) - 4);
 
             game.context.font = "x-large Arial";
             game.context.fillStyle = "#FFFFFF";
             game.context.fillText("Click or tap to start",
-                game.playField.width * (1.5/8),
-                game.playField.height * (3.5/8));
+                game.playField.x + game.playField.width * (1.5/8),
+                game.playField.y + game.playField.height * (3.5/8));
         }
     };
 
@@ -277,10 +297,10 @@ var BrickBreaker = function(document, location) {
         game.canvas.addEventListener("touchstart", touchStartListener, false);
 
         function wait_for_start() {
-            if (startX > game.playField.width * (1/8) &&
-                    startY > game.playField.height * (3/8) &&
-                    startX < game.playField.width * (7/8) &&
-                    startY < game.playField.height * (4/8)) {
+            if (startX > (game.playField.x + game.playField.width * (1/8)) &&
+                    startY > (game.playField.y + game.playField.height * (3/8)) &&
+                    startX < game.playField.x + game.playField.width * (7/8) &&
+                    startY < game.playField.y + game.playField.height * (4/8)) {
                 clearInterval(wait_interval);
                 game.ball.reset();
                 game.canvas.removeEventListener("click", mouseDownListener, false);
@@ -325,7 +345,13 @@ var BrickBreaker = function(document, location) {
                 && (game.ball.x - (game.ball.r / 2) < (game.paddle.x + game.paddle.width))
                 && (game.ball.y + (game.ball.r / 2) > game.paddle.y)
                 && (game.ball.y - (game.ball.r / 2) < (game.paddle.y + game.paddle.height))) {
-            game.ball.dy *= -1;
+            // delta = x dist. from centre of the paddle scaled by 3
+            var delta = Math.abs((game.paddle.x + (game.paddle.width / 2) - game.ball.x) / game.paddle.width / 3);
+            console.log(delta);
+            var c_s = Math.pow(game.ball.dy, 2) + Math.pow(game.ball.dx, 2)
+
+            game.ball.dy *= (-1 * (1 + delta));
+            game.ball.dx = Math.sqrt(c_s - Math.pow(game.ball.dy, 2));
         }
 
         game.brickArray.collision(game.ball, game.infoBar);
