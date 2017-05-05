@@ -20,8 +20,8 @@ pages = FlatPages(app)
 
 def get_articles(n=999):
     # Articles are pages with a publication date
-    articles = [p for p in pages if 'published' in p.meta
-                and p.meta['published'] is True]
+    articles = [p for p in pages if 'published' in p.meta and
+                p.meta['published'] is True]
     latest = sorted(articles, reverse=True,
                     key=lambda p: p.meta['created'])
     return latest[:n]

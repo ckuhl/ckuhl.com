@@ -1,5 +1,5 @@
 # the virtual environment
-.venv/
+env/
 
 # PyCharm folder
 .idea/
@@ -7,4 +7,3 @@
 # compiled (to bytecode) python files
 __pycache__/
 *.py[cod]
-
