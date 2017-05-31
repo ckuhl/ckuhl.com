@@ -1,9 +1,12 @@
+---
 title: The 25-year software
-type: blog_post
 created: 2017-02-18
 updated: 2017-02-18
-tags: thoughts, writings
 published: no
+tags:
+    - thoughts
+    - writing
+...
 
 I am one month into my first co-op job, working as a software developer. Get
 any ideas you have of the sexy, sleek software jobs out of your head now. I am
@@ -23,3 +26,4 @@ as critical to the entire business process as the day it was purchased. So
 when they start coding around here, it's not for something to be used for a
 year or two until the next version can come out. And it certainly isn't just
 an MVP that they're making.
+

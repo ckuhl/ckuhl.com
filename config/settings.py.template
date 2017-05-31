@@ -1,0 +1,7 @@
+DEBUG = {
+    'DEBUG': False,
+}
+
+PRODUCTION = {
+    'DEBUG': False,
+}

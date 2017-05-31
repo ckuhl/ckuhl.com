@@ -2,13 +2,27 @@ from flask import Flask
 from flask import abort
 from flask import render_template
 from flask_flatpages import FlatPages
-from settings import SETTINGS
+
+# settings configuration
+# Check if a settings file exists, and if not, create it
+from os.path import exists
+if not exists('./christiankuhl/settings.py'):
+    print('INFO: Config not found, creating new config from template')
+    from shutil import copyfile
+    copyfile('./config/settings.py.template', './christiankuhl/settings.py')
+
+# Conditional import depending on if we're debugging or not
+if __debug__:
+    from christiankuhl.settings import DEBUG as SETTINGS
+else:
+    from christiankuhl.settings import PRODUCTION as SETTINGS
+
 
 # App setup
 FLATPAGES_AUTO_RELOAD = SETTINGS['DEBUG']
 FLATPAGES_EXTENSION = '.md'
 FLATPAGES_ROOT = 'static/posts'
-FLATPAGES_MARKDOWN_EXTENSIONS = []
+FLATPAGES_MARKDOWN_EXTENSIONS = ['codehilite']
 
 app = Flask(__name__)
 app.config.from_object(__name__)

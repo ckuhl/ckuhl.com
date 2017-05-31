@@ -1,3 +1,17 @@
 #!/bin/bash
-~/certbot-auto renew >> /var/log/letsencrypt-renew.log
+# location of log file
+LOG=/var/log/letsencrypt-renew.log
+
+# note in log if run by cron or by user
+if [ -t 1 ]; then
+        echo "[cron]" >> $LOG
+else
+        echo "[user]" >> $LOG
+fi
+
+# timestamp it
+echo $(date) >> $LOG
+
+# actually renew the cert
+~/certbot-auto renew >> $LOG
 

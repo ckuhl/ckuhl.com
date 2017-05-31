@@ -26,6 +26,8 @@ body {
 a {
     text-decoration: none;
     color: var(--main-lite1);
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
 }
 
 a:visited {
@@ -35,6 +37,7 @@ a:visited {
 a:hover {
     background-color: var(--main-color);
     color: #FFFFFF;
+    border-radius: 2px;
 }
 
 /* Header ---------------------------------------------------------------- */
@@ -42,8 +45,8 @@ a:hover {
 div#header {margin-top: 2rem;}
 
 div#header ul {
-	display: inline;
-	padding: 0;
+    display: inline;
+    padding: 0;
 
     text-align: right;
 }
@@ -51,13 +54,13 @@ div#header ul {
 div#header ul li {
     display: inline;
     list-style-type: none;
-	padding-left: 0.2rem;
-	padding-right: 0.2rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
 }
 
 div#header ul li a {
-	font-size: 2.2rem;
-	font-weight: bold;
+    font-size: 2.2rem;
+    font-weight: bold;
 }
 
 div#header ul li a:visited {}
@@ -73,6 +76,9 @@ div#header h1 {
 
 div#header h1:hover {
     background-color: var(--main-color);
+    border-radius: 2px;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
 }
 
 div#header h1:visited {
