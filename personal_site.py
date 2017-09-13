@@ -59,16 +59,6 @@ def blog(n=999):
     return render_template('blog/blog.html', articles=get_articles(n=n)[:n])
 
 
-@app.route('/portfolio/')
-def portfolio():
-    return render_template('pages/portfolio.html')
-
-
-@app.route('/about/')
-def about():
-    return render_template('pages/about.html')
-
-
 @app.route('/blog/<path:path>/')
 def blog_post(path):
     post = pages.get_or_404(path)
@@ -77,6 +67,23 @@ def blog_post(path):
         abort(403)
 
     return render_template('blog/blog_post.html', post=post)
+
+
+@app.route('/blog/tag/<string:slug>/')
+def tag_page(slug):
+    all_posts = get_articles()
+    tagged = [p for p in all_posts if slug in p.meta['tags']]
+
+    return render_template('blog/tagged_posts.html', tag=slug, articles=tagged)
+
+@app.route('/portfolio/')
+def portfolio():
+    return render_template('pages/portfolio.html')
+
+
+@app.route('/about/')
+def about():
+    return render_template('pages/about.html')
 
 
 @app.route('/misc/brick-breaker')
@@ -112,3 +119,4 @@ def page_forbidden(e):
 
 if __name__ == '__main__':
     app.run(debug=SETTINGS['DEBUG'], host='0.0.0.0', port=5000)
+

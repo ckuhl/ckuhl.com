@@ -2,42 +2,43 @@
 
 /* this way 1.5 rems ~= 15 px */
 html {
-    font-size: 62.5%;
-    background-color: #FFFFFF;
+	font-size: 62.5%;
+	background-color: #FFFFFF;
 }
 
 body {
-    line-height: 1.6;
-    color: var(--accent-dark2);
-    font-size: 1.5rem;
-    font-weight: 400;
-    /* System Fonts as used by WordPress */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	line-height: 1.6;
+	color: var(--accent-dark2);
+	font-size: 1.5rem;
+	font-weight: 400;
+	font-family: "Apple Garamond", "Baskerville", "Times New Roman", "Droid Serif", "Times","Source Serif Pro", serif;
+	/* System Fonts as used by WordPress
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif; */
 
 }
 
 .main {margin-bottom: 1rem;}
 
 .main-list {
-    list-style-type: none;
-    padding-left: 0;
+	list-style-type: none;
+	padding-left: 0;
 }
 
 a {
-    text-decoration: none;
-    color: var(--main-lite1);
-    padding-left: 0.2rem;
-    padding-right: 0.2rem;
+	text-decoration: none;
+	color: #4444dd;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
 }
 
 a:visited {
-    color: var(--main-color);
+	color: var(--main-color);
 }
 
 a:hover {
-    background-color: var(--main-color);
-    color: #FFFFFF;
-    border-radius: 2px;
+	background-color: #000000;
+	color: #ffffff;
+	border-radius: 2px;
 }
 
 /* Header ---------------------------------------------------------------- */
@@ -45,40 +46,41 @@ a:hover {
 div#header {margin-top: 2rem;}
 
 div#header ul {
-    display: inline;
-    padding: 0;
+	display: inline;
+	padding: 0;
 
-    text-align: right;
+	text-align: right;
 }
 
 div#header ul li {
-    display: inline;
-    list-style-type: none;
-    padding-left: 0.2rem;
-    padding-right: 0.2rem;
+	display: inline;
+	list-style-type: none;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
 }
 
 div#header ul li a {
-    font-size: 2.2rem;
-    font-weight: bold;
+	font-size: 2.2rem;
+	font-weight: bold;
 }
 
 div#header ul li a:visited {}
 
 div#header h1 {
-    display: inline;
-    margin-bottom: 0;
-    padding: 0;
+	display: inline;
+	margin-bottom: 0;
+	padding: 0;
 
-    font-size: 3rem;
-    text-align: left;
+	font-size: 3rem;
+	text-align: left;
+	font-variant: small-caps;
 }
 
 div#header h1:hover {
-    background-color: var(--main-color);
-    border-radius: 2px;
-    padding-left: 0.2rem;
-    padding-right: 0.2rem;
+	background-color: var(--main-color);
+	border-radius: 2px;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
 }
 
 div#header h1:visited {
@@ -91,7 +93,7 @@ div#skills,
 div#portfolio,
 div#experience,
 div#contact {
-    margin-top: 5rem;
+	margin-top: 5rem;
 }
 
 
@@ -110,13 +112,13 @@ div#footer p {text-align: center;}
 /* Error pages ----------------------------------------------------------- */
 
 h1.error {
-    text-align: center;
-    font-size: 3rem;
+	text-align: center;
+	font-size: 3rem;
 }
 
 p.error {
-    text-align: center;
-    font-size: 1.7rem;
+	text-align: center;
+	font-size: 1.7rem;
 }
 
 
@@ -128,14 +130,25 @@ p.error {
 .blog-byline:before {content: "\00a0\00a0";}
 
 .blog-byline {
-    margin-top: 0;
-    color: #8c8c8c;
-    font-weight: normal;
+	margin-top: 0;
+	color: #8c8c8c;
+	font-weight: normal;
 }
 
 .blog-post {
-    font-size: 2.1rem;
-    line-height: 1.8;
+	font-size: 2.1rem;
+	line-height: 1.8;
+}
+
+a.blog-tag {
+	background: #c8c8c8;
+	color: #676767;
+	border-radius: 5px;
+}
+
+a.blog-tag:hover {
+	background: #bbbbbb;
+	color: #676767;
 }
 
 
@@ -147,85 +160,58 @@ div.clear {clear: both;}
 
 
 /* Viewports ---------------------------------------------------------
-     These are set up so that headings are centred on mobile, and
-     content column fits in a person's view regardless of screen size.
+	 These are set up so that headings are centred on mobile, and
+	 content column fits in a person's view regardless of screen size.
 
-     This is placed at the end to override any default stylings.*/
+	 This is placed at the end to override any default stylings.*/
 
 @media (max-width: 549px) {
-    div.left {
-        float: none;
-        text-align: center;
-    }
-    div.right {
-        float: none;
-        text-align: center;
-    }
+	div.left {
+		float: none;
+		text-align: center;
+	}
+	div.right {
+		float: none;
+		text-align: center;
+	}
 
-    h1,h2,h3,h4,h5,h6 {
-        margin-top: 0;
-        text-align: left;
-    }
+	h1,h2,h3,h4,h5,h6 {
+		margin-top: 0;
+		text-align: left;
+	}
 
-    ul {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
+	ul {
+		padding-left: 5%;
+		padding-right: 5%;
+	}
 
-    .blog-post {
-        font-size: 1.6rem;
-        line-height: 1.8;
-    }
+	.blog-post {
+		font-size: 1.6rem;
+		line-height: 1.8;
+	}
 }
 
 @media(min-width: 550px) {
-    .container {
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
+	.container {
+		width: 70%;
+		margin-left: 15%;
+		margin-right: 15%;
+	}
 }
 
 @media(min-width: 1024px) {
-    .container {
-        width: 65%;
-        margin-left: 17.5%;
-        margin-right: 17.5%;
-    }
+	.container {
+		width: 55%;
+		margin-left: 22.5%;
+		margin-right: 22.5%;
+	}
 }
 
 @media(min-width: 1400px) {
-    .container {
-        width: 50%;
-        margin-left: 25%;
-        margin-right: 25%;
-    }
+	.container {
+		width: 40%;
+		margin-left: 30%;
+		margin-right: 30%;
+	}
 }
 
-
-/* CSS colour variables -------------------------------------------------- */
-:root {
-    --main-lite2:   #669999;
-    --main-lite1:   #407F7F;
-    --main-color:   #226666;
-    --main-dark1:   #0D4D4D;
-    --main-dark2:   #003333;
-
-    --accent-lite2: #7887AB;
-    --accent-lite1: #4F628E;
-    --accent-color: #2E4272;
-    --accent-dark1: #162955;
-    --accent-dark2: #061539;
-
-    --compl1-lite2: #FFE3AA;
-    --compl1-lite1: #D4B16A;
-    --compl1-color: #AA8439;
-    --compl1-dark1: #805C15;
-    --compl1-dark2: #553900;
-
-    --compl2-lite2: #FFD1AA;
-    --compl2-lite1: #D49A6A;
-    --compl2-color: #AA6C39;
-    --compl2-dark1: #804515;
-    --compl2-dark2: #552700;
-}

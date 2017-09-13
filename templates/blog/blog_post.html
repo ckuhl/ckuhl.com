@@ -5,4 +5,9 @@
 <h1 class="blog-title">{{ post.title }}</h1>
 <h3 class="blog-byline">Written on {{ post.created }}</h3>
 <div class="blog-post">{{ post.html|safe }}</div>
+{% if post.tags %}<div class="blog-tags"><span>Tags: </span>{% endif %}
+{% for tag in post.tags %}
+<a class="blog-tag" href="/blog/tag/{{ tag }}/">{{ tag }}</a>
+{% endfor %}
+{% if post.tags %}</div>{% endif %}
 {% endblock %}

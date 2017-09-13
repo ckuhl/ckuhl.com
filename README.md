@@ -12,9 +12,12 @@ Required packages are listed in `requirements.txt` and the
 virtual environment is stored in `.venv/`. However it's git-ignored so that
 everyone builds their own from the latest versions). In theory all you should
 need to do to run this site is:
-1. `git clone https://github.com/k-u-h-l/personal_site.git`
+1. `git clone https://bitbucket.org/ckuhl/flask-personal-site.git`
+
 2. `cd personal_site`
+
 3. `virtualenv -p python3 .venv`
+
 4. `pip3 install requirements.txt`
 
 
