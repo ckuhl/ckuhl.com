@@ -4,9 +4,7 @@ settings.py
 # the virtual environment
 env/
 
-# PyCharm folder
-.idea/
-
 # compiled (to bytecode) python files
 __pycache__/
 *.py[cod]
+

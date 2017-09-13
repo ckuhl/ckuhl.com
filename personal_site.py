@@ -1,21 +1,27 @@
+import logging
+import os
+
 from flask import Flask
 from flask import abort
 from flask import render_template
 from flask_flatpages import FlatPages
 
+
+logger = logging.getLogger(__name__)
+
 # settings configuration
 # Check if a settings file exists, and if not, create it
-from os.path import exists
-if not exists('./christiankuhl/settings.py'):
-    print('INFO: Config not found, creating new config from template')
+if not os.path.exists(os.path.join('config', 'settings.py')):
+    logger.info('Config not found, creating new config from template')
     from shutil import copyfile
-    copyfile('./config/settings.py.template', './christiankuhl/settings.py')
+    copyfile(os.path.join('config', 'settings.py.template'),
+             os.path.join('config', 'settings.py'))
 
 # Conditional import depending on if we're debugging or not
 if __debug__:
-    from christiankuhl.settings import DEBUG as SETTINGS
+    from config.settings import DEBUG as SETTINGS
 else:
-    from christiankuhl.settings import PRODUCTION as SETTINGS
+    from config.settings import PRODUCTION as SETTINGS
 
 
 # App setup
@@ -42,18 +48,14 @@ def get_articles(n=999):
 
 
 # Page routing
-
+## Homepage
 @app.route('/')
 def main():
     latest_posts = get_articles(5)[:5]
     return render_template('pages/home.html', articles=latest_posts)
 
 
-@app.route('/contact/')
-def contact():
-    return render_template('pages/contact.html')
-
-
+## Blog pages
 @app.route('/blog/')
 def blog(n=999):
     return render_template('blog/blog.html', articles=get_articles(n=n)[:n])
@@ -76,37 +78,41 @@ def tag_page(slug):
 
     return render_template('blog/tagged_posts.html', tag=slug, articles=tagged)
 
+
+## Portfolio pages
 @app.route('/portfolio/')
 def portfolio():
     return render_template('pages/portfolio.html')
 
 
+## About pages
 @app.route('/about/')
 def about():
     return render_template('pages/about.html')
 
 
+## Miscellaneous pages
 @app.route('/misc/brick-breaker')
 def brick_breaker():
     return render_template('misc/brick-breaker.html')
 
 
-# turns out, you can't use `del` as a function name... Oops!
 @app.route('/Del/')
 def danielle():
     return render_template('pages/del.html')
 
 
-# Pass through for Let's Encrypt's certbot to do its thing
 @app.route('/.well-known/acme-challenge/<token_value>')
 def letsencrpyt(token_value):
+    """
+    Pass through for Let's Encrypt's certbot to do its thing
+    """
     with open('.well-known/acme-challenge/{}'.format(token_value)) as f:
         answer = f.readline().strip()
     return answer
 
 
-# HTTP error codes
-
+## HTTP error codes
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('errors/404.html'), 404
@@ -117,6 +123,7 @@ def page_forbidden(e):
     return render_template('errors/403.html'), 403
 
 
+# Initialization
 if __name__ == '__main__':
     app.run(debug=SETTINGS['DEBUG'], host='0.0.0.0', port=5000)
 
