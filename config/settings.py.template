@@ -5,3 +5,4 @@ DEBUG = {
 PRODUCTION = {
     'DEBUG': False,
 }
+

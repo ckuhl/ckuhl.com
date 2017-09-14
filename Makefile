@@ -1,22 +1,22 @@
 BASE ?= $(shell pwd)
 TESTS=tests
 ENV=env
-PYTHON3=env/bin/python3
-PIP=env/bin/pip
+PYTHON=${ENV}/bin/python3
+PIP=${ENV}/bin/pip
 DOCS=docs
 PROJECT=ckuhl
 
 EXEC=ckuhl.py
 
-.PHONY: clean docs run debug test setup init
+.PHONY: clean run debug setup
 clean:
 	find . -regex "\(.*__pycache__.*\|*.py[co]\)" -delete
 
 run:
-	${PYTHON3} -O ${EXEC}
+	${PYTHON} -O ${EXEC}
 
 debug:
-	${PYTHON3} ${EXEC}
+	${PYTHON} ${EXEC}
 
 setup:
 	test -d ${ENV} || virtualenv -p /usr/bin/python3 --no-site-packages ${ENV}

@@ -37,14 +37,6 @@ need to do to run this site is:
 	- `/config` stores project configuration templates and settings
 
 
-## Website structure
-- `/` (homepage)
-    - `/blog`
-        - `/posts` -- only used with a slug for each blog post
-    - `/portfolio`
-    - `/about`
-
-
 ## Things I've used
 ### Resources
 - Server setup:
