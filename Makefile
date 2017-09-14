@@ -4,9 +4,9 @@ ENV=env
 PYTHON3=env/bin/python3
 PIP=env/bin/pip
 DOCS=docs
-PROJECT=personal_site
+PROJECT=ckuhl
 
-EXEC=personal_site.py
+EXEC=ckuhl.py
 
 .PHONY: clean docs run debug test setup init
 clean:
