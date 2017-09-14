@@ -1,4 +1,4 @@
-from personal_site import app
+from ckuhl import app
 
 if __name__ == '__main__':
     app.run()
