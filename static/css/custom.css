@@ -30,9 +30,7 @@ a {
 	padding-right: 0.2rem;
 }
 
-a:visited {
-	color: #9999dd;
-}
+a:visited {color: #9999dd;}
 
 a:hover {
 	background-color: #4444dd;
@@ -158,13 +156,9 @@ div.project-tile {
 	margin-top: 0.5rem;
 }
 
-div.project-tile:first-child {
-	border: none;
-}
+div.project-tile h3 {margin-bottom: 0;}
 
-.project-text {
-	font-size: 1.5rem;
-}
+.project-text {font-size: 1.5rem;}
 
 
 /* To allow divs on left and right with space in the middle -------------- */

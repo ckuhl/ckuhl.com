@@ -8,7 +8,7 @@
 {% for p in projects %}
     <div class="project-tile">
 	    <h3><a class="project-teaser" href="{{ url_for("portfolio_project", path=p.path) }}">{{ p.title }}</a></h3>
-	<section class="project-text">{{ '.'.join(p.body.split('.')[:2]) }}</section>
+	<section class="project-text">{{ p.description }}</section>
     </div>
 {% else %}
     <p>No projects here!</p>

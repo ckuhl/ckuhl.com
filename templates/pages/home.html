@@ -10,26 +10,6 @@
     into concrete code.
 </section>
 
-<h2 class="main">What I've done</h2>
-<section>
-    {% if projects %}<ul class="main-list">{% endif %}
-    {% for p in projects %}
-        <li class="main-list">
-            <div>
-                <b>{{ p.created }}</b>
-                <a href="{{ url_for("portfolio_project", path=p.path) }}">{{ p.title }}</a>
-            </div>
-        </li>
-    {% else %}
-    <p>Nothing here! Something must have gone wrong...</p>
-    {% endfor %}
-    {% if articles %}</ul>{% endif %}
-    <p>
-        Not what you're looking for? Try looking over on my
-	<a href="/portfolio">portfolio</a> to see more of my projects.
-    </p>
-</section>
-
 <h2 class="main">Recent blog posts</h2>
 <section>
     {% if articles %}<ul class="main-list">{% endif %}
@@ -47,6 +27,24 @@
     <p>
         Want to read more? See <a href="/blog">everything I've written</a> on
         my blog!
+    </p>
+</section>
+
+<h2 class="main">What I've done</h2>
+<section>
+    {% if projects %}<ul class="main-list">{% endif %}
+	{% for p in projects %}
+	    <div>
+		    <h3><a class="project-teaser" href="{{ url_for("portfolio_project", path=p.path) }}">{{ p.title }}</a></h3>
+		<section class="project-text">{{ p.description }}</section>
+	    </div>
+	{% else %}
+    <p>Nothing here! Something must have gone wrong...</p>
+    {% endfor %}
+    {% if articles %}</ul>{% endif %}
+    <p>
+        Not what you're looking for? Try looking over on my
+	<a href="/portfolio">portfolio</a> to see more of my projects.
     </p>
 </section>
 {% endblock %}
