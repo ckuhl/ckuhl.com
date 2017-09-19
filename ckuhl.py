@@ -24,23 +24,37 @@ else:
     from config.settings import PRODUCTION as SETTINGS
 
 
-# App setup
-FLATPAGES_AUTO_RELOAD = SETTINGS['DEBUG']
-FLATPAGES_EXTENSION = '.md'
-FLATPAGES_ROOT = 'static/posts'
-FLATPAGES_MARKDOWN_EXTENSIONS = ['codehilite']
+# Flatpages config
+FLATPAGES_BLOG_ROOT = 'static/blog'
+FLATPAGES_BLOG_AUTO_RELOAD = SETTINGS['DEBUG']
+FLATPAGES_BLOG_EXTENSION = '.md'
+FLATPAGES_BLOG_MARKDOWN_EXTENSIONS = ['codehilite']
+
+FLATPAGES_PORTFOLIO_ROOT = 'static/portfolio'
+FLATPAGES_PORTFOLIO_AUTO_RELOAD = SETTINGS['DEBUG']
+FLATPAGES_PORTFOLIO_EXTENSION = '.md'
+FLATPAGES_PORTFOLIO_MARKDOWN_EXTENSIONS = ['codehilite']
 
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-pages = FlatPages(app)
-
+blog = FlatPages(app, name='blog')
+portfolio = FlatPages(app, name='portfolio')
 
 # Helper code
 
-def get_articles(n=999):
+def get_blog_posts(n=999):
     # Articles are pages with a publication date
-    articles = [p for p in pages if 'published' in p.meta and
+    articles = [p for p in blog if 'published' in p.meta and
+                p.meta['published'] is True]
+    latest = sorted(articles, reverse=True,
+                    key=lambda p: p.meta['created'])
+    return latest[:n]
+
+
+def get_portfolio_projects(n=999):
+    # Articles are pages with a publication date
+    articles = [p for p in portfolio if 'published' in p.meta and
                 p.meta['published'] is True]
     latest = sorted(articles, reverse=True,
                     key=lambda p: p.meta['created'])
@@ -50,20 +64,21 @@ def get_articles(n=999):
 # Page routing
 ## Homepage
 @app.route('/')
-def main():
-    latest_posts = get_articles(5)[:5]
-    return render_template('pages/home.html', articles=latest_posts)
+def main(blog_n=5, portfolio_n=4):
+    return render_template('pages/home.html',
+                           articles=get_blog_posts(n=blog_n),
+                           projects=get_portfolio_projects(n=portfolio_n))
 
 
 ## Blog pages
 @app.route('/blog/')
-def blog(n=999):
-    return render_template('blog/blog.html', articles=get_articles(n=n)[:n])
+def blog_home(blog_n=999):
+    return render_template('blog/blog.html', articles=get_blog_posts(n=blog_n))
 
 
 @app.route('/blog/<path:path>/')
 def blog_post(path):
-    post = pages.get_or_404(path)
+    post = blog.get_or_404(path)
 
     if post.meta['published'] is False:
         abort(403)
@@ -73,7 +88,7 @@ def blog_post(path):
 
 @app.route('/blog/tag/<string:slug>/')
 def tag_page(slug):
-    all_posts = get_articles()
+    all_posts = get_blog_posts()
     tagged = [p for p in all_posts if slug in p.meta['tags']]
 
     return render_template('blog/tagged_posts.html', tag=slug, articles=tagged)
@@ -81,8 +96,18 @@ def tag_page(slug):
 
 ## Portfolio pages
 @app.route('/portfolio/')
-def portfolio():
-    return render_template('pages/portfolio.html')
+def portfolio_home(n=999):
+    return render_template('portfolio/portfolio_home.html', projects=get_portfolio_projects(n=n)[:n])
+
+
+@app.route('/portfolio/<path:path>/')
+def portfolio_project(path):
+    post = portfolio.get_or_404(path)
+
+    if post.meta['published'] is False:
+        abort(403)
+
+    return render_template('portfolio/project.html', post=post)
 
 
 ## About pages

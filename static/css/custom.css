@@ -35,7 +35,7 @@ a:visited {
 }
 
 a:hover {
-	background-color: #000000;
+	background-color: #4444dd;
 	color: #ffffff;
 	border-radius: 2px;
 }
@@ -148,6 +148,22 @@ a.blog-tag {
 a.blog-tag:hover {
 	background: #909090;
 	color: #efefef;
+}
+
+
+/* Portfolio project ----------------------------------------------------- */
+div.project-tile {
+	border-top: solid;
+	border-width: 1px;
+	margin-top: 0.5rem;
+}
+
+div.project-tile:first-child {
+	border: none;
+}
+
+.project-text {
+	font-size: 1.5rem;
 }
 
 

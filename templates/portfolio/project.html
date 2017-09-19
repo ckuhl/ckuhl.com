@@ -1,0 +1,8 @@
+{% extends "base/container.html" %}
+{% block title %}{{ post.title }} | Christian Kuhl{% endblock %}
+{% block styles %}{% endblock %}
+{% block content %}
+<h1 class="blog-title">{{ post.title }}</h1>
+<h3 class="blog-byline">Written on {{ post.created }}</h3>
+<div class="blog-post">{{ post.html|safe }}</div>
+{% endblock %}

@@ -12,11 +12,22 @@
 
 <h2 class="main">What I've done</h2>
 <section>
-    <ul class="main-list">
-        <li class="main-list">Wrote a game back in high school</li>
-        <li class="main-list">Made an entire website, from scratch</li>
-        <li class="main-list">Did other stuff too, but you'll have to ask me in person!</li>
-    </ul>
+    {% if projects %}<ul class="main-list">{% endif %}
+    {% for p in projects %}
+        <li class="main-list">
+            <div>
+                <b>{{ p.created }}</b>
+                <a href="{{ url_for("portfolio_project", path=p.path) }}">{{ p.title }}</a>
+            </div>
+        </li>
+    {% else %}
+    <p>Nothing here! Something must have gone wrong...</p>
+    {% endfor %}
+    {% if articles %}</ul>{% endif %}
+    <p>
+        Not what you're looking for? Try looking over on my
+	<a href="/portfolio">portfolio</a> to see more of my projects.
+    </p>
 </section>
 
 <h2 class="main">Recent blog posts</h2>
@@ -30,18 +41,12 @@
             </div>
         </li>
     {% else %}
-    <p>Nothing here! Expect some writings in the future.</p>
+    <p>Nothing here! Something must have gone wrong...</p>
     {% endfor %}
     {% if articles %}</ul>{% endif %}
     <p>
         Want to read more? See <a href="/blog">everything I've written</a> on
         my blog!
     </p>
-</section>
-
-<h2 class="main">Get in touch</h2>
-<section>
-    Feel free to drop me a line at
-    <a href="mailto:contact@ckuhl.com">contact@ckuhl.com</a>.
 </section>
 {% endblock %}

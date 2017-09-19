@@ -1,0 +1,17 @@
+{% extends "base/container.html" %}
+{% block title %}Portfolio | Christian Kuhl{% endblock %}
+{% block styles %}{% endblock %}
+{% block content %}
+
+<h1 class="title">Portfolio</h1>
+<h2 class="subtitle">Some things I've created</h2>
+{% for p in projects %}
+    <div class="project-tile">
+	    <h3><a class="project-teaser" href="{{ url_for("portfolio_project", path=p.path) }}">{{ p.title }}</a></h3>
+	<section class="project-text">{{ '.'.join(p.body.split('.')[:2]) }}</section>
+    </div>
+{% else %}
+    <p>No projects here!</p>
+{% endfor %}
+
+{% endblock %}

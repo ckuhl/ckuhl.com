@@ -23,25 +23,10 @@ need to do to run this site is:
 5. `pip install -r requirements.txt`
 
 
-## Project structure
-- `/` init script and setup files
-	- `/env` python virtual environment
-	- `/static` all the static files the website serves
-		- `/css`
-		- `/img`
-		- `/js`
-	- `/templates` HTML fragments that site uses
-		- `/base` base fragments -- footer, header, container
-		- `/blog` blog partials
-		- `/pages` display pages off of the main site
-	- `/config` stores project configuration templates and settings
-
-
 ## Things I've used
 ### Resources
 - Server setup:
 	- [Initial Server Setup for Ubuntu 14.04 ](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04)
-	- [Using Git to manage a web site](http://toroid.org/git-website-howto)
 	- [How to run sudo from a script without a password](http://askubuntu.com/questions/155791/)
 - Flask setup: [Serve Flask Applications with uWSGI and Nginx on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04)
 - LetsEncrypt setup: [Let's Encrypt your Ubuntu 14.04 + Flask + Nginx server](https://hjlog.me/post/177)
@@ -52,3 +37,4 @@ need to do to run this site is:
 - Style: [Marco Going Places](http://www.marcogoingplaces.com/home/trekking-to-chota-bangal)
 - Style & structure: [Nicolas Perriault's blog](https://nicolas.perriault.net/)
 - Simplicity: [Focus is on content, not style](http://rudenoise.uk/)
+
