@@ -1,26 +1,15 @@
-# My `personal_site` — ckuhl.com
+# [ckuhl.com](https://ckuhl.com/)
 The personal website, resume, and blog of Christian Kuhl.
 
 This is intended to be a showcase of my abilities, both from a computer
 science perspective and from a business / communication perspective.
 
-Built primarily using Python3, Flask, and Flask-Flatpages.
-
 
 ## Running the project
-Required packages are listed in `requirements.txt` and the
-virtual environment is stored in `.venv/`. However it's git-ignored so that
-everyone builds their own from the latest versions). In theory all you should
-need to do to run this site is:
-1. `git clone https://bitbucket.org/ckuhl/flask-personal-site.git`
+Required packages are listed in `requirements.txt` and the virtual environment
+is stored in `env/`. In theory someone should need to do to run the site is:
 
-2. `cd flask-personal-site`
-
-3. `virtualenv -p python3 --no-site-packages env`
-
-4. `source ./env/bin/activate`
-
-5. `pip install -r requirements.txt`
+    make setup && make run
 
 
 ## Things I've used

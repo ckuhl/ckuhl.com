@@ -79,20 +79,6 @@ div#header h1:hover {
 	padding-right: 0.2rem;
 }
 
-div#header h1:visited {
-}
-
-
-/* Divs ------------------------------------------------------------------ */
-
-div#skills,
-div#portfolio,
-div#experience,
-div#contact {
-	margin-top: 5rem;
-}
-
-
 /* Horizontal rules ------------------------------------------------------ */
 
 hr.fancy {
@@ -167,6 +153,15 @@ div.left {float: left;}
 div.right {float: right;}
 div.clear {clear: both;}
 
+
+/* General --------------------------------------------------------------- */
+h1.title {
+	margin: 0.75rem;
+}
+
+h2.subtitle {
+	margin: 0.75rem;
+}
 
 /* Viewports ---------------------------------------------------------
 	 These are set up so that headings are centred on mobile, and

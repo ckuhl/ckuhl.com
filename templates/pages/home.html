@@ -5,46 +5,40 @@
 <!-- nb. this should mirror the order of the header -->
 <h2 class="main">About me</h2>
 <section>
-    Majoring in both business and computer science, I have the ability to
-    both solve the problems a business faces and convert those solutions
-    into concrete code.
+Majoring in both business and computer science, I have the ability to
+both solve the problems a business faces and convert those solutions
+into concrete code.
 </section>
 
 <h2 class="main">Recent blog posts</h2>
 <section>
-    {% if articles %}<ul class="main-list">{% endif %}
-    {% for a in articles %}
-        <li class="main-list">
-            <div>
-                <b>{{ a.created }}</b>
-                <a href="{{ url_for("blog_post", path=a.path) }}">{{ a.title }}</a>
-            </div>
-        </li>
-    {% else %}
-    <p>Nothing here! Something must have gone wrong...</p>
-    {% endfor %}
-    {% if articles %}</ul>{% endif %}
-    <p>
-        Want to read more? See <a href="/blog">everything I've written</a> on
-        my blog!
-    </p>
+{% if articles %}<ul class="main-list">{% endif %}
+{% for a in articles %}
+<li class="main-list">
+	<div>
+		<b>{{ a.created }}</b>
+		<a href="{{ url_for("blog_post", path=a.path) }}">{{ a.title }}</a>
+	</div>
+</li>
+{% else %}
+<p>Nothing here! Something must have gone wrong...</p>
+{% endfor %}
+{% if articles %}</ul>{% endif %}
+<p>See <a href="/blog">everything I've written</a>.</p>
 </section>
 
 <h2 class="main">What I've done</h2>
 <section>
-    {% if projects %}<ul class="main-list">{% endif %}
-	{% for p in projects %}
-	    <div>
-		    <h3><a class="project-teaser" href="{{ url_for("portfolio_project", path=p.path) }}">{{ p.title }}</a></h3>
-		<section class="project-text">{{ p.description }}</section>
-	    </div>
-	{% else %}
-    <p>Nothing here! Something must have gone wrong...</p>
-    {% endfor %}
-    {% if articles %}</ul>{% endif %}
-    <p>
-        Not what you're looking for? Try looking over on my
-	<a href="/portfolio">portfolio</a> to see more of my projects.
-    </p>
+{% for p in projects %}
+<div><h3>
+	<a class="project-teaser" href="{{ url_for("portfolio_project", path=p.path) }}">{{ p.title }}</a>
+</h3><section class="project-text">{{ p.description }}</section></div>
+{% else %}
+<p>Nothing here! Something must have gone wrong...</p>
+{% endfor %}
+<p>
+Not what you're looking for? Try looking over on my
+<a href="/portfolio">portfolio</a> to see more of my projects.
+</p>
 </section>
 {% endblock %}

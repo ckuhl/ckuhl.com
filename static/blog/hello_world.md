@@ -1,8 +1,8 @@
 ---
 title: Hello World from ckuhl.com!
 created: 2017-02-15
-updated: 2017-09-14
-published: True
+updated: 2017-09-19
+published: False
 tags:
     - news
 ...
