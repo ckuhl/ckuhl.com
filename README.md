@@ -6,8 +6,9 @@ science perspective and from a business / communication perspective.
 
 
 ## Running the project
-Required packages are listed in `requirements.txt` and the virtual environment
-is stored in `env/`. In theory someone should need to do to run the site is:
+Required packages are listed in `requirements.txt` and the virtual
+environment is stored in `env/`. In theory someone should need to do to run
+the site is:
 
     make setup && make run
 

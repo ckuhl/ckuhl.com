@@ -4,7 +4,7 @@ created: 2017-02-15
 updated: 2017-09-19
 published: False
 tags:
-    - news
+  - news
 ...
 
 This is my first blog post to ckuhl.com -- as much a `Hello World`

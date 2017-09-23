@@ -1,7 +1,7 @@
 # To - Do
 - `[ ]` General Site
 	- `[ ]` Add a "files" section for hosting stuff
-	- `[ ]` Update landing page copy
+	- `[X]` Update landing page copy
 	- `[ ]` Update `About` page
 	- `[ ]` Add Flask tracking pixel analytics (goal: local-only)
 - `[ ]` Blog
