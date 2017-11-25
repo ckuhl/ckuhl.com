@@ -41,21 +41,23 @@ app.config.from_object(__name__)
 blog = FlatPages(app, name='blog')
 portfolio = FlatPages(app, name='portfolio')
 
-# Helper code
 
-def get_blog_posts(n=999):
+# Helper code
+def get_blog_posts(n=999, is_published=True):
+    """Get a list of published blog posts"""
     # Articles are pages with a publication date
     articles = [p for p in blog if 'published' in p.meta and
-                p.meta['published'] is True]
+                p.meta['published'] is is_published]
     latest = sorted(articles, reverse=True,
                     key=lambda p: p.meta['created'])
     return latest[:n]
 
 
-def get_portfolio_projects(n=999):
+def get_portfolio_projects(n=999, is_published=True):
+    """Get a list of published portfolio projects"""
     # Articles are pages with a publication date
     articles = [p for p in portfolio if 'published' in p.meta and
-                p.meta['published'] is True]
+                p.meta['published'] is is_published]
     latest = sorted(articles, reverse=True,
                     key=lambda p: p.meta['created'])
     return latest[:n]
@@ -65,6 +67,7 @@ def get_portfolio_projects(n=999):
 ## Homepage
 @app.route('/')
 def main(blog_n=5, portfolio_n=4):
+    """Display a list of recent blog posts and portfolio projects"""
     return render_template('pages/home.html',
                            articles=get_blog_posts(n=blog_n),
                            projects=get_portfolio_projects(n=portfolio_n))
@@ -73,11 +76,13 @@ def main(blog_n=5, portfolio_n=4):
 ## Blog pages
 @app.route('/blog/')
 def blog_home(blog_n=999):
+    """Return a listing of blog posts"""
     return render_template('blog/blog.html', articles=get_blog_posts(n=blog_n))
 
 
 @app.route('/blog/<path:path>/')
 def blog_post(path):
+    """Serve a given blog post (if it exists)"""
     post = blog.get_or_404(path)
 
     if post.meta['published'] is False:
@@ -88,6 +93,7 @@ def blog_post(path):
 
 @app.route('/blog/tag/<string:slug>/')
 def tag_page(slug):
+    """Serve a listing of all blog posts tagged with a given tag"""
     all_posts = get_blog_posts()
     tagged = [p for p in all_posts if slug in p.meta['tags']]
 
@@ -97,11 +103,13 @@ def tag_page(slug):
 ## Portfolio pages
 @app.route('/portfolio/')
 def portfolio_home(n=999):
+    """Serve a listing of portfolio projects"""
     return render_template('portfolio/portfolio_home.html', projects=get_portfolio_projects(n=n)[:n])
 
 
 @app.route('/portfolio/<path:path>/')
 def portfolio_project(path):
+    """Serve a specific portfolio project"""
     post = portfolio.get_or_404(path)
 
     if post.meta['published'] is False:
@@ -113,17 +121,23 @@ def portfolio_project(path):
 ## About pages
 @app.route('/about/')
 def about():
+    """About me page"""
     return render_template('pages/about.html')
 
 
 ## Miscellaneous pages
 @app.route('/misc/brick-breaker')
 def brick_breaker():
+    """
+    TODO: Keep this?
+    A JavaScript game of brick breaker
+    """
     return render_template('misc/brick-breaker.html')
 
 
 @app.route('/Del/')
 def danielle():
+    """Special route"""
     return render_template('pages/del.html')
 
 
@@ -139,12 +153,14 @@ def letsencrpyt(token_value):
 
 ## HTTP error codes
 @app.errorhandler(404)
-def page_not_found(e):
+def page_404(e):
+    """Page not found"""
     return render_template('errors/404.html'), 404
 
 
 @app.errorhandler(403)
-def page_forbidden(e):
+def page_403(e):
+    """Forbidden"""
     return render_template('errors/403.html'), 403
 
 

@@ -1,5 +1,6 @@
 # To - Do
 - `[ ]` General Site
+	- `[ ]` Update style to be less rough
 	- `[ ]` Add a "files" section for hosting stuff
 	- `[X]` Update landing page copy
 	- `[ ]` Update `About` page

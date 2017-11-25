@@ -4,16 +4,16 @@
 {% block content %}
 
 <h1 class="title">Posts tagged: {{ tag }}</h1>
-{% if articles %}<ul>{% endif %}
+{% if articles %}<dl class="dl-horizontal">{% endif %}
 {% for a in articles %}
-    <li>
-        <div>
-            <b>{{ a.created }}</b>
-            <a href="{{ url_for("blog_post", path=a.path) }}">{{ a.title }}</a>
-        </div>
-    </li>
+	<dt>
+	<b>{{ a.created }}</b>
+	</dt>
+	<dd>
+	<a href="{{ url_for("blog_post", path=a.path) }}">{{ a.title }}</a>
+	</dd>
 {% else %}
-<p>Nothing tagged with {{ tag }}!</p>
+	<p>Nothing tagged with {{ tag }}!</p>
 {% endfor %}
 {% if articles %}</ul>{% endif %}
 

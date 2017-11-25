@@ -2,7 +2,6 @@
 {% block title %}{{ post.title }} | Christian Kuhl{% endblock %}
 {% block styles %}{% endblock %}
 {% block content %}
-<h1 class="blog-title">{{ post.title }}</h1>
-<h3 class="blog-byline">Written on {{ post.created }}</h3>
-<div class="blog-post">{{ post.html|safe }}</div>
+<h1>{{ post.title }} <small>{{ post.created }}</small></h1>
+<div>{{ post.html|safe }}</div>
 {% endblock %}
