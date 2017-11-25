@@ -3,13 +3,17 @@
 {% block styles %}{% endblock %}
 {% block content %}
 
-<h1>Portfolio <small>Some things I've created</small></h1>
+<div class="page-header">
+	<h1>Portfolio <small>Some things I've created</small></h1>
+</div>
 {% for p in projects %}
-    <div>
-	    <h3><a href="{{ url_for("portfolio_project", path=p.path) }}">{{ p.title }}</a></h3>
+<div>
+	<h3><a href="{{ url_for("portfolio_project", path=p.path) }}">
+			{{ p.title }}
+	</a></h3>
 	<section>{{ p.description }}</section>
-    </div>
+</div>
 {% else %}
-    <p>No projects here!</p>
+<p>No projects here!</p>
 {% endfor %}
 {% endblock %}

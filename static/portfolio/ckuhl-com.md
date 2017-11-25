@@ -1,7 +1,7 @@
 ---
 title: ckuhl.com
 created: 2017-09-18
-updated: 2017-09-19
+updated: 2017-11-25
 published: True
 tags:
   - website
@@ -31,8 +31,7 @@ with me easily.
 I wanted to avoid fiddling with settings and various files in order to get the
 extensions I need working.
 
-*Not* a requirement:
-- using a full-on JavaScript, CSS, etc. framework
+*Not* a requirement: using a full-on JavaScript, CSS, etc. framework
 
 With these requirements in mind, I went with the
 [Flask](http://flask.pocoo.org/) micro webdevelopment framework for Python,
@@ -42,6 +41,10 @@ to host static content written in a mix of YAML and Markdown. Flask was
 chosed because it is a very low-cost server in terms of learning the system,
 and Flask-Flatpages for its fantastic formatting and ease of integration
 with Flask.
+
+In addition, I have recently updated my site to use Bootstrap, because it is
+an easy way to make my site look nice without needing to fiddle around with the
+styling myself. This way I can focus more on writing good content/
 
 ## Project Details
 Built with:
