@@ -77,7 +77,8 @@ def main(blog_n=5, portfolio_n=4):
 @app.route('/blog/')
 def blog_home(blog_n=999):
     """Return a listing of blog posts"""
-    return render_template('blog/blog.html', articles=get_blog_posts(n=blog_n))
+    return render_template('blog/blog_home.html',
+            articles=get_blog_posts(n=blog_n))
 
 
 @app.route('/blog/<path:path>/')
@@ -88,7 +89,7 @@ def blog_post(path):
     if post.meta['published'] is False:
         abort(403)
 
-    return render_template('blog/blog_post.html', post=post)
+    return render_template('blog/post.html', post=post)
 
 
 @app.route('/blog/tag/<string:slug>/')

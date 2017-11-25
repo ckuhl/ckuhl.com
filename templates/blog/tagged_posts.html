@@ -2,19 +2,15 @@
 {% block title %}Blog | Christian Kuhl{% endblock %}
 {% block styles %}{% endblock %}
 {% block content %}
-
 <h1 class="title">Posts tagged: {{ tag }}</h1>
-{% if articles %}<dl class="dl-horizontal">{% endif %}
+{% if articles %}<ul>{% endif %}
 {% for a in articles %}
-	<dt>
+	<li>
 	<b>{{ a.created }}</b>
-	</dt>
-	<dd>
 	<a href="{{ url_for("blog_post", path=a.path) }}">{{ a.title }}</a>
-	</dd>
+	</li>
 {% else %}
 	<p>Nothing tagged with {{ tag }}!</p>
 {% endfor %}
 {% if articles %}</ul>{% endif %}
-
 {% endblock %}

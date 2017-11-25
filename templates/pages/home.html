@@ -2,7 +2,7 @@
 {% block title %}Christian Kuhl{% endblock %}
 {% block styles %}{% endblock %}
 {% block content %}
-<h1>Blog</h2>
+<h2>Blog</h2>
 <section>
 	{% if articles %}<ul>{% endif %}
 		{% for a in articles %}
@@ -13,23 +13,23 @@
 		{% else %}
 		<p>Nothing here! Something must have gone wrong...</p>
 		{% endfor %}
-		{% if articles %}</ul>{% endif %}
+	{% if articles %}</ul>{% endif %}
 
 	<p>View the <a href="/blog">archive</a>.</p>
 </section>
 
-<h1>Projects</h2>
+<h2>Projects</h2>
 <section>
-	{% for p in projects %}
-	<h3><a href="{{ url_for("portfolio_project", path=p.path) }}">{{ p.title }}</a></h3>
-	<section>{{ p.description }}</section>
+	{% if projects %}<dl>{% endif %}
+		{% for p in projects %}
+		<dt><a href="{{ url_for("portfolio_project", path=p.path) }}">{{ p.title }}</a></h3>
+	<dd>{{ p.description }}</dd>
 	{% else %}
 	<p>Nothing here! Something must have gone wrong...</p>
 	{% endfor %}
-	<br>
-	<p>
-	Not what you're looking for? Try looking over on my
-	<a href="/portfolio">portfolio</a> to see more of my projects.
-	</p>
+	{% if projects %}</dl>{% endif %}
+<p>If you want to see more, take a look at my
+<a href="/portfolio">portfolio</a> to see all of my projects.
+</p>
 </section>
 {% endblock %}
