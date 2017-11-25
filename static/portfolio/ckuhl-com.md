@@ -17,17 +17,17 @@ now but every time it's been an ordeal with choosing a framework and then
 trying to get it to work. So this time around I decided to lay out what my
 requirements were first, and then make a decision based on that criteria.
 
-# Project Requirements
+## Project Requirements
 
-## Familiar tooling
+### Familiar tooling
 As a side project, I don't have a lot of time to dedicate so I want to be as
 efficient as possible.
 
-## Simple content format
+### Simple content format
 If I do change things in the future, I want to be able to take my documents
 with me easily.
 
-## Simple modules
+### Simple modules
 I wanted to avoid fiddling with settings and various files in order to get the
 extensions I need working.
 
@@ -43,7 +43,7 @@ chosed because it is a very low-cost server in terms of learning the system,
 and Flask-Flatpages for its fantastic formatting and ease of integration
 with Flask.
 
-# Project Details
+## Project Details
 Built with:
 
 - python3

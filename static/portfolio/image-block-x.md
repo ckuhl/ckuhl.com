@@ -16,7 +16,7 @@ replicates the functionality of [Image Block](https://addons.mozilla.org/en-US/f
 functionality even after Firefox completely deprecates XUL extensions.
 
 
-# Made with
+## Made with
 - javascript
 
 
