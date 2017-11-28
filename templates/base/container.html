@@ -16,7 +16,8 @@
     <!-- CSS -->
     <style>#instantclick {display: none;}</style>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/superhero-theme.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap4-theme-superhero.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
     <!--<link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">-->
     {% block styles %}{% endblock %}
 
@@ -39,7 +40,7 @@
 <!-- Javascript -->
 <script src="{{ url_for('static', filename='js/instantclick-3.1.0.min.js') }}" data-no-instant></script>
 <script src="{{ url_for('static', filename='js/jquery-3.1.1.min.js') }}" data-no-instant></script>
-<script src="{{ url_for('static', filename='js/bootstrap-3.3.7.min.js') }}" data-no-instant></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" data-no-instant></script>
 <script data-no-instant>InstantClick.init();</script>
 
 </html>

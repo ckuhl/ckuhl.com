@@ -1,8 +1,12 @@
 DEBUG = {
-    'IS_DEBUG': False,
+    'IS_DEBUG': True,
+    'HOST': 'localhost',
+    'PORT': 5000,
 }
 
 PRODUCTION = {
     'IS_DEBUG': False,
+    'HOST': '0.0.0.0',
+    'PORT': 5000,
 }
 
