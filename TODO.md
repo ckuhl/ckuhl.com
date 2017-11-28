@@ -5,6 +5,7 @@
 	- `[X]` Update landing page copy
 	- `[ ]` Update `About` page
 	- `[ ]` Add Flask tracking pixel analytics (goal: local-only)
+		- https://www.madewithtea.com/event-tracking-with-javascript-flask.html
 - `[ ]` Blog
 	- `[ ]` Clean up header for blog posts
 	- `[ ]` Write blog posts

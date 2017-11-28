@@ -77,7 +77,7 @@ def main(blog_n=5, portfolio_n=4):
 @app.route('/blog/')
 def blog_home(blog_n=999):
     """Return a listing of blog posts"""
-    return render_template('blog/blog_home.html',
+    return render_template('blog/index.html',
             articles=get_blog_posts(n=blog_n))
 
 
@@ -98,14 +98,17 @@ def tag_page(slug):
     all_posts = get_blog_posts()
     tagged = [p for p in all_posts if slug in p.meta['tags']]
 
-    return render_template('blog/tagged_posts.html', tag=slug, articles=tagged)
+    return render_template('blog/tagged.html',
+            tag=slug,
+            articles=tagged)
 
 
 ## Portfolio pages
 @app.route('/portfolio/')
 def portfolio_home(n=999):
     """Serve a listing of portfolio projects"""
-    return render_template('portfolio/portfolio_home.html', projects=get_portfolio_projects(n=n)[:n])
+    return render_template('portfolio/index.html',
+            projects=get_portfolio_projects(n=n)[:n])
 
 
 @app.route('/portfolio/<path:path>/')
