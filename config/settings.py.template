@@ -1,8 +1,8 @@
 DEBUG = {
-    'DEBUG': False,
+    'IS_DEBUG': False,
 }
 
 PRODUCTION = {
-    'DEBUG': False,
+    'IS_DEBUG': False,
 }
 

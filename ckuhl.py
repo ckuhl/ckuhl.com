@@ -25,13 +25,13 @@ else:
 
 
 # Flatpages config
-FLATPAGES_BLOG_ROOT = 'static/blog'
-FLATPAGES_BLOG_AUTO_RELOAD = SETTINGS['DEBUG']
+FLATPAGES_BLOG_ROOT = 'content/blog'
+FLATPAGES_BLOG_AUTO_RELOAD = SETTINGS['IS_DEBUG']
 FLATPAGES_BLOG_EXTENSION = '.md'
 FLATPAGES_BLOG_MARKDOWN_EXTENSIONS = ['codehilite']
 
-FLATPAGES_PORTFOLIO_ROOT = 'static/portfolio'
-FLATPAGES_PORTFOLIO_AUTO_RELOAD = SETTINGS['DEBUG']
+FLATPAGES_PORTFOLIO_ROOT = 'content/projects'
+FLATPAGES_PORTFOLIO_AUTO_RELOAD = SETTINGS['IS_DEBUG']
 FLATPAGES_PORTFOLIO_EXTENSION = '.md'
 FLATPAGES_PORTFOLIO_MARKDOWN_EXTENSIONS = ['codehilite']
 
@@ -167,5 +167,5 @@ def page_403(e):
 
 # Initialization
 if __name__ == '__main__':
-    app.run(debug=SETTINGS['DEBUG'], host='0.0.0.0', port=5000)
+    app.run(debug=SETTINGS['IS_DEBUG'], host='0.0.0.0', port=5000)
 
