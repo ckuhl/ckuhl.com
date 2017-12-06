@@ -1,11 +1,11 @@
 # To - Do
 - `[ ]` General Site
 	- `[X]` Update style to Bootstrap 4
-	- `[ ]` Add a "files" section for hosting stuff
+	- `[X]` Add a "files" section for hosting stuff (a folder in static)
 	- `[X]` Update landing page copy
 	- `[ ]` Update `About` page
 	- `[ ]` Add Flask tracking pixel analytics (goal: local-only)
-		- https://www.madewithtea.com/event-tracking-with-javascript-flask.html
+		- [Instructional blog post](https://www.madewithtea.com/event-tracking-with-javascript-flask.html)
 - `[ ]` Blog
 	- `[ ]` Clean up header for blog posts
 	- `[ ]` Write blog posts
