@@ -6,6 +6,7 @@ published: True
 tags:
   - dev
   - learning
+  - tweet+
 ...
 
 With the announcement that Firefox would be deprecating XUL extensions,

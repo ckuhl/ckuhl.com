@@ -6,7 +6,7 @@ PIP=${ENV}/bin/pip
 DOCS=docs
 PROJECT=ckuhl
 
-EXEC=ckuhl.py
+EXEC=app.py
 
 .PHONY: clean run debug setup
 clean:

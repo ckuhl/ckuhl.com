@@ -6,6 +6,7 @@ published: True
 tags:
   - dev
   - goals
+  - tweet+
 ...
 
 My most limited resource when it comes to side projects is

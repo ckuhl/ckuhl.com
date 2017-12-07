@@ -95,7 +95,7 @@ def blog_post(path):
 @app.route('/blog/tag/<string:slug>/')
 def tag_page(slug):
     """Serve a listing of all blog posts tagged with a given tag"""
-    all_posts = get_blog_posts()
+    all_posts = tools.get_pages(blog)
     tagged = [p for p in all_posts if slug in p.meta['tags']]
 
     return render_template('blog/tagged.html',
