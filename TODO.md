@@ -1,5 +1,7 @@
 # To - Do
-- `[ ]` General Site
+- Backend
+	- `[ ]` Refactor code into module
+- General Site
 	- `[ ]` Add a lightbox for photos
 	- `[X]` Update style to Bootstrap 4
 	- `[X]` Add a "files" section for hosting stuff (a folder in static)
@@ -7,7 +9,7 @@
 	- `[ ]` Update `About` page
 	- `[ ]` Add Flask tracking pixel analytics (goal: local-only)
 		- [Instructional blog post](https://www.madewithtea.com/event-tracking-with-javascript-flask.html)
-- `[ ]` Blog
+- Blog
 	- `[X]` Generate an RSS feed
 		- `[ ]` Add per-tag RSS feeds (e.g. only "travel" updates)
 	- `[ ]` Add a "Next post" / "Previous post"
@@ -15,7 +17,7 @@
 	- `[ ]` Write blog posts
 	- `[ ]` Add month / time pages (e.g. "September 2017", etc.)
 	- `[ ]` Pretty-print created / updated times
-- `[ ]` Portfolio
+- Portfolio
 	- `[ ]` Clean up header for projects
 	- `[X]` Add projects area using FlatPages as well
 	- `[ ]` Flesh out Projects page
