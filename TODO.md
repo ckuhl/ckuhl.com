@@ -1,5 +1,6 @@
 # To - Do
 - `[ ]` General Site
+	- `[ ]` Add a lightbox for photos
 	- `[X]` Update style to Bootstrap 4
 	- `[X]` Add a "files" section for hosting stuff (a folder in static)
 	- `[X]` Update landing page copy
@@ -7,9 +8,13 @@
 	- `[ ]` Add Flask tracking pixel analytics (goal: local-only)
 		- [Instructional blog post](https://www.madewithtea.com/event-tracking-with-javascript-flask.html)
 - `[ ]` Blog
-	- `[ ]` Clean up header for blog posts
+	- `[X]` Generate an RSS feed
+		- `[ ]` Add per-tag RSS feeds (e.g. only "travel" updates)
+	- `[ ]` Add a "Next post" / "Previous post"
+	- `[~]` Clean up header for blog posts
 	- `[ ]` Write blog posts
 	- `[ ]` Add month / time pages (e.g. "September 2017", etc.)
+	- `[ ]` Pretty-print created / updated times
 - `[ ]` Portfolio
 	- `[ ]` Clean up header for projects
 	- `[X]` Add projects area using FlatPages as well

@@ -5,6 +5,14 @@ This is intended to be a showcase of my abilities, both from a computer
 science perspective and from a business / communication perspective.
 
 
+## Features
+- a blog
+	- blog posts
+	- an RSS feed
+- a portfolio
+- a description page
+	
+
 ## Running the project
 Required packages are listed in `requirements.txt` and the virtual
 environment is stored in `env/`. In theory someone should need to do to run

@@ -1,10 +1,10 @@
 ---
 title: The Easiest Route
-created: 2017-11-24
-updated: 2017-11-25
+created: 2017-11-24 18:51 -5
+updated: 2017-11-25 17:34 -5
 published: True
 tags:
-  - blog
+  - dev
   - goals
 ...
 

@@ -1,11 +1,11 @@
 ---
 title:
-created: 2017-01-01
-updated: 2017-01-02
+created: 2017-01-01 12:00 -5
+updated: 2017-01-02 12:00 -5
 published: True
 tags:
   - news
-  - test post
+  - test
 ...
 
 This is a template post.

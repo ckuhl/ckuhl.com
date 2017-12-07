@@ -6,6 +6,8 @@ from flask import abort
 from flask import render_template
 from flask_flatpages import FlatPages
 
+from ckuhl import tools
+
 
 logger = logging.getLogger(__name__)
 
@@ -28,12 +30,22 @@ else:
 FLATPAGES_BLOG_ROOT = 'content/blog'
 FLATPAGES_BLOG_AUTO_RELOAD = SETTINGS['IS_DEBUG']
 FLATPAGES_BLOG_EXTENSION = '.md'
-FLATPAGES_BLOG_MARKDOWN_EXTENSIONS = ['codehilite', 'smarty', 'footnotes']
+FLATPAGES_BLOG_MARKDOWN_EXTENSIONS = [
+        'abbr',
+        'codehilite',
+        'smarty',
+        'footnotes',
+]
 
 FLATPAGES_PORTFOLIO_ROOT = 'content/projects'
 FLATPAGES_PORTFOLIO_AUTO_RELOAD = SETTINGS['IS_DEBUG']
 FLATPAGES_PORTFOLIO_EXTENSION = '.md'
-FLATPAGES_PORTFOLIO_MARKDOWN_EXTENSIONS = ['codehilite', 'smarty', 'footnotes']
+FLATPAGES_PORTFOLIO_MARKDOWN_EXTENSIONS = [
+        'abbr',
+        'codehilite',
+        'smarty',
+        'footnotes',
+]
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -41,27 +53,7 @@ app.config.from_object(__name__)
 blog = FlatPages(app, name='blog')
 portfolio = FlatPages(app, name='portfolio')
 
-
-# Helper code
-def get_blog_posts(n=999, is_published=True):
-    """Get a list of published blog posts"""
-    # Articles are pages with a publication date
-    articles = [p for p in blog if 'published' in p.meta and
-                p.meta['published'] is is_published]
-    latest = sorted(articles, reverse=True,
-                    key=lambda p: p.meta['created'])
-    return latest[:n]
-
-
-def get_portfolio_projects(n=999, is_published=True):
-    """Get a list of published portfolio projects"""
-    # Articles are pages with a publication date
-    articles = [p for p in portfolio if 'published' in p.meta and
-                p.meta['published'] is is_published]
-    latest = sorted(articles, reverse=True,
-                    key=lambda p: p.meta['created'])
-    return latest[:n]
-
+rss_feed_string = tools.generate_rss_feed(tools.get_pages(blog, n=20))
 
 # Page routing
 ## Homepage
@@ -69,8 +61,8 @@ def get_portfolio_projects(n=999, is_published=True):
 def main(blog_n=5, portfolio_n=4):
     """Display a list of recent blog posts and portfolio projects"""
     return render_template('pages/home.html',
-                           articles=get_blog_posts(n=blog_n),
-                           projects=get_portfolio_projects(n=portfolio_n))
+                           articles=tools.get_pages(blog, n=blog_n),
+                           projects=tools.get_pages(portfolio, n=portfolio_n))
 
 
 ## Blog pages
@@ -78,7 +70,15 @@ def main(blog_n=5, portfolio_n=4):
 def blog_home(blog_n=999):
     """Return a listing of blog posts"""
     return render_template('blog/index.html',
-            articles=get_blog_posts(n=blog_n))
+            articles=tools.get_pages(blog, n=blog_n))
+
+
+@app.route('/blog/rss/')
+def rss_feed():
+    """
+    Return the RSS feed
+    """
+    return rss_feed_string
 
 
 @app.route('/blog/<path:path>/')
@@ -102,13 +102,12 @@ def tag_page(slug):
             tag=slug,
             articles=tagged)
 
-
 ## Portfolio pages
 @app.route('/portfolio/')
 def portfolio_home(n=999):
     """Serve a listing of portfolio projects"""
     return render_template('portfolio/index.html',
-            projects=get_portfolio_projects(n=n)[:n])
+            projects=tools.get_pages(portfolio, n=n))
 
 
 @app.route('/portfolio/<path:path>/')

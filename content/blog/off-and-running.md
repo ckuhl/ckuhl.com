@@ -1,7 +1,7 @@
 ---
 title: Off and Running!
-created: 2017-09-19
-updated: 2017-09-19
+created: 2017-09-19 14:49 -5
+updated: 2017-09-19 14:49 -5
 published: True
 tags:
   - news

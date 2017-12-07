@@ -1,11 +1,10 @@
 ---
 title: (Web) Extending my knowledge
-created: 2017-09-23
-updated: 2017-12-06
+created: 2017-09-23 18:32 -5
+updated: 2017-12-06 16:27 -5
 published: True
 tags:
   - dev
-  - extensions
   - learning
 ...
 

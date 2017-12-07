@@ -1,7 +1,7 @@
 ---
 title: Distant co-op
-created: 2017-11-30
-updated: 2017-11-30
+created: 2017-11-30 20:02 -5
+updated: 2017-11-30 20:02 -5
 published: False
 tags:
   - guide

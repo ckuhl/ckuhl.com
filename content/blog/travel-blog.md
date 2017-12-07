@@ -1,7 +1,7 @@
 ---
 title: "New: A Travel Blog!"
-created: 2017-12-06
-updated: 2017-12-06
+created: 2017-12-06 18:02 -5
+updated: 2017-12-06 18:46 -5
 published: True
 tags:
   - news
