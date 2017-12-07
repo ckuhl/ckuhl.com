@@ -10,20 +10,21 @@ tags:
 ...
 
 As a co-op student, I am often moving back and forth between school and a new
-co-op placement. Previously I have been in Niagara Falls and Hamilton, both
-fairly close. However with my new job (starting this January), I will be moving
-to Vancouver(!).
+co-op placement. In itself this is not very noteworthy. It certainly is not
+worth blogging about! With my latest co-op job (starting this January), things
+are a bit different. This co-op I will be moving to Vancouver!
 
-Now I am already using my blog to hone my writing skills by writing about
-technical matters as I learn about them. Since it is already set up, I figure
-I'll get some more mileage out of by also providing updates on what I get up
-to.
+I am already writing a blog to hone my writing skills. Since it is already set
+up, I figure I'll get more utility out of it by also providing updates for my
+friends and family (and curious strangers) about what I get up to.
 
-The one technical blockage to doing this is that I have yet to actually
-_figure out_ how to embed images into a blog post. For now I am just linking in
-entire images. Long-term the goal is to use
+The technical roadblock that I face in starting up a travel blog is that I have
+not yet figured out how to nicely include images in a blog post. While for now
+I am pursuing the easy solution of embedding entire images, this is not an
+optimal reading experience. Long-term my goal is to use
 [Lightbox](https://github.com/lokesh/lightbox2/) to provide a cleaner viewing
-experience.
+experience. However to do this successfully will require that I write an
+extension to Python's markdown parser to properly format image tags.
 
 ![A foggy day in Waterloo](/static/img/blog/2017-12-06.jpg "Test image embed")
 
