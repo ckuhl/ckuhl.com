@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap4-theme-superhero.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
-    {% block styles %}{% endblock %}
+    {% block css %}{% endblock %}
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}">
@@ -40,7 +40,7 @@
 <!-- Javascript -->
 <script src="{{ url_for('static', filename='js/instantclick-3.1.0.min.js') }}" data-no-instant></script>
 <script src="{{ url_for('static', filename='js/jquery-3.1.1.min.js') }}" data-no-instant></script>
-<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" data-no-instant></script>
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}" data-no-instant></script>
 <script data-no-instant>InstantClick.init();</script>
-
+{% block js %}{% endblock %}
 </html>

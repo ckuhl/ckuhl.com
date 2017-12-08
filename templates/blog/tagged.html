@@ -1,6 +1,6 @@
 {% extends "base/container.html" %}
 {% block title %}Blog | Christian Kuhl{% endblock %}
-{% block styles %}{% endblock %}
+{% block css %}{% endblock %}
 {% block content %}
 <h1 class="title">Posts tagged: {{ tag }}</h1>
 {% if articles %}<ul>{% endif %}
@@ -14,3 +14,4 @@
 {% endfor %}
 {% if articles %}</ul>{% endif %}
 {% endblock %}
+{% block js %}{% endblock %}

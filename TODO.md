@@ -2,6 +2,7 @@
 - Backend
 	- `[ ]` Refactor code into module
 	- `[ ]` Move configuration files to Ansible (i.e. single purpose repo)
+	- `[ ]` Write to a logfile so I can more easily debug
 - General Site
 	- `[ ]` Add a lightbox for photos
 	- `[X]` Update style to Bootstrap 4

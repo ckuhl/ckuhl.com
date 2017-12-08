@@ -8,12 +8,15 @@ BASE_URL = 'https://ckuhl.com/'
 
 def create_feedgen(posts):
     fg = FeedGenerator()
+
+    # Feed initialization
     fg.title('Chris Kuhl\'s Blog')
     fg.author( {'name':'Chris Kuhl'})
-    fg.description("test rss")
-    fg.link( href='https://ckuhl.com/blog/feed', rel='self' )
+    fg.description("A mix of technical posts and personal updates")
+    fg.link( href='https://ckuhl.com/blog/rss/', rel='self' )
     fg.language('en')
 
+    # Add recent posts
     for post in posts[::-1]:
         fe = fg.add_entry()
         fe.id(BASE_URL + 'blog/' + post.path)
@@ -21,7 +24,7 @@ def create_feedgen(posts):
         fe.published(post.meta['created'])
         fe.updated(post.meta['updated'])
         fe.content(post.html,type='html')
-        fe.link(href=BASE_URL + 'blog/' + 'feed')
+        fe.link(href=BASE_URL + 'blog/' + 'rss')
 
     return fg
 

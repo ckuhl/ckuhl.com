@@ -1,6 +1,6 @@
 {% extends "base/container.html" %}
 {% block title %}{{ post.title }}{% endblock %}
-{% block styles %}{% endblock %}
+{% block css %}{% endblock %}
 {% block content %}
 <h1 class="display-4">{{ post.title }}</h1>
 
@@ -12,3 +12,4 @@
 Written {{ post.created }}{% if post.updated != post.created %}, updated {{ post.updated }}
 {% endif %}
 {% endblock %}
+{% block js %}{% endblock %}
