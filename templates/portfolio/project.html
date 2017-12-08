@@ -9,7 +9,6 @@
 <hr>
 
 <span class="fa fa-calendar" aria-hidden="true"></span>
-Written {{ post.created }}{% if post.updated != post.created %}, updated {{ post.updated }}
-{% endif %}
+Written {{ post.created|prettydate }}{% if post.updated != post.created %}, updated {{ post.updated|prettydate }}{% endif %}
 {% endblock %}
 {% block js %}{% endblock %}

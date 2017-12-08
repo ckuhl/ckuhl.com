@@ -1,7 +1,7 @@
 # To - Do
 - Backend
-	- `[ ]` Refactor code into module
-	- `[ ]` Move configuration files to Ansible (i.e. single purpose repo)
+	- `[ ]` Refactor code into module / blueprints
+	- `[X]` Move configuration files to Ansible (i.e. single purpose repo)
 	- `[ ]` Write to a logfile so I can more easily debug
 - General Site
 	- `[ ]` Add a lightbox for photos
@@ -18,7 +18,7 @@
 	- `[~]` Clean up header for blog posts
 	- `[ ]` Write blog posts
 	- `[ ]` Add month / time pages (e.g. "September 2017", etc.)
-	- `[ ]` Pretty-print created / updated times
+	- `[X]` Pretty-print created / updated times
 - Portfolio
 	- `[ ]` Clean up header for projects
 	- `[X]` Add projects area using FlatPages as well

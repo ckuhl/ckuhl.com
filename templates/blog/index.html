@@ -15,7 +15,7 @@ well publish them while I'm at it.
 	{% for a in articles %}
 	<li>
 		<div>
-			<b>{{ a.created }}</b>
+			<span>{{ a.created|numericdate }}</span>
 			<a href="{{ url_for("blog_post", path=a.path) }}">{{ a.title }}</a>
 		</div>
 	</li>

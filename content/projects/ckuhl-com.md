@@ -1,7 +1,7 @@
 ---
 title: ckuhl.com
-created: 2017-09-18
-updated: 2017-11-25
+created: 2017-09-18 12:00 -5
+updated: 2017-11-25 12:00 -5
 published: True
 tags:
   - website

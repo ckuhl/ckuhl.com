@@ -5,8 +5,8 @@ PYTHON=${ENV}/bin/python3
 PIP=${ENV}/bin/pip
 DOCS=docs
 PROJECT=ckuhl
-
 EXEC=app.py
+
 
 .PHONY: clean run debug setup
 clean:
@@ -19,8 +19,9 @@ debug:
 	${PYTHON} ${EXEC}
 
 setup:
-	test -d ${ENV} || virtualenv -p /usr/bin/python3 --no-site-packages ${ENV}
-	test -e requirements.txt && ${PIP}  install -r requirements.txt
+	test -d ${ENV} \
+		|| virtualenv -p /usr/bin/python3 --no-site-packages ${ENV}
+	test -e requirements.txt && ${PIP} install -r requirements.txt
 	${PIP} install --upgrade pip
 	${PIP} install --upgrade setuptools
 

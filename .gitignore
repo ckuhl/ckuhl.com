@@ -1,3 +1,6 @@
+# Configurations
+*.ini
+
 # ignore user-specific configurations
 settings.py
 

@@ -1,3 +1,4 @@
+import dateutil
 import logging
 import os
 
@@ -54,6 +55,28 @@ blog = FlatPages(app, name='blog')
 portfolio = FlatPages(app, name='portfolio')
 
 rss_feed_string = tools.generate_rss_feed(tools.get_pages(blog, n=20))
+
+@app.template_filter('prettydate')
+def _jinja2_filter_datetime(date, fmt=None):
+    """
+    Filter to pretty format the date as:
+    <month name> <day number>, <year>
+    """
+    date = dateutil.parser.parse(date)
+    native = date.replace(tzinfo=None)
+    format='%B %e, %Y'
+    return native.strftime(format)
+
+@app.template_filter('numericdate')
+def _jinja2_filter_datetime(date, fmt=None):
+    """
+    Filter to format the date as:
+    <year>-<month #>-<date of month>
+    """
+    date = dateutil.parser.parse(date)
+    native = date.replace(tzinfo=None)
+    format='%Y-%m-%d'
+    return native.strftime(format)
 
 # Page routing
 ## Homepage

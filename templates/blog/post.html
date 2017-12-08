@@ -8,7 +8,8 @@
 <div>{{ post.html|safe }}</div>
 <hr>
 
-Written {{ post.created }}{% if post.updated != post.created %}, updated {{ post.updated }}{% endif %}
+<span class="fa fa-calendar" aria-hidden="true"></span>
+Written <abbr title="{{ post.created }}">{{ post.created|prettydate }}</abbr>{% if post.updated != post.created %}, updated <abbr title="{{post.updated }}">{{ post.updated|prettydate }}</abbr>{% endif %}
 {% if post.tags %}
 <div>
 	<span class="fa fa-tags" aria-hidden="true"></span>
