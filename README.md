@@ -30,9 +30,3 @@ the site is:
 - LetsEncrypt setup: [Let's Encrypt your Ubuntu 14.04 + Flask + Nginx server](https://hjlog.me/post/177)
 - Javascript: [InstantClick - Preload pages on hover](http://instantclick.io/)
 
-
-### Inspiration
-- Style: [Marco Going Places](http://www.marcogoingplaces.com/home/trekking-to-chota-bangal)
-- Style & structure: [Nicolas Perriault's blog](https://nicolas.perriault.net/)
-- Simplicity: [Focus is on content, not style](http://rudenoise.uk/)
-

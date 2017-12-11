@@ -5,7 +5,7 @@ PYTHON=${ENV}/bin/python3
 PIP=${ENV}/bin/pip
 DOCS=docs
 PROJECT=ckuhl
-EXEC=app.py
+EXEC=manage.py
 
 
 .PHONY: clean run debug setup
@@ -13,10 +13,10 @@ clean:
 	find . -regex "\(.*__pycache__.*\|*.py[co]\)" -delete
 
 run:
-	${PYTHON} -O ${EXEC}
+	${PYTHON} ${EXEC} run
 
 debug:
-	${PYTHON} ${EXEC}
+	${PYTHON} -O ${EXEC} debug
 
 setup:
 	test -d ${ENV} \
