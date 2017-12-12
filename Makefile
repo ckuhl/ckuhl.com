@@ -11,6 +11,9 @@ EXEC=manage.py
 .PHONY: clean run debug setup
 clean:
 	find . -regex "\(.*__pycache__.*\|*.py[co]\)" -delete
+	find . -name "*.log" -type f -delete
+	find . -name "*.sqlite" -type f -delete
+	find . -name "*.db" -type f -delete
 
 run:
 	${PYTHON} ${EXEC} run

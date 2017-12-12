@@ -9,8 +9,9 @@ science perspective and from a business / communication perspective.
 - a blog
 	- blog posts
 	- an RSS feed
-- a portfolio
-- a description page
+- a portfolio of projects
+- local analytics
+	- script to run simple reports on the analytics data
 	
 
 ## Running the project

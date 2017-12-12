@@ -1,3 +1,4 @@
+import datetime
 import logging
 import os
 
@@ -6,11 +7,13 @@ from flask_flatpages import FlatPages
 
 from . import jinja_filters
 from . import tools
+from .analytics import analytics
 from .blog import blog
 from .root import root
 from .portfolio import portfolio
-from .extensions import Blog, Portfolio
-from .settings import BASE_DIR, ProdConfig, DebugConfig
+from .extensions import Database, Blog, Portfolio
+from .settings import ProdConfig, DebugConfig
+from .models import PageView
 
 
 def create_app(debug=False):
@@ -20,21 +23,23 @@ def create_app(debug=False):
     :param bool debug: Flag to enable debugging mode
     :returns Flask: Flask application object
     """
-    # init logging
-    logging.basicConfig(filename='flask.log',level=logging.DEBUG)
-    logger = logging.getLogger(__name__)  # for requests
+    # configuration
+    if debug:
+        config = DebugConfig
+    else:
+        config = ProdConfig
 
     # init app
     app = Flask(__name__,
-            template_folder=os.path.join(BASE_DIR, 'templates'),
-            static_folder=os.path.join(BASE_DIR, 'static'))
+            template_folder=os.path.join(config.BASE_DIR, 'templates'),
+            static_folder=os.path.join(config.BASE_DIR, 'static'))
 
-    # configure settings
-    if debug:
-        Config = DebugConfig
-    else:
-        Config = ProdConfig
-    app.config.from_object(Config)
+    # configure app
+    app.config.from_object(config)
+
+    # init logging
+    logging.basicConfig(filename=config.LOG_NAME, level=logging.DEBUG)
+    logger = logging.getLogger(__name__)  # for requests
 
     # import jinja filters
     # TODO: Simplify this (move to middleware?)
@@ -44,6 +49,7 @@ def create_app(debug=False):
     app.register_blueprint(blog, url_prefix='/blog')
     app.register_blueprint(portfolio, url_prefix='/portfolio')
     app.register_blueprint(root)
+    app.register_blueprint(analytics)
 
     # HTTP error codes
     # TODO: Move this to middleware?
@@ -63,10 +69,15 @@ def create_app(debug=False):
         """
         Log all visiting user agents
         """
-        logger.info("%s %s", request.user_agent, request.accept_languages)
+        logger.info("%s # %s # %s # %s",
+                request.user_agent,
+                request.accept_languages,
+                request.url,
+                datetime.datetime.now())
 
 
     # init extensions
+    Database.create_tables([PageView], safe=True)
     Blog.init_app(app)
     Portfolio.init_app(app)
 

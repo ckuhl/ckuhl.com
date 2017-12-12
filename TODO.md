@@ -2,17 +2,18 @@
 - Backend
 	- `[X]` Refactor code into module / blueprints
 	- `[X]` Move configuration files to Ansible (i.e. single purpose repo)
-	- `[ ]` Write to a logfile so I can more easily debug
+	- `[X]` Write to a logfile so I can more easily debug
 	- `[ ]` Create middleware file
+	- `[ ]` Make settings available from modules
 - General Site
 	- `[ ]` Add a lightbox for photos
 	- `[X]` Update style to Bootstrap 4
 	- `[X]` Add a "files" section for hosting stuff (a folder in static)
 	- `[X]` Update landing page copy
 	- `[~]` Update `About` page
-	- `[ ]` Add Flask tracking pixel analytics (goal: local-only)
+	- `[X]` Add Flask tracking pixel analytics (goal: local-only)
 		- [Instructional blog post](https://www.madewithtea.com/event-tracking-with-javascript-flask.html)
-	- `[ ]` Use bootstrap "jumbotron" for error pages
+	- `[X]` Use bootstrap "jumbotron" for error pages
 - Blog
 	- `[X]` Generate an RSS feed
 		- `[ ]` Add per-tag RSS feeds (e.g. only "travel" updates)
@@ -21,10 +22,10 @@
 	- `[ ]` Write blog posts
 	- `[ ]` Add month / time pages (e.g. "September 2017", etc.)
 	- `[X]` Pretty-print created / updated times
-	- `[ ]` Move content into it's own repo
+	- `[ ]` Move content into its own repo
 - Portfolio
 	- `[ ]` Clean up header for projects
 	- `[ ]` Clean up entire project page (make pretty)
 	- `[X]` Add projects area using FlatPages as well
-	- `[ ]` Flesh out Projects page
+	- `[ ]` Flesh out Projects page (bring up to speed with the blog)
 

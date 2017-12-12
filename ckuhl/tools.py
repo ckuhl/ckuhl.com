@@ -1,6 +1,8 @@
 import datetime
+import json
 
 from feedgen.feed import FeedGenerator
+from peewee import TextField
 
 
 BASE_URL = 'https://ckuhl.com/'
@@ -53,4 +55,15 @@ def get_pages(flatpages, n=999, is_published=True):
     latest = sorted(articles, reverse=True,
                     key=lambda p: p.meta['created'])
     return latest[:n]
+
+
+class JSONField(TextField):
+    """Store JSON data in a TextField."""
+    def python_value(self, value):
+        if value is not None:
+            return json.loads(value)
+
+    def db_value(self, value):
+        if value is not None:
+            return json.dumps(value)
 
