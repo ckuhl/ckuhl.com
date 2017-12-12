@@ -15,7 +15,7 @@ well publish them while I'm at it.
 	{% for a in articles %}
 	<li>
 		<div>
-			<span>{{ a.created|numericdate }}</span>
+			<span>{{ a.created|datetimeformat('%Y-%m-%d') }}</span>
 			<a href="{{ url_for('blog.post', path=a.path) }}">{{ a.title }}</a>
 		</div>
 	</li>

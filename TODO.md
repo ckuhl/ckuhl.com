@@ -9,7 +9,7 @@
 	- `[X]` Update style to Bootstrap 4
 	- `[X]` Add a "files" section for hosting stuff (a folder in static)
 	- `[X]` Update landing page copy
-	- `[ ]` Update `About` page
+	- `[~]` Update `About` page
 	- `[ ]` Add Flask tracking pixel analytics (goal: local-only)
 		- [Instructional blog post](https://www.madewithtea.com/event-tracking-with-javascript-flask.html)
 	- `[ ]` Use bootstrap "jumbotron" for error pages
@@ -24,6 +24,7 @@
 	- `[ ]` Move content into it's own repo
 - Portfolio
 	- `[ ]` Clean up header for projects
+	- `[ ]` Clean up entire project page (make pretty)
 	- `[X]` Add projects area using FlatPages as well
 	- `[ ]` Flesh out Projects page
 

@@ -7,16 +7,22 @@ BASE_URL = 'https://ckuhl.com/'
 
 
 def create_feedgen(posts):
+    """
+    Create a FeedGenerator and fill in recent posts
+
+    :param list(dict) posts: List of FlatPages pages
+    :returns FeedGenerator: Initialized feedgenerator
+    """
     fg = FeedGenerator()
 
-    # Feed initialization
+    # init feed
     fg.title('Chris Kuhl\'s Blog')
     fg.author( {'name':'Chris Kuhl'})
     fg.description("A mix of technical posts and personal updates")
     fg.link( href='https://ckuhl.com/blog/rss/', rel='self' )
     fg.language('en')
 
-    # Add recent posts
+    # add posts
     for post in posts[::-1]:
         fe = fg.add_entry()
         fe.id(BASE_URL + 'blog/' + post.path)
@@ -30,6 +36,9 @@ def create_feedgen(posts):
 
 
 def generate_rss_feed(posts):
+    """
+    Utility wrapper to create an RSS feed from a list of posts
+    """
     fg = create_feedgen(posts)
     return fg.rss_str(pretty=True)
 

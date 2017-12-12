@@ -1,23 +1,15 @@
 import dateutil
 
 
-def prettydate(date, fmt=None):
+def datetimeformat(date, fmt='%Y-%m-%d'):
     """
-    Filter to pretty format the date as:
-    <month name> <day number>, <year>
-    """
-    date = dateutil.parser.parse(date)
-    native = date.replace(tzinfo=None)
-    format='%B %e, %Y'
-    return native.strftime(format)
+    Format a datetime object according to an arbitrary format string
 
-def numericdate(date, fmt=None):
-    """
-    Filter to format the date as:
-    <year>-<month #>-<date of month>
+    :param Date date: Date to format
+    :param str fmt: Formatting string to use
+    :returns string: Formatted date
     """
     date = dateutil.parser.parse(date)
     native = date.replace(tzinfo=None)
-    format='%Y-%m-%d'
-    return native.strftime(format)
+    return native.strftime(fmt)
 

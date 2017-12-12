@@ -4,6 +4,7 @@ from flask_flatpages import FlatPages
 from . import tools
 from .extensions import Portfolio
 
+
 portfolio = Blueprint('portfolio', __name__)
 
 @portfolio.route('/')

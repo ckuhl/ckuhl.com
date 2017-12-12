@@ -17,11 +17,11 @@ args = parser.parse_args()
 # define various actions to take
 def run_prod():
     app = application.create_app()
-    app.run(debug=False)
+    app.run()
 
 def run_debug():
-    app = application.create_app()
-    app.run(debug=True)
+    app = application.create_app(debug=True)
+    app.run()
 
 
 # Create a mapping of command line - functions

@@ -1,9 +1,7 @@
 import logging
 import os
 
-from flask import Flask
-from flask import abort
-from flask import render_template
+from flask import Flask, abort, render_template
 from flask_flatpages import FlatPages
 
 from . import jinja_filters
@@ -12,30 +10,39 @@ from .blog import blog
 from .root import root
 from .portfolio import portfolio
 from .extensions import Blog, Portfolio
-from .settings import BASE_DIR, BaseConfig
+from .settings import BASE_DIR, ProdConfig, DebugConfig
 
 
-def create_app():
+def create_app(debug=False):
     """
-    Create the Flask application
-    """
-    logger = logging.getLogger(__name__)
+    Constructor for the Flask application
 
-    # Flatpages config
+    :param bool debug: Flag to enable debugging mode
+    :returns Flask: Flask application object
+    """
+    # init logging
+    logging.basicConfig(filename='flask.log',level=logging.DEBUG)
+
+    # init app
     app = Flask(__name__,
             template_folder=os.path.join(BASE_DIR, 'templates'),
             static_folder=os.path.join(BASE_DIR, 'static'))
 
-    app.config.from_object(BaseConfig)
+    # configure settings
+    if debug:
+        Config = DebugConfig
+    else:
+        Config = ProdConfig
+    app.config.from_object(Config)
 
-    app.jinja_env.filters['prettydate'] = jinja_filters.prettydate
-    app.jinja_env.filters['numericdate'] = jinja_filters.numericdate
+    # import jinja filters
+    # TODO: Simplify this (move to middleware?)
+    app.jinja_env.filters['datetimeformat'] = jinja_filters.datetimeformat
 
-
+    # import blueprints
     app.register_blueprint(blog, url_prefix='/blog')
     app.register_blueprint(portfolio, url_prefix='/portfolio')
     app.register_blueprint(root)
-
 
     # HTTP error codes
     # TODO: Move this to middleware?
@@ -44,17 +51,14 @@ def create_app():
         """Page not found"""
         return render_template('errors/404.html'), 404
 
-
     @app.errorhandler(403)
     def page_403(e):
         """Forbidden"""
         return render_template('errors/403.html'), 403
 
-    # initialize extensions
+    # init extensions
     Blog.init_app(app)
     Portfolio.init_app(app)
-
-    print(Blog.root)
 
     return app
 

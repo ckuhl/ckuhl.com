@@ -16,7 +16,7 @@ run:
 	${PYTHON} ${EXEC} run
 
 debug:
-	${PYTHON} -O ${EXEC} debug
+	${PYTHON} ${EXEC} debug
 
 setup:
 	test -d ${ENV} \
