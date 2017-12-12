@@ -1,7 +1,7 @@
 import logging
 import os
 
-from flask import Flask, abort, render_template
+from flask import Flask, abort, render_template, request
 from flask_flatpages import FlatPages
 
 from . import jinja_filters
@@ -22,6 +22,7 @@ def create_app(debug=False):
     """
     # init logging
     logging.basicConfig(filename='flask.log',level=logging.DEBUG)
+    logger = logging.getLogger(__name__)  # for requests
 
     # init app
     app = Flask(__name__,
@@ -55,6 +56,15 @@ def create_app(debug=False):
     def page_403(e):
         """Forbidden"""
         return render_template('errors/403.html'), 403
+
+    # request hooks (more for middleware!)
+    @app.before_request
+    def log_request():
+        """
+        Log all visiting user agents
+        """
+        logger.info("%s %s", request.user_agent, request.accept_languages)
+
 
     # init extensions
     Blog.init_app(app)
