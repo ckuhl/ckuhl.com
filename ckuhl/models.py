@@ -8,7 +8,12 @@ from .extensions import Database
 from .tools import JSONField
 
 
-class PageView(Model):
+class BaseModel(Model):
+    class Meta:
+        database = Database
+
+
+class PageView(BaseModel):
     domain = CharField()
     url = TextField()
     timestamp = DateTimeField(default=datetime.datetime.now, index=True)
@@ -17,9 +22,6 @@ class PageView(Model):
     referrer = TextField(default='')
     headers = JSONField()
     params = JSONField()
-
-    class Meta:
-        database = Database
 
     @classmethod
     def create_from_request(cls):
@@ -34,3 +36,4 @@ class PageView(Model):
             referrer=request.args.get('ref') or '',
             headers=dict(request.headers),
             params=params)
+

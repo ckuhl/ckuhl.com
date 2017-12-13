@@ -1,33 +1,19 @@
 # [ckuhl.com](https://ckuhl.com/)
-The personal website, resume, and blog of Christian Kuhl.
+The personal website, portfolio, and blog of Chris Kuhl.
 
-This is intended to be a showcase of my abilities, both from a computer
-science perspective and from a business / communication perspective.
+## How do I run this?
+All you need to do is clone the repository and run the following command
+inside of the project directory:
+
+    make setup && make debug
+
+Then the site will be accessable at http://127.0.0.1:5000.
 
 
 ## Features
 - a blog
-	- blog posts
-	- an RSS feed
-- a portfolio of projects
+- a portfolio of my projects
 - local analytics
-	- script to run simple reports on the analytics data
+- simple reports on the analytics data
+- a [large to-do list](TODO.md)
 	
-
-## Running the project
-Required packages are listed in `requirements.txt` and the virtual
-environment is stored in `env/`. In theory someone should need to do to run
-the site is:
-
-    make setup && make run
-
-
-## Things I've used
-### Resources
-- Server setup:
-	- [Initial Server Setup for Ubuntu 14.04 ](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-14-04)
-	- [How to run sudo from a script without a password](http://askubuntu.com/questions/155791/)
-- Flask setup: [Serve Flask Applications with uWSGI and Nginx on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04)
-- LetsEncrypt setup: [Let's Encrypt your Ubuntu 14.04 + Flask + Nginx server](https://hjlog.me/post/177)
-- Javascript: [InstantClick - Preload pages on hover](http://instantclick.io/)
-

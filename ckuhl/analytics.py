@@ -5,6 +5,9 @@ from flask import abort, Blueprint, Response, request
 from .models import PageView
 from .extensions import Database
 
+DOMAIN = 'https://ckuhl.com'
+# DOMAIN = 'http://127.0.0.1:5000'  # TODO: Fix this config pain...
+
 
 BEACON = base64.b64decode('R0lGODlhAQABAIAAANvf7wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==')
 
@@ -30,6 +33,6 @@ def analyze():
 @analytics.route('/a.js')
 def script():
     return Response(
-            JAVASCRIPT % 'https://ckuhl.com',  # TODO: Replace with proper var
+            JAVASCRIPT % DOMAIN,
             mimetype='text/javascript')
 

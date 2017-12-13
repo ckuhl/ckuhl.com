@@ -1,6 +1,7 @@
 # To - Do
 - Backend
 	- `[X]` Refactor code into module / blueprints
+	- `[X]` Refactor blueprints into views folder, etc.
 	- `[X]` Move configuration files to Ansible (i.e. single purpose repo)
 	- `[X]` Write to a logfile so I can more easily debug
 	- `[ ]` Create middleware file

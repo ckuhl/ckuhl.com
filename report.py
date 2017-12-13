@@ -5,7 +5,7 @@ from collections import Counter
 
 from peewee import fn
 
-from  ckuhl.models import PageView
+from ckuhl.models import PageView
 
 
 # Take in command line arguments
@@ -13,11 +13,15 @@ parser = argparse.ArgumentParser(description='Run reports on ckuhl.com')
 parser.add_argument('action',
         help='''The action to take:
         One of:
-        TODO
-        ''')
+            hits: Number of hits the site got\n
+            ips: Number of unique IP addresses\n
+            top10: The top ten pages on the site\n
+            uas: The top user agents\n
+            sessions: List some sessions (i.e. sequential page visits)
+        ''')  # TODO: Fix help message formatting
 args = parser.parse_args()
 
-# TODO: Modularize into last n days
+# TODO: Parameterize into "last n days"
 week_ago = datetime.date.today() - datetime.timedelta(days=7)
 base = PageView.select().where(PageView.timestamp >= week_ago)
 
