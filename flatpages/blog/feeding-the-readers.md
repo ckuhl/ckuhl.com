@@ -14,7 +14,7 @@ time, usually with whatever catches my fancy. My latest (re)discovery on this
 front has been my love for RSS feeds. Being able to keep up-to-date on blogs
 that post rather infrequently is hugely valuable to me. Not only because I can
 keep up on content I care about, but also because doing so allows me to avoid
-using the internet letss.
+using the internet less.
 
 With that in mind, the latest update to the site has been to add an RSS feed.
 Again trying to follow my focus on
