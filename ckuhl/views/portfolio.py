@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template
 from flask_flatpages import FlatPages
 
-from . import tools
-from .extensions import Portfolio
+from .. import utils
+from ..ext import Portfolio
 
 
 portfolio = Blueprint('portfolio', __name__)
@@ -11,7 +11,7 @@ portfolio = Blueprint('portfolio', __name__)
 def index(n=999):
     """Serve a listing of portfolio projects"""
     return render_template('portfolio/index.html',
-            projects=tools.get_pages(Portfolio, n=n))
+            projects=utils.get_pages(Portfolio, n=n))
 
 
 @portfolio.route('/<path:path>/')

@@ -37,8 +37,6 @@ class ProdConfig(BaseConfig):
     # debugging
     DEBUG = False
 
-    DOMAIN = 'https://ckuhl.com'
-
     # FlatPages debugging
     FLATPAGES_BLOG_AUTO_RELOAD = False
     FLATPAGES_PORTFOLIO_AUTO_RELOAD = False
@@ -47,8 +45,6 @@ class ProdConfig(BaseConfig):
 class DebugConfig(BaseConfig):
     # debugging
     DEBUG = True
-
-    DOMAIN = 'http://ckuhl.test:5000'
 
     # FlatPages debugging
     FLATPAGES_BLOG_AUTO_RELOAD = True

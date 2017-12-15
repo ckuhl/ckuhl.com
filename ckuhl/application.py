@@ -6,14 +6,12 @@ from flask import Flask, abort, render_template, request
 from flask_flatpages import FlatPages
 
 from . import jinja_filters
-from . import tools
-from .analytics import analytics
-from .blog import blog
-from .root import root
-from .portfolio import portfolio
-from .extensions import Database, Blog, Portfolio
+
+from .ext import Database, Blog, Portfolio
 from .settings import ProdConfig, DebugConfig
 from .models import PageView
+
+from .views import analytics, blog, root, portfolio, tools
 
 
 def create_app(debug=False):
@@ -46,10 +44,11 @@ def create_app(debug=False):
     app.jinja_env.filters['datetimeformat'] = jinja_filters.datetimeformat
 
     # import blueprints
-    app.register_blueprint(blog, url_prefix='/blog')
-    app.register_blueprint(portfolio, url_prefix='/portfolio')
-    app.register_blueprint(root)
-    app.register_blueprint(analytics)
+    app.register_blueprint(blog.blog, url_prefix='/blog')
+    app.register_blueprint(portfolio.portfolio, url_prefix='/portfolio')
+    app.register_blueprint(tools.utilities, url_prefix='/tools')
+    app.register_blueprint(root.root)
+    app.register_blueprint(analytics.analytics)
 
     # HTTP error codes
     # TODO: Move this to middleware?

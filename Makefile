@@ -27,6 +27,10 @@ docs:
 		| sed 's/\//\./g' \
 		| sed 's/\.py//g' \
 		| xargs ${PYTHON} -m pydoc -w
+	ls ${PROJECT}/views/*.py \
+		| sed 's/\//\./g' \
+		| sed 's/\.py//g' \
+		| xargs ${PYTHON} -m pydoc -w
 	test -d ${DOCS}/ || mkdir ${DOCS}
 	mv ${PROJECT}.*html ${DOCS}
 

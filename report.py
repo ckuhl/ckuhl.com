@@ -17,7 +17,7 @@ parser.add_argument('action',
 
             ips: Number of unique IP addresses\n
 
-            top10: The top ten pages on the site\n
+            top: The top pages on the site\n
 
             uas: The top user agents\n
 
@@ -40,18 +40,18 @@ def unique_ips():
 
 def top_n_pages(n=10):
     print("Top pages", "=" * (80 - len("Top pages") - 1))
-    query = (base.select(PageView.title, fn.Count(PageView.id))
-            .group_by(PageView.title)
+    query = (base.select(PageView.url, fn.Count(PageView.id))
+            .group_by(PageView.url)
             .order_by(fn.Count(PageView.id).desc())
             .tuples())
     for url, n in query:
-        print('%04d: %s' % (n, url))
+        print('% 4d: %s' % (n, url))
 
 def top_n_useragents(n=5):
     c = Counter(pv.headers.get('User-Agent') for pv in base)
     print("Top user agents", "=" * (80 - len("Top user agents") - 1))
-    for ua in c.most_common(n):
-        print(ua)
+    for ua, n in c.most_common(n):
+        print('% 4d: %s' % (n, ua))
 
 def get_browsing_sessions(n=10):
     inner = base.select(PageView.ip, PageView.url).order_by(PageView.timestamp)
@@ -69,7 +69,7 @@ def get_browsing_sessions(n=10):
 actions = {
     'hits': page_views,
     'ips': unique_ips,
-    'top10': top_n_pages,
+    'top': top_n_pages,
     'uas': top_n_useragents,
     'sessions': get_browsing_sessions,
 }

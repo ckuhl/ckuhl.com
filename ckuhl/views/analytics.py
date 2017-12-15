@@ -2,8 +2,8 @@ import base64
 
 from flask import abort, Blueprint, Response, request
 
-from .models import PageView
-from .extensions import Database
+from ..models import PageView
+from ..ext import Database
 
 DOMAIN = 'https://ckuhl.com'
 # DOMAIN = 'http://127.0.0.1:5000'  # TODO: Fix this config pain...

@@ -4,8 +4,8 @@ import urllib
 from flask import request
 from peewee import Model, CharField, TextField, DateTimeField
 
-from .extensions import Database
-from .tools import JSONField
+from .ext import Database
+from .utils import JSONField
 
 
 class BaseModel(Model):

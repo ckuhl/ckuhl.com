@@ -1,10 +1,8 @@
-import os
-
-from flask import Blueprint, current_app, render_template
+from flask import Blueprint, render_template
 from flask_flatpages import FlatPages
 
-from . import tools
-from .extensions import Blog
+from .. import utils
+from ..ext import Blog
 
 
 blog = Blueprint('blog', __name__)
@@ -13,14 +11,14 @@ blog = Blueprint('blog', __name__)
 def index(blog_n=999):
     """Return a listing of blog posts"""
     return render_template('blog/index.html',
-            articles=tools.get_pages(Blog, n=blog_n))
+            articles=utils.get_pages(Blog, n=blog_n))
 
 @blog.route('/rss/')
 def rss_feed():
     """
     Return the RSS feed
     """
-    return tools.generate_rss_feed(tools.get_pages(Blog, n=20))
+    return utils.generate_rss_feed(utils.get_pages(Blog, n=20))
 
 @blog.route('/<path:path>/')
 def post(path):
@@ -35,7 +33,7 @@ def post(path):
 @blog.route('/tag/<string:slug>/')
 def tag_page(slug):
     """Serve a listing of all blog posts tagged with a given tag"""
-    all_posts = tools.get_pages(Blog)
+    all_posts = utils.get_pages(Blog)
     tagged = [p for p in all_posts if slug in p.meta['tags']]
 
     return render_template('blog/tagged.html',
