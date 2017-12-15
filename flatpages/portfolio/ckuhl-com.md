@@ -1,7 +1,7 @@
 ---
 title: ckuhl.com
 created: 2017-09-18 12:00 -5
-updated: 2017-11-25 12:00 -5
+updated: 2017-12-15 15:14 -5
 published: True
 tags:
   - website
@@ -11,6 +11,9 @@ description: A personal website to use as a testing bed for new projects,
              a way to market myself (as a developer and
              writer/communicator), and to establish an online presence.
 ...
+
+<img class="hero-image" src="/static/images/2017-12-15_ckuhl-com.png"
+	alt="ckuhl.com's favicon" width="256" height="256">
 
 I've been working on a website in some form or other for more than a year
 now but every time it's been an ordeal with choosing a framework and then
@@ -30,8 +33,6 @@ with me easily.
 ### Simple modules
 I wanted to avoid fiddling with settings and various files in order to get the
 extensions I need working.
-
-*Not* a requirement: using a full-on JavaScript, CSS, etc. framework
 
 With these requirements in mind, I went with the
 [Flask](http://flask.pocoo.org/) micro webdevelopment framework for Python,
@@ -53,6 +54,6 @@ Built with:
 - Flask
 - Flask-Flatpages
 
-View the source to ckuhl.com on
-[GitHub](https://github.com/ckuhl/ckuhl.com).
+You can view the source to ckuhl.com on
+[GitHub](https://github.com/ckuhl/ckuhl.com/).
 

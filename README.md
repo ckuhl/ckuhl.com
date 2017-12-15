@@ -17,3 +17,14 @@ Then the site will be accessable at http://127.0.0.1:5000.
 	- simple reports on the analytics data
 - a [large to-do list](TODO.md)
 
+
+## Notes
+### Favicon
+Made using [favicon.io](https://favicon.io/), with the following settings:
+Text: CK
+Shape: Rounded
+Font Family: Contrail One
+Font Size: 120
+Font Colour: (0, 0, 0)
+Background Colour: (21, 140, 186)
+

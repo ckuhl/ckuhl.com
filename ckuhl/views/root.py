@@ -7,11 +7,11 @@ from ..ext import Blog, Portfolio
 root = Blueprint('root', __name__)
 
 @root.route('/')
-def main(blog_n=5, portfolio_n=4):
+def main(num_posts=3, num_projects=3):
     """Display a list of recent blog posts and portfolio projects"""
     return render_template('root/index.html',
-                           articles=utils.get_pages(Blog, n=blog_n),
-                           projects=utils.get_pages(Portfolio, n=portfolio_n))
+                           articles=utils.get_pages(Blog, n=num_posts),
+                           projects=utils.get_pages(Portfolio, n=num_projects))
 
 @root.route('/about/')
 def about():

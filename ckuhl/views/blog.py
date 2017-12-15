@@ -8,8 +8,15 @@ from ..ext import Blog
 blog = Blueprint('blog', __name__)
 
 @blog.route('/')
+def home(blog_n=999):
+    """return a listing of blog posts"""
+    return render_template('blog/home.html',
+            articles=utils.get_pages(Blog, n=blog_n))
+
+
+@blog.route('/index/')
 def index(blog_n=999):
-    """Return a listing of blog posts"""
+    """return a listing of blog posts"""
     return render_template('blog/index.html',
             articles=utils.get_pages(Blog, n=blog_n))
 

@@ -24,11 +24,14 @@ able to easily add in
 experience. The caveat being, I need to dump a little bit of raw HTML into my
 otherwise clean text. But it's worth it to be able to embed images!
 
-<a href="/static/images/2017-12-06.jpg" data-lightbox="image-1"
+<p class="image-container">
+<a class="thumbnail-link" href="/static/images/2017-12-06_foggy-waterloo.jpg"
+	data-lightbox="travel-blog-1"
 	data-title="An example image">
-<img class="thumbnail" src="/static/images/2017-12-06.jpg"
-	alt="A foggy day in Waterloo, ON">
+	<img class="thumbnail" src="/static/images/2017-12-06_foggy-waterloo.jpg"
+		alt="A foggy day in Waterloo, ON">
 </a>
+</p>
 
 An example image, embedded for your viewing pleasure (and my testing help).
 

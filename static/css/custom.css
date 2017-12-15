@@ -1,3 +1,8 @@
+/* Fix font mangling */
+body {
+	font-size: 1rem;
+}
+
 /* Customize container */
 @media (min-width: 768px) {
 	.container {
@@ -28,14 +33,30 @@
 	}
 }
 
+/* Blog styles */
+.hero-image {
+	display: block;
+	margin: 0 auto;
+}
+
 
 /* Lightbox styles */
-.thumbnail {
-	width: 7rem;
+p.image-container {
+	text-align: center;
+}
+
+a.thumbnail-link {
+	display: inline-block;
+	padding: 2px;
 	border-radius: 4px;
 }
 
-p:has(.thumbnail) {
-	text-align: center;
+a.thumbnail-link:hover {
+	background-color: var(--info);
+}
+
+img.thumbnail {
+	width: 7rem;
+	border-radius: 4px;
 }
 

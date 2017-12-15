@@ -2,23 +2,28 @@
 {% block title %}Chris Kuhl{% endblock %}
 {% block css %}{% endblock %}
 {% block content %}
-<h2>Blog</h2>
+<h1 class="h2">From the Blog</h1>
 <section>
-	{% if articles %}<ul>{% endif %}
-		{% for a in articles %}
-		<li>
-			<span>{{ a.created|datetimeformat('%Y-%m-%d') }}</span>
-			<a href="{{ url_for('blog.post', path=a.path) }}">{{ a.title }}</a>
-		</li>
-		{% else %}
-		<p>Nothing here! Something must have gone wrong...</p>
-		{% endfor %}
-	{% if articles %}</ul>{% endif %}
+	{% for a in articles %}
+	<div>
+		<h2 class="h3">
+			<a href="{{ url_for('blog.post', path=a.path) }}">
+				{{ a.title }}
+			</a>
+		</h2>
+		<i>Published <span>{{ a.created|datetimeformat('%Y-%m-%d') }}</span></i>
+		<section>{{ a.html|teaser|safe }}</section>
+		<a href="{{ url_for('blog.post', path=a.path) }}">Read more</a>
+		<hr>
+	</div>
+	{% else %}
+	<p>Nothing here! Something must have gone wrong...</p>
+	{% endfor %}
 
-	<p>View <a href="/blog">all blog posts</a>.</p>
+	<p>View <a href="/blog/index/">all blog posts</a>.</p>
 </section>
 
-<h2>Projects</h2>
+<h1 class="h2">Projects</h1>
 <section>
 	{% if projects %}<dl>{% endif %}
 		{% for p in projects %}
@@ -29,7 +34,7 @@
 	{% endfor %}
 	{% if projects %}</dl>{% endif %}
 <p>If you want to see more, take a look at my
-<a href="/portfolio">portfolio</a> to see all of my projects.
+<a href="/portfolio/">portfolio</a> to see all of my projects.
 </p>
 </section>
 {% endblock %}

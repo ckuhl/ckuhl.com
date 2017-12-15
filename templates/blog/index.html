@@ -3,14 +3,8 @@
 {% block css %}{% endblock %}
 {% block content %}
 <div class="page-header">
-	<h1>Blog</h1>
-	<b>Some things I've written</b>
+	<h1 class="h2">Blog Index</h1>
 </div>
-<p>
-As I come up with ideas, I like to write about them to sort them out and
-really solidify what I'm thinking. Since I have a blog, I figure I may as
-well publish them while I'm at it.
-</p>
 {% if articles %}<ul>{% endif %}
 	{% for a in articles %}
 	<li>
@@ -23,6 +17,5 @@ well publish them while I'm at it.
 	<p>Nothing here! Expect some writings in the future.</p>
 	{% endfor %}
 	{% if articles %}</ul>{% endif %}
-
 {% endblock %}
 {% block js %}{% endblock %}
