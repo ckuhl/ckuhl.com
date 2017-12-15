@@ -1,7 +1,8 @@
-# logging
-*.log
-*.sqlite
-*.db
+# docs
+docs/
+
+# deployment
+dist/
 
 # virtual environment
 env/
@@ -9,4 +10,9 @@ env/
 # compiled (bytecode) python files
 __pycache__/
 *.py[cod]
+
+# logging
+*.log
+*.sqlite
+*.db
 
