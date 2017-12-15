@@ -13,7 +13,8 @@ Then the site will be accessable at http://127.0.0.1:5000.
 ## Features
 - a blog
 - a portfolio of my projects
+- a collection of small tools
 - local analytics
-- simple reports on the analytics data
+	- simple reports on the analytics data
 - a [large to-do list](TODO.md)
 	

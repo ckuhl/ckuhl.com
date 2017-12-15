@@ -27,3 +27,15 @@
 		border-bottom: 0;
 	}
 }
+
+
+/* Lightbox styles */
+.thumbnail {
+	width: 7rem;
+	border-radius: 4px;
+}
+
+p:has(.thumbnail) {
+	text-align: center;
+}
+

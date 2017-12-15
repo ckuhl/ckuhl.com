@@ -1,4 +1,8 @@
 # To - Do
+- Analytics
+	- `[X]` Add Flask tracking pixel analytics (goal: local-only)
+		- [Instructional blog post](https://www.madewithtea.com/event-tracking-with-javascript-flask.html)
+	- `[ ]` Pull in country / location from https://ipdata.co/
 - Backend
 	- `[X]` Refactor code into module / blueprints
 	- `[X]` Refactor blueprints into views folder, etc.
@@ -12,8 +16,6 @@
 	- `[X]` Add a "files" section for hosting stuff (a folder in static)
 	- `[X]` Update landing page copy
 	- `[~]` Update `About` page
-	- `[X]` Add Flask tracking pixel analytics (goal: local-only)
-		- [Instructional blog post](https://www.madewithtea.com/event-tracking-with-javascript-flask.html)
 	- `[X]` Use bootstrap "jumbotron" for error pages
 - Blog
 	- `[X]` Generate an RSS feed
@@ -24,6 +26,8 @@
 	- `[ ]` Add month / time pages (e.g. "September 2017", etc.)
 	- `[X]` Pretty-print created / updated times
 	- `[ ]` Move content into its own repo
+	- `[ ]` Move pictures in with content
+		- `[ ]` Change absolute URLs (?)
 - Portfolio
 	- `[ ]` Clean up header for projects
 	- `[ ]` Clean up entire project page (make pretty)

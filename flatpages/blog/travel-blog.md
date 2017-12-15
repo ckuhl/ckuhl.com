@@ -1,13 +1,12 @@
 ---
 title: "New: A Travel Blog!"
 created: 2017-12-06 18:02 -5
-updated: 2017-12-06 18:46 -5
+updated: 2017-12-14 23:41 -5
 published: True
 tags:
   - news
   - travel
   - life
-  - tweet+
 ...
 
 As a co-op student, I am often moving back and forth between school and a new
@@ -19,15 +18,17 @@ I am already writing a blog to hone my writing skills. Since it is already set
 up, I figure I'll get more utility out of it by also providing updates for my
 friends and family (and curious strangers) about what I get up to.
 
-The technical roadblock that I face in starting up a travel blog is that I have
-not yet figured out how to nicely include images in a blog post. While for now
-I am pursuing the easy solution of embedding entire images, this is not an
-optimal reading experience. Long-term my goal is to use
+Thanks to the ability of Markdown to include arbitrary HTML, I have a been
+able to easily add in
 [Lightbox](https://github.com/lokesh/lightbox2/) to provide a cleaner viewing
-experience. However to do this successfully will require that I write an
-extension to Python's markdown parser to properly format image tags.
+experience. The caveat being, I need to dump a little bit of raw HTML into my
+otherwise clean text. But it's worth it to be able to embed images!
 
-![A foggy day in Waterloo](/static/img/blog/2017-12-06.jpg "Test image embed")
+<a href="/static/img/blog/2017-12-06.jpg" data-lightbox="image-1"
+	data-title="An example image">
+<img class="thumbnail" src="/static/img/blog/2017-12-06.jpg"
+	alt="A foggy day in Waterloo, ON">
+</a>
 
 An example image, embedded for your viewing pleasure (and my testing help).
 
