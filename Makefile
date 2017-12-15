@@ -16,6 +16,7 @@ package: clean
 	tar -f ${PROJECT}.tar --delete README.md
 	tar -f ${PROJECT}.tar --delete TODO.md
 	tar -f ${PROJECT}.tar --delete Makefile
+	tar -f ${PROJECT}.tar --delete .gitignore
 	gzip ${PROJECT}.tar
 	mkdir -p ${DIST} && mv ${PROJECT}.tar.gz ${DIST}
 
