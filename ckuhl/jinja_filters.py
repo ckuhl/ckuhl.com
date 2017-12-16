@@ -13,7 +13,7 @@ def datetimeformat(date, fmt='%Y-%m-%d'):
     native = date.replace(tzinfo=None)
     return native.strftime(fmt)
 
-def teaser(content):
+def teaser_para(content):
     """
     Given a block of HTML, return only the first paragraph (the teaser)
 
@@ -21,4 +21,15 @@ def teaser(content):
     :returns str: First paragraph of html
     """
     return content.split('</p>')[0] + '</p>'
+
+
+def teaser_sentence(content, n=3):
+    """
+    Given a block of HTML, return only the first n sentences.
+
+    :param str content: Entire HTML block
+    :returns str: First n sentences of html
+    """
+    # TODO: Yes this is a hack
+    return '.'.join(content.split('</p>')[0].split('.')[:n]) + '.' + '</p>'
 

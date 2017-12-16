@@ -42,7 +42,8 @@ def create_app(debug=False):
     # import jinja filters
     # TODO: Simplify this (move to middleware?)
     app.jinja_env.filters['datetimeformat'] = jinja_filters.datetimeformat
-    app.jinja_env.filters['teaser'] = jinja_filters.teaser
+    app.jinja_env.filters['teaser_para'] = jinja_filters.teaser_para
+    app.jinja_env.filters['teaser_sentence'] = jinja_filters.teaser_sentence
 
     # import blueprints
     app.register_blueprint(blog.blog, url_prefix='/blog')

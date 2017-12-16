@@ -2,40 +2,45 @@
 {% block title %}Chris Kuhl{% endblock %}
 {% block css %}{% endblock %}
 {% block content %}
-<h1 class="h2">From the Blog</h1>
-<section>
-	{% for a in articles %}
-	<div>
-		<h2 class="h3">
-			<a href="{{ url_for('blog.post', path=a.path) }}">
-				{{ a.title }}
-			</a>
-		</h2>
-		<i>Published <span>{{ a.created|datetimeformat('%Y-%m-%d') }}</span></i>
-		<section>{{ a.html|teaser|safe }}</section>
-		<a href="{{ url_for('blog.post', path=a.path) }}">Read more</a>
-		<hr>
+<h1 class="display-4">From the Blog</h1>
+{% for a in articles %}
+<div class="card my-3">
+	<div class="card-header bg-primary">
+		<a class="text-light" href="{{ url_for('blog.post', path=a.path) }}">
+			{{ a.title }}
+		</a>
 	</div>
-	{% else %}
-	<p>Nothing here! Something must have gone wrong...</p>
-	{% endfor %}
+	<div class="card-body">
+		<section>{{ a.html|teaser_sentence|safe }}</section>
+		<a href="{{ url_for('blog.post', path=a.path) }}">Read more</a>
+	</div>
+	<div class="card-footer text-faded">
+		<i>Published <span>{{ a.created|datetimeformat('%Y-%m-%d') }}</span></i>
+	</div>
+</div>
+{% else %}
+<p>Nothing here! Something must have gone wrong...</p>
+{% endfor %}
 
-	<p>View <a href="/blog/index/">all blog posts</a>.</p>
-</section>
+<p>View <a href="/blog/index/">all blog posts</a>.</p>
 
-<h1 class="h2">Projects</h1>
-<section>
-	{% if projects %}<dl>{% endif %}
-		{% for p in projects %}
-		<dt><a href="{{ url_for('portfolio.project', path=p.path) }}">{{ p.title }}</a></h3>
-	<dd>{{ p.description }}</dd>
-	{% else %}
-	<p>Nothing here! Something must have gone wrong...</p>
-	{% endfor %}
-	{% if projects %}</dl>{% endif %}
+
+<h1 class="display-4">From my portfolio</h1>
+{% for p in projects %}
+<div class="card my-3">
+	<div class="card-header bg-primary">
+		<a class="text-light" href="{{ url_for('portfolio.project', path=p.path) }}">{{ p.title }}</a>
+	</div>
+	<div class="card-body">
+		{{ p.description }}
+	</div>
+</div>
+{% else %}
+<p>Nothing here! Something must have gone wrong...</p>
+{% endfor %}
+
 <p>If you want to see more, take a look at my
 <a href="/portfolio/">portfolio</a> to see all of my projects.
 </p>
-</section>
 {% endblock %}
 {% block js %}{% endblock %}
