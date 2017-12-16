@@ -1,14 +1,14 @@
 ---
-title: Image Block X
-created: 2017-09-23 12:00 -5
-updated: 2017-11-25 12:00 -5
-published: True
-tags:
-  - web
-  - js
-  - learning
-description: A learning project about developing web extensions for Firefox,
-             this is a toggle on whether or not to load images in webpages.
+    title: Image Block X
+    created: 2017-09-23 12:00 -5
+    updated: 2017-11-25 12:00 -5
+    published: True
+    tags:
+      - web
+      - js
+      - learning
+    description: A learning project about developing web extensions for Firefox,
+                 this is a toggle on whether or not to load images in webpages.
 ...
 
 <img class="hero-image" src="/static/images/2017-12-15_image-block-x.png"

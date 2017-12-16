@@ -1,17 +1,17 @@
 ---
-title: Feed-ing the Readers
-created: 2017-12-07 18:12 -5
-updated: 2017-12-07 18:12 -5
-published: True
-tags:
-  - news
-  - dev
-  - tweet+
+    title: Feed-ing the Readers
+    created: 2017-12-07 18:12 -5
+    updated: 2017-12-07 18:12 -5
+    published: True
+    tags:
+      - news
+      - dev
+      - tweet+
 ...
 
-Initially an MVP[^1], I have been progressively fleshing out my blog as I have
+Initially an MVP, I have been progressively fleshing out my blog as I have
 time, usually with whatever catches my fancy. My latest (re)discovery on this
-front has been RSS[^2] feeds. Being able to keep up-to-date on blogs
+front has been RSS feeds. Being able to keep up-to-date on blogs
 that post infrequently is beneficial to me. Not only because I can
 keep up on content I care about, but also because this form of passive following
 allows me to use the internet less.
@@ -24,8 +24,7 @@ to do all the heavy lifting for me. Combined with FlatPages for flask, and I
 have another handy feature added to my blog in just under an hour.
 
 
-[^1]: Minimum Viable Product
+*[MVP]: Minimum Viable Product
 
-[^2]: [Rich Site Summary](https://en.wikipedia.org/wiki/RSS), a way to
-publish updates to sites in a computer-readable format.
+*[RSS]: Rich Site Summary, a way to publish updates to sites in a computer-readable format
 

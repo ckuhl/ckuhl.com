@@ -1,11 +1,11 @@
 ---
-title: Distant co-op
-created: 2017-11-30 20:02 -5
-updated: 2017-11-30 20:02 -5
-published: False
-tags:
-  - guide
-  - co-op
+    title: Distant co-op
+    created: 2017-11-30 20:02 -5
+    updated: 2017-11-30 20:02 -5
+    published: False
+    tags:
+      - guide
+      - co-op
 ...
 
 Getting a co-op placement is often stressful enough on its own. But what about

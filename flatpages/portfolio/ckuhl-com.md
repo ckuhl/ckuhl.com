@@ -1,15 +1,15 @@
 ---
-title: ckuhl.com
-created: 2017-09-18 12:00 -5
-updated: 2017-12-15 15:14 -5
-published: True
-tags:
-  - website
-  - python
-  - portfolio
-description: A personal website to use as a testing bed for new projects,
-             a way to market myself (as a developer and
-             writer/communicator), and to establish an online presence.
+    title: ckuhl.com
+    created: 2017-09-18 12:00 -5
+    updated: 2017-12-15 15:14 -5
+    published: True
+    tags:
+      - website
+      - python
+      - portfolio
+    description: A personal website to use as a testing bed for new projects,
+                 a way to market myself (as a developer and
+                 writer/communicator), and to establish an online presence.
 ...
 
 <img class="hero-image" src="/static/images/2017-12-15_ckuhl-com.png"

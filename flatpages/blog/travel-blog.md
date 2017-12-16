@@ -1,12 +1,12 @@
 ---
-title: "New: A Travel Blog!"
-created: 2017-12-06 18:02 -5
-updated: 2017-12-14 23:41 -5
-published: True
-tags:
-  - news
-  - travel
-  - life
+    title: "New: A Travel Blog!"
+    created: 2017-12-06 18:02 -5
+    updated: 2017-12-14 23:41 -5
+    published: True
+    tags:
+      - news
+      - travel
+      - life
 ...
 
 As a co-op student, I am often moving back and forth between school and a new

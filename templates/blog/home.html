@@ -9,7 +9,7 @@
 		<a class="text-light" href="{{ url_for('blog.post', path=a.path) }}">{{ a.title }}</a>
 	</div>
 	<div class="card-body">
-		{{ a.html|teaser|safe }}
+		{{ a.html|teaser_para|safe }}
 		<a href="{{ url_for('blog.post', path=a.path) }}">Read more</a>
 	</div>
 	<div class="card-footer text-muted">
