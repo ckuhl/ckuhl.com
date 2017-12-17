@@ -7,12 +7,10 @@
 {% block content %}
 <h1 class="display-4">{{ post.title }}</h1>
 
-<hr>
 <div>{{ post.html|safe }}</div>
-<hr>
 
 <span class="fa fa-calendar" aria-hidden="true"></span>
-Written <abbr title="{{ post.created }}">{{ post.created|datetimeformat('%B %e, %Y') }}</abbr>{% if post.updated != post.created %}, updated <abbr title="{{post.updated }}">{{ post.updated|datetimeformat('%B %e, %Y') }}</abbr>{% endif %}
+Written <abbr title="{{ post.created }}">{{ post.created|datetimeformat('%B %e, %Y') }}</abbr>{% if post.updated != post.created %}, updated <abbr title="{{ post.updated }}">{{ post.updated|datetimeformat('%B %e, %Y') }}</abbr>{% endif %}
 {% if post.tags %}
 <div>
 	<span class="fa fa-tags" aria-hidden="true"></span>

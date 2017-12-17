@@ -5,17 +5,11 @@
 <h1 class="display-4">From the Blog</h1>
 {% for a in articles %}
 <div class="card my-3">
-	<div class="card-header bg-primary">
-		<a class="text-light" href="{{ url_for('blog.post', path=a.path) }}">
-			{{ a.title }}
-		</a>
-	</div>
 	<div class="card-body">
-		<section>{{ a.html|teaser_sentence|safe }}</section>
-		<a href="{{ url_for('blog.post', path=a.path) }}">Read more</a>
-	</div>
-	<div class="card-footer text-faded">
-		<i>Published <span>{{ a.created|datetimeformat('%Y-%m-%d') }}</span></i>
+		<h2 class="h4 card-title"><a href="{{ url_for('blog.post', path=a.path) }}">{{ a.title }}</a></h2>
+		<h3 class="h6 text-muted">Written <span>{{ a.created|datetimeformat('%Y-%m-%d') }}</span></h3>
+		{{ a.html|teaser_sentence|safe }}
+		<a class="btn btn-outline-primary" href="{{ url_for('blog.post', path=a.path) }}">Read more</a>
 	</div>
 </div>
 {% else %}
@@ -28,10 +22,8 @@
 <h1 class="display-4">From my portfolio</h1>
 {% for p in projects %}
 <div class="card my-3">
-	<div class="card-header bg-primary">
-		<a class="text-light" href="{{ url_for('portfolio.project', path=p.path) }}">{{ p.title }}</a>
-	</div>
 	<div class="card-body">
+		<h2 class="h4 card-title"><a href="{{ url_for('portfolio.project', path=p.path) }}">{{ p.title }}</a></h2>
 		{{ p.description }}
 	</div>
 </div>

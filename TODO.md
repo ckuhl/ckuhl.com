@@ -1,36 +1,41 @@
 # To - Do
+- General Site
+	- `[X]` Add a lightbox for photos
+	- `[X]` Update style to Bootstrap 4
+	- `[X]` Add a "files" section for hosting stuff (a folder in static)
+	- `[X]` Update landing page copy
+	- `[X]` Update `About` page style
+	- `[X]` Update `About` page copy
+	- `[X]` Use bootstrap "jumbotron" for error pages
+	- `[ ]` Split out blog into personal, dev, etc.
 - Analytics
 	- `[X]` Add Flask tracking pixel analytics (goal: local-only)
 		- [Instructional blog post](https://www.madewithtea.com/event-tracking-with-javascript-flask.html)
+	- `[ ]` Do better analytics
+		-`[ ]` Store requests that don't load JS
+		-`[ ]` Provide a user interface (add a `/admin`)
+		-`[ ]` Chart analytics
+		-`[ ]` Ignore myself somehow
+		-`[ ]` Use a cookie to track acress sessions?
 	- `[ ]` Pull in country / location from https://ipdata.co/
 - Backend
 	- `[X]` Refactor code into module / blueprints
 	- `[X]` Refactor blueprints into views folder, etc.
 	- `[X]` Move configuration files to Ansible (i.e. single purpose repo)
 	- `[X]` Write to a logfile so I can more easily debug
-	- `[ ]` Create middleware file
+	- `[ ]` Create middleware file (for jinja templates, etc.)
 	- `[ ]` Make settings available from modules
-- General Site
-	- `[ ]` Add a lightbox for photos
-	- `[X]` Update style to Bootstrap 4
-	- `[X]` Add a "files" section for hosting stuff (a folder in static)
-	- `[X]` Update landing page copy
-	- `[~]` Update `About` page
-	- `[X]` Use bootstrap "jumbotron" for error pages
 - Blog
 	- `[X]` Generate an RSS feed
-		- `[ ]` Add per-tag RSS feeds (e.g. only "travel" updates)
-	- `[ ]` Add a "Next post" / "Previous post"
-	- `[~]` Clean up header for blog posts
-	- `[ ]` Write blog posts
+		- `[X]` Add per-tag RSS feeds (e.g. only "travel" updates)
+	- `[ ]` Add a "Next post" / "Previous post" to individual posts
+	- `[X]` Clean up header for blog posts
+	- `[X]` Clean up footer for blog posts
 	- `[ ]` Add month / time pages (e.g. "September 2017", etc.)
 	- `[X]` Pretty-print created / updated times
-	- `[ ]` Move content into its own repo
-	- `[ ]` Move pictures in with content
-		- `[ ]` Change absolute URLs (?)
 - Portfolio
-	- `[ ]` Clean up header for projects
-	- `[ ]` Clean up entire project page (make pretty)
+	- `[X]` Clean up header for projects
+	- `[X]` Clean up entire project page (make pretty)
 	- `[X]` Add projects area using FlatPages as well
-	- `[ ]` Flesh out Projects page (bring up to speed with the blog)
+	- `[X]` Flesh out Projects page (bring up to speed with the blog)
 

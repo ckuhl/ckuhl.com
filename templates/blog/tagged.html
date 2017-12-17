@@ -3,15 +3,17 @@
 {% block title %}Blog | Chris Kuhl{% endblock %}
 {% block css %}{% endblock %}
 {% block content %}
-<h1 class="title">Posts tagged: {{ tag }}</h1>
-{% if articles %}<ul>{% endif %}
+<h1 class="display-4">Posts tagged: {{ tag }}</h1>
 {% for a in articles %}
-	<li>
-	<b>{{ a.created|datetimeformat('%Y-%m-%d') }}</b>
-	<a href="{{ url_for('blog.post', path=a.path) }}">{{ a.title }}</a>
-	</li>
+<div class="card my-3">
+	<div class="card-body">
+		<h2 class="h4 card-title"><a href="{{ url_for('blog.post', path=a.path) }}">{{ a.title }}</a></h2>
+		<h3 class="h6 text-muted">Written {{ a.created|datetimeformat('%Y-%m-%d') }}</h3>
+		{{ a.html|teaser_para|safe }}
+	</div>
+</div>
 {% else %}
-	<p>Nothing tagged with {{ tag }}!</p>
+	<p>There are no blog posts that are tagged "{{ tag }}"!</p>
 {% endfor %}
 {% if articles %}</ul>{% endif %}
 {% endblock %}

@@ -3,21 +3,22 @@
 {% block title %}Blog | Chris Kuhl{% endblock %}
 {% block css %}{% endblock %}
 {% block content %}
-<h1 class="display-4">Recent blog posts</h1>
+<h1 class="display-4">{{ category }}
+	<a href="/blog/category/{{ category }}/rss/" class="btn-btn-secondary">
+		<span class="fa fa-rss"></span>
+	</a>
+</h1>
 {% for a in articles %}
 <div class="card my-3">
 	<div class="card-body">
 		<h2 class="h4 card-title"><a href="{{ url_for('blog.post', path=a.path) }}">{{ a.title }}</a></h2>
 		<h3 class="h6 text-muted">Written {{ a.created|datetimeformat('%Y-%m-%d') }}</h3>
 		{{ a.html|teaser_para|safe }}
-		<a href="{{ url_for('blog.post', path=a.path) }}">Read more</a>
 	</div>
 </div>
 {% else %}
-<p>Nothing here! Something must have gone wrong...</p>
+<p>It appears that "{{ category }}" is not a category.</p>
 {% endfor %}
-
-<p>View <a href="/blog/index/">the entire index</a>.</p>
-
+{% if articles %}</ul>{% endif %}
 {% endblock %}
 {% block js %}{% endblock %}

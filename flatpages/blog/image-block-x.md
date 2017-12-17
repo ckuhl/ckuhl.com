@@ -3,6 +3,7 @@
     created: 2017-09-23 18:32 -5
     updated: 2017-12-06 16:27 -5
     published: True
+    category: tech
     tags:
       - dev
       - learning

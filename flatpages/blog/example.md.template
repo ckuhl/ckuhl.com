@@ -3,6 +3,7 @@
     created: 2017-01-01 12:00 -5
     updated: 2017-01-02 12:00 -5
     published: True
+    category: template
     tags:
       - news
       - test

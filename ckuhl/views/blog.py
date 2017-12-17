@@ -27,7 +27,25 @@ def rss_feed():
     """
     return utils.generate_rss_feed(utils.get_pages(Blog, n=20))
 
-@blog.route('/<path:path>/')
+@blog.route('/category/<string:cat>/rss/')
+def category_rss(cat):
+    """Generate a specific category blog post"""
+    all_posts = utils.get_pages(Blog)
+    posts_in_cat = [p for p in all_posts if p.meta['category'] == cat]
+
+    return utils.generate_rss_feed(posts_in_cat)
+
+@blog.route('/category/<string:cat>/')
+def category(cat):
+    """Serve all blog posts in a given category"""
+    all_posts = utils.get_pages(Blog)
+    posts_in_cat = [p for p in all_posts if p.meta['category'] == cat]
+
+    return render_template('blog/category.html',
+            category=cat,
+            articles=posts_in_cat)
+
+@blog.route('/<string:path>/')
 def post(path):
     """Serve a given blog post (if it exists)"""
     post = Blog.get_or_404(path)

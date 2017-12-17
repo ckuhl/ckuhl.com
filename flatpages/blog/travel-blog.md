@@ -3,6 +3,7 @@
     created: 2017-12-06 18:02 -5
     updated: 2017-12-14 23:41 -5
     published: True
+    category: travel
     tags:
       - news
       - travel

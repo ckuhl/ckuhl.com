@@ -3,6 +3,7 @@
     created: 2017-09-19 14:49 -5
     updated: 2017-09-19 14:49 -5
     published: True
+    category: tech
     tags:
       - news
       - tweet+

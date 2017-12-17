@@ -3,20 +3,21 @@
 {% block title %}Blog | Chris Kuhl{% endblock %}
 {% block css %}{% endblock %}
 {% block content %}
-<div class="page-header">
-	<h1 class="h2">Blog Index</h1>
-</div>
-{% if articles %}<ul>{% endif %}
+<h1 class="display-4">Blog Index</h1>
+{% if articles %}<div class="list-group">{% endif %}
 	{% for a in articles %}
-	<li>
-		<div>
-			<span>{{ a.created|datetimeformat('%Y-%m-%d') }}</span>
-			<a href="{{ url_for('blog.post', path=a.path) }}">{{ a.title }}</a>
+	<a href="{{ url_for('blog.post', path=a.path) }}"
+		class="list-group-item list-group-item-action flex-column align-items-start">
+		<div class="d-flex w-100">
+			<small class="text-muted mr-1">
+				{{ a.created|datetimeformat('%Y-%m-%d') }}
+			</small>
+			<h2 class="h5">{{ a.title }}</h5>
 		</div>
-	</li>
+	</a>
 	{% else %}
 	<p>Nothing here! Expect some writings in the future.</p>
 	{% endfor %}
-	{% if articles %}</ul>{% endif %}
+{% if articles %}</div>{% endif %}
 {% endblock %}
 {% block js %}{% endblock %}
