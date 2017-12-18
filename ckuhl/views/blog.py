@@ -10,22 +10,28 @@ blog = Blueprint('blog', __name__)
 @blog.route('/')
 def home(blog_n=999):
     """return a listing of blog posts"""
+    posts = utils.get_pages(Blog, n=blog_n)
+    blog_posts = [p for p in posts if p.meta['category'] != 'travel']
     return render_template('blog/home.html',
-            articles=utils.get_pages(Blog, n=blog_n))
+            articles=blog_posts)
 
 
 @blog.route('/index/')
 def index(blog_n=999):
     """return a listing of blog posts"""
+    posts = utils.get_pages(Blog, n=blog_n)
+    blog_posts = [p for p in posts if p.meta['category'] != 'travel']
     return render_template('blog/index.html',
-            articles=utils.get_pages(Blog, n=blog_n))
+            articles=blog_posts)
 
 @blog.route('/rss/')
 def rss_feed():
     """
     Return the RSS feed
     """
-    return utils.generate_rss_feed(utils.get_pages(Blog, n=20))
+    posts = utils.get_pages(Blog, n=20)
+    blog_posts = [p for p in posts if p.meta['category'] != 'travel']
+    return utils.generate_rss_feed(blog_posts)
 
 @blog.route('/category/<string:cat>/rss/')
 def category_rss(cat):

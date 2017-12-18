@@ -1,0 +1,17 @@
+{% extends "base/container.html" %}
+{% set active = "travel" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/lightbox.min.css') }}">
+{% endblock %}
+{% block content %}
+<h1 class="display-4">{{ post.title }}</h1>
+
+<div>{{ post.html|safe }}</div>
+
+<span class="fa fa-calendar" aria-hidden="true"></span>
+Written <abbr title="{{ post.created }}">{{ post.created|datetimeformat('%B %e, %Y') }}</abbr>{% if post.updated != post.created %}, updated <abbr title="{{ post.updated }}">{{ post.updated|datetimeformat('%B %e, %Y') }}</abbr>{% endif %}
+{% endblock %}
+{% block js %}
+<script src="{{ url_for('static', filename='js/lightbox.min.js') }}"></script>
+{% endblock %}

@@ -11,7 +11,7 @@ from .ext import Database, Blog, Portfolio
 from .settings import ProdConfig, DebugConfig
 from .models import PageView
 
-from .views import analytics, blog, root, portfolio, tools
+from .views import analytics, blog, root, portfolio, tools, travel
 
 
 def create_app(debug=False):
@@ -47,6 +47,7 @@ def create_app(debug=False):
 
     # import blueprints
     app.register_blueprint(blog.blog, url_prefix='/blog')
+    app.register_blueprint(travel.travel, url_prefix='/travel')
     app.register_blueprint(portfolio.portfolio, url_prefix='/portfolio')
     app.register_blueprint(tools.utilities, url_prefix='/tools')
     app.register_blueprint(root.root)
