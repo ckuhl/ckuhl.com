@@ -10,7 +10,7 @@ root = Blueprint('root', __name__)
 def main(num_posts=3, num_projects=3):
     """Display a list of recent blog posts and portfolio projects"""
     posts = utils.get_pages(Blog, n=num_posts)
-    blog_posts = [p for p in posts if p.meta['category'] != 'travel'
+    blog_posts = [p for p in posts if p.meta['category'] != 'travel']
 
     return render_template('root/index.html',
                            articles=blog_posts,
