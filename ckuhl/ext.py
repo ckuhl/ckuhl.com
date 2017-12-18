@@ -5,6 +5,5 @@ from .settings import BaseConfig
 
 
 Database = SqliteDatabase(BaseConfig.DATABASE_NAME)
-Blog = FlatPages(name='blog')
-Portfolio = FlatPages(name='portfolio')
+Pages = FlatPages()
 

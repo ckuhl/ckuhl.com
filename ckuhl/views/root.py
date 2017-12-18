@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template
 
 from .. import utils
-from ..ext import Blog, Portfolio
+from ..ext import Pages
 
 
 root = Blueprint('root', __name__)
@@ -9,12 +9,13 @@ root = Blueprint('root', __name__)
 @root.route('/')
 def main(num_posts=3, num_projects=3):
     """Display a list of recent blog posts and portfolio projects"""
-    posts = utils.get_pages(Blog, n=num_posts)
-    blog_posts = [p for p in posts if p.meta['category'] != 'travel']
+    blog_posts = utils.get_category(Pages, 'blog', n=num_posts)
+
+    portfolio_projects = utils.get_category(Pages, 'portfolio', n=num_projects)
 
     return render_template('root/index.html',
                            articles=blog_posts,
-                           projects=utils.get_pages(Portfolio, n=num_projects))
+                           projects=portfolio_projects)
 
 @root.route('/about/')
 def about():

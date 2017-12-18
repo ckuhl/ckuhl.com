@@ -3,7 +3,7 @@
     created: 2017-11-24 18:51 -5
     updated: 2017-11-25 17:34 -5
     published: True
-    category: practices
+    category: blog
     tags:
       - dev
       - goals

@@ -3,7 +3,7 @@
     created: 2017-12-07 18:12 -5
     updated: 2017-12-07 18:12 -5
     published: True
-    category: tech
+    category: blog
     tags:
       - news
       - dev

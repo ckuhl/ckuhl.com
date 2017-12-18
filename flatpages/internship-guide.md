@@ -3,7 +3,7 @@
     created: 2017-11-30 20:02 -5
     updated: 2017-11-30 20:02 -5
     published: False
-    category: life
+    category: blog
     tags:
       - guide
       - co-op

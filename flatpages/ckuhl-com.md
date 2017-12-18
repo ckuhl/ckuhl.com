@@ -3,6 +3,7 @@
     created: 2017-09-18 12:00 -5
     updated: 2017-12-15 15:14 -5
     published: True
+    category: portfolio
     tags:
       - website
       - python

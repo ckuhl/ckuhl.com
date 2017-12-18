@@ -7,7 +7,7 @@ from flask_flatpages import FlatPages
 
 from . import jinja_filters
 
-from .ext import Database, Blog, Portfolio
+from .ext import Database, Pages
 from .settings import ProdConfig, DebugConfig
 from .models import PageView
 
@@ -47,7 +47,6 @@ def create_app(debug=False):
 
     # import blueprints
     app.register_blueprint(blog.blog, url_prefix='/blog')
-    app.register_blueprint(travel.travel, url_prefix='/travel')
     app.register_blueprint(portfolio.portfolio, url_prefix='/portfolio')
     app.register_blueprint(tools.utilities, url_prefix='/tools')
     app.register_blueprint(root.root)
@@ -80,8 +79,7 @@ def create_app(debug=False):
 
     # init extensions
     Database.create_tables([PageView], safe=True)
-    Blog.init_app(app)
-    Portfolio.init_app(app)
+    Pages.init_app(app)
 
     return app
 

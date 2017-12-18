@@ -56,6 +56,14 @@ def get_pages(flatpages, n=999, is_published=True):
                     key=lambda p: p.meta['created'])
     return latest[:n]
 
+def get_category(flatpages, category, n=999, is_published=True):
+    """
+    Get a list of flatpages for a given category
+    """
+    pages = get_pages(flatpages, is_published=is_published)
+    category_pages = [p for p in pages if p.meta['category'] == category]
+    return category_pages[:n]
+
 
 class JSONField(TextField):
     """Store JSON data in a TextField."""

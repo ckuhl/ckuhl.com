@@ -3,6 +3,7 @@
     created: 2017-09-19 12:00 -5
     updated: 2017-09-19 12:00 -5
     published: True
+    category: portfolio
     tags:
       - pts
       - portfolio

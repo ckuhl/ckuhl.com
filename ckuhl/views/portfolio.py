@@ -2,7 +2,7 @@ from flask import Blueprint, render_template
 from flask_flatpages import FlatPages
 
 from .. import utils
-from ..ext import Portfolio
+from ..ext import Pages
 
 
 portfolio = Blueprint('portfolio', __name__)
@@ -11,13 +11,13 @@ portfolio = Blueprint('portfolio', __name__)
 def index(n=999):
     """Serve a listing of portfolio projects"""
     return render_template('portfolio/index.html',
-            projects=utils.get_pages(Portfolio, n=n))
+            projects=utils.get_category(Pages, 'portfolio', n=n))
 
 
 @portfolio.route('/<path:path>/')
 def project(path):
     """Serve a specific portfolio project"""
-    post = Portfolio.get_or_404(path)
+    post = Pages.get_or_404(path)
 
     if post.meta['published'] is False:
         abort(403)
