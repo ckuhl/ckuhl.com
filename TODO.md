@@ -2,6 +2,8 @@
 - General Site
 	- `[ ]` Split out blog into personal, dev, etc.
 	- `[ ]` Look into different blogging formats (static site, etc.)
+	- `[ ]` Create one blog post template with different options
+		- e.g. "show_tags", "show_date", etc.
 - Analytics
 	- `[ ]` Do better analytics
 		-`[ ]` Store requests that don't load JS

@@ -9,8 +9,11 @@ root = Blueprint('root', __name__)
 @root.route('/')
 def main(num_posts=3, num_projects=3):
     """Display a list of recent blog posts and portfolio projects"""
+    posts = utils.get_pages(Blog, n=num_posts)
+    blog_posts = [p for p in posts if p.meta['category'] != 'travel'
+
     return render_template('root/index.html',
-                           articles=utils.get_pages(Blog, n=num_posts),
+                           articles=blog_posts,
                            projects=utils.get_pages(Portfolio, n=num_projects))
 
 @root.route('/about/')

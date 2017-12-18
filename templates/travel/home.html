@@ -1,7 +1,9 @@
 {% extends "base/container.html" %}
 {% set active = "travel" %}
 {% block title %}Travels | Chris Kuhl{% endblock %}
-{% block css %}{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/lightbox.min.css') }}">
+{% endblock %}
 {% block content %}
 <h1 class="display-4">My Travels</h1>
 {% for a in articles %}
@@ -17,4 +19,6 @@
 {% endfor %}
 
 {% endblock %}
-{% block js %}{% endblock %}
+{% block js %}
+<script src="{{ url_for('static', filename='js/lightbox.min.js') }}"></script>
+{% endblock %}
