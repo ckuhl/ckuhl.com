@@ -60,3 +60,18 @@ img.thumbnail {
 	border-radius: 4px;
 }
 
+/* Local bootstrap fonts */
+@font-face {
+	font-family: 'Nunito Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Nunito Sans Regular'), local('NunitoSans-Regular'), url(/static/fonts/NunitoSans-Regular.ttf) format('ttf');
+}
+
+@font-face {
+	font-family: 'Nunito Sans';
+	font-style: normal;
+	font-weight: 600;
+	src: local('Nunito Sans SemiBold'), local('NunitoSans-SemiBold'), url(/static/fonts/NunitoSans-SemiBold.ttf) format('ttf');
+}
+

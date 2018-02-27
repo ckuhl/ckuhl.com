@@ -25,8 +25,8 @@ Then the site will be accessable at http://127.0.0.1:5000.
 Made using [favicon.io](https://favicon.io/), with the following settings:
 Text: CK
 Shape: Rounded
-Font Family: Contrail One
-Font Size: 120
-Font Colour: (0, 0, 0)
-Background Colour: (21, 140, 186)
+Font Family: Nunito Sans
+Font Size: 95
+Font Colour: (255, 255, 255)
+Background Colour: (26, 26, 26)
 

@@ -19,5 +19,5 @@
 	- `[ ]` Add a "Next post" / "Previous post" to individual posts
 	- `[ ]` Add month / time pages (e.g. "September 2017", etc.)
 - Portfolio
-	- `[ ]` ???
+	- `[ ]` write about [iwantthat.pet](https://iwantthat.pet/)
 

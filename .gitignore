@@ -3,9 +3,12 @@ docs/
 
 # deployment
 dist/
+uwsgi.ini
+wsgi.ini
 
 # virtual environment
 env/
+venv/
 
 # compiled (bytecode) python files
 __pycache__/
@@ -14,5 +17,6 @@ __pycache__/
 # logging
 *.log
 *.sqlite
+*.sqlite3
 *.db
 

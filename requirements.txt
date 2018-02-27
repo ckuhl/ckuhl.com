@@ -5,12 +5,12 @@ Flask-FlatPages==0.6
 itsdangerous==0.24
 Jinja2==2.10
 lxml==4.1.1
-Markdown==2.6.10
+Markdown==2.6.11
 MarkupSafe==1.0
-peewee==2.10.2
+peewee==3.1.0
 pkg-resources==0.0.0
 python-dateutil==2.6.1
 PyYAML==3.12
 six==1.11.0
-uWSGI==2.0.15
-Werkzeug==0.13
+uWSGI==2.0.17
+Werkzeug==0.14.1
