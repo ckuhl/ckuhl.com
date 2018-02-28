@@ -9,8 +9,9 @@
       - python
       - portfolio
     description: A personal website to use as a testing bed for new projects,
-                 a way to market myself (as a developer and
-                 writer/communicator), and to establish an online presence.
+        a way to market myself (as a developer and
+        writer/communicator), and to establish an online presence.
+    repo: https://github.com/ckuhl/ckuhl.com
 ...
 
 <img class="hero-image" src="/static/images/2017-12-15_ckuhl-com.png"
@@ -54,7 +55,4 @@ Built with:
 - python3
 - Flask
 - Flask-Flatpages
-
-You can view the source to ckuhl.com on
-[GitHub](https://github.com/ckuhl/ckuhl.com/).
 

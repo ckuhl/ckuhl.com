@@ -8,8 +8,9 @@
       - pts
       - portfolio
     description: A black box testing library built with Python and YAML. Useful
-                 for testing programs or scripts that don't have builtin testing
-                 functionality (e.g. MIPS assembly).
+        for testing programs or scripts that don't have builtin testing
+        functionality (e.g. MIPS assembly).
+    repo: https://github.com/ckuhl/pts
 ...
 
 Last year for a computer science class (CS 246) I was required to write a
@@ -50,7 +51,4 @@ Built with:
 - python3
 - python3 builtin library
 - PyYAML
-
-View the source of the python testing suite on
-[GitHub](https://github.com/ckuhl/pts).
 

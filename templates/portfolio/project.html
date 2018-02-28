@@ -7,5 +7,10 @@
 <div>{{ post.html|safe }}</div>
 <span class="fa fa-calendar" aria-hidden="true"></span>
 Written {{ post.created|datetimeformat('%B %e, %Y') }}{% if post.updated != post.created %}, updated {{ post.updated|datetimeformat('%B %e, %Y') }}{% endif %}
+
+{% if post.repo %}
+<span class="fa fa-github" aria-hidden="true"></span>
+<a href={{ post.repo }}>View the source</a>
+{% endif %}
 {% endblock %}
 {% block js %}{% endblock %}

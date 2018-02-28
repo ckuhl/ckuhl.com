@@ -4,6 +4,7 @@
 	- `[ ]` Look into different blogging formats (static site, etc.)
 	- `[ ]` Create one blog post template with different options
 		- e.g. "show_tags", "show_date", etc.
+	- `[ ]` Clean out unused stuff from the site
 - Analytics
 	- `[ ]` Do better analytics
 		-`[ ]` Store requests that don't load JS
@@ -15,9 +16,10 @@
 - Backend
 	- `[ ]` Create middleware file (for jinja templates, etc.)
 	- `[ ]` Make settings available from modules
+	- `[ ]` Change all templates to `.j2` files
 - Blog
 	- `[ ]` Add a "Next post" / "Previous post" to individual posts
 	- `[ ]` Add month / time pages (e.g. "September 2017", etc.)
 - Portfolio
-	- `[ ]` write about [iwantthat.pet](https://iwantthat.pet/)
+	- `[X]` write about [iwantthat.pet](https://iwantthat.pet/)
 

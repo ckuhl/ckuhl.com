@@ -9,7 +9,8 @@
       - js
       - learning
     description: A learning project about developing web extensions for Firefox,
-                 this is a toggle on whether or not to load images in webpages.
+        this is a toggle on whether or not to load images in webpages.
+    repo: https://github.com/ckuhl/ImageBlockX
 ...
 
 <img class="hero-image" src="/static/images/2017-12-15_image-block-x.png"
@@ -29,8 +30,4 @@ It's also been a beneficial experience for seeing how my "customers" respond to
 changes, bug fixes, and various communications. Just being able to respond and
 say "Hey, I've seen this and I'll look into it when I get a chance" goes a long
 way towards satisfying people's complaints with rough edges around it.
-
-
-
-View the source to [Image Block X](https://github.com/ckuhl/ImageBlockX).
 
