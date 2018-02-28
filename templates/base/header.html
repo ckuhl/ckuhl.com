@@ -1,18 +1,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-	<a class="navbar-brand" href="/">
-		<img src="{{ url_for('static', filename='images/navbar-brand.png') }}"
-		width="28" height="28" alt="CK" class="d-inline-block align-bottom">
-		Chris Kuhl
-	</a>
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item"><a class="nav-link{% if active == "blog" %} active{% endif %}" href="/blog/">Blog</a></li>
-			<li class="nav-item"><a class="nav-link{% if active == "portfolio" %} active{% endif %}" href="/portfolio/">Portfolio</a></li>
-			<!--<li class="nav-item"><a class="nav-link{% if active == "tools" %} active{% endif %}" href="/tools/">Tools</a></li>-->
-			<li class="nav-item"><a class="nav-link{% if active == "about" %} active{% endif %}" href="/about/">About</a></li>
-		</ul>
+	<div class="container">
+		<a class="navbar-brand" href="/">
+			<img src="{{ url_for('static', filename='images/navbar-brand.png') }}"
+	width="28" height="28" alt="CK" class="d-inline-block align-bottom">
+			Chris Kuhl
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item"><a class="nav-link{% if active == "blog" %} active{% endif %}" href="/blog/">Blog</a></li>
+				<li class="nav-item"><a class="nav-link{% if active == "portfolio" %} active{% endif %}" href="/portfolio/">Portfolio</a></li>
+				<!--<li class="nav-item"><a class="nav-link{% if active == "tools" %} active{% endif %}" href="/tools/">Tools</a></li>-->
+				<li class="nav-item"><a class="nav-link{% if active == "about" %} active{% endif %}" href="/about/">About</a></li>
+			</ul>
+		</div>
 	</div>
 </nav>
