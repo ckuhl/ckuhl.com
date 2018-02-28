@@ -12,7 +12,7 @@ def home(blog_n=999):
     """return a listing of blog posts"""
     posts = utils.get_category(Pages, 'blog', n=blog_n)
     blog_posts = [p for p in posts if p.meta['category'] != 'travel']
-    return render_template('blog/home.html',
+    return render_template('blog/home.j2',
             articles=blog_posts)
 
 
@@ -21,7 +21,7 @@ def index(blog_n=999):
     """return a listing of blog posts"""
     posts = utils.get_category(Pages, 'blog', n=blog_n)
     blog_posts = [p for p in posts if p.meta['category'] != 'travel']
-    return render_template('blog/index.html',
+    return render_template('blog/index.j2',
             articles=blog_posts)
 
 @blog.route('/rss/')
@@ -41,7 +41,7 @@ def post(path):
     if post.meta['published'] is False:
         abort(403)
 
-    return render_template('blog/post.html', post=post)
+    return render_template('blog/post.j2', post=post)
 
 @blog.route('/tag/<string:slug>/')
 def tag_page(slug):
@@ -49,7 +49,7 @@ def tag_page(slug):
     posts = utils.get_category(Pages, 'blog')
     tagged_posts = [p for p in posts if slug in p.meta['tags']]
 
-    return render_template('blog/tagged.html',
+    return render_template('blog/tagged.j2',
             tag=slug,
             articles=tagged_posts)
 

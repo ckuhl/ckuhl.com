@@ -11,7 +11,7 @@ from .ext import Database, Pages
 from .settings import ProdConfig, DebugConfig
 from .models import PageView
 
-from .views import analytics, blog, root, portfolio, tools, travel
+from .views import analytics, blog, core, portfolio
 
 
 def create_app(debug=False):
@@ -48,8 +48,7 @@ def create_app(debug=False):
     # import blueprints
     app.register_blueprint(blog.blog, url_prefix='/blog')
     app.register_blueprint(portfolio.portfolio, url_prefix='/portfolio')
-    app.register_blueprint(tools.utilities, url_prefix='/tools')
-    app.register_blueprint(root.root)
+    app.register_blueprint(core.core)
     app.register_blueprint(analytics.analytics)
 
     # HTTP error codes
@@ -57,14 +56,14 @@ def create_app(debug=False):
     @app.errorhandler(404)
     def page_404(e):
         """Page not found"""
-        return render_template('errors/404.html'), 404
+        return render_template('errors/404.j2'), 404
 
     @app.errorhandler(403)
     def page_403(e):
         """Forbidden"""
-        return render_template('errors/403.html'), 403
+        return render_template('errors/403.j2'), 403
 
-    # request hooks (more for middleware!)
+    # request hooks (also move to middleware?)
     @app.before_request
     def log_request():
         """
@@ -76,8 +75,7 @@ def create_app(debug=False):
                 request.url,
                 datetime.datetime.now())
 
-
-    # init extensions
+    # initialize extensions
     Database.create_tables([PageView], safe=True)
     Pages.init_app(app)
 

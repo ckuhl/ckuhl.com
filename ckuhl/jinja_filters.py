@@ -22,7 +22,6 @@ def teaser_para(content):
     """
     return content.split('</p>')[0] + '</p>'
 
-
 def teaser_sentence(content, n=3):
     """
     Given a block of HTML, return only the first n sentences.

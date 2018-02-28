@@ -1,9 +1,13 @@
-{% extends "base/container.html" %}
+{% extends "base/container.j2" %}
 {% set active = "blog" %}
 {% block title %}Blog | Chris Kuhl{% endblock %}
 {% block css %}{% endblock %}
 {% block content %}
-<h1 class="h1">Posts tagged: {{ tag }}</h1>
+<h1 class="display-4">{{ category }}
+	<a href="/blog/category/{{ category }}/rss/" class="btn-btn-secondary">
+		<span class="fa fa-rss"></span>
+	</a>
+</h1>
 {% for a in articles %}
 <div class="card my-3">
 	<div class="card-body">
@@ -13,7 +17,7 @@
 	</div>
 </div>
 {% else %}
-	<p>There are no blog posts that are tagged "{{ tag }}"!</p>
+<p>It appears that "{{ category }}" is not a category.</p>
 {% endfor %}
 {% if articles %}</ul>{% endif %}
 {% endblock %}

@@ -1,25 +1,21 @@
 # To - Do
 - General Site
-	- `[ ]` Split out blog into personal, dev, etc.
-	- `[ ]` Look into different blogging formats (static site, etc.)
 	- `[ ]` Create one blog post template with different options
 		- e.g. "show_tags", "show_date", etc.
-	- `[ ]` Clean out unused stuff from the site
 - Analytics
 	- `[ ]` Do better analytics
 		-`[ ]` Store requests that don't load JS
 		-`[ ]` Provide a user interface (add a `/admin`)
 		-`[ ]` Chart analytics
-		-`[ ]` Ignore myself somehow
+		-`[ ]` Ignore myself in analytics
 		-`[ ]` Use a cookie to track acress sessions?
 	- `[ ]` Pull in country / location from https://ipdata.co/
 - Backend
 	- `[ ]` Create middleware file (for jinja templates, etc.)
 	- `[ ]` Make settings available from modules
-	- `[ ]` Change all templates to `.j2` files
 - Blog
 	- `[ ]` Add a "Next post" / "Previous post" to individual posts
 	- `[ ]` Add month / time pages (e.g. "September 2017", etc.)
 - Portfolio
-	- `[X]` write about [iwantthat.pet](https://iwantthat.pet/)
+	- `[ ]` Add an image to `i-want-that-pet.md`
 

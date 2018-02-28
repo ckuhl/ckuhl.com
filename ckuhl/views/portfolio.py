@@ -10,7 +10,7 @@ portfolio = Blueprint('portfolio', __name__)
 @portfolio.route('/')
 def index(n=999):
     """Serve a listing of portfolio projects"""
-    return render_template('portfolio/index.html',
+    return render_template('portfolio/index.j2',
             projects=utils.get_category(Pages, 'portfolio', n=n))
 
 
@@ -22,5 +22,5 @@ def project(path):
     if post.meta['published'] is False:
         abort(403)
 
-    return render_template('portfolio/project.html', post=post)
+    return render_template('portfolio/project.j2', post=post)
 
