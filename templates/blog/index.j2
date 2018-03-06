@@ -3,7 +3,7 @@
 {% block title %}Blog | Chris Kuhl{% endblock %}
 {% block css %}{% endblock %}
 {% block content %}
-<h1 class="h1">Blog Index</h1>
+<h1 class="h1 my-3">Blog Index</h1>
 {% if articles %}<div class="list-group">{% endif %}
 	{% for a in articles %}
 	<a href="{{ url_for('blog.post', path=a.path) }}"

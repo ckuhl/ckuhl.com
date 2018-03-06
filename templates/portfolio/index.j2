@@ -3,7 +3,7 @@
 {% block title %}Portfolio | Chris Kuhl{% endblock %}
 {% block css %}{% endblock %}
 {% block content %}
-<h1 class="h1">Portfolio</h1>
+<h1 class="h1 my-3">Portfolio</h1>
 {% for p in projects %}
 <div class="card my-3">
 	<div class="card-body">
@@ -12,7 +12,7 @@
 	</div>
 </div>
 {% else %}
-<p>Hmm... It appears something went wrong!</p>
+<p>No projects right now... check back later!</p>
 {% endfor %}
 {% endblock %}
 {% block js %}{% endblock %}

@@ -3,7 +3,7 @@
 {% block title %}{{ post.title }}{% endblock %}
 {% block css %}{% endblock %}
 {% block content %}
-<h1 class="display-4">{{ post.title }}</h1>
+<h1 class="display-4 my-3">{{ post.title }}</h1>
 <div>{{ post.html|safe }}</div>
 <span class="fa fa-calendar" aria-hidden="true"></span>
 Written {{ post.created|datetimeformat('%B %e, %Y') }}{% if post.updated != post.created %}, updated {{ post.updated|datetimeformat('%B %e, %Y') }}{% endif %}
