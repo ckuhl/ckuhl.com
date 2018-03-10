@@ -80,11 +80,11 @@ def create_app(debug=False):
     def inject_dnt():
         dnt = False
         try:
-            dnt = request.headers['dnt']:
+            dnt = request.headers['dnt']
         except keyerror:
             pass
         try:
-            dnt = request.headers['DNT']:
+            dnt = request.headers['DNT']
         except keyerror:
             pass
         return {'do_not_track': dnt}
