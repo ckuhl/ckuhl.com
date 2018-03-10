@@ -8,7 +8,6 @@
       - "human-computer interaction"
 ...
 
-# Conserving Resources
 The discussion around ad blockers often centres around whether it is
 permissable to let advertising networks use your resources (battery life,
 processing power, &c). This is well-trodden ground, often to the point of

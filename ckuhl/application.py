@@ -75,6 +75,19 @@ def create_app(debug=False):
                 request.url,
                 datetime.datetime.now())
 
+    # inject Do Not Track header var for all contexts
+    @app.context_processor
+    def inject_dnt():
+        dnt = False
+        try:
+            if request.headers['DNT']:
+                dnt = True
+            elif request.headers['dnt']:
+                dnt = True
+        except KeyError:
+            pass
+        return {'do_not_track': dnt}
+
     # initialize extensions
     Database.create_tables([PageView], safe=True)
     Pages.init_app(app)
