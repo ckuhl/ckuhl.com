@@ -35,10 +35,7 @@ context for ever render request.
 def inject_dnt():
     dnt = False
     try:
-        if request.headers['DNT']:
-            dnt = True
-        elif request.headers['dnt']:
-            dnt = True
+        dnt = request.headers['DNT']:
     except KeyError:
         pass
     return {'do_not_track': dnt}
