@@ -81,11 +81,11 @@ def create_app(debug=False):
         dnt = False
         try:
             dnt = request.headers['dnt']
-        except keyerror:
+        except KeyError:
             pass
         try:
             dnt = request.headers['DNT']
-        except keyerror:
+        except KeyError:
             pass
         return {'do_not_track': dnt}
 
