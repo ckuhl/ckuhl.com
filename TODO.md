@@ -5,9 +5,6 @@
 - Analytics
 	- `[ ]` Do better analytics
 		-`[ ]` Store requests that don't load JS
-		-`[ ]` Provide a user interface (add a `/admin`)
-		-`[ ]` Chart analytics
-		-`[ ]` Ignore myself in analytics
 		-`[ ]` Use a cookie to track acress sessions?
 	- `[ ]` Pull in country / location from https://ipdata.co/
 - Backend
@@ -16,6 +13,8 @@
 - Blog
 	- `[ ]` Add a "Next post" / "Previous post" to individual posts
 	- `[ ]` Add month / time pages (e.g. "September 2017", etc.)
+	- `[ ]` Revise `resource-hog`
+	- `[ ]` Write "Profiling java microservices"
 - Portfolio
 	- `[ ]` Add an image to `i-want-that-pet.md`
 

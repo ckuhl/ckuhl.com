@@ -2,7 +2,7 @@
     title: "A Different Kind of Resource Hog"
     created: 2018-03-05 20:39 -8
     updated: 2018-03-05 20:39 -8
-    published: True
+    published: False
     category: blog
     tags:
       - "human-computer interaction"
