@@ -17,6 +17,7 @@ class BaseConfig:
     FLATPAGES_MARKDOWN_EXTENSIONS = [
             'abbr',
             'codehilite',
+            'fenced_code',
             'smarty',
             'footnotes',
     ]

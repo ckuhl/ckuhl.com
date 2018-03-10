@@ -30,33 +30,34 @@ Flask API makes this dead-simple to do. With the handler
 context for ever render request.
 
 ```python3
-     # inject Do Not Track header variable for all contexts
-     @app.context_processor
-     def inject_dnt():
-         dnt = False
-         try:
-             if request.headers['DNT']:
-                 dnt = True
-             elif request.headers['dnt']:
-                 dnt = True
-         except KeyError:
-             pass
-         return {'do_not_track': dnt}
+# inject Do Not Track header variable for all contexts
+@app.context_processor
+def inject_dnt():
+    dnt = False
+    try:
+        if request.headers['DNT']:
+            dnt = True
+        elif request.headers['dnt']:
+            dnt = True
+    except KeyError:
+        pass
+    return {'do_not_track': dnt}
 ```
 
 With that in place, it's as easy as inserting an if statement into your base
 template:
+
 ```jinja2
-         {% if not do_not_track %}
-                 <!-- Global site tag (gtag.js) - Google Analytics -->
-                 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
-                 <script>
-                 window.dataLayer = window.dataLayer || [];
-                 function gtag(){dataLayer.push(arguments);}
-                 gtag('js', new Date());
-                 gtag('config', 'UA-XXXXXXXXX-X');
-                 </script>
-         {% endif %}
+{% if not do_not_track %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXXX-X');
+    </script>
+{% endif %}
 ```
 
 That's it! If you want to test this out, try enabling / disabling Do Not Track
