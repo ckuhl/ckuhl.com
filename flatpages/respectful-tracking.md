@@ -10,13 +10,13 @@
       - "flask"
 ...
 
-As a university student in a co-op program, at most times I either working at a
-job, or preparing to start applying to the next one. Sometimes both at the same
-time. I have been working on this site to provide a portfolio of some of my
-past projects, and of my writing. However I faced a problem. How would I
-know if my site was actually capturing users or not? Of course I could use
-Google Analytics, however I didn't like the idea of trusting any third party to
-do something against their own interest. In this case, an advertising company
+As a university student in a co-op program, I am either working a co-op job, or
+preparing to start applying to the next one. Sometimes both at the same time. I
+have been working on this site to provide a portfolio of some of my past
+projects, and of my writing. However I faced a problem. How would I know if my
+site was actually capturing users or not? Of course I could use Google
+Analytics, however I didn't like the idea of trusting any third party to do
+something against their own interest. In this case, an advertising company
 promising not to track third parties.
 
 Goal: Implement server-side responses to [Do Not
@@ -35,7 +35,7 @@ context for ever render request.
 def inject_dnt():
     dnt = False
     try:
-        dnt = request.headers['DNT']:
+        dnt = request.headers['DNT']
     except KeyError:
         pass
     return {'do_not_track': dnt}
