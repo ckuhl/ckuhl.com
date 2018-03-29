@@ -6,7 +6,7 @@ body {
 	line-height: 1.65;
 }
 
-a {text-decoration: underline}
+p a {text-decoration: underline}
 
 /* Customize container */
 @media (min-width: 768px) {
