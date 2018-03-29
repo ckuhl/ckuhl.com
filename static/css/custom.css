@@ -1,6 +1,7 @@
 /* Fix font mangling */
 body {
-	font-size: 1rem;
+	font-size: 1.1rem;
+	font-weight: 500;
 	color: #212529;
 	line-height: 1.65;
 }
