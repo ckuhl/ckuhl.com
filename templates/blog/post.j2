@@ -1,9 +1,7 @@
 {% extends "base/container.j2" %}
 {% set active = "blog" %}
 {% block title %}{{ post.title }}{% endblock %}
-{% block css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/lightbox.min.css') }}">
-{% endblock %}
+{% block css %}{% endblock %}
 {% block content %}
 <h1 class="display-4 my-3">{{ post.title }}</h1>
 
@@ -20,7 +18,5 @@ Written <abbr title="{{ post.created }}">{{ post.created|datetimeformat('%B %e, 
 		<a class="badge badge-secondary" href="/blog/tag/{{ tag }}/">{{ tag }}</a>
 	{% endfor %}
 	{% if post.tags %}</div>{% endif %}
-{% endblock %}
-{% block js %}
-<script src="{{ url_for('static', filename='js/lightbox.min.js') }}"></script>
+{% endblock %}{% block js %}
 {% endblock %}
