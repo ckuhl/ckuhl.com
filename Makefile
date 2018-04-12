@@ -10,8 +10,7 @@ PIP=${ENV}/bin/pip
 EXEC=manage.py
 
 
-# package: bundle together all files essential for deployment
-package: clean
+package: clean	## bundle together all files essential for deployment
 	git archive -o ${PROJECT}.tar HEAD
 	tar -f ${PROJECT}.tar --delete README.md
 	tar -f ${PROJECT}.tar --delete TODO.md
@@ -20,8 +19,7 @@ package: clean
 	gzip ${PROJECT}.tar
 	mkdir -p ${DIST} && mv ${PROJECT}.tar.gz ${DIST}
 
-# docs: generate documentation from docstrings in modules
-docs:
+docs:	## generate documentation from docstrings in modules
 	${PYTHON} -m pydoc -w ${PROJECT}
 	ls ${PROJECT}/*.py \
 		| sed 's/\//\./g' \
@@ -35,30 +33,30 @@ docs:
 	mv ${PROJECT}.*html ${DOCS}
 
 
-.PHONY: clean run debug setup
-# clean: remove compiled python files, packages, logging, and docs
-clean:
+.PHONY: clean help run debug setup
+clean:	## remove compiled python files, packages, logging, and docs
 	find . -regex "\(.*__pycache__.*\|*.py[co]\)" -delete
 	find . -name '*.tar.gz' -delete
 	find . -name '*.sqlite' -delete
 	find . -name '*.log' -delete
-	rm -rf ${DOCS}/
+	rm -rf ${DOCS}/ ${DIST}/
 
-# run in production mode
-run:
+help:	## show this help message
+	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
+
+run:	## run in production mode
 	${PYTHON} ${EXEC} run
 
-# run in debug mode
-debug:
+
+debug:	## run in debug mode
 	${PYTHON} ${EXEC} debug
 
-# set up development environment
-setup:
+setup:	## set up development environment
 	test -d ${ENV} \
 		|| virtualenv -p /usr/bin/python3 --no-site-packages ${ENV}
 	test -e requirements.txt && ${PIP} install -r requirements.txt
 	${PIP} install --upgrade pip
 	${PIP} install --upgrade setuptools
 
-demo: setup debug
+demo: setup debug	## demonstrate this application
 
