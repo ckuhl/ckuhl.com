@@ -1,6 +1,11 @@
+import datetime
 import dateutil
+import logging
 
-from flask import current_app
+from flask import current_app, request
+
+
+logger = logging.getLogger(__name__)
 
 
 @current_app.template_filter()
