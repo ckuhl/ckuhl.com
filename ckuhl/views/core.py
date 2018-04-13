@@ -6,6 +6,7 @@ from ..ext import Pages
 
 core = Blueprint('core', __name__)
 
+
 @core.route('/')
 def main(num_posts=3, num_projects=3):
     """Display a list of recent blog posts and portfolio projects"""
@@ -17,13 +18,8 @@ def main(num_posts=3, num_projects=3):
                            articles=blog_posts,
                            projects=portfolio_projects)
 
+
 @core.route('/about/')
 def about():
     """About me page"""
     return render_template('core/about.j2')
-
-@core.route('/Del/')
-def del_page():
-    """Easter egg, you could say"""
-    return render_template('core/del.j2')
-

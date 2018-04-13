@@ -3,7 +3,7 @@
 	- `[ ]` Create one blog post template with different options
 		- e.g. "show_tags", "show_date", etc.
 - Backend
-	- `[ ]` Create middleware file (for jinja templates, etc.)
+	- `[X]` Create middleware file (for jinja templates, etc.)
 	- `[ ]` Make settings available from modules
 - Blog
 	- `[ ]` Add a "Next post" / "Previous post" to individual posts

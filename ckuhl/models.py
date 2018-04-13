@@ -36,4 +36,3 @@ class PageView(BaseModel):
             referrer=request.args.get('ref') or '',
             headers=dict(request.headers),
             params=params)
-

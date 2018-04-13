@@ -11,7 +11,7 @@ class BaseConfig:
     LOG_NAME = 'application.log'
 
     # FlatPages settings
-    ## flatpages only uses relative paths
+    # note: flatpages only uses relative paths
     FLATPAGES_ROOT = os.path.join('..', 'flatpages')
     FLATPAGES_EXTENSION = '.md'
     FLATPAGES_MARKDOWN_EXTENSIONS = [

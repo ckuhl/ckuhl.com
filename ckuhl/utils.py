@@ -36,12 +36,14 @@ def create_feedgen(posts):
 
     return fg
 
+
 def generate_rss_feed(posts):
     """
     Utility wrapper to create an RSS feed from a list of posts
     """
     fg = create_feedgen(posts)
     return fg.rss_str(pretty=True)
+
 
 def get_pages(flatpages, n=999, is_published=True):
     """
@@ -53,6 +55,7 @@ def get_pages(flatpages, n=999, is_published=True):
     latest = sorted(articles, reverse=True,
                     key=lambda p: p.meta['created'])
     return latest[:n]
+
 
 def get_category(flatpages, category, n=999, is_published=True):
     """

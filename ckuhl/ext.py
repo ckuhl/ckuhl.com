@@ -6,4 +6,3 @@ from .settings import BaseConfig
 
 Database = SqliteDatabase(BaseConfig.DATABASE_NAME)
 Pages = FlatPages()
-

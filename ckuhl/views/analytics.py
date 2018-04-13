@@ -5,6 +5,7 @@ from flask import abort, Blueprint, Response, request
 from ..models import PageView
 from ..ext import Database
 
+
 DOMAIN = 'https://ckuhl.com'
 # DOMAIN = 'http://127.0.0.1:5000'  # TODO: Fix this config pain...
 
@@ -18,6 +19,7 @@ i.src='%s/background.gif?url='+e(d.location.href)+'&ref='+e(d.referrer)+'&t='+e(
 
 analytics = Blueprint('analytics', __name__)
 
+
 @analytics.route('/background.gif')
 def analyze():
     if not request.args.get('url'):
@@ -29,6 +31,7 @@ def analyze():
     response = Response(BEACON, mimetype='image/gif')
     response.headers['Cache-Control'] = 'private, no-cache'
     return response
+
 
 @analytics.route('/custom.js')
 def script():
