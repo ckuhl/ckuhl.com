@@ -2,7 +2,7 @@ import datetime
 import dateutil
 import logging
 
-from flask import current_app, request
+from flask import current_app, request, render_template
 
 
 logger = logging.getLogger(__name__)

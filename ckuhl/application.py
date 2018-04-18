@@ -6,10 +6,10 @@ from importlib import import_module
 from flask import Flask, abort, render_template, request
 from flask_flatpages import FlatPages
 
-from .ext import Database, Pages
+from .ext import Database, Pages, Wiki
 from .settings import ProdConfig, DebugConfig
 from .models import PageView
-from .views import analytics, blog, core, portfolio
+from .views import analytics, blog, core, portfolio, wiki
 
 
 def create_app(debug=False):
@@ -43,6 +43,7 @@ def create_app(debug=False):
 
     # register blueprints
     app.register_blueprint(blog.blog, url_prefix='/blog')
+    app.register_blueprint(wiki.wiki, url_prefix='/wiki')
     app.register_blueprint(portfolio.portfolio, url_prefix='/portfolio')
     app.register_blueprint(core.core)
     app.register_blueprint(analytics.analytics)
@@ -50,6 +51,7 @@ def create_app(debug=False):
     # initialize extensions
     Database.create_tables([PageView], safe=True)
     Pages.init_app(app)
+    Wiki.init_app(app)
 
     return app
 

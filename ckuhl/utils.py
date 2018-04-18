@@ -1,11 +1,18 @@
 import datetime
+import os
 import json
 
+from flask import abort
 from feedgen.feed import FeedGenerator
 from peewee import TextField
 
 
 BASE_URL = 'https://ckuhl.com/'
+
+
+def root_dir():
+    """Returns the root of the project"""
+    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def create_feedgen(posts):
@@ -75,4 +82,18 @@ class JSONField(TextField):
     def db_value(self, value):
         if value is not None:
             return json.dumps(value)
+
+
+def get_wiki_page(path):
+    """
+    Loads a wiki page given a URL to it
+    """
+    p = os.path.join(root_dir(), 'wiki', path)
+    if os.path.isfile(p):
+        return p
+    elif os.path.isfile(p + '.html'):
+        return p + '.html'
+    elif os.path.isfile(p + 'index.html'):
+        return p + 'index.html'
+    abort(404)
 

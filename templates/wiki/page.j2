@@ -1,0 +1,6 @@
+{% extends "base/container.j2" %}
+{% set active = "wiki" %}
+{% block title %}{{ content.title }} | Chris Kuhl's Wiki{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}<div>{{ content.html|safe }}</div>{% endblock %}
+{% block js %}{% endblock %}

@@ -12,9 +12,18 @@ class BaseConfig:
 
     # FlatPages settings
     # note: flatpages only uses relative paths
-    FLATPAGES_ROOT = os.path.join('..', 'flatpages')
-    FLATPAGES_EXTENSION = '.md'
-    FLATPAGES_MARKDOWN_EXTENSIONS = [
+    FLATPAGES_BLOG_ROOT = os.path.join('..', 'flatpages')
+    FLATPAGES_BLOG_EXTENSION = '.md'
+    FLATPAGES_BLOG_MARKDOWN_EXTENSIONS = [
+            'abbr',
+            'codehilite',
+            'fenced_code',
+            'smarty',
+            'footnotes',
+    ]
+    FLATPAGES_WIKI_ROOT = os.path.join('..', 'wiki')
+    FLATPAGES_WIKI_EXTENSION = '.md'
+    FLATPAGES_WIKI_MARKDOWN_EXTENSIONS = [
             'abbr',
             'codehilite',
             'fenced_code',
