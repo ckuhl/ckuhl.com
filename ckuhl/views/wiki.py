@@ -14,12 +14,5 @@ def home(path):
     p = Wiki.get(path)
     if p is None:
         p = Wiki.get_or_404(path + 'index')
-
-    # create URL heirarchy
-    tree = path.split('/')
-    new_tree = []
-    for i in len(tree) - 1:
-        new_tree.append(tree[:i + 1].join('/'))
-
-    return render_template('wiki/page.j2', content=p, parents=new_tree)
+    return render_template('wiki/page.j2', content=p)
 
