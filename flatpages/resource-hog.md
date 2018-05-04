@@ -1,7 +1,7 @@
 ---
     title: "A Different Kind of Resource Hog"
     created: 2018-03-05 20:39 -8
-    updated: 2018-03-05 20:39 -8
+    updated: 2018-05-04 11:21 -5
     published: False
     category: blog
     tags:
@@ -22,7 +22,7 @@ regardless of the utility I get out of it. Thanks to the flexibility of
 elements inside only a single domain.
 
 
-# Related Links
+## Related Links
 Perhaps the most deadly of these is the "Related Content" links at the bottom
 or sides of articles. Since these are usually chosen by whatever garners the
 most clicks, they're optimized to grab your attention. Stack Overflow is
@@ -35,7 +35,7 @@ First on the blocklist:
 * `###hot-network-questions`
 
 
-# Infinite Scroll
+## Infinite Scroll
 Even the most engaging book often needs to be put down. Dinner, errands, or
 other tasks must eventually be done. Thanks to the chapter format, it is easy
 to find an good stopping point. Could you imagine reading a book without any
@@ -50,7 +50,7 @@ attention. Ultimately I've found myself utilizing
 [Basic Facebook](https://mbasic.facebook.com/) as a way of avoiding the feed.
 
 
-# Points and Votes
+## Points and Votes
 I often find myself reading all of the top posts on
 [Hacker News](https://news.ycombinator.com/), even if they are not particularly
 interesting themselves. Perhaps a form of distributed peer pressure, it is
@@ -65,7 +65,7 @@ Some filters:
 * `www.reddit.com##.score`
 
 
-# Conclusion
+## Conclusion
 While this is still an experiment, I have found that my internet usage has down
 down significantly since implementing these changes. At the same time, the
 amount of enjoyment I get out of being online has been equally increased. Even

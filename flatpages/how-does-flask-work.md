@@ -1,7 +1,7 @@
 ---
     title: How does Flask work?
     created: 2018-03-28 20:41 -8
-    updated: 2018-03-28 20:41 -8
+    updated: 2018-05-04 11:21 -5
     published: True
     category: blog
     tags:
@@ -38,7 +38,7 @@ I find it easiest to start from as high up as possible and work my way down the
 chain of calls until it all starts making sense. So we start with the last
 function what is called: `app.run()`.
 
-# Off and run()-ing
+## Off and run()-ing
 
 `app.run()` isn't too exciting itself. It takes a number of optional parameters
 (for example, whether debug mode is set, or what port to operate on) and then
@@ -67,7 +67,7 @@ Interface_](https://en.wikipedia.org/wiki/Common_Gateway_Interface)).
 `start_response` is a function that returns a tuple of an HTTP status code, and
 the headers to respond with.
 
-# How does Flask handle `__call__`s?
+## How does Flask handle `__call__`s?
 
 `Flask.__call__` is actually a thin wrapper around another function,
 `Flask.wsgi_app`. This is done so that middleware (add-ons that can intercept
@@ -80,7 +80,7 @@ the real focus. This gets the request and the URL associated with the request.
 Then it looks up the URL in an internal map for functions that handle requests,
 and calls the corresponding function for that URL with the view arguments.
 
-# What functions?
+## What functions?
 
 Now where does the map of URLs come from?
 [Decorators!](https://en.wikipedia.org/wiki/Decorator_pattern)

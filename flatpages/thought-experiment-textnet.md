@@ -1,7 +1,7 @@
 ---
     title: "Thought Experiment: The TextNet"
     created: 2017-12-19 19:45 -5
-    updated: 2017-12-19 19:45 -5
+    updated: 2018-05-04 11:21 -5
     published: True
     category: blog
     tags:
@@ -16,14 +16,14 @@ developers to focus on development instead of design). But I think that those
 naysayers are onto something. So what would it look like if we banished all
 JavaScript from (a segment of) the internet?
 
-# The proposal
+## The proposal
 
 The TextNet, a text-only portion of the internet. A new `.text` TLD is
 introduced. With a covenant that only plain text and HTML can be served from
 such domains.
 
 
-# What does that mean?
+## What does that mean?
 
 JavaScript doesn't run. It can still be loaded, but it's just a static text
 file, like everything else. Same for images or files: You can
@@ -31,9 +31,9 @@ file, like everything else. Same for images or files: You can
 display. CSS would either be forbidden or restricted to a simple subset.
 
 
-# What effects would this have?
+## What effects would this have?
 
-## Fewer advertisements
+### Fewer advertisements
 
 First and foremost, conventional advertisers would not be attracted to it.
 Without images for ads, or JavaScript to track users, there is no way to run
@@ -43,7 +43,7 @@ would disappear, as there would be no financial incentive to format articles in
 that way. Who instead would create content? I expect you would see two groups
 creating content:
 
-### Indirect Beneficiaries
+#### Indirect Beneficiaries
 
 Businesses or professionals, creating content for indirect benefits. This could
 include providing access to news in emergencies (for example when cell towers
@@ -55,7 +55,7 @@ competitors' sites. Professionals self-promoting also fall in this group. Such
 technical blogs are intended to develop a brand, and signal to employers that
 the professional is competent.
 
-### The Hobbyists and Artists
+#### The Hobbyists and Artists
 
 The other group would be those creating content for the joy of it. The medium
 of plaintext imposes a set of constraints that allows people to focus their
@@ -69,9 +69,9 @@ In effect, removing advertising as a form of funding content creation would
 disincentive the creation of low-quality content. In turn this increases the
 signal-to-noise ratio of the content.
 
-## Unconventional consumption
+### Unconventional consumption
 
-### Sneakernet
+#### Sneakernet
 
 Since plaintext is lightweight, the entirety of the TextNet could be save to a
 single thumb drive.  While the
@@ -80,7 +80,7 @@ able to save a copy of everything would mean that any and all links within the
 content would work. This would allow for a more natural "exploration" of the
 internet by those without conventional access.
 
-### New Ways of Interacting
+#### New Ways of Interacting
 
 The magnitude of JavaScript and CSS in modern webpages means that today's web
 browsers can be used to run entire operating systems in them. The trade-off to
@@ -93,7 +93,7 @@ comeback. Print off the web pages you want to read, and when you are done you
 clear the browser history with a paper shredder.
 
 
-# Conclusion
+## Conclusion
 
 It is hard to know how a new, restricted medium would be treated. Especially
 when the goal of such a medium is to encourage the creativity that emerges from

@@ -1,7 +1,7 @@
 ---
     title: "Respectful Tracking"
     created: 2018-03-09 18:53 -8
-    updated: 2018-03-09 18:53 -8
+    updated: 2018-05-04 11:21 -5
     published: True
     category: blog
     tags:
