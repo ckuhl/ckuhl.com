@@ -5,8 +5,15 @@ body {
 	color: #212529;
 	line-height: 1.65;
 }
-
+/* make links visible */
 p a {text-decoration: underline}
+
+/* consistent code blocks */
+.codehilitetable {
+	width:100%;
+	height: auto;
+	overflow: auto;
+}
 
 /* Customize container */
 @media (min-width: 768px) {

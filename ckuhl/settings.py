@@ -16,7 +16,7 @@ class BaseConfig:
     FLATPAGES_BLOG_EXTENSION = '.md'
     FLATPAGES_BLOG_MARKDOWN_EXTENSIONS = [
             'abbr',
-            'codehilite',
+            'codehilite(linenums=True)',
             'fenced_code',
             'smarty',
             'footnotes',
@@ -25,7 +25,7 @@ class BaseConfig:
     FLATPAGES_WIKI_EXTENSION = '.md'
     FLATPAGES_WIKI_MARKDOWN_EXTENSIONS = [
             'abbr',
-            'codehilite',
+            'codehilite(linenums=True)',
             'fenced_code',
             'smarty',
             'footnotes',
