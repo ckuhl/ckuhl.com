@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template
+from flask import abort, Blueprint, render_template
 from flask_flatpages import FlatPages
 
 from .. import utils
