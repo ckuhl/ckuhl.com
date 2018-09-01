@@ -20,6 +20,10 @@ Then the site will be accessable at http://127.0.0.1:5000.
 
 
 ## Notes
+### Tools
+I've created `example-tools.js` and `example-tools.css` to allow creating
+javascript demonstrations directly insde blog posts.
+
 ### Favicon
 Made using [favicon.io](https://favicon.io/), with the following settings:
 

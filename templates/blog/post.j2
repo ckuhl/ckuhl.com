@@ -8,7 +8,7 @@
 	{% endfor %}
 {% endblock %}
 
-{% block pre-js %}
+{% block pre_js %}
 	{% for script in post.scripts %}
 		<script src="/static/js/{{ script }}"></script>
 	{% endfor %}
@@ -33,4 +33,4 @@
 		{% if post.tags %}</div>{% endif %}
 {% endblock %}
 
-{% block post-js %}{% endblock %}
+{% block post_js %}{% endblock %}

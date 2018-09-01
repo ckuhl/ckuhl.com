@@ -5,6 +5,7 @@ body {
 	color: #212529;
 	line-height: 1.65;
 }
+
 /* make links visible */
 p a {text-decoration: underline}
 
@@ -51,8 +52,7 @@ p a {text-decoration: underline}
 	margin: 0 auto;
 }
 
-
-/* Lightbox styles */
+/* Lightbox.js styles */
 p.image-container {
 	text-align: center;
 }
@@ -72,7 +72,7 @@ img.thumbnail {
 	border-radius: 4px;
 }
 
-/* Local bootstrap fonts */
+/* Make Bootstrap fonts available locally */
 @font-face {
 	font-family: 'Nunito Sans';
 	font-style: normal;
@@ -85,13 +85,6 @@ img.thumbnail {
 	font-style: normal;
 	font-weight: 600;
 	src: local('Nunito Sans SemiBold'), local('NunitoSans-SemiBold'), url(/static/fonts/NunitoSans-SemiBold.ttf) format('ttf');
-}
-
-/* For JavaScript demonstrations */
-.demo {
-	border-style: solid;
-	border-width: 1px;
-	align: center;
 }
 
 /* homepage styles */
