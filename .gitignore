@@ -20,3 +20,7 @@ __pycache__/
 *.sqlite3
 *.db
 
+# file storage
+static/files/
+!static/files/.placeholder
+
