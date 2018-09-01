@@ -2,6 +2,7 @@
 {% set active = "blog" %}
 {% block title %}Blog | Chris Kuhl{% endblock %}
 {% block css %}{% endblock %}
+{% block pre-js %}{% endblock %}
 {% block content %}
 <h1 class="display-4 my-3">{{ category }}
 	<a href="/blog/category/{{ category }}/rss/" class="btn-btn-secondary">
@@ -21,4 +22,4 @@
 {% endfor %}
 {% if articles %}</ul>{% endif %}
 {% endblock %}
-{% block js %}{% endblock %}
+{% block post-js %}{% endblock %}

@@ -2,6 +2,7 @@
 {% set active = "portfolio" %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block css %}{% endblock %}
+{% block pre-js %}{% endblock %}
 {% block content %}
 <h1 class="h1 my-3">{{ post.title }}</h1>
 <div>{{ post.html|safe }}</div>
@@ -13,4 +14,4 @@ Written {{ post.created|datetimeformat('%B %e, %Y') }}{% if post.updated != post
 <a href={{ post.repo }}>View the source</a>
 {% endif %}
 {% endblock %}
-{% block js %}{% endblock %}
+{% block post-js %}{% endblock %}

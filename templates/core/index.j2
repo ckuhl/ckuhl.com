@@ -1,7 +1,15 @@
 {% extends "base/container.j2" %}
 {% block title %}Chris Kuhl{% endblock %}
 {% block css %}{% endblock %}
+{% block pre-js %}{% endblock %}
 {% block content %}
+<div class="jumbotron">
+	<h1 class="display-4">Hi, I'm Chris!</h1>
+	<p class="lead">I'm a computer science student at the University of
+	Waterloo, but also completing a BBA at Wilfrid Laurier University.</p>
+	<p>I love solving problems, whether that be through programming,
+	communication, or some combination of the two.</p>
+</div>
 <h1 class="h1 my-3">From the Blog</h1>
 {% for a in articles %}
 <div class="card my-3">
@@ -35,4 +43,4 @@
 <a href="/portfolio/">portfolio</a> to see all of my projects.
 </p>
 {% endblock %}
-{% block js %}{% endblock %}
+{% block post-js %}{% endblock %}

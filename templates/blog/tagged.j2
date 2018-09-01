@@ -2,6 +2,7 @@
 {% set active = "blog" %}
 {% block title %}Blog | Chris Kuhl{% endblock %}
 {% block css %}{% endblock %}
+{% block pre-js %}{% endblock %}
 {% block content %}
 <h1 class="h1 my-3">Posts tagged: {{ tag }}</h1>
 {% for a in articles %}
@@ -17,4 +18,4 @@
 {% endfor %}
 {% if articles %}</ul>{% endif %}
 {% endblock %}
-{% block js %}{% endblock %}
+{% block post-js %}{% endblock %}

@@ -2,5 +2,6 @@
 {% set active = "wiki" %}
 {% block title %}{{ content.title }} | Chris Kuhl's Wiki{% endblock %}
 {% block css %}{% endblock %}
+{% block pre-js %}{% endblock %}
 {% block content %}<div>{{ content.html|safe }}</div>{% endblock %}
-{% block js %}{% endblock %}
+{% block post-js %}{% endblock %}

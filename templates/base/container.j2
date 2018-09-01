@@ -21,6 +21,7 @@
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.ico') }}">
 
+	<!-- Immediate JS -->
 	{% if not do_not_track %}
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115499636-1"></script>
@@ -31,6 +32,7 @@
 		gtag('config', 'UA-115499636-1');
 		</script>
 	{% endif %}
+	{% block pre-js %}{% endblock %}
 </head>
 <body>
 	<!-- Primary Page Layout -->
@@ -42,9 +44,9 @@
 	<!-- End Document -->
 </body>
 
-<!-- Javascript -->
+<!-- Lazy JS -->
 <script src="/custom.js" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
-{% block js %}{% endblock %}
+{% block post-js %}{% endblock %}
 </html>
