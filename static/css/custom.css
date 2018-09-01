@@ -87,3 +87,15 @@ img.thumbnail {
 	src: local('Nunito Sans SemiBold'), local('NunitoSans-SemiBold'), url(/static/fonts/NunitoSans-SemiBold.ttf) format('ttf');
 }
 
+/* For JavaScript demonstrations */
+.demo {
+	border-style: solid;
+	border-width: 1px;
+	align: center;
+}
+
+/* homepage styles */
+h1.display-4 {
+	text-transform: initial;
+}
+

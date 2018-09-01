@@ -15,6 +15,7 @@ class BaseConfig:
     FLATPAGES_BLOG_ROOT = os.path.join('..', 'flatpages')
     FLATPAGES_BLOG_EXTENSION = '.md'
     FLATPAGES_BLOG_MARKDOWN_EXTENSIONS = [
+            'extra',
             'abbr',
             'codehilite(linenums=True)',
             'fenced_code',
@@ -24,6 +25,7 @@ class BaseConfig:
     FLATPAGES_WIKI_ROOT = os.path.join('..', 'wiki')
     FLATPAGES_WIKI_EXTENSION = '.md'
     FLATPAGES_WIKI_MARKDOWN_EXTENSIONS = [
+            'extra',
             'abbr',
             'codehilite(linenums=True)',
             'fenced_code',
