@@ -11,14 +11,15 @@
 		<h2 class="h4 card-title"><a href="{{ url_for('blog.post', path=a.path) }}">{{ a.title }}</a></h2>
 		<h3 class="h6 text-muted">Written {{ a.created|datetimeformat('%Y-%m-%d') }}</h3>
 		{{ a.html|teaser_para|safe }}
-		<a href="{{ url_for('blog.post', path=a.path) }}">Read more</a>
+		<a class="btn btn-outline-primary" href="{{ url_for('blog.post', path=a.path) }}">Read more</a>
 	</div>
 </div>
 {% else %}
 <p>Nothing here! Something must have gone wrong...</p>
 {% endfor %}
 
-<p>View <a href="/blog/index/">the entire index</a>.</p>
+<p>Not what you're looking for? Try checking out <a href="/blog/index/">the
+	archive</a>.</p>
 
 {% endblock %}
 {% block post_js %}{% endblock %}

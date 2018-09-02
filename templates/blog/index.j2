@@ -4,16 +4,15 @@
 {% block css %}{% endblock %}
 {% block pre_js %}{% endblock %}
 {% block content %}
-<h1 class="h1 my-3">Blog Index</h1>
+<h1 class="h1 my-3">Blog Archive</h1>
 {% if articles %}<div class="list-group">{% endif %}
 	{% for a in articles %}
-	<a href="{{ url_for('blog.post', path=a.path) }}"
-		class="list-group-item list-group-item-action flex-column align-items-start">
-		<div class="d-flex w-100">
-			<small class="text-muted mr-1">
+	<a href="{{ url_for('blog.post', path=a.path) }}" class="list-group-item list-group-item-action">
+		<div class="d-flex flex-wrap">
+			<p class="small text-muted mr-1 mb-1">
 				{{ a.created|datetimeformat('%Y-%m-%d') }}
-			</small>
-			<h2 class="h5">{{ a.title }}</h5>
+			</p>
+			<p class="h5 flex-grow-1 mb-1">{{ a.title }}</p>
 		</div>
 	</a>
 	{% else %}

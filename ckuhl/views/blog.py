@@ -9,7 +9,7 @@ blog = Blueprint('blog', __name__)
 
 
 @blog.route('/')
-def home(blog_n=999):
+def home(blog_n=8):
     """return a listing of blog posts"""
     posts = utils.get_category(Pages, 'blog', n=blog_n)
     blog_posts = [p for p in posts if p.meta['category'] != 'travel']

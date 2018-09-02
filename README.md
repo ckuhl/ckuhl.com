@@ -34,3 +34,17 @@ Made using [favicon.io](https://favicon.io/), with the following settings:
 - Font Colour: (255, 255, 255)
 - Background Colour: (26, 26, 26)
 
+### Flatpage tags
+- title: Title of the page
+- created: 2018-08-31 20:39 -7
+- updated: 2018-08-31 20:39 -7
+- published: True
+- category: blog (where the post appears (blog, portfolio, etc.)
+- tags: (tags group posts by)
+      - programming
+- scripts: (list of scripts to embed before the content)
+      - "d3.v5.min.js"
+      - "example-tools.js"
+    styles: (list of styles to embed before the content)
+      - "example-tools.css"
+
