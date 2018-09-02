@@ -7,6 +7,7 @@ from feedgen.feed import FeedGenerator
 from peewee import TextField
 
 
+# TODO: Figure out how to move this to settings
 BASE_URL = 'https://ckuhl.com/'
 
 

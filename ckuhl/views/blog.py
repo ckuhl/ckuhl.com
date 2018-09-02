@@ -1,4 +1,4 @@
-from flask import abort, Blueprint, render_template
+from flask import abort, Blueprint, render_template, redirect, url_for
 from flask_flatpages import FlatPages
 
 from .. import utils
@@ -17,13 +17,19 @@ def home(blog_n=8):
             articles=blog_posts)
 
 
-@blog.route('/index/')
+@blog.route('/archive/')
 def index(blog_n=999):
     """return a listing of blog posts"""
     posts = utils.get_category(Pages, 'blog', n=blog_n)
     blog_posts = [p for p in posts if p.meta['category'] != 'travel']
     return render_template('blog/index.j2',
             articles=blog_posts)
+
+
+@blog.route('/index/')
+def old_index():
+    """Redirect"""
+    return redirect(url_for('blog.index'))
 
 
 @blog.route('/rss/')

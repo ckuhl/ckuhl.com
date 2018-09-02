@@ -6,7 +6,7 @@ The following command is enough to clone, configure, and run the site:
 
     git clone https://github.com/ckuhl/ckuhl.com && cd ckuhl.com && make demo
 
-Then the site will be accessable at http://127.0.0.1:5000.
+Then the site will be accessable at `http://127.0.0.1:5000`.
 
 
 ## Features
@@ -35,16 +35,17 @@ Made using [favicon.io](https://favicon.io/), with the following settings:
 - Background Colour: (26, 26, 26)
 
 ### Flatpage tags
-- title: Title of the page
-- created: 2018-08-31 20:39 -7
-- updated: 2018-08-31 20:39 -7
-- published: True
-- category: blog (where the post appears (blog, portfolio, etc.)
-- tags: (tags group posts by)
+- `title`: Title of the page
+- `created`: 2018-08-31 20:39 -7
+- `updated`: 2018-08-31 20:39 -7
+- `published`: True
+- `category`: blog (where the post appears (blog, portfolio, etc.)
+- `tags`: (tags group posts by)
       - programming
-- scripts: (list of scripts to embed before the content)
+- `pre_js`: (list of scripts to embed before the content)
       - "d3.v5.min.js"
       - "example-tools.js"
-    styles: (list of styles to embed before the content)
+- `post_js`: (list of scripts to embed after the content)
+- `styles`: (list of styles to embed before the content)
       - "example-tools.css"
 

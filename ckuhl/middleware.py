@@ -7,7 +7,6 @@ from flask import current_app, request, render_template
 
 logger = logging.getLogger(__name__)
 
-
 @current_app.template_filter()
 def datetimeformat(date, fmt='%Y-%m-%d'):
     """

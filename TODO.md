@@ -3,17 +3,30 @@
 	- `[ ]` Create one blog post template with different options
 		- e.g. "show_tags", "show_date", etc.
 		- instead of blog / portfolio being slightly different
-- Backend
+	- `[ ]` Add link to LinkedIn in footer?
+- backend
 	- `[X]` Create middleware file (for jinja templates, etc.)
+	- `[ ]` Remove wiki (for now)
 	- `[ ]` Make settings available from modules
-- Blog
+	- `[ ]` Require synopsis / lead for each flatpage
+- core pages
+	- `[ ]` Update landing page Jumbotron with "best of Chris Kuhl" link
+		- i.e. a brag sheet
+	- `[ ]` Write jumbotron as a "hook" for employers
+- blog pages
 	- `[ ]` Add a "Next post" / "Previous post" to individual posts
 	- `[ ]` Add month / time pages (e.g. "September 2017", "2018", etc.)
 	- `[ ]` Revise `resource-hog`
 	- `[X]` Allow embedding JavaScript tools in blog posts
 	- `[ ]` Write posts with examples of data structures
-- Portfolio
+	- `[ ]` Update tags viewing page
+	- `[ ]` Create tags listing page
+- portfolio pages
 	- `[ ]` Add an image to `i-want-that-pet.md`
-	- `[ ]` Add more images
-	- `[ ]` Rewrite most blog posts
+	- `[ ]` Add more images in general
+	- `[ ]` Rewrite most pieces
+	- `[ ]` Update to same format as blog
+		-`[ ]` post
+		-`[ ]` index
+		-`[ ]` archive
 

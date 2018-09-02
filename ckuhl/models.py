@@ -9,11 +9,13 @@ from .utils import JSONField
 
 
 class BaseModel(Model):
+    """Now all models are connected to the database by default"""
     class Meta:
         database = Database
 
 
 class PageView(BaseModel):
+    """Representation of a page view on my website"""
     domain = CharField()
     url = TextField()
     timestamp = DateTimeField(default=datetime.datetime.now, index=True)
@@ -25,6 +27,7 @@ class PageView(BaseModel):
 
     @classmethod
     def create_from_request(cls):
+        """Create a pageview object / entry directly from the query string"""
         parsed = urllib.parse.urlparse(request.args['url'])
         params = dict(urllib.parse.parse_qsl(parsed.query))
 

@@ -32,6 +32,8 @@ class ProdConfig(BaseConfig):
     # FlatPages debugging
     FLATPAGES_AUTO_RELOAD = False
 
+    BASE_URL = 'https://ckuhl.com/'
+
 
 class DebugConfig(BaseConfig):
     # debugging
@@ -39,4 +41,6 @@ class DebugConfig(BaseConfig):
 
     # FlatPages debugging
     FLATPAGES_AUTO_RELOAD = True
+
+    BASE_URL = 'http://127.0.0.1:5000/'
 

@@ -6,7 +6,7 @@ from importlib import import_module
 from flask import Flask, abort, render_template, request
 from flask_flatpages import FlatPages
 
-from .ext import Database, Pages, Wiki
+from .ext import Database, Pages
 from .settings import ProdConfig, DebugConfig
 from .models import PageView
 from .views import analytics, blog, core, portfolio
@@ -50,7 +50,6 @@ def create_app(debug=False):
     # initialize extensions
     Database.create_tables([PageView], safe=True)
     Pages.init_app(app)
-    Wiki.init_app(app)
 
     return app
 
