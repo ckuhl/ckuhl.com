@@ -83,17 +83,3 @@ class JSONField(TextField):
         if value is not None:
             return json.dumps(value)
 
-
-def get_wiki_page(path):
-    """
-    Loads a wiki page given a URL to it
-    """
-    p = os.path.join(root_dir(), 'wiki', path)
-    if os.path.isfile(p):
-        return p
-    elif os.path.isfile(p + '.html'):
-        return p + '.html'
-    elif os.path.isfile(p + 'index.html'):
-        return p + 'index.html'
-    abort(404)
-

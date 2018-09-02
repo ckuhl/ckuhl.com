@@ -9,7 +9,7 @@ from flask_flatpages import FlatPages
 from .ext import Database, Pages, Wiki
 from .settings import ProdConfig, DebugConfig
 from .models import PageView
-from .views import analytics, blog, core, portfolio, wiki
+from .views import analytics, blog, core, portfolio
 
 
 def create_app(debug=False):
@@ -43,7 +43,6 @@ def create_app(debug=False):
 
     # register blueprints
     app.register_blueprint(blog.blog, url_prefix='/blog')
-    app.register_blueprint(wiki.wiki, url_prefix='/wiki')
     app.register_blueprint(portfolio.portfolio, url_prefix='/portfolio')
     app.register_blueprint(core.core)
     app.register_blueprint(analytics.analytics)
