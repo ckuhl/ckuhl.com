@@ -10,6 +10,7 @@
 	<div class="card-body">
 		<h2 class="h4 card-title"><a href="{{ url_for('portfolio.project', path=p.path) }}">{{ p.title }}</a></h2>
 		<p class="card-text">{{ p.description }}</p>
+		<a class="btn btn-outline-primary" href="{{ url_for('portfolio.project', path=p.path) }}">Read more</a>
 	</div>
 </div>
 {% else %}

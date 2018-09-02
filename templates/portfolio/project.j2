@@ -6,12 +6,16 @@
 {% block content %}
 <h1 class="h1 my-3">{{ post.title }}</h1>
 <div>{{ post.html|safe }}</div>
+<div>
 <span class="fa fa-calendar" aria-hidden="true"></span>
 Written {{ post.created|datetimeformat('%B %e, %Y') }}{% if post.updated != post.created %}, updated {{ post.updated|datetimeformat('%B %e, %Y') }}{% endif %}
+</div>
 
 {% if post.repo %}
-<span class="fa fa-github" aria-hidden="true"></span>
-<a href={{ post.repo }}>View the source</a>
+<div>
+	<span class="fa fa-github" aria-hidden="true"></span>
+	<a href={{ post.repo }}>View the source</a>
+</div>
 {% endif %}
 {% endblock %}
 {% block post_js %}{% endblock %}

@@ -10,7 +10,7 @@ portfolio = Blueprint('portfolio', __name__)
 @portfolio.route('/')
 def index(n=999):
     """Serve a listing of portfolio projects"""
-    return render_template('portfolio/index.j2',
+    return render_template('portfolio/home.j2',
             projects=utils.get_category(Pages, 'portfolio', n=n))
 
 
