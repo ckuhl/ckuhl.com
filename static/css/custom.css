@@ -92,3 +92,40 @@ h1.display-4 {
 	text-transform: initial;
 }
 
+/* Make navbar slimmer
+ * = p-0 on large devices, p-2 on small devices */
+
+/* Extra small devices (portrait phones, less than 576px) */
+/* default size, no media query needed */
+.navbar {
+	padding: 0.5rem;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	.navbar {
+		padding: 0.5rem;
+	}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.navbar {
+		padding: 0.5rem;
+	}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.navbar {
+		padding: 0rem;
+	}
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	.navbar {
+		padding: 0rem;
+	}
+}
+

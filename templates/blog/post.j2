@@ -4,13 +4,13 @@
 
 {% block css %}
 	{% for style in post.styles %}
-		<link rel="stylesheet" href="/static/css/{{ style }}">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/' + style) }}">
 	{% endfor %}
 {% endblock %}
 
 {% block pre_js %}
 	{% for script in post.scripts %}
-		<script src="/static/js/{{ script }}"></script>
+		<script src="{{ url_for('static', filename='js/' + script) }}"></script>
 	{% endfor %}
 {% endblock %}
 
@@ -30,7 +30,7 @@
 			<span> Tags: </span>
 		{% endif %}
 		{% for tag in post.tags %}
-			<a class="badge badge-secondary" href="/blog/tag/{{ tag }}/">{{ tag }}</a>
+		<a class="badge badge-secondary" href="{{ url_for('blog.tag_page', slug=tag) }}">{{ tag }}</a>
 		{% endfor %}
 	{% if post.tags %}</div>{% endif %}
 {% endblock %}

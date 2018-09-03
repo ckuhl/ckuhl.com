@@ -3,18 +3,23 @@
 {% block css %}{% endblock %}
 {% block pre_js %}{% endblock %}
 {% block content %}
-<section class="mt-2 mb-5">
-<div class="jumbotron my-3">
-	<h1 class="display-4">Hi, I'm Chris!</h1>
-	<p class="lead">I'm a computer science student at the University of
-	Waterloo, but also completing a BBA at Wilfrid Laurier University.</p>
-
-	<p>I love solving problems, whether that be through programming,
-	communication, or some combination of the two.</p>
+<section class="mt-3">
+<div class="jumbotron py-5">
+	<h1 class="display-4">Hello, I'm Chris!</h1>
+	<p class="font-weight-light">
+	I'm a computer science student at the University of Waterloo. Oh, I'm
+	also completing a bachelor of business administration too.
+	</p>
+	<p class="font-weight-light">
+	When I'm not at school in Waterloo, I'm in Vancouver. You can usually
+	find me working at a startup, hiding out from the rain in a caf&eacute;
+	and working on a project, or hiking off in the mountains somewhere.
+	</p>
 </div>
 </section>
+
 <section class="mb-5">
-<h1 class="h1 mb-3">From the Blog</h1>
+<h1 class="h1 mb-3">On the Blog</h1>
 {% for a in articles %}
 <div class="card my-3">
 	<div class="card-body">
