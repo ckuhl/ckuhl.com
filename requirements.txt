@@ -1,17 +1,22 @@
-click==6.7
+certifi==2018.8.24
+chardet==3.0.4
+Click==7.0
 feedgen==0.7.0
 Flask==1.0.2
-Flask-FlatPages==0.6
+-e git://github.com/ckuhl/Flask-FlatPages.git@75f581ba852c258bfc985bb8ff2a69e8435697ef#egg=Flask_FlatPages
+idna==2.7
 itsdangerous==0.24
 Jinja2==2.10
 lxml==4.2.5
-Markdown==2.6.11
+Markdown==3.0
 MarkupSafe==1.0
 peewee==3.7.0
 pkg-resources==0.0.0
 Pygments==2.2.0
 python-dateutil==2.7.3
 PyYAML==3.13
+requests==2.19.1
 six==1.11.0
+urllib3==1.23
 uWSGI==2.0.17.1
 Werkzeug==0.14.1
