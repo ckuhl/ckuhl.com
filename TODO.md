@@ -1,6 +1,11 @@
 # To-do
+## Admin
+- [ ] replace Makefile with more sensible tool
+  - alternately, only use it for Making an executable
+
 ## General site
 
+- [ ] investigate why moving from markdown 2 -> 3 breaks things
 - [ ] create one blog post template with different options
   - e.g. "show_tags", "show_date", etc.
   - instead of blog / portfolio being slightly different

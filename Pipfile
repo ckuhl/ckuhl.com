@@ -18,12 +18,13 @@ six = "*"
 Flask = "*"
 Flask-FlatPages = {editable = true, git = "git://github.com/ckuhl/Flask-FlatPages.git"}
 "Jinja2" = "*"
-Markdown = "*"
 MarkupSafe = "*"
 Pygments = "*"
 PyYAML = "*"
 uWSGI = "*"
 Werkzeug = "*"
+click = "*"
+markdown = "<3"
 
 [dev-packages]
 
