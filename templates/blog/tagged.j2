@@ -4,18 +4,17 @@
 {% block css %}{% endblock %}
 {% block pre_js %}{% endblock %}
 {% block content %}
-<h1 class="h1 my-3">Posts tagged: {{ tag }}</h1>
-{% for a in articles %}
-<div class="card my-3">
-	<div class="card-body">
-		<h2 class="h4 card-title"><a href="{{ url_for('blog.post', path=a.path) }}">{{ a.title }}</a></h2>
-		<h3 class="h6 text-muted">Written {{ a.created|datetimeformat('%Y-%m-%d') }}</h3>
-		{{ a.html|teaser_para|safe }}
-	</div>
-</div>
-{% else %}
-	<p>There are no blog posts that are tagged "{{ tag }}"!</p>
-{% endfor %}
-{% if articles %}</ul>{% endif %}
+    <h1 class="h1 my-3">Posts tagged: {{ tag }}</h1>
+    {% for a in articles %}
+        <div class="card my-3">
+            <div class="card-body">
+                <h2 class="h4 card-title"><a href="{{ url_for('blog.post', path=a.path) }}">{{ a.title }}</a></h2>
+                <h3 class="h6 text-muted">Written {{ a.created|datetimeformat('%Y-%m-%d') }}</h3>
+                {{ a.html|teaser_para|safe }}
+            </div>
+        </div>
+    {% else %}
+        <p>There are no blog posts that are tagged "{{ tag }}"!</p>
+    {% endfor %}
 {% endblock %}
 {% block post_js %}{% endblock %}
