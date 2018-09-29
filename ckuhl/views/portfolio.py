@@ -3,6 +3,7 @@ from flask import abort, Blueprint, render_template
 from .. import utils
 from ..ext import Pages
 
+
 portfolio = Blueprint('portfolio', __name__)
 
 

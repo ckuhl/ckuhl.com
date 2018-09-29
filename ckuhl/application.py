@@ -1,8 +1,8 @@
 import logging
 import os
-import sys
 from importlib import import_module
 
+import yaml
 from flask import Flask
 
 from .ext import Database, Pages
@@ -29,8 +29,14 @@ def create_app(debug=False):
                 template_folder=os.path.join(config.BASE_DIR, 'templates'),
                 static_folder=os.path.join(config.BASE_DIR, 'static'))
 
-    # configure app
+    # load default configuration
     app.config.from_object(config)
+
+    # load secrets configuration
+    secrets = os.path.join(app.config["BASE_DIR"], "secrets", "secrets.yml")
+    if not os.path.exists(secrets):
+        secrets = os.path.join(app.config["BASE_DIR"], "secrets", "default.yml")
+    app.config.from_mapping(yaml.load(open(secrets)))
 
     # set logging
     if debug:

@@ -11,12 +11,12 @@ def root_dir():
     return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
-def create_feedgen(posts):
+def create_feedgenerator(posts):
     """
     Create a FeedGenerator and fill in recent posts
 
     :param list(dict) posts: List of FlatPages pages
-    :returns FeedGenerator: Initialized feedgenerator
+    :returns FeedGenerator: Initialized FeedGenerator
     """
     fg = FeedGenerator()
 
@@ -42,7 +42,7 @@ def create_feedgen(posts):
 
 def generate_rss_feed(posts):
     """Utility wrapper to create an RSS feed from a list of posts"""
-    fg = create_feedgen(posts)
+    fg = create_feedgenerator(posts)
     return fg.rss_str(pretty=True)
 
 

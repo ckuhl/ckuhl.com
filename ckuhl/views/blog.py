@@ -3,6 +3,7 @@ from flask import Blueprint, abort, redirect, render_template, url_for
 from .. import utils
 from ..ext import Pages
 
+
 blog = Blueprint('blog', __name__)
 
 

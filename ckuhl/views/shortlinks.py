@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for
 
-short_links = Blueprint('shortlinks', __name__)
+
+short_links = Blueprint('short_links', __name__)
 
 
 @short_links.route('/')
