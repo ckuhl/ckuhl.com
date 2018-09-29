@@ -1,0 +1,31 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+certifi = "*"
+chardet = "*"
+feedgen = "*"
+idna = "*"
+itsdangerous = "*"
+lxml = "*"
+peewee = "*"
+python-dateutil = "*"
+requests = "*"
+six = "*"
+"urllib3" = "*"
+Flask = "*"
+Flask-FlatPages = {editable = true, git = "git://github.com/ckuhl/Flask-FlatPages.git"}
+"Jinja2" = "*"
+Markdown = "*"
+MarkupSafe = "*"
+Pygments = "*"
+PyYAML = "*"
+uWSGI = "*"
+Werkzeug = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
