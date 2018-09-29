@@ -1,5 +1,6 @@
 import logging
 import os
+import sys
 from importlib import import_module
 
 from flask import Flask
@@ -32,12 +33,17 @@ def create_app(debug=False):
     app.config.from_object(config)
 
     # set logging
-    logging.basicConfig(filename=config.LOG_NAME, level=logging.DEBUG)
+    if debug:
+        logging.basicConfig(level=logging.DEBUG)
+    else:
+        logging.basicConfig(filename=config.LOG_NAME, level=logging.INFO)
+
     logger = logging.getLogger(__name__)
 
     # import middleware
     with app.app_context():
-        import_module('ckuhl.middleware')  # TODO: Replace with relative import?
+        # TODO: Can this be replaced with relative import?
+        import_module('ckuhl.middleware')
 
     # register blueprints
     app.register_blueprint(blog.blog, url_prefix='/blog')

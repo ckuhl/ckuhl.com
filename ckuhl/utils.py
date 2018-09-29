@@ -1,12 +1,9 @@
 import os
 import json
 
-from flask import url_for
+from flask import url_for, current_app
 from feedgen.feed import FeedGenerator
 from peewee import TextField
-
-# TODO: Figure out how to move this to settings
-BASE_URL = 'https://ckuhl.com/'
 
 
 def root_dir():
@@ -38,7 +35,7 @@ def create_feedgen(posts):
         fe.published(post.meta['created'])
         fe.updated(post.meta['updated'])
         fe.content(post.html, type='html')
-        fe.link(href=BASE_URL + 'blog/' + 'rss')
+        fe.link(href=current_app.config["BASE_URL"] + 'blog/' + 'rss')
 
     return fg
 

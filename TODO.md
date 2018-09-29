@@ -17,7 +17,7 @@
 
 - [x] Create middleware file (for jinja templates, etc.)
 - [x] Remove wiki (for now)
-- [ ] Make settings available from modules
+- [x] Make settings available from modules
 - [ ] Require synopsis / lead for each flatpage
 
 ## Analytics

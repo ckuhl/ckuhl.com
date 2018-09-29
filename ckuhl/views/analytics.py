@@ -1,6 +1,6 @@
 import base64
 
-from flask import abort, Blueprint, Response, request
+from flask import abort, current_app, Blueprint, Response, request
 
 from ..models import PageView
 from ..ext import Database
@@ -36,5 +36,5 @@ def analyze():
 @analytics.route('/custom.js')
 def script():
     return Response(
-        JAVASCRIPT % DOMAIN,
+        JAVASCRIPT % current_app.config["BASE_URL"],
         mimetype='text/javascript')

@@ -1,7 +1,7 @@
 import os
 
 
-class BaseConfig:
+class BaseConfig(object):
     # project base directory
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -18,14 +18,19 @@ class BaseConfig:
     FLATPAGES_BLOG_MARKDOWN_EXTENSIONS = [
         # allows script tags in markdown
         'extra',
+
         # define abbreviations (e.g. HTML, W3C, &c.)
         'abbr',
+
         # code highlighting
         'codehilite(linenums=True)',
+
         # use ``` to denote code (instead of spaces)
         'fenced_code',
+
         # convert ASCII dashes/quotes/ellipses to HTML equiv.
         'smarty',
+
         # use [^<label>] to use footnotes inline
         'footnotes',
     ]
