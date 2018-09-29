@@ -33,9 +33,13 @@ def create_app(debug=False):
     app.config.from_object(config)
 
     # load secrets configuration
-    secrets = os.path.join(app.config["BASE_DIR"], "secrets", "secrets.yml")
+    secrets = os.path.join(app.config["BASE_DIR"],
+                           "secrets",
+                           "default.secret.yml")
     if not os.path.exists(secrets):
-        secrets = os.path.join(app.config["BASE_DIR"], "secrets", "default.yml")
+        secrets = os.path.join(app.config["BASE_DIR"],
+                               "secrets",
+                               "default.yml")
     app.config.from_mapping(yaml.load(open(secrets)))
 
     # set logging

@@ -1,17 +1,28 @@
 # To-do
+
 ## Admin
+
 - [ ] replace Makefile with more sensible tool
   - alternately, only use it for Making an executable
+- [ ] Include Ansible playbook for deployment
+  - [ ] Also avoid including secrets in that
 
 ## General site
 
-- [ ] investigate why moving from markdown 2 -> 3 breaks things
-- [ ] create one blog post template with different options
+- [ ] investigate why moving from markdown 2.x to 3 breaks things (related to "safe" HTML parsing)
+- [ ] create one FlatPage post template with different options
   - e.g. "show_tags", "show_date", etc.
-  - instead of blog / portfolio being slightly different
 - [ ] add email integration to subdomain
-  * i.e. `alerts.ckuhl.com` for sending myself notifications, etc.
+  - [x] allow loading / storing secrets
 - [ ] Optimize page speed ([As per Google's assessment](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fckuhl.com%2F))
+  - [x] Optimize images (e.g. `navbar-brand.png`)
+  - [ ] Use browser caching
+  - [ ] Enable compression in nginx (gzip / deflate)
+  - [ ] Eliminate / reduce blocking CSS resources
+- [ ] Create static resource pipeline
+  - [ ] Optimize all / new images
+  - [ ] Bundle & minify JavaScript and CSS files
+  - [ ] Aggressively cache e.g. font files
 
 ## Backend
 
@@ -23,17 +34,17 @@
 ## Analytics
 
 - [ ] use a Geo IP database to determine where viewers are from
-- [ ] after creating email integration, send reports
+- [ ] send reports on analytics to myself (using email integration)
+  - [ ] Create "scheduled" scripts to attach cronjobs to
 
 ## Core pages
 
-- [ ] update landing page Jumbotron with "best of Chris Kuhl" link
-  - i.e. a brag sheet
+- [x] update landing page Jumbotron with "best of Chris Kuhl" link
 - [x] write jumbotron as a "hook" for employers
 
 ## FlatPages
 
-* [ ] Add a "publish_on" YAML tag to allow writing / submitting content ahead of time
+- [ ] Add a "publish_on" YAML tag to allow writing / submitting content ahead of time
 
 ### Blog pages
 
@@ -54,3 +65,4 @@
   - [ ] Individual portfolio piece
   - [ ] Portfolio index
   - [ ] Piece archive
+
