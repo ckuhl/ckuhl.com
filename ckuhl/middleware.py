@@ -4,11 +4,11 @@ import logging
 
 from flask import current_app, request, render_template
 
-
 logger = logging.getLogger(__name__)
 
+
 @current_app.template_filter()
-def datetimeformat(date, fmt='%Y-%m-%d'):
+def format_datetime(date, fmt='%Y-%m-%d'):
     """
     Format a datetime object according to an arbitrary format string
 
@@ -25,6 +25,7 @@ def datetimeformat(date, fmt='%Y-%m-%d'):
 def teaser_para(content):
     """
     Given a block of HTML, return only the first paragraph (the teaser)
+    FIXME: Replace with with an actual `teaser: ` segment in FlatPages.
 
     :param str content: Entire HTML block
     :returns str: First paragraph of html
@@ -38,9 +39,10 @@ def teaser_sentence(content, n=3):
     Given a block of HTML, return only the first n sentences.
 
     :param str content: Entire HTML block
+    :param integer n: number of sentences
     :returns str: First n sentences of html
     """
-    # TODO: Yes this is a hack
+    # FIXME: Yes this is a hack
     return '.'.join(content.split('</p>')[0].split('.')[:n]) + '.' + '</p>'
 
 
@@ -60,18 +62,26 @@ def page_403(e):
 def log_request():
     """
     Log all visiting user agents
+
+    TODO: Convert this to write to the database.
     """
     logger.info("%s # %s # %s # %s",
-            request.user_agent,
-            request.accept_languages,
-            request.url,
-            datetime.datetime.now())
+                request.user_agent,
+                request.accept_languages,
+                request.url,
+                datetime.datetime.now())
 
 
 @current_app.context_processor
 def inject_dnt():
     """
-    inject a Do Not Track header var for all contexts
+    Inject a `Do Not Track` header variable for all contexts
+
+    This allows conditionally including tracking scripts, depending on if
+    someone doesn't want to be tracked or not.
+
+    Note: They will still be recorded in server logs, as they're interacting
+    with the server. However no personal information should be recorded.
     """
     dnt = False
     try:
@@ -83,4 +93,3 @@ def inject_dnt():
     except KeyError:
         pass
     return {'do_not_track': dnt}
-

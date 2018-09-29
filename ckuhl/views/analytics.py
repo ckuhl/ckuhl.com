@@ -5,12 +5,12 @@ from flask import abort, Blueprint, Response, request
 from ..models import PageView
 from ..ext import Database
 
-
 DOMAIN = 'https://ckuhl.com'
 # DOMAIN = 'http://127.0.0.1:5000'  # TODO: Fix this config pain...
 
 
-BEACON = base64.b64decode('R0lGODlhAQABAIAAANvf7wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==')
+BEACON = base64.b64decode(
+    'R0lGODlhAQABAIAAANvf7wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==')
 
 JAVASCRIPT = """(function(){
 var d=document,i=new Image,e=encodeURIComponent;
@@ -36,6 +36,5 @@ def analyze():
 @analytics.route('/custom.js')
 def script():
     return Response(
-            JAVASCRIPT % DOMAIN,
-            mimetype='text/javascript')
-
+        JAVASCRIPT % DOMAIN,
+        mimetype='text/javascript')

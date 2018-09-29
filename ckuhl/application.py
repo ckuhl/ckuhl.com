@@ -1,14 +1,12 @@
-import datetime
 import logging
 import os
 from importlib import import_module
 
-from flask import Flask, abort, render_template, request
-from flask_flatpages import FlatPages
+from flask import Flask
 
 from .ext import Database, Pages
-from .settings import ProdConfig, DebugConfig
 from .models import PageView
+from .settings import DebugConfig, ProdConfig
 from .views import analytics, blog, core, portfolio, shortlinks
 
 
@@ -27,8 +25,8 @@ def create_app(debug=False):
 
     # initialize app
     app = Flask(__name__,
-            template_folder=os.path.join(config.BASE_DIR, 'templates'),
-            static_folder=os.path.join(config.BASE_DIR, 'static'))
+                template_folder=os.path.join(config.BASE_DIR, 'templates'),
+                static_folder=os.path.join(config.BASE_DIR, 'static'))
 
     # configure app
     app.config.from_object(config)
@@ -44,7 +42,7 @@ def create_app(debug=False):
     # register blueprints
     app.register_blueprint(blog.blog, url_prefix='/blog')
     app.register_blueprint(portfolio.portfolio, url_prefix='/portfolio')
-    app.register_blueprint(shortlinks.s, url_prefix='/s')
+    app.register_blueprint(shortlinks.short_links, url_prefix='/s')
     app.register_blueprint(core.core)
     app.register_blueprint(analytics.analytics)
 
@@ -53,4 +51,3 @@ def create_app(debug=False):
     Pages.init_app(app)
 
     return app
-

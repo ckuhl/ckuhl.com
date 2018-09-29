@@ -1,5 +1,5 @@
 import datetime
-import urllib
+from urllib.parse import urlparse, parse_qsl
 
 from flask import request
 from peewee import Model, CharField, TextField, DateTimeField
@@ -10,6 +10,7 @@ from .utils import JSONField
 
 class BaseModel(Model):
     """Now all models are connected to the database by default"""
+
     class Meta:
         database = Database
 
@@ -27,9 +28,9 @@ class PageView(BaseModel):
 
     @classmethod
     def create_from_request(cls):
-        """Create a pageview object / entry directly from the query string"""
-        parsed = urllib.parse.urlparse(request.args['url'])
-        params = dict(urllib.parse.parse_qsl(parsed.query))
+        """Create a PageView object / entry directly from the query string"""
+        parsed = urlparse(request.args['url'])
+        params = dict(parse_qsl(parsed.query))
 
         return PageView.create(
             domain=parsed.netloc,
