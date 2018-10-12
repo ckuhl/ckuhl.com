@@ -26,7 +26,7 @@ def create_app(debug=False):
 
     # initialize app
     app = Flask(__name__,
-                template_folder=os.path.join(config.BASE_DIR, 'templates'),
+                template_folder='templates',
                 static_folder=os.path.join(config.BASE_DIR, 'static'))
 
     # load default configuration
