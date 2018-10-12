@@ -8,8 +8,7 @@
     <div>{{ post.html|safe }}</div>
     <div>
         <span class="fa fa-calendar" aria-hidden="true"></span>
-        Written {{ post.created|format_datetime('%B %e, %Y') }}{% if post.updated != post.created %}, updated
-        {{ post.updated|datetimeformat('%B %e, %Y') }}{% endif %}
+        Written {{ post.created|format_datetime('%B %e, %Y') }}
     </div>
 
     {% if post.repo %}

@@ -9,7 +9,7 @@
         <div class="card my-3">
             <div class="card-body">
                 <h2 class="h4 card-title"><a href="{{ url_for('blog.post', path=a.path) }}">{{ a.title }}</a></h2>
-                <h3 class="h6 text-muted">Written {{ a.created|datetimeformat('%Y-%m-%d') }}</h3>
+                <h3 class="h6 text-muted">Written {{ a.created|format_datetime('%Y-%m-%d') }}</h3>
                 {{ a.html|teaser_para|safe }}
             </div>
         </div>
