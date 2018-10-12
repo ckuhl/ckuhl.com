@@ -1,13 +1,9 @@
 ---
-    title: How does Flask work?
-    created: 2018-03-28 20:41 -8
-    updated: 2018-05-04 11:21 -5
-    published: True
-    category: blog
-    tags:
-      - technology
-      - python
-...
+title: How does Flask work?
+published: True
+category: blog
+tags: [technology, python]
+---
 
 When you first start using the [Flask framework](http://flask.pocoo.org/) it
 feels a little magical. You write a function to return some text, add a single

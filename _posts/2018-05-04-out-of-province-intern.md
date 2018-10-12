@@ -1,13 +1,10 @@
 ---
-    title: Notes for an out-of-province student
-    created: 2018-05-04 11:06 -5
-    updated: 2018-06-07 11:44 -5
-    published: True
-    category: blog
-    tags:
-      - co-op
-      - advice
-...
+title: Notes for an out-of-province student
+published: True
+category: blog
+tags: [co-op, advice]
+---
+
 ## Working a co-op in BC when you've never left Ontario
 
 Last year at the end of November, I got an offer for a co-op placement with a

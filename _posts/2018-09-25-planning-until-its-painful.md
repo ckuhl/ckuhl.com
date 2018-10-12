@@ -1,13 +1,9 @@
 ---
-    title: "Planning until it's painful"
-    created: 2018-09-25 20:29 -7
-    updated: 2018-09-25 20:29 -7
-    published: True
-    category: blog
-    tags:
-      - project
-      - "work practices"
-...
+title: Planning until it's painful
+published: True
+category: blog
+tags: [project, work practices]
+---
 
 When I first started at my current internship, I just wanted to code. My
 manager however would often ask me all these _annoying questions_ that just got

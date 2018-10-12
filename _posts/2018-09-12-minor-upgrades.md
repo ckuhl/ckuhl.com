@@ -1,13 +1,9 @@
 ---
-    title: Minor updates
-    created: 2018-09-12 19:00 -7
-    updated: 2017-09-12 19:00 -7
-    published: True
-    category: blog
-    tags:
-      - website
-      - functionality
-...
+title: Minor updates
+published: True
+category: blog
+tags: [website, functionality]
+---
 
 As a part of a as-of-yet unnamed overarching project, I've been updating my
 presence around the web on various sites. As a part of this I've found the

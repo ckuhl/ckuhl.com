@@ -1,14 +1,10 @@
 ---
-    title: "Respectful Tracking"
-    created: 2018-03-09 18:53 -8
-    updated: 2018-05-04 11:21 -5
-    published: True
-    category: blog
-    tags:
-      - "technology"
-      - "python"
-      - "flask"
-...
+title: "Respectful Tracking"
+updated: 2018-05-04 11:21 -5
+published: True
+category: blog
+tags: [technology, python, flask]
+---
 
 As a university student in a co-op program, I am either working a co-op job, or
 preparing to start applying to the next one. Sometimes both at the same time. I

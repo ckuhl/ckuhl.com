@@ -1,14 +1,9 @@
 ---
-    title: (Web) Extending my knowledge
-    created: 2017-09-23 18:32 -5
-    updated: 2017-12-06 16:27 -5
-    published: True
-    category: tech
-    tags:
-      - dev
-      - learning
-      - tweet+
-...
+title: (Web) Extending my knowledge
+published: True
+category: blog
+tags: [dev, learning, tweet+]
+---
 
 With the announcement that Firefox would be deprecating XUL extensions,
 I went through my addons to see which would be updated in time,

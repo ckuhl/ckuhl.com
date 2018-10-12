@@ -1,14 +1,9 @@
 ---
-    title: JSON in PostgreSQL
-    created: 2018-03-24 22:01 -8
-    updated: 2018-03-24 22:01 -8
-    published: True
-    category: blog
-    tags:
-      - technology
-      - database
-      - argument
-...
+title: JSON in PostgreSQL
+published: True
+category: blog
+tags: [technology, database, argument]
+---
 
 Recently at work, I got into a discussion about whether it makes sense to store
 JSON objects in a relational database. While I tried to disagree, they

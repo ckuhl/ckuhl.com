@@ -1,13 +1,9 @@
 ---
-    title: "Facebook cannot act in your best interest"
-    created: 2018-03-20 21:15 -8
-    updated: 2018-03-20 21:15 -8
-    published: True
-    category: blog
-    tags:
-      - "human-computer interaction"
-      - "social media"
-...
+title: Facebook cannot act in your best interest
+published: True
+category: blog
+tags: [human-computer interaction, social media]
+---
 
 With the recent complaints about Facebook surfacing across the internet, now
 seems as good of a time as ever to share this. I've discussed with friends

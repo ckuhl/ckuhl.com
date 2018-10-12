@@ -1,17 +1,12 @@
 ---
 title: I Want That Pet!
-created: 2018-02-27 20:21 -8
-updated: 2018-02-27 20:21 -8
 published: True
 category: portfolio
-tags:
-  - web
-  - project
-  - learning
+tags: [web, project, learning]
 description: A small project I made for a friend to keep them notified if the
     animal they wanted to adopt from the shelter got adopted.
 repo: https://github.com/ckuhl/iwantthat.pet
-...
+---
 
 ## Outline
 

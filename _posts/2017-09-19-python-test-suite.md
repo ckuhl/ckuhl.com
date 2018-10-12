@@ -1,17 +1,13 @@
 ---
-    title: Python Test Suite
-    created: 2017-09-19 12:00 -5
-    updated: 2017-09-19 12:00 -5
-    published: True
-    category: portfolio
-    tags:
-      - pts
-      - portfolio
-    description: A black box testing library built with Python and YAML. Useful
-        for testing programs or scripts that don't have builtin testing
-        functionality (e.g. MIPS assembly).
-    repo: https://github.com/ckuhl/pts
-...
+title: Python Test Suite
+published: True
+category: portfolio
+tags: [pts, portfolio]
+description: A black box testing library built with Python and YAML. Useful
+    for testing programs or scripts that don't have builtin testing
+    functionality (e.g. MIPS assembly).
+repo: https://github.com/ckuhl/pts
+---
 
 Last year for a computer science class (CS 246) I was required to write a
 rudimentary testing script. I found it useful at the time, but it had a

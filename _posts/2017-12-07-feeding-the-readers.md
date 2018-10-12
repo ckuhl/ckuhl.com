@@ -1,14 +1,9 @@
 ---
-    title: Feed-ing the Readers
-    created: 2017-12-07 18:12 -5
-    updated: 2017-12-07 18:12 -5
-    published: True
-    category: blog
-    tags:
-      - news
-      - dev
-      - tweet+
-...
+title: Feed-ing the Readers
+published: True
+category: blog
+tags: [news, dev, tweet+]
+---
 
 Initially an MVP, I have been progressively fleshing out my blog as I have
 time, usually with whatever catches my fancy. My latest (re)discovery on this

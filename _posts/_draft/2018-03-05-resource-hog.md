@@ -1,12 +1,9 @@
 ---
-    title: "A Different Kind of Resource Hog"
-    created: 2018-03-05 20:39 -8
-    updated: 2018-05-04 11:21 -5
-    published: False
-    category: blog
-    tags:
-      - "human-computer interaction"
-...
+title: A Different Kind of Resource Hog
+published: False
+category: blog
+tags: [human-computer interaction]
+---
 
 The discussion around ad blockers often centres around whether it is
 permissable to let advertising networks use your resources (battery life,

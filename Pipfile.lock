@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e0ba017ace0c2e507b42c179f1574a3adc1d6b1621308b9a3512dc240d07bbd0"
+            "sha256": "fd587ce3853aab0071a685c468aca04f521ffc970c38eef4a7cd7a9114bfeb14"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -57,8 +57,8 @@
         },
         "flask-flatpages": {
             "editable": true,
-            "git": "git://github.com/ckuhl/Flask-FlatPages.git",
-            "ref": "75f581ba852c258bfc985bb8ff2a69e8435697ef"
+            "git": "git://github.com/ckuhl/Flask-FlatterPages.git",
+            "ref": "5626f3073bf7d67c752c751aeee90340f68851dc"
         },
         "idna": {
             "hashes": [
@@ -136,10 +136,10 @@
         },
         "peewee": {
             "hashes": [
-                "sha256:bb9ee5e2ca601c82f5e3c8327f19af4b5f9941ae74ec520674165692d3d6ae7a"
+                "sha256:a91c3ccff43ab71f08196aba1d17dd2548079744d54adc33d511db1c30b446ba"
             ],
             "index": "pypi",
-            "version": "==3.7.0"
+            "version": "==3.7.1"
         },
         "pygments": {
             "hashes": [

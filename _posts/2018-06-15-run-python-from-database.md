@@ -1,14 +1,9 @@
 ---
-    title: Running python from a database
-    created: 2018-06-15 09:35 -5
-    updated: 2018-06-15 09:35 -5
-    published: True
-    category: blog
-    tags:
-      - what-if
-      - programming
-      - python
-...
+title: Running python from a database
+published: True
+category: blog
+tags: [what-if, programming, python]
+---
 
 While having my morning coffee, I had a strange idea. Is it possible to run
 code stored inside a sqlite database? I had no idea if it was possible, but I

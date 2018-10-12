@@ -1,12 +1,9 @@
 ---
-    title: "Thought Experiment: The TextNet"
-    created: 2017-12-19 19:45 -5
-    updated: 2018-05-04 11:21 -5
-    published: True
-    category: blog
-    tags:
-      - thought experiment
-...
+title: "Thought Experiment: The TextNet"
+published: True
+category: blog
+tags: [thought experiment]
+---
 
 On the forums I follow, there has been a growth in people begrudging the
 "JavaScript-ization" of modern web content. On one hand I can absolutely agree

@@ -1,14 +1,9 @@
 ---
-    title: The Easiest Route
-    created: 2017-11-24 18:51 -5
-    updated: 2017-11-25 17:34 -5
-    published: True
-    category: blog
-    tags:
-      - dev
-      - goals
-      - tweet+
-...
+title: The Easiest Route
+published: True
+category: blog
+tags: [dev, goals, tweet+]
+---
 
 My most limited resource when it comes to side projects is
 not my computing resources or my ideas, but my time. With school obligations

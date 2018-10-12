@@ -1,17 +1,11 @@
 ---
-    title: Explorable explanations
-    created: 2018-08-31 20:39 -7
-    updated: 2018-08-31 20:39 -7
-    published: True
-    category: blog
-    tags:
-      - programming
-    scripts:
-      - "d3.v5.min.js"
-      - "example-tools.js"
-    styles:
-      - "example-tools.css"
-...
+title: Explorable explanations
+published: True
+category: blog
+tags: [programming]
+scripts: [d3.v5.min.js, example-tools.js]
+styles: [example-tools.css]
+---
 
 When learning a new concept, I learn best when I can play around with the idea
 for a while. For some fields this takes the form of debate and discussion with

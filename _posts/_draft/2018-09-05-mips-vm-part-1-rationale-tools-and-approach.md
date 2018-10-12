@@ -1,16 +1,11 @@
 ---
-    title: "MIPS VM part 1: Rationale, tools, and approach"
-    created: 2018-09-05 20:29 -7
-    updated: 2018-09-05 20:29 -7
-    published: False
-    category: blog
-    tags:
-      - programming
-      - project
-      - MIPS VM
-...
+title: "MIPS VM part 1: Rationale, tools, and approach"
+published: False
+category: blog
+tags: [programming, project, MIPS VM]
+---
 
-# Rationale
+## Rationale
 After completing a class in compilers at school ([CS
 241](https://www.student.cs.uwaterloo.ca/~cs241/) at the University of
 Waterloo), I ran into a problem. Following the semester, I lost access to the
@@ -23,7 +18,7 @@ description of the subset of the MIPS Instruction set architecture (ISA) that
 the class had made use of. Together with some other notes, and my saved test
 cases from the semester, I had enough to recreate the virtual machine (VM).
 
-# Tools
+## Tools
 What tools will I use to complete this? First and foremost there is the
 programming language to write the VM in. Writing a VM means I'll be dealing
 almost entirely taking in pure data (save for taking input), and operating on
@@ -39,7 +34,7 @@ code to run on the school-provided VM using my [Python Test
 Suite](https://ckuhl.com/portfolio/python-test-suite/). With all of that work
 already in place, it's an obvious choice to continue using it.
 
-# Approach
+## Approach
 Since this is only a hobby project, I don't have a rigid plan that I'll be
 adhering to. That being said, having thought about this on the bus for a while,
 there is a general structure I expect to be following. Since I'm emulating a
