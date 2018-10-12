@@ -8,11 +8,14 @@ core = Blueprint('core', __name__)
 
 
 @core.route('/')
-def main(num_posts=3, num_projects=3):
+def main():
     """List recent blog posts and portfolio projects"""
-    blog_posts = utils.get_category(Pages, 'blog', n=num_posts)
+    NUM_BLOG_POSTS = 3
+    NUM_PORTFOLIO_PAGES = 3
 
-    portfolio_projects = utils.get_category(Pages, 'portfolio', n=num_projects)
+    blog_posts = utils.filter_by_category(Pages, 'blog', n=NUM_BLOG_POSTS)
+
+    portfolio_projects = utils.filter_by_category(Pages, 'portfolio', n=NUM_PORTFOLIO_PAGES)
 
     return render_template('core/index.j2',
                            articles=blog_posts,

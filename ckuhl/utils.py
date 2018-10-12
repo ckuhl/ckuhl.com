@@ -1,9 +1,13 @@
+import logging
 import os
 import json
 
 from flask import url_for, current_app
 from feedgen.feed import FeedGenerator
 from peewee import TextField
+
+
+logger = logging.getLogger(__name__)
 
 
 def root_dir():
@@ -21,7 +25,7 @@ def create_feedgenerator(posts):
     fg = FeedGenerator()
 
     # init feed
-    fg.title('Chris Kuhl\'s Blog')
+    fg.title("Chris Kuhl's Blog")
     fg.author({'name': 'Chris Kuhl'})
     fg.description("A mix of technical posts and personal updates")
     fg.link(href='https://ckuhl.com/blog/rss/', rel='self')
@@ -46,21 +50,22 @@ def generate_rss_feed(posts):
     return fg.rss_str(pretty=True)
 
 
-def get_pages(flatpages, n=999, is_published=True):
+def get_pages(flatpages, n=None, is_published=True):
     """Get a list of n pages, optionally unpublished"""
     # Articles are pages with a publication date
+    logger.warning('Get pages %s', [p.path for p in flatpages])
     articles = [p for p in flatpages if 'published' in p.meta and
                 p.meta['published'] is is_published]
     latest = sorted(articles, reverse=True,
                     key=lambda p: p.meta['created'])
-    return latest[:n]
+    return latest[:n] if n else latest
 
 
-def get_category(flatpages, category, n=999, is_published=True):
+def filter_by_category(flatpages, category, n=None, is_published=True):
     """Get a list of flatpages for a given category"""
     pages = get_pages(flatpages, is_published=is_published)
     category_pages = [p for p in pages if p.meta['category'] == category]
-    return category_pages[:n]
+    return category_pages[:n] if n else category_pages
 
 
 class JSONField(TextField):

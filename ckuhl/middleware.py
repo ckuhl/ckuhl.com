@@ -17,9 +17,7 @@ def format_datetime(date, fmt='%Y-%m-%d'):
     :param str fmt: Formatting string to use
     :returns str: Formatted date
     """
-    date = dateutil.parser.parse(date)
-    native = date.replace(tzinfo=None)
-    return native.strftime(fmt)
+    return date.strftime(fmt)
 
 
 @current_app.template_filter()

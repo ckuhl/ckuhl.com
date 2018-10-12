@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for
+from flask import Blueprint, redirect, url_for
 
 
 short_links = Blueprint('short_links', __name__)
