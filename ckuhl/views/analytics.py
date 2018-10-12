@@ -1,9 +1,9 @@
 import base64
 
-from flask import abort, current_app, Blueprint, Response, request
+from flask import Blueprint, Response, abort, current_app, request
 
-from ..models import PageView
 from ..ext import Database
+from ..models import PageView
 
 
 BEACON = base64.b64decode(

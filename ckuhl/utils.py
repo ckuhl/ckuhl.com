@@ -1,9 +1,9 @@
+import json
 import logging
 import os
-import json
 
-from flask import url_for, current_app
 from feedgen.feed import FeedGenerator
+from flask import current_app, url_for
 from peewee import TextField
 
 

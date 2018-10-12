@@ -15,7 +15,9 @@ def main():
 
     blog_posts = utils.filter_by_category(Pages, 'blog', n=NUM_BLOG_POSTS)
 
-    portfolio_projects = utils.filter_by_category(Pages, 'portfolio', n=NUM_PORTFOLIO_PAGES)
+    portfolio_projects = utils.filter_by_category(Pages,
+                                                  'portfolio',
+                                                  n=NUM_PORTFOLIO_PAGES)
 
     return render_template('core/index.j2',
                            articles=blog_posts,

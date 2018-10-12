@@ -52,8 +52,7 @@ def create_app(debug=False):
 
     # import middleware
     with app.app_context():
-        # TODO: Can this be replaced with relative import?
-        import_module('ckuhl.middleware')
+        import_module('..middleware', package=__name__)
 
     # register blueprints
     app.register_blueprint(blog.blog, url_prefix='/blog')

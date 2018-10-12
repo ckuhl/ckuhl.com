@@ -1,8 +1,7 @@
 import datetime
-import dateutil
 import logging
 
-from flask import current_app, request, render_template
+from flask import current_app, render_template, request
 
 
 logger = logging.getLogger(__name__)

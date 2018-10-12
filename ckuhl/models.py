@@ -1,8 +1,8 @@
 import datetime
-from urllib.parse import urlparse, parse_qsl
+from urllib.parse import parse_qsl, urlparse
 
 from flask import request
-from peewee import Model, CharField, TextField, DateTimeField
+from peewee import CharField, DateTimeField, Model, TextField
 
 from .ext import Database
 from .utils import JSONField
