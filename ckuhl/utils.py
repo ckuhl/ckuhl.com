@@ -1,21 +1,23 @@
 import json
 import logging
-import os
+from pathlib import Path
+from typing import List, Union
 
 from feedgen.feed import FeedGenerator
 from flask import current_app, url_for
+from flask_flatpages import FlatPages, Page
 from peewee import TextField
 
 
 logger = logging.getLogger(__name__)
 
 
-def root_dir():
+def root_dir() -> str:
     """Returns the root of the project"""
-    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    return Path(__file__).parent.parent
 
 
-def create_feedgenerator(posts):
+def create_feed_generator(posts: List[Page]) -> FeedGenerator:
     """
     Create a FeedGenerator and fill in recent posts
 
@@ -44,37 +46,42 @@ def create_feedgenerator(posts):
     return fg
 
 
-def generate_rss_feed(posts):
-    """Utility wrapper to create an RSS feed from a list of posts"""
-    fg = create_feedgenerator(posts)
+def generate_rss_feed(posts: List[Page]) -> str:
+    """Create an RSS feed from a list of posts"""
+    fg = create_feed_generator(posts)
     return fg.rss_str(pretty=True)
 
 
-def get_pages(flatpages, n=None, is_published=True):
-    """Get a list of n pages, optionally unpublished"""
-    # Articles are pages with a publication date
-    logger.warning('Get pages %s', [p.path for p in flatpages])
+def get_pages(flatpages: FlatPages,
+              n: Union[int, None] = None,
+              include_unpublished: bool = False) -> List[Page]:
+    """Get a list of Pages, sorted by age"""
     articles = [p for p in flatpages if 'published' in p.meta and
-                p.meta['published'] is is_published]
+                p.meta['published'] is not include_unpublished]
     latest = sorted(articles, reverse=True,
                     key=lambda p: p.meta['created'])
     return latest[:n] if n else latest
 
 
-def filter_by_category(flatpages, category, n=None, is_published=True):
-    """Get a list of flatpages for a given category"""
-    pages = get_pages(flatpages, is_published=is_published)
+def filter_by_category(flatpages: FlatPages,
+                       category: str,
+                       n: Union[int, None] = None,
+                       include_unpublished: bool = False) -> List[Page]:
+    """Get a list of Pages in a given category, sorted by age"""
+    pages = get_pages(flatpages, include_unpublished=include_unpublished)
     category_pages = [p for p in pages if p.meta['category'] == category]
     return category_pages[:n] if n else category_pages
 
 
 class JSONField(TextField):
-    """Store JSON data in a TextField."""
+    """Store JSON data in a TextField"""
 
     def python_value(self, value):
+        """Deserialize from DB into a Python object"""
         if value is not None:
             return json.loads(value)
 
     def db_value(self, value):
+        """Serialize from a Python object into a string"""
         if value is not None:
             return json.dumps(value)

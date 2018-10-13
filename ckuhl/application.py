@@ -1,5 +1,4 @@
 import logging
-import os
 from importlib import import_module
 
 import yaml
@@ -9,6 +8,9 @@ from .ext import Database, Pages
 from .models import PageView
 from .settings import DebugConfig, ProdConfig
 from .views import analytics, blog, core, portfolio, shortlinks
+
+
+logger = logging.getLogger(__name__)
 
 
 def create_app(debug=False):
@@ -27,28 +29,22 @@ def create_app(debug=False):
     # initialize app
     app = Flask(__name__,
                 template_folder='templates',
-                static_folder=os.path.join(config.BASE_DIR, 'static'))
+                static_folder=config.BASE_DIR / 'static')
 
     # load default configuration
     app.config.from_object(config)
 
     # load secrets configuration
-    secrets = os.path.join(app.config["BASE_DIR"],
-                           "secrets",
-                           "default.secret.yml")
-    if not os.path.exists(secrets):
-        secrets = os.path.join(app.config["BASE_DIR"],
-                               "secrets",
-                               "default.yml")
+    secrets = app.config["BASE_DIR"] / "secrets" / "default.secret.yml"
+    if not secrets.is_file():
+        secrets = app.config["BASE_DIR"] / "secrets" / "default.yml"
     app.config.from_mapping(yaml.load(open(secrets)))
 
     # set logging
     if debug:
         logging.basicConfig(level=logging.DEBUG)
     else:
-        logging.basicConfig(filename=config.LOG_NAME, level=logging.INFO)
-
-    logger = logging.getLogger(__name__)
+        logging.basicConfig(filename=config.LOGFILE_NAME, level=logging.INFO)
 
     # import middleware
     with app.app_context():

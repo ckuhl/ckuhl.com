@@ -1,19 +1,19 @@
-import os
+from pathlib import Path
 
 
 class BaseConfig(object):
     # project base directory
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    BASE_DIR = Path(__file__).parent.parent
 
     # Database location
-    DATABASE_NAME = os.path.join(BASE_DIR, 'analytics.sqlite')
+    DATABASE_PATH = BASE_DIR / 'analytics.sqlite'
 
     # logging
-    LOG_NAME = 'application.log'
+    LOGFILE_NAME = 'application.log'
 
     # FlatPages settings
     # note: Flask-FlatPages only uses relative paths
-    FLATPAGES_BLOG_ROOT = os.path.join('..', '_posts')
+    FLATPAGES_BLOG_ROOT = Path(__name__).parent / '_posts'
     FLATPAGES_BLOG_EXTENSION = '.md'
     FLATPAGES_BLOG_MARKDOWN_EXTENSIONS = [
         # allows script tags in markdown
