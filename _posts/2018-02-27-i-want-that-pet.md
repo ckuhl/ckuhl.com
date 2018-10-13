@@ -40,7 +40,7 @@ unfamiliarity with Peewee. That being said, I'll be quicker to work with it
 (or any other ORM) moving forwards now.
 
 The only (minor) difficulty I faced was a difficulty scheduling jobs within
-Python. I think if I were to do this project again, I would create a seperate
+Python. I think if I were to do this project again, I would create a separate
 script for periodic functions, and register a cron job from my Ansible playbook
 rather than try to do everything inside of Python. There is definitely a benefit
 to keeping all the functionality of a project in one place. However these

@@ -1,6 +1,5 @@
 ---
-title: "Respectful Tracking"
-updated: 2018-05-04 11:21 -5
+title: Respectful Tracking
 published: True
 category: blog
 tags: [technology, python, flask]
@@ -55,5 +54,5 @@ template:
 
 That's it! If you want to test this out, try enabling / disabling Do Not Track
 in your web browser, and observing a change in the number of network requests
-(or just the number on your adblocker) when you reload the page.
+(or just the number on your ad blocker) when you reload the page.
 

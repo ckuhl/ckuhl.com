@@ -14,7 +14,7 @@ literally playing with the idea. Doodling and sketching have been very useful
 when working out an algorithm.
 
 Since having started this blog, I have often wanted to write a post about a
-concept I've learned, only to find it diifcult to get my point across by text
+concept I've learned, only to find it difficult to get my point across by text
 alone.
 
 I've developed a solution that should fix most of that problem. Writing these
@@ -70,4 +70,3 @@ So I've created a little JavaScript library that will attach to a `<figure>`
 tag and set up an image and controls as needed. Then all I have to do is write
 the visualization and it's done, just like that. With the ease of use, I look
 forward to writing about all kinds of topics in the future.
-

@@ -44,7 +44,6 @@ creating it.
 ## Project Details
 Built with:
 
-- python3
-- python3 builtin library
+- Python3
 - PyYAML
 

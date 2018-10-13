@@ -25,7 +25,7 @@ times, we have 64 different paths through the code. The overhead and number of
 errors is even worse than the temporary headache of writing database
 migrations. By using JSON you effectively move the schema for data from the
 database to the backend. Where the schema can be enforced automatically with
-types in the DB, it is moved into the developer's mindspace with JSON, adding
+types in the DB, it is moved into the developer's mind with JSON, adding
 one more thing that has to be remembered while dealing with the data.
 
 The other argument presented was that by storing JSON objects, we can store

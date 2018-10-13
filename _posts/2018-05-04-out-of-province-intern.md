@@ -86,7 +86,7 @@ do something further away for a day or even a weekend.
 Make an effort to keep in touch with family or friends. While the time zones
 are only three hours apart, that is enough to make a big difference. When
 everyone is working before you even wake up, you have few chances to catch up
-with others naturally. Plan some phone calls, skype chats, gaming sessions, or
+with others naturally. Plan some phone calls, Skype chats, gaming sessions, or
 whatever you need to catch up.
 
 

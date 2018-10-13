@@ -92,7 +92,7 @@ the internal function `add_url_rule`.
 This creates a Rule object (from Werkzeug). This is a wrapper for the
 parameterized URL string and the other optional arguments. For example, by
 creating Rules we can have different views defined for the same URL depending
-on whether the brower request is `GET` or `POST`. These rules are then added to
+on whether the browser request is `GET` or `POST`. These rules are then added to
 the internal map `self.url_map`, which is what Flask's `__call__` method looks
 up URLs in!
 

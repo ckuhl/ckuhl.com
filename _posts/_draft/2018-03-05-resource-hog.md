@@ -6,7 +6,7 @@ tags: [human-computer interaction]
 ---
 
 The discussion around ad blockers often centres around whether it is
-permissable to let advertising networks use your resources (battery life,
+permissible to let advertising networks use your resources (battery life,
 processing power, &c). This is well-trodden ground, often to the point of
 smothering discussion around alternate uses of ad blockers. In a sense, I am
 also using my blocker of choice to conserve resources. However I use it to
@@ -27,7 +27,7 @@ particularly guilty of this with it's "Hot Network Questions" that are from
 different communities and entirely unrelated to what you want. But they are
 just so darn interesting.
 
-First on the blocklist:
+First on the block list:
 
 * `###hot-network-questions`
 
@@ -36,11 +36,11 @@ First on the blocklist:
 Even the most engaging book often needs to be put down. Dinner, errands, or
 other tasks must eventually be done. Thanks to the chapter format, it is easy
 to find an good stopping point. Could you imagine reading a book without any
-sort of seperation of text? It would be an unending stream of text without any
+sort of separation of text? It would be an unending stream of text without any
 way of knowing whether stopping now would leave you to forget minor details that
 may prove crucial in the next chapter. It's stressful just to think about.
 
-The infinte feed of Facebook, Twitter, Instagram, and others is another big
+The infinite feed of Facebook, Twitter, Instagram, and others is another big
 driver of unwanted consumption. It's mindlessly easy to keep flicking down the
 feed without ever running into a natural stopping-point at which to break your
 attention. Ultimately I've found myself utilizing

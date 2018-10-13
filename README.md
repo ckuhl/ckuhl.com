@@ -20,9 +20,18 @@ Then the site will be accessible at `http://127.0.0.1:5000`.
 
 
 ## Notes
-### Tools
-I've created `example-tools.js` and `example-tools.css` to allow creating
-JavaScript demonstrations directly inside blog posts.
+### FlatPage schema
+Arity | Name | Value | Description
+--- | --- | --- | ---
+`1` | `title` | str | Title of the page
+`?` | `published` | bool | Whether or not the page is published yet
+`1` | `category` | str | where the post appears (blog, portfolio, etc.)
+`*` | `tags` | List[str] | list of tags to group posts by
+`*` | `pre_js` | List[str] | JavaScript files to embed before the content
+`*` | `post_js` | List[str] | JavaScript files embed after the content
+`*` | `styles` | List[str] | list of css style files to embed before the content
+`?` | `repo` | str | Git repository related to the post (used by Portfolio)
+`?` | `description`| str | Short "teaser" of the Post (used by Portfolio)
 
 ### Favicon
 Made using [favicon.io](https://favicon.io/), with the following settings:
@@ -31,22 +40,9 @@ Made using [favicon.io](https://favicon.io/), with the following settings:
 - Shape: Square
 - Font Family: Nunito Sans
 - Font Size: 95
-- Font Colour: (255, 255, 255)
-- Background Colour: (26, 26, 26)
+- Font Colour: `(255, 255, 255)`
+- Background Colour: `(26, 26, 26)`
 
-### FlatPage schema
-#### nb. currently this isn't comprehensive
-- `title`: Title of the page
-- `created`: 2018-08-31 20:39 -7
-- `updated`: 2018-08-31 20:39 -7
-- `published`: True
-- `category`: blog (where the post appears (blog, portfolio, etc.))
-- `tags`: (list of tags group posts by)
-  - `programming`
-- `pre_js`: (list of scripts to embed before the content)
-  - "d3.v5.min.js"
-      - "example-tools.js"
-- `post_js`: (list of scripts to embed after the content)
-- `styles`: (list of styles to embed before the content)
-  - "example-tools.css"
-
+### Tools
+I've created `example-tools.js` and `example-tools.css` to allow creating
+JavaScript demonstrations directly inside blog posts.
