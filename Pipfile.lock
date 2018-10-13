@@ -58,7 +58,7 @@
         "flatterpages": {
             "editable": true,
             "git": "git://github.com/ckuhl/FlatterPages.git",
-            "ref": "fd77cb408a425cfa839879c826cf44c3d41e0814"
+            "ref": "4a7eccdd7c9b40f41b89b22000cbdb59789c44ec"
         },
         "idna": {
             "hashes": [

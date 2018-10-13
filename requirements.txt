@@ -3,7 +3,7 @@ chardet==3.0.4
 Click==7.0
 feedgen==0.7.0
 Flask==1.0.2
--e git://github.com/ckuhl/FlatterPages.git@fd77cb408a425cfa839879c826cf44c3d41e0814#egg=FlatterPages
+-e git://github.com/ckuhl/FlatterPages.git@4a7eccdd7c9b40f41b89b22000cbdb59789c44ec#egg=FlatterPages
 idna==2.7
 itsdangerous==0.24
 Jinja2==2.10
