@@ -1,5 +1,6 @@
-import datetime
 import logging
+import datetime
+from typing import Union
 
 from flask import current_app, render_template, request
 
@@ -8,19 +9,21 @@ logger = logging.getLogger(__name__)
 
 
 @current_app.template_filter()
-def format_datetime(date, fmt='%Y-%m-%d'):
+def format_datetime(d: Union[datetime.date, datetime.datetime],
+                    fmt: str = '%Y-%m-%d') -> str:
     """
     Format a datetime object according to an arbitrary format string
+    TODO: Determine what datetime object it actually is...
 
-    :param Date date: Date to format
+    :param Date d: Date to format
     :param str fmt: Formatting string to use
     :returns str: Formatted date
     """
-    return date.strftime(fmt)
+    return d.strftime(fmt)
 
 
 @current_app.template_filter()
-def teaser_para(content):
+def teaser_para(content: str) -> str:
     """
     Given a block of HTML, return only the first paragraph (the teaser)
     FIXME: Replace with with an actual `teaser: ` segment in FlatPages.
@@ -32,7 +35,7 @@ def teaser_para(content):
 
 
 @current_app.template_filter()
-def teaser_sentence(content, n=3):
+def teaser_sentence(content: str, n=3) -> str:
     """
     Given a block of HTML, return only the first n sentences.
 

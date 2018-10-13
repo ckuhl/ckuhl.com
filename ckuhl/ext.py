@@ -1,8 +1,8 @@
-from flask_flatpages import FlatPages
+from flatterpages import FlatterPages
 from peewee import SqliteDatabase
 
 from .settings import BaseConfig
 
 
-Database = SqliteDatabase(BaseConfig.DATABASE_PATH)
-Pages = FlatPages(name='blog')
+Database = SqliteDatabase(str(BaseConfig.DATABASE_PATH))
+Pages = FlatterPages(name='blog')

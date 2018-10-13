@@ -13,7 +13,7 @@ from .views import analytics, blog, core, portfolio, shortlinks
 logger = logging.getLogger(__name__)
 
 
-def create_app(debug=False):
+def create_app(debug: bool = False) -> Flask:
     """
     Constructor for the Flask application
 

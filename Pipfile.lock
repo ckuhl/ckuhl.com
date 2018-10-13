@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "fd587ce3853aab0071a685c468aca04f521ffc970c38eef4a7cd7a9114bfeb14"
+            "sha256": "9c407c68f532bfef10a330f2f837367469f3aabc951c6928888e3d9c33e25810"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -55,10 +55,10 @@
             "index": "pypi",
             "version": "==1.0.2"
         },
-        "flask-flatpages": {
+        "flatterpages": {
             "editable": true,
-            "git": "git://github.com/ckuhl/Flask-FlatterPages.git",
-            "ref": "5626f3073bf7d67c752c751aeee90340f68851dc"
+            "git": "git://github.com/ckuhl/FlatterPages.git",
+            "ref": "fd77cb408a425cfa839879c826cf44c3d41e0814"
         },
         "idna": {
             "hashes": [

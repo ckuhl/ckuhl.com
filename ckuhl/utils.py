@@ -1,11 +1,11 @@
 import json
 import logging
 from pathlib import Path
-from typing import List, Union
+from typing import List, Optional
 
 from feedgen.feed import FeedGenerator
 from flask import current_app, url_for
-from flask_flatpages import FlatPages, Page
+from flatterpages import FlatterPages, Page
 from peewee import TextField
 
 
@@ -52,8 +52,8 @@ def generate_rss_feed(posts: List[Page]) -> str:
     return fg.rss_str(pretty=True)
 
 
-def get_pages(flatpages: FlatPages,
-              n: Union[int, None] = None,
+def get_pages(flatpages: FlatterPages,
+              n: Optional[int] = None,
               include_unpublished: bool = False) -> List[Page]:
     """Get a list of Pages, sorted by age"""
     articles = [p for p in flatpages if 'published' in p.meta and
@@ -63,9 +63,9 @@ def get_pages(flatpages: FlatPages,
     return latest[:n] if n else latest
 
 
-def filter_by_category(flatpages: FlatPages,
+def filter_by_category(flatpages: FlatterPages,
                        category: str,
-                       n: Union[int, None] = None,
+                       n: Optional[int] = None,
                        include_unpublished: bool = False) -> List[Page]:
     """Get a list of Pages in a given category, sorted by age"""
     pages = get_pages(flatpages, include_unpublished=include_unpublished)

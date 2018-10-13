@@ -16,7 +16,7 @@ requests = "*"
 six = "*"
 "urllib3" = "*"
 Flask = "*"
-Flask-FlatPages = {editable = true, git = "git://github.com/ckuhl/Flask-FlatterPages.git"}
+FlatterPages = {editable = true, git = "git://github.com/ckuhl/FlatterPages.git"}
 "Jinja2" = "*"
 MarkupSafe = "*"
 Pygments = "*"

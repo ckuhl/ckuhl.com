@@ -13,7 +13,7 @@ class BaseConfig(object):
 
     # FlatPages settings
     # note: Flask-FlatPages only uses relative paths
-    FLATPAGES_BLOG_ROOT = Path(__name__).parent / '_posts'
+    FLATPAGES_BLOG_ROOT = BASE_DIR / '_posts'
     FLATPAGES_BLOG_EXTENSION = '.md'
     FLATPAGES_BLOG_MARKDOWN_EXTENSIONS = [
         # allows script tags in markdown
