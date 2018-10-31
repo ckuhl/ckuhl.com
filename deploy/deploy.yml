@@ -1,0 +1,12 @@
+---
+- hosts: ckuhl.com
+  user: root
+  roles:
+  - configure
+
+- hosts: ckuhl.com
+  user: "{{ user.name }}"
+  roles:
+  - nginx
+  - letsencrypt
+  - deploy

@@ -1,62 +1,37 @@
-# Directories
-ENV=env
-DOCS=docs
-DIST=dist
-PROJECT=ckuhl
+PLAYBOOK=pipenv run ansible-playbook
+MASTER_COMMIT=$(shell git rev-parse --short HEAD)
+ARGS=--extra-vars "version=${MASTER_COMMIT}"
+ANSIBLE_PLAYBOOK=${PLAYBOOK} ${ARGS}
 
-# Executables
-PYTHON=${ENV}/bin/python3
-PIP=${ENV}/bin/pip
-EXEC=manage.py
+DEPLOY_FILES_DIR=deploy/roles/deploy/files
 
 
-package: clean	## bundle together all files essential for deployment
-	git archive -o ${PROJECT}.tar HEAD
-	tar -f ${PROJECT}.tar --delete README.md
-	tar -f ${PROJECT}.tar --delete TODO.md
-	tar -f ${PROJECT}.tar --delete Makefile
-	tar -f ${PROJECT}.tar --delete .gitignore
-	gzip ${PROJECT}.tar
-	mkdir -p ${DIST} && mv ${PROJECT}.tar.gz ${DIST}
+# TODO: If I use tar & gzip instead of zip, it _should_ only unpack the archive when files change
+bundles: code static resources ## Bundle up everything for deployment
 
-docs:	## generate documentation from docstrings in modules
-	${PYTHON} -m pydoc -w ${PROJECT}
-	ls ${PROJECT}/*.py \
-		| sed 's/\//\./g' \
-		| sed 's/\.py//g' \
-		| xargs ${PYTHON} -m pydoc -w
-	ls ${PROJECT}/views/*.py \
-		| sed 's/\//\./g' \
-		| sed 's/\.py//g' \
-		| xargs ${PYTHON} -m pydoc -w
-	test -d ${DOCS}/ || mkdir ${DOCS}
-	mv ${PROJECT}.*html ${DOCS}
+code: clean
+	pipenv run pip freeze > ckuhl/requirements.txt
+	zip -r ${DEPLOY_FILES_DIR}/${MASTER_COMMIT}-code.zip ckuhl
+	zip -d ${DEPLOY_FILES_DIR}/${MASTER_COMMIT}-code.zip ckuhl/db.sqlite3
+
+static: clean
+	zip -r ${DEPLOY_FILES_DIR}/${MASTER_COMMIT}-static.zip static
+
+resources: clean
+	zip -r ${DEPLOY_FILES_DIR}/${MASTER_COMMIT}-resources.zip resources
 
 
-.PHONY: clean help run debug setup
-clean:	## remove compiled python files, packages, logging, and docs
-	find . -regex "\(.*__pycache__.*\|*.py[co]\)" -delete
-	find . -name '*.tar.gz' -delete
-	find . -name '*.sqlite' -delete
-	find . -name '*.log' -delete
-	rm -rf ${DOCS}/ ${DIST}/
+.PHONY: clean deploy
+clean: ## Remove temporary deployment files
+	rm -rf ${DEPLOY_FILES_DIR}/*.zip
 
-help:	## show this help message
-	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
+	# Delete _ALL_ bytecode files
+	find .. -type d -name __pycache__ \
+		-o \( -type f -name '*.py[co]' \) -print0 \
+		| xargs -0 rm -rf
 
-run:	## run in production mode
-	${PYTHON} ${EXEC} run
+deploy: bundles ## Do the entire deployment
+	cd deploy/; ${ANSIBLE_PLAYBOOK} deploy.yml; cd -;
 
-
-debug:	## run in debug mode
-	${PYTHON} ${EXEC} debug
-
-setup:	## set up development environment
-	test -d ${ENV} \
-		|| virtualenv -p /usr/bin/python3 --no-site-packages ${ENV}
-	test -e requirements.txt && ${PIP} install -r requirements.txt
-	${PIP} install --upgrade pip
-	${PIP} install --upgrade setuptools
-
-demo: setup debug	## demonstrate this application
-
+update: bundles
+	cd deploy/; ${ANSIBLE_PLAYBOOK} update.yml; cd -;

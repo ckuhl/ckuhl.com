@@ -1,0 +1,25 @@
+{% extends "_base/container.html" %}
+{% block title %}Portfolio | Chris Kuhl{% endblock %}
+{% block css %}{% endblock %}
+{% block pre_js %}{% endblock %}
+{% block header %}
+    {% with True as in_portfolio %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+{% block content %}
+    <h1 class="h1 my-3">Portfolio</h1>
+    {% for p in projects %}
+        <div class="card my-3">
+            <div class="card-body">
+                <h2 class="h4 card-title"><a href="{% url 'portfolio:project' p.url %}">{{ p.title }}</a>
+                </h2>
+                <p class="card-text">{{ p.body|truncatewords_html:36|safe }}</p>
+                <a class="btn btn-outline-primary" href="{% url 'portfolio:project' p.url %}">Read more</a>
+            </div>
+        </div>
+    {% empty %}
+        <p>No projects right now... check back later!</p>
+    {% endfor %}
+{% endblock %}
+{% block post_js %}{% endblock %}

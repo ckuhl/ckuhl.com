@@ -1,0 +1,45 @@
+{% extends "_base/container.html" %}
+{% load static %}
+{% block title %}{{ post.title }} | Chris Kuhl{% endblock %}
+
+{% block css %}
+    {% for style in post.styles %}
+        <link rel="stylesheet" href="{% static 'css/'|add:style %}">
+    {% endfor %}
+{% endblock %}
+
+{% block pre_js %}
+    {% for script in post.scripts %}
+        <script src="{% static 'js/'|add:script %}"></script>
+    {% endfor %}
+{% endblock %}
+
+{% block header %}
+    {% with True as in_blog %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+
+{% block content %}
+    {# Body content #}
+    <h1 class="h1 my-3">{{ post.title }}</h1>
+
+    <div>{{ post.body|safe }}</div>
+
+    <div>
+        <span class="fa fa-calendar" aria-hidden="true"></span>
+        Written <abbr title="{{ post.date }}">{{ post.date }}</abbr>
+    </div>
+    {% if post.tags %}
+        <div>{% endif %}
+{% if post.tags %}
+    <span class="fa fa-tags" aria-hidden="true"></span>
+    <span> Tags: </span>
+{% endif %}
+{% for tag in post.tags %}
+    <a class="badge badge-secondary" href="{% url 'blog:tags' tag %}">{{ tag }}</a>
+{% endfor %}
+{% if post.tags %}</div>{% endif %}
+{% endblock %}
+
+{% block post_js %}{% endblock %}

@@ -1,0 +1,5 @@
+---
+nginx:
+  sites:
+    available: /etc/nginx/sites-available
+    enabled: /etc/nginx/sites-enabled

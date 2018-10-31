@@ -1,0 +1,154 @@
+---
+- name: Project requirements installed
+  apt:
+    name:
+    - python3.7-dev
+    - python3-pip
+    - virtualenv
+    - unzip # TODO: If I build with tar & gzip, I can only apply changes when the file contents change
+    - gcc # required to install Python uWSGI module
+    state: present
+  become: yes
+
+- name: Base directory exists
+  file:
+    path: "{{ path.remote.base }}"
+    state: directory
+    mode: 0755
+
+  # TODO: Can the code simply live under the ~/f29g43f directory directly?
+  # TODO: If we copy the requirements.txt in a separate step, the bundle won't change per-commit
+- name: Code on server
+  unarchive:
+    src: "{{ path.local.code_zip }}"
+    dest: "{{ path.remote.base }}"
+
+- name: Production settings are live
+  template:
+    src: settings.py.j2
+    dest: "{{ path.remote.settings_file }}"
+
+- name: Static content on server
+  unarchive:
+    src: "{{ path.local.static_zip }}"
+    dest: "{{ path.remote.home }}"
+
+- name: Resources on server
+  unarchive:
+    src: "{{ path.local.resource_zip }}"
+    dest: "{{ path.remote.home }}"
+
+- name: Virtual environment exists
+  pip:
+    requirements: "{{ path.remote.code_dir }}/requirements.txt"
+    virtualenv: "{{ path.remote.virtualenv }}"
+    virtualenv_python: python3.7
+
+- name: Systemd service exists
+  template:
+    src: systemd.service.j2
+    dest: /etc/systemd/system/{{ project.versioned_name }}.service
+  become: yes
+  notify: restart project service
+
+- name: uWSGI config is in project root
+  template:
+    src: uwsgi.ini.j2
+    dest: "{{ path.remote.base }}/uwsgi.ini"
+  notify: restart project service
+
+# Deploy NGINX config
+# Extracted from project.yml because this depends on specific folders
+# Also depends on uWSGI socket existing
+- name: Nginx config is available
+  template:
+    src: uwsgi-letsencrypt-nginx.config.j2
+    dest: "{{ nginx.sites.available }}/{{ project.versioned_name }}"
+  become: yes
+
+- name: Nginx config is valid
+  command: nginx -t
+  become: true
+  # this never changes, can only succeed or fail the script
+  changed_when: false
+
+# TODO: Run tests against new code before switching over
+#  - name: running tests
+
+# TODO: Move Django DB to new location (in settings.py)
+#- name: Ensure DB exists
+#  file:
+#    path: "{{ path.remote.db }}"
+#    state: touch
+
+# FIXME: There shouldn't be migrations, but presently they occur due to Pathlib problems
+- name: DB schema has migrations (i.e. makemigrations)
+  command: "{{ path.remote.virtualenv }}/bin/python {{ path.remote.code_dir }}/manage.py makemigrations"
+  register: doMigrateResults
+  changed_when: "'Migrations for' in doMigrateResults.stdout"
+
+- name: DB schema up to date (i.e. migrate)
+  command: "{{ path.remote.virtualenv }}/bin/python {{ path.remote.code_dir }}/manage.py migrate"
+  register: dbUpdateResults
+  changed_when: "'No migrations to apply' not in dbUpdateResults.stdout"
+  failed_when: "'Your models have changes' in dbUpdateResults.stdout"
+
+- name: Check if previous version is running
+  stat:
+    path: "{{ path.remote.version_file }}"
+  register: existingDeployment
+
+- name: Load the previous version's name (if it exists)
+  shell: cat {{ path.remote.version_file }}
+  register: existingDeploymentVersion
+  when: existingDeployment.stat.exists == true
+
+- name: Nginx config enabled (new version live!)
+  file:
+    src: "{{ nginx.sites.available }}/{{ project.versioned_name }}"
+    dest: "{{ nginx.sites.enabled }}/{{ project.versioned_name }}"
+    state: link
+  become: yes
+  notify: restart nginx service
+
+- name: Store live version ID {{ project.name }} on the machine
+  template:
+    src: live_version.j2
+    dest: "{{ path.remote.version_file }}"
+
+- name: Previous version stopped
+  service:
+    name: "{{ project.name }}-{{ existingDeploymentVersion.stdout }}"
+    state: stopped
+    enabled: False
+  become: yes
+  when: existingDeployment.stat.exists == true and project.version not in existingDeploymentVersion.stdout
+
+- name: Previous version's code removed
+  file:
+    path: "{{ path.remote.base }}/{{ existingDeploymentVersion.stdout }}"
+    state: absent
+  when: existingDeployment.stat.exists == true and project.version not in existingDeploymentVersion.stdout
+
+- name: Previous version's systemd serviced removed
+  file:
+    path: /etc/systemd/system/{{ project.name }}-{{ existingDeploymentVersion.stdout }}.service
+    state: absent
+  become: yes
+  when: existingDeployment.stat.exists == true and project.version not in existingDeploymentVersion.stdout
+
+- name: Previous version's nginx config disabled
+  file:
+    path: "{{ nginx.sites.enabled }}/{{ project.name }}-{{ existingDeploymentVersion.stdout }}"
+    state: absent
+  become: yes
+  when: existingDeployment.stat.exists == true and project.version not in existingDeploymentVersion.stdout
+  notify: restart nginx service
+
+- name: Previous version's nginx config removed
+  file:
+    path: "{{ nginx.sites.available }}/{{ project.name }}-{{ existingDeploymentVersion.stdout }}"
+    state: absent
+  become: yes
+  when: existingDeployment.stat.exists == true and project.version not in existingDeploymentVersion.stdout
+  notify: restart nginx service

@@ -1,0 +1,6 @@
+---
+# TODO: This was copied from the role `nginx`. Is there a better way to reference other role's vars?
+nginx:
+  sites:
+    available: /etc/nginx/sites-available
+    enabled: /etc/nginx/sites-enabled

@@ -1,0 +1,28 @@
+{% extends "_base/container.html" %}
+{% block title %}Blog | Chris Kuhl{% endblock %}
+{% block css %}{% endblock %}
+{% block pre_js %}{% endblock %}
+{% block header %}
+    {% with True as in_blog %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+{% block content %}
+    <h1 class="display-4 my-3">{{ category }}
+        <a href="{% url 'blog:rss' category %}" class="btn-btn-secondary">
+            <span class="fa fa-rss"></span>
+        </a>
+    </h1>
+    {% for p in posts %}
+        <div class="card my-3">
+            <div class="card-body">
+                <h2 class="h4 card-title"><a href="{% url 'blog:post' p.url %}">{{ p.title }}</a></h2>
+                <h3 class="h6 text-muted">Written {{ p.date }}</h3>
+                {{ p.body|safe }}
+            </div>
+        </div>
+    {% empty %}
+        <p>It appears that "{{ category }}" is not a category.</p>
+    {% endfor %}
+{% endblock %}
+{% block post_js %}{% endblock %}

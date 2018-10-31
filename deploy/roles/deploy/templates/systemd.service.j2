@@ -1,0 +1,15 @@
+[Unit]
+Description=uWSGI instance to serve {{ project.versioned_name }}
+After=network.target
+
+[Service]
+User={{ user.name }}
+Group=www-data
+WorkingDirectory={{ path.remote.code_dir }}/
+Environment="PATH={{ path.remote.virtualenv }}"
+ExecStart={{ path.remote.virtualenv }}/bin/uwsgi --ini {{ path.remote.base }}/uwsgi.ini
+Restart=always
+KillSignal=SIGQUIT
+
+[Install]
+WantedBy=multi-user.target

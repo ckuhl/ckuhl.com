@@ -1,0 +1,15 @@
+# Let's Encrypt nginx config: Only for getting the certificate
+server {
+  listen 80;
+  listen [::]:80;
+  server_name {{ project.domain }} www.{{ project.domain }};
+
+  location ^~ /.well-known/acme-challenge/ {
+    default_type "text/plain";
+    root {{ letsencrypt.challenge_root }};
+  }
+
+  location = /.well-known/acme-challenge/ {
+    return 404;
+  }
+}

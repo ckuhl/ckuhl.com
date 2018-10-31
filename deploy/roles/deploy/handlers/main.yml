@@ -1,0 +1,30 @@
+---
+- name: stop project service
+  service:
+    name: "{{ project.versioned_name }}"
+    state: stopped
+    enabled: true
+  become: yes
+
+- name: start project service
+  service:
+    name: "{{ project.versioned_name }}"
+    state: started
+    enabled: true
+    daemon_reload: true
+  become: yes
+
+- name: restart project service
+  service:
+    name: "{{ project.versioned_name }}"
+    state: restarted
+    enabled: true
+    daemon_reload: true
+  become: yes
+
+# required for nginx config
+- name: restart nginx service
+  service:
+    name: nginx
+    state: restarted
+  become: yes

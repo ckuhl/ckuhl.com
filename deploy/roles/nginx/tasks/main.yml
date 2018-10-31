@@ -1,0 +1,12 @@
+---
+- name: Nginx is installed
+  apt:
+    name: nginx
+    state: present
+  become: yes
+
+- name: Default config is disabled
+  file:
+    path: "{{ nginx.sites.enabled }}/default"
+    state: absent
+  become: yes

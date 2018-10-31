@@ -1,0 +1,29 @@
+{% extends "_base/container.html" %}
+{% block title %}Blog | Chris Kuhl{% endblock %}
+{% block css %}{% endblock %}
+{% block pre_js %}{% endblock %}
+{% block header %}
+    {% with True as in_blog %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+{% block content %}
+    <h1 class="h1 my-3">Recent blog posts</h1>
+    {% for p in posts %}
+        <div class="card my-3">
+            <div class="card-body">
+                <h2 class="h4 card-title"><a href="{% url 'blog:post' p.url %}">{{ p.title }}</a></h2>
+                <h3 class="h6 text-muted">Written {{ p.date }}</h3>
+                {{ p.body|truncatewords_html:48|safe }}
+                <a class="btn btn-outline-primary" href="{% url 'blog:post' p.url %}">Read more</a>
+            </div>
+        </div>
+    {% empty %}
+        <p>Nothing here! Something must have gone wrong...</p>
+    {% endfor %}
+
+    <p>Not what you're looking for? Try checking out <a href="{% url 'blog:archive' %}">the
+        archive</a>.</p>
+
+{% endblock %}
+{% block post_js %}{% endblock %}

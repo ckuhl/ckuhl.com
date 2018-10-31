@@ -1,0 +1,52 @@
+---
+- name: User {{ user.name }} exists
+  user:
+    name: "{{ user.name }}"
+    password: "{{ user.password }}"
+    comment: Deploy admin account
+    state: present
+    groups: "{{ user.groups }}"
+    shell: /bin/bash
+    append: yes
+    createhome: yes
+
+- name: Local public key in {{ user.name }}'s authorized_keys
+  authorized_key:
+    user: "{{ user.name }}"
+    state: present
+    key: "{{ public_key_file }}"
+
+- name: Wheel group exists
+  group:
+    name: wheel
+    state: present
+
+- name: Wheel group has passwordless sudo
+  lineinfile:
+    dest: /etc/sudoers
+    state: present
+    regexp: "^%wheel"
+    line: "%wheel ALL=(ALL) NOPASSWD: ALL"
+    validate: visudo -cf %s
+
+- name: Sudoers are in wheel group
+  user:
+    name: "{{ user.name }}"
+    groups: wheel
+    append: yes
+
+- name: System packages are up to date
+  become: yes
+  apt:
+    upgrade: dist
+    update_cache: yes
+
+- name: Unused packages are removed
+  become: yes
+  apt:
+    autoremove: yes
+
+- name: Apt cache is clean
+  become: yes
+  apt:
+    autoclean: yes

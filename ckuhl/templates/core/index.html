@@ -1,0 +1,73 @@
+{% extends "_base/container.html" %}
+{% block title %}Chris Kuhl{% endblock %}
+{% block css %}{% endblock %}
+{% block pre_js %}{% endblock %}
+{% block content %}
+    <section class="mt-3">
+        <div class="jumbotron py-5">
+            <h1 class="display-4">Hello, I'm Chris!</h1>
+            <p class="font-weight-light">
+                I'm a computer science student at the University of Waterloo. Oh, I'm
+                also completing a bachelor of business administration too.
+            </p>
+            <p class="font-weight-light">
+                When I'm not at school in Waterloo, I'm in Vancouver. You can usually
+                find me working at a startup, hiding out from the rain in a caf&eacute;
+                and working on a project, or hiking off in the mountains somewhere.
+            </p>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <h1 class="h1 mb-3">On the Blog</h1>
+        {% for a in articles %}
+            <div class="card my-3">
+                <div class="card-body">
+                    <h2 class="h4 card-title"><a href="{% url 'blog:post' a.url %}">{{ a.title }}</a></h2>
+                    <h3 class="h6 text-muted">Written <span>{{ a.date }}</span></h3>
+                    {{ a.body|truncatewords_html:48|safe }}
+                    <a class="btn btn-outline-primary" href="{% url 'blog:post' a.url %}">Read more</a>
+                </div>
+            </div>
+        {% empty %}
+            <p>Nothing here! Something must have gone wrong...</p>
+        {% endfor %}
+        {% if articles %}
+            <div class="card my-3">
+                <div class="card-body">
+                    <h2 class="h4 card-title"><a href="{% url 'blog:index' %}">Looking for something else?</a></h2>
+                    <p>To see more, take a look at the
+                        <a href="{% url 'blog:index' %}">blog archive</a> to see all of my blog posts.
+                    </p>
+                </div>
+            </div>
+        {% endif %}
+    </section>
+
+    <section>
+        <h1 class="h1 my-3">From my portfolio</h1>
+        {% for p in projects %}
+            <div class="card my-3">
+                <div class="card-body">
+                    <h2 class="h4 card-title"><a
+                            href="{% url 'portfolio:project' p.url %}">{{ p.title }}</a></h2>
+                    <p>{{ p.body|truncatewords_html:48|safe }}</p>
+                    <a class="btn btn-outline-primary" href="{% url 'portfolio:project' p.url %}">Read more</a>
+                </div>
+            </div>
+        {% empty %}
+            <p>Nothing here! Something must have gone wrong...</p>
+        {% endfor %}
+        {% if projects %}
+            <div class="card my-3">
+                <div class="card-body">
+                    <h2 class="h4 card-title"><a href="{% url 'portfolio:index' %}">Still interested?</a></h2>
+                    <p>If you want to see more, take a look at my
+                        <a href="{% url 'portfolio:index' %}">portfolio page</a> to see all of my projects.
+                    </p>
+                </div>
+            </div>
+        {% endif %}
+    </section>
+{% endblock %}
+{% block post_js %}{% endblock %}

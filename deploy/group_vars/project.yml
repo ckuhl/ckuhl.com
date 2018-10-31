@@ -1,0 +1,77 @@
+---
+# Project information
+project:
+  domain: "{{ inventory_hostname }}"
+  name: ckuhl
+  version: "{{ version }}" # NOTE: This variable added on the command line `... --extra-vars "version=a0f8e3e1" ...`
+  versioned_name: "ckuhl-{{ version }}"
+
+# Remote user that will manage the server
+user:
+  name: ckuhl
+  password: $6$mi9X5WdbkNobMbu$NqHAtKLVEBHSFsImcYRrSc4BnGX661WzGMtaoIIvxefcttbncLRcKaquyvRLLtFEtgnQ/3JvJsqCkFNn5f2MU.
+  groups: sudo
+
+# Listing of paths we care about
+path:
+  local:
+    code_zip: "{{ project.version }}-code.zip"
+    static_zip: "{{ project.version }}-static.zip"
+    resource_zip: "{{ project.version }}-resources.zip"
+
+  remote:
+    # ~
+    home: /home/{{ user.name }}
+
+    # ~/resources
+    resource_dir: /home/{{ user.name }}/resources
+
+    # ~/scripts
+    script_dir: /home/{{ user.name }}/scripts
+
+    # ~/media
+    media_dir: /home/{{ user.name }}/media
+
+    # ~/static
+    static_dir: /home/{{ user.name }}/static
+
+    # ~/a0f8e3e1
+    base: /home/{{ user.name }}/{{ project.version }}
+
+    # ~/a0f8e3e1/env
+    virtualenv: /home/{{ user.name }}/{{ project.version }}/env
+
+    # ~/a0f8e3e1/ckuhl
+    code_dir: /home/{{ user.name }}/{{ project.version }}/{{ project.name }}
+
+    # specifies active version of the project
+    settings_file: /home/{{ user.name }}/{{ project.version }}/{{ project.name }}/_ckuhl/settings.py
+
+    version_file: /home/{{ user.name }}/.version
+
+    socket: /tmp/{{ project.versioned_name }}.sock
+
+    db: /home/{{ user.name }}/db.sqlite3
+
+# letsencrypt spcific variables
+letsencrypt:
+  contact_email: letsencrypt@ckuhl.com
+  challenge_root: /var/www/letsencrypt-challenge
+  cert_dir: /etc/letsencrypt/live
+  cron:
+    # every 12 hours
+    frequency:  0 */12 * * *
+
+nginx:
+  sites:
+    available: /etc/nginx/sites-available
+    enabled: /etc/nginx/sites-enabled
+
+SECRET_KEY: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  35363831316364383261636234643739656663303339613639396666623039616361356261623836
+  6465613736393261623336653464346165313261336263640a363833393935323662643333613634
+  62386161636264653137613066356238363364633633613836333733636331643162363164326238
+  3938666537373530660a303931343862363638633535623637373664333733323462396233316432
+  65353538303665366436383633333566646565343732323463356539626636666337313564336135
+  3730656531373666303664333064356330393339626534623135

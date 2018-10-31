@@ -1,0 +1,26 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'core:home' %}">
+            <img src="{% static 'images/navbar-brand.png' %}"
+                 width="28" height="28" alt="CK" class="d-inline-block align-bottom">
+            Chris Kuhl
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link {% if in_blog %} active{% endif %}"
+                                        href="{% url 'blog:index' %}">Blog</a></li>
+                <li class="nav-item"><a class="nav-link {% if in_portfolio %}active{% endif %}"
+                                        href="{% url 'portfolio:index' %}">Portfolio</a></li>
+                <li class="nav-item"><a class="nav-link {% if in_about %}aactive{% endif %}"
+                                        href="{% url 'core:about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link {% if in_contact %}active{% endif %}"
+                                        href="{% url 'core:contact' %}">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

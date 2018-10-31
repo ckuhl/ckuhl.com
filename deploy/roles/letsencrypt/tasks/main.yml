@@ -1,0 +1,90 @@
+---
+- name: Certbot installed
+  apt:
+    name: certbot
+    state: present
+  become: yes
+
+- name: Challenge root exists
+  file:
+    path: "{{ letsencrypt.challenge_root }}"
+    state: directory
+    mode: 0755
+  become: yes
+
+- name: Nginx challenge endpoint config exists
+  template:
+    src: letsencrypt-nginx.config.j2
+    dest: "{{ nginx.sites.available }}/letsencrypt"
+  become: yes
+  register: challengeEndpointConfigured
+
+- name: Nginx config is valid
+  command: nginx -t
+  become: true
+  changed_when: false # this never changes, can only succeed or fail the script
+
+- name: Nginx config enabled
+  file:
+    src: "{{ nginx.sites.available }}/letsencrypt"
+    dest: "{{ nginx.sites.enabled }}/letsencypt"
+    state: link
+  become: yes
+  register: challengeEndpointEnabled
+
+- name: Nginx is restarted immediately when necessary
+  service:
+    name: nginx
+    state: restarted
+  become: yes
+  when: challengeEndpointConfigured.changed or challengeEndpointEnabled.changed
+
+- name: Check if no previous Let's Encrypt certificates exist
+  stat:
+    path: "{{ letsencrypt.cert_dir }}"
+  register: letsencryptInstalled
+
+- name: Initial certificates exist
+  raw: |
+    certbot certonly --webroot \
+      --webroot-path {{ letsencrypt.challenge_root }} \
+      --domain {{ project.domain }} \
+      --domain www.{{ project.domain }} \
+      --email {{ letsencrypt.contact_email }} \
+      --agree-tos \
+      --non-interactive
+  become: yes
+  when: letsencryptInstalled.stat.exists == false
+  # TODO: Add changed_when / failed_when ...
+
+- name: Nginx config disabled
+  file:
+    path: "{{ nginx.sites.enabled }}/{{ letsencrypt }}"
+    state: absent
+  become: yes
+
+- name: Default certbot cron is disabled
+  file:
+    dest: /etc/cron.d/certbot
+    state: absent
+  become: yes
+
+- name: ~/scripts directory exists
+  file:
+    path: "{{ path.remote.script_dir }}"
+    state: directory
+    mode: 0755
+
+- name: Script for cert renewal installed
+  template:
+    src: letsencrypt-renew-certs.sh.j2
+    dest: "{{ path.remote.script_dir }}/letsencrypt_renew_certs.sh"
+    mode: 0755
+  become: yes
+
+- name: Cron job for cert renewal installed
+  template:
+    src: letsencrypt-renew-cron.j2
+    dest: /etc/cron.d/letsencrypt_renewal_cron
+    mode: 0755
+  become: yes

@@ -1,0 +1,28 @@
+{% extends "_base/container.html" %}
+{% block title %}Blog | Chris Kuhl{% endblock %}
+{% block css %}{% endblock %}
+{% block pre_js %}{% endblock %}
+{% block header %}
+    {% with True as in_blog %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+{% block content %}
+    <h1 class="h1 my-3">Blog Archive</h1>
+    {% if articles %}
+        <div class="list-group">{% endif %}
+{% for p in posts %}
+    <a href="{% url 'blog:post' p.url %}" class="list-group-item list-group-item-action">
+        <div class="d-flex flex-wrap">
+            <p class="small text-muted mr-1 mb-1">
+                {{ p.date|date:'Y-m-d' }}
+            </p>
+            <p class="h5 flex-grow-1 mb-1">{{ p.title }}</p>
+        </div>
+    </a>
+{% empty %}
+    <p>Nothing here! Expect some writings in the future.</p>
+{% endfor %}
+{% if articles %}</div>{% endif %}
+{% endblock %}
+{% block post_js %}{% endblock %}

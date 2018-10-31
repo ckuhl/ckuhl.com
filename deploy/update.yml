@@ -1,0 +1,5 @@
+---
+- hosts: ckuhl.com
+  user: "{{ user.name }}"
+  roles:
+  - deploy

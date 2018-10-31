@@ -1,0 +1,25 @@
+{% extends "_base/container.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block css %}{% endblock %}
+{% block pre_js %}{% endblock %}
+{% block header %}
+    {% with True as in_portfolio %}
+        {{ block.super }}
+    {% endwith %}
+{% endblock %}
+{% block content %}
+    <h1 class="h1 my-3">{{ post.title }}</h1>
+    <div>{{ post.body|safe }}</div>
+    <div>
+        <span class="fa fa-calendar" aria-hidden="true"></span>
+        Written {{ post.date|date:'F jS, Y' }}
+    </div>
+
+    {% if post.repo %}
+        <div>
+            <span class="fa fa-github" aria-hidden="true"></span>
+            <a href={{ post.repo }}>View the source</a>
+        </div>
+    {% endif %}
+{% endblock %}
+{% block post_js %}{% endblock %}

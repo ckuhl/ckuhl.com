@@ -4,29 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-certifi = "*"
-chardet = "*"
-feedgen = "*"
-idna = "*"
-itsdangerous = "*"
-lxml = "*"
-peewee = "*"
-python-dateutil = "*"
-requests = "*"
-six = "*"
-"urllib3" = "*"
-Flask = "*"
-FlatterPages = {editable = true, git = "git://github.com/ckuhl/FlatterPages.git"}
-"Jinja2" = "*"
-MarkupSafe = "*"
-Pygments = "*"
-PyYAML = "*"
-uWSGI = "*"
-Werkzeug = "*"
-click = "*"
-markdown = "<3"
+django = "*"
+markdown = "*"
+pyyaml = "*"
+pygments = "*"
+uwsgi = "*"
 
 [dev-packages]
+ansible = "*"
 
 [requires]
 python_version = "3.7"

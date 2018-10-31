@@ -1,0 +1,13 @@
+# /etc/cron.d/letsencrypt_renewal_cron: crontab entries for the certbot package
+#
+# NOTE: This is a modified version of the cronjob installed by certbot itself!
+#
+# Upstream recommends attempting renewal twice a day
+#
+# Eventually, this will be an opportunity to validate certificates
+# haven't been revoked, etc.  Renewal will only occur if expiration
+# is within 30 days.
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+{{ letsencrypt.cron.frequency }} root {{ path.remote.script_dir }}/letsencrypt_renew_certs.sh
