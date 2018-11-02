@@ -18,6 +18,7 @@ path:
     code_zip: "{{ project.version }}-code.zip"
     static_zip: "{{ project.version }}-static.zip"
     resource_zip: "{{ project.version }}-resources.zip"
+    requirements: "{{ project.version }}-requirements.txt"
 
   remote:
     # ~
@@ -48,6 +49,8 @@ path:
     settings_file: /home/{{ user.name }}/{{ project.version }}/{{ project.name }}/_ckuhl/settings.py
 
     version_file: /home/{{ user.name }}/.version
+
+    requirements_file: /home/{{ user.name }}/{{ project.version }}/{{ project.name }}/{{ project.version }}-requirements.txt
 
     socket: /tmp/{{ project.versioned_name }}.sock
 

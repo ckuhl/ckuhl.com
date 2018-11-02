@@ -5,7 +5,7 @@
     - python3.7-dev
     - python3-pip
     - virtualenv
-    - unzip # TODO: If I build with tar & gzip, I can only apply changes when the file contents change
+    - unzip
     - gcc # required to install Python uWSGI module
     state: present
   become: yes
@@ -23,6 +23,17 @@
     src: "{{ path.local.code_zip }}"
     dest: "{{ path.remote.base }}"
 
+- name: Requirements on server
+  copy:
+    src: "{{ path.local.requirements }}"
+    dest: "{{ path.remote.requirements_file }}"
+
+- name: Virtual environment exists
+  pip:
+    requirements: "{{ path.remote.requirements_file }}"
+    virtualenv: "{{ path.remote.virtualenv }}"
+    virtualenv_python: python3.7
+
 - name: Production settings are live
   template:
     src: settings.py.j2
@@ -37,12 +48,6 @@
   unarchive:
     src: "{{ path.local.resource_zip }}"
     dest: "{{ path.remote.home }}"
-
-- name: Virtual environment exists
-  pip:
-    requirements: "{{ path.remote.code_dir }}/requirements.txt"
-    virtualenv: "{{ path.remote.virtualenv }}"
-    virtualenv_python: python3.7
 
 - name: Systemd service exists
   template:

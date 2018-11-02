@@ -9,7 +9,6 @@ body {
     font-size: 1.1rem;
     font-weight: 500;
     color: #212529;
-    line-height: 1.65;
 }
 
 /* Override bootstrap & theme font */
@@ -24,7 +23,7 @@ body, .tooltip, .popover {
     font-size-adjust: 1;
 }
 
-/* Mmm, them Apple-style headers */
+/* Mmm, them Apple-esque headers */
 h1, h2, h3, .h1, .h2, .h3 {
     font-weight: 900 !important;
     letter-spacing: 0;
@@ -32,13 +31,19 @@ h1, h2, h3, .h1, .h2, .h3 {
 
 /* Mmm, them Apple-style headers */
 h4, h5, h6, .h4, .h5, .h6 {
-    font-weight: 700 !important;
-    letter-spacing: 1px;
+    font-weight: 800 !important;
+    letter-spacing: 0;
+    font-style: italic;
 }
 
 /* Make text more legible */
 p {
-    letter-spacing: 0;
+    letter-spacing: 1px;
+    font-size: larger;
+}
+
+a.nav-link {
+    font-size-adjust: 1;
 }
 
 /* make links visible */
