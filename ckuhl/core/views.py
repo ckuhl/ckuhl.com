@@ -10,7 +10,7 @@ def root(request):
         'projects': PortfolioProject.objects.values().order_by('-date')[:3],
         'articles': BlogPost.objects.values().order_by('-date')[:3],
     }
-    return render(request, 'core/index.html', context=context)
+    return render(request, 'core/home.html', context=context)
 
 
 def contact(request):

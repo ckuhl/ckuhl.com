@@ -1,5 +1,5 @@
+/* Native font stacks yo */
 :root {
-    /* Override bootstrap theme, so we don't need to load a font */
     --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
 }
@@ -36,9 +36,14 @@ h4, h5, h6, .h4, .h5, .h6 {
     letter-spacing: 1px;
 }
 
+/* Make text more legible */
+p {
+    letter-spacing: 0;
+}
+
 /* make links visible */
 p a {
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 /* consistent code blocks */
@@ -80,17 +85,6 @@ p a {
     }
 }
 
-/* Blog styles */
-.hero-image {
-    display: block;
-    margin: 0 auto;
-}
-
-/* Lightbox.js styles */
-p.image-container {
-    text-align: center;
-}
-
 a.thumbnail-link {
     display: inline-block;
     padding: 2px;
@@ -104,21 +98,6 @@ a.thumbnail-link:hover {
 img.thumbnail {
     width: 7rem;
     border-radius: 4px;
-}
-
-/* Make Bootstrap fonts available locally */
-@font-face {
-    font-family: 'Nunito Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Nunito Sans Regular'), local('NunitoSans-Regular'), url(/static/fonts/NunitoSans-Regular.ttf) format('ttf');
-}
-
-@font-face {
-    font-family: 'Nunito Sans';
-    font-style: normal;
-    font-weight: 600;
-    src: local('Nunito Sans SemiBold'), local('NunitoSans-SemiBold'), url(/static/fonts/NunitoSans-SemiBold.ttf) format('ttf');
 }
 
 /* homepage styles */
