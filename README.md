@@ -7,8 +7,9 @@ do with it. Deployed with Ansible so I don't have to think about updates.
 Lots!
 
 - [ ] Blog / Portfolio:
-  - [ ] Create paragraph teaser functionality
-  - [ ] store tags in related table
+  - [x] Create paragraph teaser functionality
+  - [x] Prevent images from appearing in the teaser (just don't put any images at the start...)
+  - [ ] Store tags in related table
 - [ ] Analytics
   - [ ] Create local analytics (for e.g. user-agents, etc.)
   - [ ] Admin dashboard(?)
