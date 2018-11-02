@@ -7,6 +7,7 @@ do with it. Deployed with Ansible so I don't have to think about updates.
 Lots!
 
 - [ ] Blog / Portfolio:
+  - [ ] Create paragraph teaser functionality
   - [ ] store tags in related table
 - [ ] Analytics
   - [ ] Create local analytics (for e.g. user-agents, etc.)
@@ -15,4 +16,6 @@ Lots!
   - [ ] Respectful tracking (DNT)
 
 ### Frontend
+- [x] Use native fonts
 - [ ] Use _less_: trim down Bootstrap + theme to be lighter
+- [ ] Establish build pipeline (build bootstrap, etc. from scratch)

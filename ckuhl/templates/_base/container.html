@@ -14,7 +14,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap-theme-lux.min.css' %}">
-{#    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">#}
+    {#    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">#}
     <link rel="stylesheet" href="{% static 'css/pygments.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     {% block css %}{% endblock %}
@@ -52,8 +52,8 @@
 </body>
 
 <!-- Lazy JS -->
-{#<script src="{% url 'analytics:script' %}" type="text/javascript"></script>#}
-<script src="{% static 'js/jquery-3.3.1.min.js' %}" async></script>
-<script src="{% static 'js/bootstrap.bundle.min.js' %}" async></script>
+{# TODO <script src="{% url 'analytics:script' %}" type="text/javascript"></script>#}
+<script src="{% static 'js/jquery-3.3.1.min.js' %}" defer></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}" defer></script>
 {% block post_js %}{% endblock %}
 </html>
