@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    '_commons',
+
     'core',
     'blog',
     'portfolio',
@@ -57,6 +59,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries': {
+                'html_tags': '_commons.templatetags.html_tags',
+            },
         },
     },
 ]
