@@ -5,8 +5,6 @@ category: blog
 tags: [co-op, advice]
 ---
 
-## Working a co-op in BC when you've never left Ontario
-
 Last year at the end of November, I got an offer for a co-op placement with a
 company in Vancouver. Starting January second. Short notice, but also exciting.
 

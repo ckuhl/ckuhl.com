@@ -2,17 +2,17 @@
 {% load static %}
 {% block title %}{{ post.title }} | Chris Kuhl{% endblock %}
 
-{% block css %}
-    {% for style in post.styles %}
-        <link rel="stylesheet" href="{% static 'css/'|add:style %}">
-    {% endfor %}
-{% endblock %}
+{#{% block css %}#}
+{#    {% for style in post.styles %}#}
+{#        <link rel="stylesheet" href="{% static 'css/'|add:style %}">#}
+{#    {% endfor %}#}
+{#{% endblock %}#}
 
-{% block pre_js %}
-    {% for script in post.scripts %}
-        <script src="{% static 'js/'|add:script %}"></script>
-    {% endfor %}
-{% endblock %}
+{#{% block pre_js %}#}
+{#    {% for script in post.scripts %}#}
+{#        <script src="{% static 'js/'|add:script %}"></script>#}
+{#    {% endfor %}#}
+{#{% endblock %}#}
 
 {% block header %}
     {% with True as in_blog %}
@@ -21,17 +21,15 @@
 {% endblock %}
 
 {% block content %}
-    {# Body content #}
+    {# Core content #}
     <h1 class="h1 my-3">{{ post.title }}</h1>
-
     <div>{{ post.body|safe }}</div>
+    <p class="small">Written {{ post.date }}{% if post.updated %}, updated {{ post.updated }}{% endif %}</p>
 
-    <div>
-        <span class="fa fa-calendar" aria-hidden="true"></span>
-        Written <abbr title="{{ post.date }}">{{ post.date }}</abbr>
-    </div>
+    {# Managing tags #}
     {% if post.tags %}
-        <div>{% endif %}
+        <div>
+    {% endif %}
 {% if post.tags %}
     <span class="fa fa-tags" aria-hidden="true"></span>
     <span> Tags: </span>
@@ -39,7 +37,19 @@
 {% for tag in post.tags %}
     <a class="badge badge-secondary" href="{% url 'blog:tags' tag %}">{{ tag }}</a>
 {% endfor %}
-{% if post.tags %}</div>{% endif %}
-{% endblock %}
+{% if post.tags %}
+    </div>
+{% endif %}
 
-{% block post_js %}{% endblock %}
+    {# Next / previous post #}
+    <div class="h5 mt-5 d-flex justify-content-between">
+        {% if prev_post %}
+            &#9664; <a class="ml-0 mr-auto" href="{% url 'blog:post' prev_post.url %}">{{ prev_post.title }}</a>
+        {% endif %}
+        {% if next_post %}
+            <a class="ml-auto mr-0" href="{% url 'blog:post' next_post.url %}">{{ next_post.title }}</a> &#9654;
+        {% endif %}
+    </div>
+
+{% endblock %}
+{#{% block post_js %}{% endblock %}#}

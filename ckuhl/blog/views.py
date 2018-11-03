@@ -36,7 +36,23 @@ def post(request, post_url):
         log.error(f"User tried to get page {post_url} that doesn't exist")
         raise Http404("The blog post you're looking for does not exist")
 
-    return render(request, 'blog/post.html', context={'post': page})
+    try:
+        next_post = page.get_next_by_date()
+    except BlogPost.DoesNotExist:
+        next_post = None
+
+    try:
+        prev_post = page.get_previous_by_date()
+    except BlogPost.DoesNotExist:
+        prev_post = None
+
+    context = {
+        'post': page,
+        'next_post': next_post,
+        'prev_post': prev_post,
+    }
+
+    return render(request, 'blog/post.html', context=context)
 
 
 def tags(request, tag_name):

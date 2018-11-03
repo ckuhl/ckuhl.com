@@ -39,15 +39,17 @@
     {% block pre_js %}{% endblock %}
 </head>
 <body>
-<!-- Primary Page Layout -->
-{% block header %}
-    {% include "_base/header.html" %}
-{% endblock %}
-<div class="container">
-    {% block content %}{% endblock %}
+<div class="flex-container d-flex flex-column">
+    <!-- Primary Page Layout -->
+    {% block header %}
+        {% include "_base/header.html" %}
+    {% endblock %}
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    {% include "_base/footer.html" %}
+    <!-- End Document -->
 </div>
-{% include "_base/footer.html" %}
-<!-- End Document -->
 </body>
 
 <!-- Lazy JS -->
