@@ -1,9 +1,9 @@
 import logging
 
 from django.apps import AppConfig
+from django.conf import settings
 from django.db import OperationalError, models
 
-from _ckuhl import settings
 from _commons.flat_page import FlatPage
 
 
@@ -28,6 +28,7 @@ def load_pages(app_config: AppConfig,
         try:
             model(
                 date=f.date,
+                updated=f.meta.get('updated'),
                 file_path=f.file,
                 url=f.url,
                 body=f.body,

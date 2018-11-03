@@ -1,7 +1,7 @@
 import datetime
 import logging
 from pathlib import Path
-from typing import Any, Dict, Hashable, IO, Tuple
+from typing import Any, Dict, TextIO, Tuple
 
 import markdown
 import yaml
@@ -9,7 +9,7 @@ import yaml
 
 class FlatPage(object):
     """
-    Static representation of a markdown text file with a YAML frontmatter.
+    Static representation of a markdown text file with a YAML front matter.
     This is used to make loading files into the database easier.
     """
     # Silence the markdown library
@@ -42,13 +42,19 @@ class FlatPage(object):
         """Unused except for debugging"""
         return f'<FlatPage: {self.meta["title"]}>'
 
-    def __getitem__(self, item: Hashable) -> Any:
-        """Used for easy accessing of values in the page meta"""
+    def __getitem__(self, item: Any) -> Any:
+        """
+        Used for easy accessing of values in the page meta
+
+        Note: The actual type of `item` is a _KT (= `KeyType`), however this is
+        protected within the typing module. This isn't a big deal, as we're just
+        wrapping a dict here.
+        """
         return self.meta.get(item)
 
     @staticmethod
-    def __load_meta(file: IO) -> Dict[str, Any]:
-        """Given a stream of YAML lines, convert it to a dictionary"""
+    def __load_meta(file: TextIO) -> Dict[str, Any]:
+        """Given a stream of strings containing YAML, convert it to a dict"""
         lines = []
         next_line = file.readline()
 
@@ -71,7 +77,7 @@ class FlatPage(object):
         return yaml.load('\n'.join(lines))
 
     @staticmethod
-    def __load_body(file: IO) -> str:
+    def __load_body(file: TextIO) -> str:
         """Given a stream of markdown text, produce the HTML equivalent"""
         body = ''.join(file.readlines())
         markdown_extensions = (
@@ -98,9 +104,8 @@ class FlatPage(object):
                 'linenums': True,
             },
         }
-        # Note: This creates a new Markdown class for each page.
-        #       While inefficient, this is only run at startup, and so isn't a
-        #       huge problem.
+        # Note: This creates a new Markdown class for each page. While
+        # inefficient, this only runs at startup, and so isn't a huge problem.
         return markdown.markdown(body,
                                  extensions=markdown_extensions,
                                  configs=markdown_configs)

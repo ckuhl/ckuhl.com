@@ -1,6 +1,5 @@
+from django.conf import settings
 from django.db import models
-
-from _ckuhl import settings
 
 
 class Page(models.Model):
@@ -14,7 +13,6 @@ class Page(models.Model):
     # While other fields _should_ be unique, the file path is guaranteed to
     file_path = models.FilePathField(
         # Must stringify our Path because Django 2.1 can't serialize it
-        # Problem: Path is 'core' even though used 'blog' and 'portfolio'
         path=str(settings.RESOURCEFILES_DIR / Meta.app_label / 'flatpages'),
         match='*.md',
         recursive=True,
@@ -22,6 +20,8 @@ class Page(models.Model):
         unique=True,
         null=False)
     date = models.DateField(null=False)
+
+    updated = models.DateField(null=True)
 
     url = models.CharField(max_length=64,
                            unique=True,
