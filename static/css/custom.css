@@ -4,14 +4,9 @@
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-/* Allow flexbox to take entire space*/
-html, body, .flex-container {
-    height: 100%;
-}
-
-/* Fill all extra space, used to push bar to bottom on short pages */
-.flex-filler {
-    flex-grow: 1;
+/* Minimum size: fill the window */
+html, body, div.root {
+    min-height: 100vh;
 }
 
 /* Fix font mangling */

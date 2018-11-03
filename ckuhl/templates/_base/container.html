@@ -39,22 +39,23 @@
     {% block pre_js %}{% endblock %}
 </head>
 <body>
-<div class="flex-container d-flex flex-column">
-    <!-- Primary Page Layout -->
+<div class="root d-flex flex-column">
+    <!-- Start of page layout -->
     {% block header %}
         {% include "_base/header.html" %}
     {% endblock %}
-    <div class="container">
+    <div class="container mb-auto">
         {% block content %}{% endblock %}
     </div>
     {% include "_base/footer.html" %}
-    <!-- End Document -->
+    <!-- End of page layout -->
 </div>
-</body>
 
 <!-- Lazy JS -->
 {# TODO <script src="{% url 'analytics:script' %}" type="text/javascript"></script>#}
 <script src="{% static 'js/jquery-3.3.1.min.js' %}" defer></script>
 <script src="{% static 'js/bootstrap.bundle.min.js' %}" defer></script>
 {% block post_js %}{% endblock %}
+
+</body>
 </html>
