@@ -1,4 +1,9 @@
 ---
+- hosts: localhost
+  connection: local
+  roles:
+  - prepare
+
 - hosts: ckuhl.com
   user: "{{ user.name }}"
   roles:

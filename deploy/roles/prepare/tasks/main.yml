@@ -1,0 +1,28 @@
+---
+- name: code in an archive
+  archive:
+    path: "{{ path.local.dir.code }}"
+    dest: "{{ path.local.file.code }}"
+    format: gz
+
+- name: static content in an archive
+  archive:
+    path: "{{ path.local.dir.static }}"
+    dest: "{{ path.local.file.static }}"
+    format: gz
+
+- name: resources in an archive
+  archive:
+    path: "{{ path.local.dir.resources }}"
+    dest: "{{ path.local.file.resources }}"
+    format: gz
+
+- name: requirements.txt generated
+  command: pipenv run pip freeze
+  register: projectRequirements
+  changed_when: false
+
+- name: save requirements
+  copy:
+    content: "{{ projectRequirements.stdout }}"
+    dest: "{{ path.local.file.requirements }}"

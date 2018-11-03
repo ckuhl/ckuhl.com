@@ -1,5 +1,2 @@
-# Force Ansible to use Python3 on server
-ansible_python_interpreter: /usr/bin/python3
-
 # Installed into remote machines for passwordless SSH
 public_key_file: "{{ lookup( 'file', '~/.ssh/id_rsa.pub') }}"

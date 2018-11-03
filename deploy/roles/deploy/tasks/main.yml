@@ -20,12 +20,12 @@
   # TODO: If we copy the requirements.txt in a separate step, the bundle won't change per-commit
 - name: Code on server
   unarchive:
-    src: "{{ path.local.code_zip }}"
+    src: "{{ path.local.file.code }}"
     dest: "{{ path.remote.base }}"
 
 - name: Requirements on server
   copy:
-    src: "{{ path.local.requirements }}"
+    src: "{{ path.local.file.requirements }}"
     dest: "{{ path.remote.requirements_file }}"
 
 - name: Virtual environment exists
@@ -41,12 +41,12 @@
 
 - name: Static content on server
   unarchive:
-    src: "{{ path.local.static_zip }}"
+    src: "{{ path.local.file.static }}"
     dest: "{{ path.remote.home }}"
 
 - name: Resources on server
   unarchive:
-    src: "{{ path.local.resource_zip }}"
+    src: "{{ path.local.file.resources }}"
     dest: "{{ path.remote.home }}"
 
 - name: Systemd service exists

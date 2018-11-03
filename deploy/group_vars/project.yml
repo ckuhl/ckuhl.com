@@ -15,10 +15,15 @@ user:
 # Listing of paths we care about
 path:
   local:
-    code_zip: "{{ project.version }}-code.zip"
-    static_zip: "{{ project.version }}-static.zip"
-    resource_zip: "{{ project.version }}-resources.zip"
-    requirements: "{{ project.version }}-requirements.txt"
+    dir:
+      code: "{{ inventory_dir }}/../ckuhl/"
+      static: "{{ inventory_dir }}/../static/"
+      resources: "{{ inventory_dir }}/../resources/"
+    file:
+      code: "{{ inventory_dir }}/roles/deploy/files/{{ project.version }}-code.zip"
+      static: "{{ inventory_dir }}/roles/deploy/files/{{ project.version }}-static.zip"
+      resources: "{{ inventory_dir }}/roles/deploy/files/{{ project.version }}-resources.zip"
+      requirements: "{{ inventory_dir }}/roles/deploy/files/{{ project.version }}-requirements.txt"
 
   remote:
     # ~
