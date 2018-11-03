@@ -7,11 +7,11 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item"><a class="nav-link {% if in_blog %} active{% endif %}"
                                         href="{% url 'blog:index' %}">Blog</a></li>
                 <li class="nav-item"><a class="nav-link {% if in_portfolio %}active{% endif %}"
-                                        href="{% url 'portfolio:index' %}">Portfolio</a></li>
+                                        href="{% url 'portfolio:index' %}">Projects</a></li>
                 <li class="nav-item"><a class="nav-link {% if in_about %}aactive{% endif %}"
                                         href="{% url 'core:about' %}">About</a></li>
                 <li class="nav-item"><a class="nav-link {% if in_contact %}active{% endif %}"

@@ -17,6 +17,6 @@ def project(request, project_url):
     try:
         fp = PortfolioProject.objects.get(url=project_url)
     except PortfolioProject.DoesNotExist:
-        raise Http404("The given post does not exist")
+        raise Http404("The project you are looking for does not exist")
 
     return render(request, 'portfolio/project.html', context={'post': fp})

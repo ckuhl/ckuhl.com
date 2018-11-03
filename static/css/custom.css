@@ -20,7 +20,8 @@ body, .tooltip, .popover {
 .navbar-brand {
     font-weight: 900 !important;
     letter-spacing: 0;
-    font-size-adjust: 1;
+    font-size: 2rem;
+    line-height: normal;
 }
 
 /* Mmm, them Apple-esque headers */
@@ -33,17 +34,23 @@ h1, h2, h3, .h1, .h2, .h3 {
 h4, h5, h6, .h4, .h5, .h6 {
     font-weight: 800 !important;
     letter-spacing: 0;
-    font-style: italic;
 }
 
 /* Make text more legible */
 p {
-    letter-spacing: 1px;
+    letter-spacing: initial;
     font-size: larger;
 }
 
 a.nav-link {
-    font-size-adjust: 1;
+    font-size: 1.25rem;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+li.nav-item {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
 }
 
 /* make links visible */
