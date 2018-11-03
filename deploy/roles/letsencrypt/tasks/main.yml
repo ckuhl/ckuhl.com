@@ -71,14 +71,14 @@
 
 - name: ~/scripts directory exists
   file:
-    path: "{{ path.remote.script_dir }}"
+    path: "{{ path.remote.dir.scripts }}"
     state: directory
     mode: 0755
 
 - name: Script for cert renewal installed
   template:
     src: letsencrypt-renew-certs.sh.j2
-    dest: "{{ path.remote.script_dir }}/letsencrypt_renew_certs.sh"
+    dest: "{{ path.remote.dir.scripts }}/letsencrypt_renew_certs.sh"
     mode: 0755
   become: yes
 

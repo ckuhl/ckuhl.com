@@ -1,5 +1,7 @@
 ---
+
 - name: code in an archive
+  # TODO: Remove / ignore compiled python files
   archive:
     path: "{{ path.local.dir.code }}"
     dest: "{{ path.local.file.code }}"

@@ -1,13 +1,13 @@
 [uwsgi]
-chdir = {{ path.remote.code_dir }}
+chdir = {{ path.remote.dir.code }}
 module = _ckuhl.wsgi:application
-virtualenv = {{ path.remote.virtualenv }}
+virtualenv = {{ path.remote.dir.venv }}
 
 master = true
 processes = 5
 
 chmod-socket = 660
-socket = {{ path.remote.socket }}
+socket = {{ path.remote.file.uwsgi_socket }}
 
 vacuum = true
 

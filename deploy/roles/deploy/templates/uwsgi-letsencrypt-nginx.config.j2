@@ -45,16 +45,16 @@ server {
 
     location /media  {
         autoindex on;
-        alias {{ path.remote.media_dir }}/;
+        alias {{ path.remote.dir.media }}/;
     }
 
     location /static {
         autoindex on;
-        alias {{ path.remote.static_dir }}/;
+        alias {{ path.remote.dir.static }}/;
     }
 
     location / {
         include uwsgi_params;
-        uwsgi_pass unix://{{ path.remote.socket }};
+        uwsgi_pass unix://{{ path.remote.file.uwsgi_socket }};
     }
 }

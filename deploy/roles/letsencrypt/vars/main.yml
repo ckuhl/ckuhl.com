@@ -1,0 +1,6 @@
+---
+letsencrypt:
+  challenge_root: /var/www/letsencrypt-challenge
+  cert_dir: /etc/letsencrypt/live
+  cron:
+    frequency:  0 */12 * * * # every 12 hours

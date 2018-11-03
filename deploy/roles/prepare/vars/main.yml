@@ -1,0 +1,12 @@
+---
+path:
+  local:
+    dir:
+      code: "{{ inventory_dir }}/../ckuhl"
+      static: "{{ inventory_dir }}/../static"
+      resources: "{{ inventory_dir }}/../resources"
+    file:
+      code: "{{ inventory_dir }}/roles/deploy/files/code.zip"
+      static: "{{ inventory_dir }}/roles/deploy/files/static.zip"
+      resources: "{{ inventory_dir }}/roles/deploy/files/resources.zip"
+      requirements: "{{ inventory_dir }}/roles/deploy/files/requirements.txt"

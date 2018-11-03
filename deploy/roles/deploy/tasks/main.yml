@@ -12,42 +12,40 @@
 
 - name: Base directory exists
   file:
-    path: "{{ path.remote.base }}"
+    path: "{{ path.remote.dir.version }}"
     state: directory
     mode: 0755
 
-  # TODO: Can the code simply live under the ~/f29g43f directory directly?
-  # TODO: If we copy the requirements.txt in a separate step, the bundle won't change per-commit
 - name: Code on server
   unarchive:
     src: "{{ path.local.file.code }}"
-    dest: "{{ path.remote.base }}"
+    dest: "{{ path.remote.dir.version }}"
 
 - name: Requirements on server
   copy:
     src: "{{ path.local.file.requirements }}"
-    dest: "{{ path.remote.requirements_file }}"
+    dest: "{{ path.remote.file.requirements }}"
 
 - name: Virtual environment exists
   pip:
-    requirements: "{{ path.remote.requirements_file }}"
-    virtualenv: "{{ path.remote.virtualenv }}"
+    requirements: "{{ path.remote.file.requirements }}"
+    virtualenv: "{{ path.remote.dir.venv }}"
     virtualenv_python: python3.7
 
 - name: Production settings are live
   template:
     src: settings.py.j2
-    dest: "{{ path.remote.settings_file }}"
+    dest: "{{ path.remote.file.settings }}"
 
 - name: Static content on server
   unarchive:
     src: "{{ path.local.file.static }}"
-    dest: "{{ path.remote.home }}"
+    dest: "{{ path.remote.dir.home }}"
 
 - name: Resources on server
   unarchive:
     src: "{{ path.local.file.resources }}"
-    dest: "{{ path.remote.home }}"
+    dest: "{{ path.remote.dir.home }}"
 
 - name: Systemd service exists
   template:
@@ -59,7 +57,7 @@
 - name: uWSGI config is in project root
   template:
     src: uwsgi.ini.j2
-    dest: "{{ path.remote.base }}/uwsgi.ini"
+    dest: "{{ path.remote.dir.version }}/uwsgi.ini"
   notify: restart project service
 
 # Deploy NGINX config
@@ -74,8 +72,7 @@
 - name: Nginx config is valid
   command: nginx -t
   become: true
-  # this never changes, can only succeed or fail the script
-  changed_when: false
+  changed_when: false # this never "changes", can only succeed / fail the entire deploy
 
 # TODO: Run tests against new code before switching over
 #  - name: running tests
@@ -83,28 +80,28 @@
 # TODO: Move Django DB to new location (in settings.py)
 #- name: Ensure DB exists
 #  file:
-#    path: "{{ path.remote.db }}"
+#    path: "{{ path.remote.file.db }}"
 #    state: touch
 
 # FIXME: There shouldn't be migrations, but presently they occur due to Pathlib problems
 - name: DB schema has migrations (i.e. makemigrations)
-  command: "{{ path.remote.virtualenv }}/bin/python {{ path.remote.code_dir }}/manage.py makemigrations"
+  command: "{{ path.remote.dir.venv }}/bin/python {{ path.remote.dir.code }}/manage.py makemigrations"
   register: doMigrateResults
   changed_when: "'Migrations for' in doMigrateResults.stdout"
 
 - name: DB schema up to date (i.e. migrate)
-  command: "{{ path.remote.virtualenv }}/bin/python {{ path.remote.code_dir }}/manage.py migrate"
+  command: "{{ path.remote.dir.venv }}/bin/python {{ path.remote.dir.code }}/manage.py migrate"
   register: dbUpdateResults
   changed_when: "'No migrations to apply' not in dbUpdateResults.stdout"
   failed_when: "'Your models have changes' in dbUpdateResults.stdout"
 
 - name: Check if previous version is running
   stat:
-    path: "{{ path.remote.version_file }}"
+    path: "{{ path.remote.file.version }}"
   register: existingDeployment
 
 - name: Load the previous version's name (if it exists)
-  shell: cat {{ path.remote.version_file }}
+  shell: cat {{ path.remote.file.version }}
   register: existingDeploymentVersion
   when: existingDeployment.stat.exists == true
 
@@ -119,7 +116,7 @@
 - name: Store live version ID {{ project.name }} on the machine
   template:
     src: live_version.j2
-    dest: "{{ path.remote.version_file }}"
+    dest: "{{ path.remote.file.version }}"
 
 - name: Previous version stopped
   service:
@@ -131,7 +128,7 @@
 
 - name: Previous version's code removed
   file:
-    path: "{{ path.remote.base }}/{{ existingDeploymentVersion.stdout }}"
+    path: "{{ path.remote.dir.version }}/{{ existingDeploymentVersion.stdout }}"
     state: absent
   when: existingDeployment.stat.exists == true and project.version not in existingDeploymentVersion.stdout
 
