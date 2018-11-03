@@ -27,11 +27,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    '_commons',
+    '_commons.apps.CommonsConfig',
 
-    'core',
-    'blog',
-    'portfolio',
+    'core.apps.CoreConfig',
+    'blog.apps.BlogConfig',
+    'portfolio.apps.PortfolioConfig',
 ]
 
 MIDDLEWARE = [

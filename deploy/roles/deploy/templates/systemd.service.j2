@@ -1,12 +1,10 @@
 [Unit]
-Description=uWSGI instance to serve {{ project.versioned_name }}
+Description=uWSGI instance to serve {{ project.name }}:{{ project.version }}
 After=network.target
 
 [Service]
 User={{ user.name }}
 Group=www-data
-WorkingDirectory={{ path.remote.dir.code }}/
-Environment="PATH={{ path.remote.dir.venv }}"
 ExecStart={{ path.remote.dir.venv }}/bin/uwsgi --ini {{ path.remote.dir.version }}/uwsgi.ini
 Restart=always
 KillSignal=SIGQUIT

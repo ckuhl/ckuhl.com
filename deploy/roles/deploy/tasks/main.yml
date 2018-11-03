@@ -105,7 +105,7 @@
   register: existingDeploymentVersion
   when: existingDeployment.stat.exists == true
 
-- name: Nginx config enabled (new version live!)
+- name: Nginx config enabled
   file:
     src: "{{ nginx.sites.available }}/{{ project.versioned_name }}"
     dest: "{{ nginx.sites.enabled }}/{{ project.versioned_name }}"
@@ -113,7 +113,7 @@
   become: yes
   notify: restart nginx service
 
-- name: Store live version ID {{ project.name }} on the machine
+- name: Store that live version is {{ project.version }} on the machine
   template:
     src: live_version.j2
     dest: "{{ path.remote.file.version }}"
@@ -154,3 +154,9 @@
   become: yes
   when: existingDeployment.stat.exists == true and project.version not in existingDeploymentVersion.stdout
   notify: restart nginx service
+
+- name: Previous version's code removed
+  file:
+    state: absent
+    path: "{{ path.remote.dir.home }}/{{ existingDeploymentVersion.stdout }}"
+  when: existingDeployment.stat.exists == true and project.version not in existingDeploymentVersion.stdout
