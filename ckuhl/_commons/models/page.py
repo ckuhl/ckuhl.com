@@ -33,7 +33,6 @@ class Page(models.Model):
     category = models.TextField(null=False)
 
     # body fields
-    body = models.TextField(null=False,
-                            unique=True)
+    body = models.TextField(null=False)
 
     # TODO: Eventually include tags (either as a field, or a linked table)

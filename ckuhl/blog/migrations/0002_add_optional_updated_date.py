@@ -3,8 +3,6 @@ from django.conf import settings
 from django.db import migrations, models
 
 
-
-
 class Migration(migrations.Migration):
     dependencies = [
         ('blog', '0001_initial'),
@@ -15,13 +13,5 @@ class Migration(migrations.Migration):
             model_name='blogpost',
             name='updated',
             field=models.DateField(null=True),
-        ),
-        migrations.AlterField(
-            model_name='blogpost',
-            name='file_path',
-            field=models.FilePathField(match='*.md',
-                                       path=settings.RESOURCEFILES_DIR / 'blog' / 'flatpages',
-                                       primary_key=True, recursive=True,
-                                       serialize=False, unique=True),
         ),
     ]

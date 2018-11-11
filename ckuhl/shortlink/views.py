@@ -10,3 +10,8 @@ def root(request):
 def image_block_x(request):
     """Link to the Image Block X portfolio page (this link is used on GitHub)"""
     return redirect(reverse('portfolio:project', args=['image-block-x']))
+
+
+def mips_vm(request):
+    """Link to the MIPS VM portfolio page (this link is used on GitHub)"""
+    return redirect(reverse('portfolio:project', args=['mips-vm']))

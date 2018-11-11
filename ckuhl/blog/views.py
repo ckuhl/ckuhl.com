@@ -1,6 +1,8 @@
 import logging
+from pathlib import Path
 
-from django.http import Http404
+from django.conf import settings
+from django.http import Http404, HttpResponse
 from django.shortcuts import redirect, render
 
 from blog.models import BlogPost
@@ -67,3 +69,18 @@ def rss(request):
     # TODO: Render RSS feed using FeedGenerator
     # latest = BlogPost.objects.values().order_by('-date')[:25]
     raise Http404("The RSS feed hasn't been implemented yet. Sorry!")
+
+
+def post_res(request, post_url, res_url):
+    """
+    Serve resources belonging to the given post
+
+    TODO: Do this in a less sketchy way -- probably copy / move images on load
+    """
+    assets: Path = settings.RESOURCEFILES_DIR / 'blog' / 'flatpages' / 'assets'
+    image = assets / res_url
+
+    if image.exists():
+        return HttpResponse(image.open('rb').read(), content_type="image/png")
+    else:
+        raise Http404("The file you are looking for does not exist")

@@ -13,12 +13,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='BlogPost',
             fields=[
-                ('file_path', models.FilePathField(match='*.md',
-                                                   path=settings.RESOURCEFILES_DIR / 'blog' / 'flatpages',
-                                                   primary_key=True,
-                                                   recursive=True,
-                                                   serialize=False,
-                                                   unique=True)),
+                ('file_path', models.FilePathField(
+                    match='*.md',
+                    path=settings.RESOURCEFILES_DIR / 'blog' / 'flatpages',
+                    primary_key=True,
+                    recursive=True,
+                    serialize=False,
+                    unique=True
+                )),
                 ('date', models.DateField()),
                 ('url', models.CharField(max_length=64, unique=True)),
                 ('title', models.TextField(unique=True)),

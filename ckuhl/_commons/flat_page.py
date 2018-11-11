@@ -78,7 +78,12 @@ class FlatPage(object):
 
     @staticmethod
     def __load_body(file: TextIO) -> str:
-        """Given a stream of markdown text, produce the HTML equivalent"""
+        """
+        Given a stream of markdown text, produce the HTML representation of it
+
+        TODO: Scale images to fit the body (or, allow adding bootstrap styles?)
+        TODO: Rewrite relative URLs (to allow storing images in static, e.g.)
+        """
         body = ''.join(file.readlines())
         markdown_extensions = (
             # allows script tags in markdown
