@@ -158,5 +158,5 @@
 - name: Previous version's code removed
   file:
     state: absent
-    path: "{{ path.remote.dir.home }}/{{ existingDeploymentVersion.stdout }}"
+    path: "{{ path.remote.dir.home }}/{{ existingDeploymentVersion.stdout }}/"
   when: existingDeployment.stat.exists == true and project.version not in existingDeploymentVersion.stdout
