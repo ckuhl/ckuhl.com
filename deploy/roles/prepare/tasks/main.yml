@@ -1,7 +1,20 @@
 ---
 
+- name: all __pycache__ directories found
+  find:
+    paths: "{{ path.local.dir.code }}"
+    patterns: "__pycache__"
+    file_type: directory
+    recurse: yes
+  register: directoriesToRemove
+
+- name: all __pycache__ directories deleted
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ directoriesToRemove.files }}"
+
 - name: code in an archive
-  # TODO: Remove / ignore compiled python files
   archive:
     path: "{{ path.local.dir.code }}"
     dest: "{{ path.local.file.code }}"
