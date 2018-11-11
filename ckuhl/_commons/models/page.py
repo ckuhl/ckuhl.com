@@ -23,6 +23,8 @@ class Page(models.Model):
 
     updated = models.DateField(null=True)
 
+    published = models.BooleanField(null=False)
+
     url = models.CharField(max_length=64,
                            unique=True,
                            null=False)

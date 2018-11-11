@@ -7,8 +7,12 @@ from portfolio.models import PortfolioProject
 def root(request):
     """Render the root page of the site"""
     context = {
-        'projects': PortfolioProject.objects.values().order_by('-date')[:3],
-        'articles': BlogPost.objects.values().order_by('-date')[:3],
+        'projects': PortfolioProject.objects.values()
+                        .filter(published=True)
+                        .order_by('-date')[:3],
+        'articles': BlogPost.objects.values()
+                        .filter(published=True)
+                        .order_by('-date')[:3],
     }
     return render(request, 'core/home.html', context=context)
 

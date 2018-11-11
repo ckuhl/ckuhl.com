@@ -13,14 +13,22 @@ log = logging.getLogger(__name__)
 
 def root(request):
     """Render the blog home page"""
-    context = {'posts': BlogPost.objects.values().order_by('-date')[:3]}
+    context = {
+        'posts': BlogPost.objects.values()
+                     .filter(published=True)
+                     .order_by('-date')[:10],
+    }
     return render(request, 'blog/home.html', context=context)
 
 
 def archive(request):
     """Render the archive of all pages"""
     # TODO: Limit and paginate blog posts (i.e. 25 or 50 per page?
-    context = {'posts': BlogPost.objects.values().order_by('-date')}
+    context = {
+        'posts': BlogPost.objects.values()
+            .filter(published=True)
+            .order_by('-date'),
+    }
     return render(request, 'blog/archive.html', context=context)
 
 
@@ -32,9 +40,9 @@ def old_archive(request):
 def post(request, post_url):
     """Single blog post"""
     try:
-        page = BlogPost.objects.get(url=post_url)
+        page = BlogPost.objects.get(url=post_url, published=True)
     except BlogPost.DoesNotExist:
-        # TODO: Local analytics to log this to a DB table
+        # TODO: Use local analytics to log this to a DB table
         log.error(f"User tried to get page {post_url} that doesn't exist")
         raise Http404("The blog post you're looking for does not exist")
 

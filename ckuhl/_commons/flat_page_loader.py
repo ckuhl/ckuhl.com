@@ -29,6 +29,7 @@ def load_pages(app_config: AppConfig,
             model(
                 date=f.date,
                 updated=f.meta.get('updated'),
+                published=f['published'],
                 file_path=f.file,
                 url=f.url,
                 body=f.body,
