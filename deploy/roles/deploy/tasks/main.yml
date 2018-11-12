@@ -65,7 +65,7 @@
 # Also depends on uWSGI socket existing
 - name: Nginx config is available
   template:
-    src: uwsgi-letsencrypt-nginx.config.j2
+    src: uwsgi-letsencrypt.nginx.config.j2
     dest: "{{ nginx.sites.available }}/{{ project.versioned_name }}"
   become: yes
 

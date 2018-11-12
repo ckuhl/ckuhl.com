@@ -14,7 +14,7 @@
 
 - name: Nginx challenge endpoint config exists
   template:
-    src: letsencrypt-nginx.config.j2
+    src: letsencrypt.nginx.config.j2
     dest: "{{ nginx.sites.available }}/letsencrypt"
   become: yes
   register: challengeEndpointConfigured
