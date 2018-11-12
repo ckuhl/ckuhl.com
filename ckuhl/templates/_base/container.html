@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
@@ -11,15 +12,14 @@
     <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{% static 'favicon.ico' %}">
+
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap-theme-lux.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/pygments.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    {% block css %}{% endblock %}
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{% static 'favicon.ico' %}">
+    {% block pre_css %}{% endblock %}
 
     <!-- Immediate JS -->
     {% if not do_not_track %}
@@ -38,6 +38,7 @@
     {% endif %}
     {% block pre_js %}{% endblock %}
 </head>
+
 <body>
 <div class="root d-flex flex-column">
     <!-- Start of page layout -->
@@ -50,6 +51,9 @@
     {% include "_base/footer.html" %}
     <!-- End of page layout -->
 </div>
+<!-- Lazy CSS -->
+<link rel="stylesheet" href="{% static 'css/pygments.css' %}">
+{% block post_css %}{% endblock %}
 
 <!-- Lazy JS -->
 {# TODO <script src="{% url 'analytics:script' %}" type="text/javascript"></script>#}

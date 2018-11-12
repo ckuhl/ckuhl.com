@@ -1,7 +1,5 @@
 {% extends "_base/container.html" %}
 {% block title %}Blog | Chris Kuhl{% endblock %}
-{% block css %}{% endblock %}
-{% block pre_js %}{% endblock %}
 {% block header %}
     {% with True as in_blog %}
         {{ block.super }}
@@ -25,4 +23,3 @@
 {% endfor %}
 {% if articles %}</div>{% endif %}
 {% endblock %}
-{% block post_js %}{% endblock %}

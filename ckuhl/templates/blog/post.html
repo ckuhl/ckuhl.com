@@ -1,19 +1,6 @@
 {% extends "_base/container.html" %}
 {% load static %}
 {% block title %}{{ post.title }} | Chris Kuhl{% endblock %}
-
-{#{% block css %}#}
-{#    {% for style in post.styles %}#}
-{#        <link rel="stylesheet" href="{% static 'css/'|add:style %}">#}
-{#    {% endfor %}#}
-{#{% endblock %}#}
-
-{#{% block pre_js %}#}
-{#    {% for script in post.scripts %}#}
-{#        <script src="{% static 'js/'|add:script %}"></script>#}
-{#    {% endfor %}#}
-{#{% endblock %}#}
-
 {% block header %}
     {% with True as in_blog %}
         {{ block.super }}
@@ -52,4 +39,3 @@
     </div>
 
 {% endblock %}
-{#{% block post_js %}{% endblock %}#}

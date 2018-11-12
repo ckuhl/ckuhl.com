@@ -1,8 +1,6 @@
 {% extends "_base/container.html" %}
 {% load html_tags %}
 {% block title %}Blog | Chris Kuhl{% endblock %}
-{% block css %}{% endblock %}
-{% block pre_js %}{% endblock %}
 {% block header %}
     {% with True as in_blog %}
         {{ block.super }}
@@ -27,4 +25,3 @@
         archive</a>.</p>
 
 {% endblock %}
-{% block post_js %}{% endblock %}
