@@ -7,4 +7,5 @@ app_name = 'shortlink'
 urlpatterns = [
     path('', views.root, name='root'),
     path('ImageBlockX/', views.image_block_x, name='image-block-x'),
+    path('MIPS-VM/', views.mips_vm, name='mips-vm'),
 ]

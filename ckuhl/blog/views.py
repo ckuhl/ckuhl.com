@@ -34,7 +34,7 @@ def archive(request):
 
 def old_archive(request):
     """Redirect to the new archive URL"""
-    return redirect(archive, permanent=True)
+    return redirect('blog:archive', permanent=True)
 
 
 def post(request, post_url):
