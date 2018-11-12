@@ -12,8 +12,8 @@ html, body, div.root {
 /* Fix font mangling */
 body {
     font-size: 1.1rem;
-    font-weight: 500;
-    color: #212529;
+    font-weight: 300;
+    color: #222222;
 }
 
 /* Override bootstrap & theme font */
@@ -99,6 +99,11 @@ p a {
     /* Remove the bottom border on the jumbotron for visual effect */
     .jumbotron {
         border-bottom: 0;
+    }
+
+    /* Fill text is extra-light to contrast extra-heavy header */
+    .jumbotron p {
+        font-weight: 200;
     }
 }
 
