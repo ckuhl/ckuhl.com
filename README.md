@@ -1,32 +1,41 @@
 # [ckuhl.com](https://ckuhl.com/)
 
-My personal website. Written in Django so I have some flexibilty in what I can
-do with it. Deployed with Ansible so I don't have to think about updates.
+Personal website of Chris Kuhl. Written in Django for flexibility in what I
+can create with it. Deployed using Ansible to make updating the site painless.
 
 
 ## To - do
 
+### Apps
+
 - [ ] Blog / Portfolio:
   - [ ] Store tags in related table
-  - [ ] On loading pages, rewrite URLs for images
+  - [ ] On loading flatpages, rewrite URLs for images
+  - [ ] Get RSS feed working
 
 - [ ] Analytics
   - [ ] Create local analytics (for e.g. user-agents, etc.)
-  - [ ] Admin dashboard(?)
-
-- [ ] Core
-  - [ ] Respectful tracking (DNT)
 
 - [ ] New app: Ideas
-  - [ ] Repository for my "you know what would be cool?"
+  - Repository for "you know what would be cool?" ideas
+  - Tweet-sized thoughts about anything and everything
+
+
+### Project
 
 - [ ] Tests
-  - [x] Write a few preliminary tests (uncovered a bug!)
-  - [ ] Write more comprehensive tests (including functions that hit the DB)
+  - [ ] Write more comprehensive tests
+    - [ ] Cover more cases
+    - [ ] Cover more code
+    - [ ] including for functions that hit the DB
+- [ ] Look at other Django blogs for structure ideas
+  - e.g. https://github.com/jacobian/jacobian.org
+- [ ] Deployment
+  - [ ] Split "deploy" role into smaller roles
 
 
 ### Frontend
 
-- [ ] Use _less_: trim down Bootstrap + theme to be lighter
-  - [ ] Perhaps use tailwind?
-- [ ] Establish build pipeline (build bootstrap, etc. from scratch)
+- [ ] Use _less_ -- trim down Bootstrap CSS & theme to be smaller
+  - [ ] Or perhaps switch to [Tailwind](https://tailwindcss.com/)?
+- [ ] Establish build pipeline to minify resources

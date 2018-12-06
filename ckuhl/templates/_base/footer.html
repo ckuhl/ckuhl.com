@@ -1,23 +1,9 @@
 <nav id="footer" class="navbar navbar-dark bg-primary navbar-bottom mt-3 p-0">
     <div class="mx-auto">
-        <a href="{% url 'core:about' %}" class="navbar-link mx-2">
-            <span class="navbar-text">© Chris Kuhl <script>document.write(new Date().getFullYear().toString())</script></span>
-        </a>
-
-        <a href="{% url 'blog:rss' %}" class="navbar-link mx-2" title="RSS">
-            <span class="navbar-text fa fa-rss fa-lg" aria-hidden="true">RSS</span>
-        </a>
-
-        <a href="mailto:contact@ckuhl.com" class="navbar-link mx-2" title="Email">
-            <span class="navbar-text fa fa-envelope fa-lg" aria-hidden="true">Email</span>
-        </a>
-
-        <a href="https://github.com/ckuhl/" class="navbar-link mx-2" title="GitHub">
-            <span class="navbar-text fa fa-github fa-lg" aria-hidden="true">GitHub</span>
-        </a>
-
-        <a href="https://www.linkedin.com/in/c-kuhl/" class="navbar-link mx-2" title="LinkedIn">
-            <span class="navbar-text fa fa-linkedin fa-lg" aria-hidden="true">LinkedIn</span>
-        </a>
+        <a href="{% url 'core:about' %}" class="navbar-link navbar-text mx-2">© Chris Kuhl <script>document.write(new Date().getFullYear().toString())</script></a>
+        <a href="{% url 'blog:rss' %}" class="navbar-link navbar-text mx-2">RSS</a>
+        <a href="mailto:contact@ckuhl.com" class="navbar-link navbar-text mx-2">Email</a>
+        <a href="https://github.com/ckuhl/" class="navbar-link navbar-text mx-2">GitHub</a>
+        <a href="https://www.linkedin.com/in/c-kuhl/" class="navbar-link navbar-text mx-2">LinkedIn</a>
     </div>
 </nav>

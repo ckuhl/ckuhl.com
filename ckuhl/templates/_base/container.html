@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     {% block pre_css %}{% endblock %}
 
-    <!-- Immediate JS -->
     {% if not do_not_track %}
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115499636-1"></script>
@@ -36,6 +35,8 @@
             gtag('config', 'UA-115499636-1');
         </script>
     {% endif %}
+
+    <!-- Immediate JS -->
     {% block pre_js %}{% endblock %}
 </head>
 
@@ -51,6 +52,7 @@
     {% include "_base/footer.html" %}
     <!-- End of page layout -->
 </div>
+
 <!-- Lazy CSS -->
 <link rel="stylesheet" href="{% static 'css/pygments.css' %}">
 {% block post_css %}{% endblock %}

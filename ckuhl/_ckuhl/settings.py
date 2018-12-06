@@ -3,19 +3,13 @@ from pathlib import Path
 
 BASE_DIR: Path = Path(__file__).parent.parent.absolute()
 
-SECRET_KEY = '4bqfltzpzkun)xg!vdzf6h=fk7cdv$1)e_yi@=$7dk)j#gx@2)'
+SECRET_KEY = 'record-lowest-bisect-regent-songbird-freedmen-hoyden-salivary'
 
 DEBUG = True
 
-# Set these individually
 ALLOWED_HOSTS = [
-    # Development
     '127.0.0.1',
     'localhost',
-
-    # Testing
-    'iwantthat.pet',
-    '149.28.227.134',
 ]
 
 # Application definition ===================================================
@@ -58,6 +52,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                '_commons.context_processors.do_not_track',
             ],
             'libraries': {
                 'html_tags': '_commons.templatetags.html_tags',
@@ -93,7 +89,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization =====================================================
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-ca'
 
 TIME_ZONE = 'UTC'
 
