@@ -1,17 +1,17 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar">
     <div class="container">
         <a class="navbar-brand" href="{% url 'core:home' %}">Chris Kuhl</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <button class="navbar-toggler navbar-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="{% url 'blog:index' %}">Blog</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'portfolio:index' %}">Projects</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'core:about' %}">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'core:contact' %}">Contact</a></li>
+                <li class="nav-item"><a class="nav-link text-danger" href="{% url 'blog:index' %}">Blog</a></li>
+                <li class="nav-item"><a class="nav-link text-warning" href="{% url 'portfolio:index' %}">Projects</a></li>
+                <li class="nav-item"><a class="nav-link text-info" href="{% url 'core:about' %}">About</a></li>
+                <li class="nav-item"><a class="nav-link text-success" href="{% url 'core:contact' %}">Contact</a></li>
             </ul>
         </div>
     </div>

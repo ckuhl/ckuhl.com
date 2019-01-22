@@ -11,15 +11,13 @@
             <span class="fa fa-rss"></span>
         </a>
     </h1>
-    {% for p in posts %}
-        <div class="card my-3">
-            <div class="card-body">
-                <h2 class="h4 card-title"><a href="{% url 'blog:post' p.url %}">{{ p.title }}</a></h2>
-                <h3 class="h6 text-muted">Written {{ p.date }}</h3>
-                {{ p.body|safe }}
-            </div>
+    {% for page in flatpages %}
+        <div class="my-3">
+                <h2 class="h4"><a href="{% url 'blog:post' page.url %}">{{ page.title }}</a></h2>
+                <h3 class="h6">Written {{ page.date }}</h3>
+                {{ page.body|safe }}
         </div>
     {% empty %}
-        <p>It appears that "{{ category }}" is not a category.</p>
+        <p>{{ category }} does not yet contain any blog posts.</p>
     {% endfor %}
 {% endblock %}

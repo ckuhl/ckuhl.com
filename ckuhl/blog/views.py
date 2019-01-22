@@ -7,16 +7,15 @@ from django.shortcuts import redirect, render
 
 from blog.models import BlogPost
 
-
 log = logging.getLogger(__name__)
 
 
 def root(request):
     """Render the blog home page"""
     context = {
-        'posts': BlogPost.objects.values()
-                     .filter(published=True)
-                     .order_by('-date')[:10],
+        'flatpages': BlogPost.objects.values()
+                         .filter(published=True)
+                         .order_by('-date')[:10],
     }
     return render(request, 'blog/home.html', context=context)
 
@@ -25,7 +24,7 @@ def archive(request):
     """Render the archive of all pages"""
     # TODO: Limit and paginate blog posts (i.e. 25 or 50 per page?
     context = {
-        'posts': BlogPost.objects.values()
+        'flatpages': BlogPost.objects.values()
             .filter(published=True)
             .order_by('-date'),
     }
@@ -57,9 +56,9 @@ def post(request, post_url):
         prev_post = None
 
     context = {
-        'post': page,
-        'next_post': next_post,
-        'prev_post': prev_post,
+        'page': page,
+        'next_page': next_post,
+        'prev_page': prev_post,
     }
 
     return render(request, 'blog/post.html', context=context)
@@ -69,7 +68,7 @@ def tags(request, tag_name):
     """List of all pages with a given tag"""
     # TODO: Create `tags` table and select from there
     # tagged = BlogPost.objects.values(tag=tag_name)[:25]
-    return render(request, 'blog/tagged.html', context={'posts': []})
+    return render(request, 'blog/tagged.html', context={'flatpages': []})
 
 
 def rss(request):

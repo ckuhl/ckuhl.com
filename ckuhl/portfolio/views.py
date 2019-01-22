@@ -7,14 +7,13 @@ from django.shortcuts import render
 
 from .models import PortfolioProject
 
-
 log = logging.getLogger(__name__)
 
 
 def index(request):
     """Listing of my interesting projects"""
     context = {
-        'projects': PortfolioProject.objects.values()
+        'flatpages': PortfolioProject.objects.values()
             .filter(published=True)
             .order_by('-date'),
     }
@@ -28,7 +27,7 @@ def project(request, project_url):
     except PortfolioProject.DoesNotExist:
         raise Http404("The project you are looking for does not exist")
 
-    return render(request, 'portfolio/project.html', context={'post': fp})
+    return render(request, 'portfolio/project.html', context={'page': fp})
 
 
 def project_res(request, project_url, res_url):

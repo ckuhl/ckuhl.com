@@ -9,13 +9,13 @@
     <h1 class="h1 my-3">Blog Archive</h1>
     {% if articles %}
         <div class="list-group">{% endif %}
-{% for p in posts %}
-    <a href="{% url 'blog:post' p.url %}" class="list-group-item list-group-item-action">
+{% for page in flatpages %}
+    <a href="{% url 'blog:post' page.url %}" class="list-group-item list-group-item-action">
         <div class="d-flex flex-wrap">
             <p class="small text-muted mr-1 mb-1">
-                {{ p.date|date:'Y-m-d' }}
+                {{ page.date|date:'Y-m-d' }}
             </p>
-            <p class="h5 flex-grow-1 mb-1">{{ p.title }}</p>
+            <p class="h5 flex-grow-1 mb-1">{{ page.title }}</p>
         </div>
     </a>
 {% empty %}

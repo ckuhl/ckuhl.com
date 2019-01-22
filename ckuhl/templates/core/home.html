@@ -2,70 +2,60 @@
 {% load html_tags %}
 {% block title %}Chris Kuhl{% endblock %}
 {% block content %}
-    <section class="mt-3">
-        <div class="jumbotron py-5">
-            <h1 class="display-4">Hello, I'm Chris!</h1>
-            <p>
-                I'm a computer science student at the University of Waterloo. To be more well rounded, I'm completing a
-                bachelor of business administration.
-            </p>
-            <p>
-                When I'm not at school in Waterloo, I'm usually working on some project or other. From programming a
-                purely function virtual machine, to writing my own website, to working at a nifty startup in Vancouver.
-            </p>
-            <a class="btn btn-outline-primary" href="{% url 'core:about' %}">Tell me more!</a>
-        </div>
-    </section>
+<section class="mt-3">
+    <div class="jumbotron bg-transparent py-5">
+        <h1 class="display-4">Hello, I'm Chris!</h1>
+        <p>
+            I'm a computer science student at the University of Waterloo. To be more well rounded, I'm completing a
+            bachelor of business administration.
+        </p>
+        <p>
+            When I'm not at school in Waterloo, I'm usually working on some project or other. From programming a
+            purely function virtual machine, to writing my own website, to working at a nifty startup in Vancouver.
+        </p>
+        <a class="btn btn-outline-primary" href="{% url 'core:about' %}">Tell me more!</a>
+    </div>
+</section>
 
-    <section class="mb-5">
-        <h1 class="h1 mb-3">On the Blog</h1>
-        {% for a in articles %}
-            <div class="card my-3">
-                <div class="card-body">
-                    <h2 class="h4 card-title"><a href="{% url 'blog:post' a.url %}">{{ a.title }}</a></h2>
-                    <h3 class="h6 text-muted">Written <span>{{ a.date }}</span></h3>
-                    {{ a.body|truncateparas_html|safe }}
-                    <a class="btn btn-outline-primary" href="{% url 'blog:post' a.url %}">Read more</a>
-                </div>
-            </div>
-        {% empty %}
-            <p>Nothing here! Something must have gone wrong...</p>
-        {% endfor %}
-        {% if articles %}
-            <div class="card my-3">
-                <div class="card-body">
-                    <h2 class="h4 card-title"><a href="{% url 'blog:index' %}">Looking for something else?</a></h2>
-                    <p>To see more, take a look at the
-                        <a href="{% url 'blog:index' %}">blog archive</a> to see all of my blog posts.
-                    </p>
-                </div>
-            </div>
-        {% endif %}
-    </section>
+<section class="mb-5">
+    <h1 class="h1 mb-3">On the Blog</h1>
+    {% for page in blog_flatpages %}
+    <div class="mb-5">
+        <h2 class="h3"><a href="{% url 'blog:post' page.url %}">{{ page.title }}</a></h2>
+        <h3 class="h6 text-muted">Written <span>{{ page.date }}</span></h3>
+        {{ page.body|truncateparas_html|safe }}
+    </div>
+    {% empty %}
+    <p>Nothing here! Something must have gone wrong...</p>
+    {% endfor %}
+    {% if blog_flatpages %}
+    <div class="my-3">
+        <h2 class="h3"><a href="{% url 'blog:index' %}">Looking for something else?</a></h2>
+        <p>To see more, take a look at the
+            <a href="{% url 'blog:index' %}">blog archive</a> to see all blog posts.
+        </p>
+    </div>
+    {% endif %}
+</section>
 
-    <section>
-        <h1 class="h1 my-3">Recent projects</h1>
-        {% for p in projects %}
-            <div class="card my-3">
-                <div class="card-body">
-                    <h2 class="h4 card-title"><a
-                            href="{% url 'portfolio:project' p.url %}">{{ p.title }}</a></h2>
-                    <p>{{ p.body|truncateparas_html|safe }}</p>
-                    <a class="btn btn-outline-primary" href="{% url 'portfolio:project' p.url %}">Read more</a>
-                </div>
-            </div>
-        {% empty %}
-            <p>Nothing here! Something must have gone wrong...</p>
-        {% endfor %}
-        {% if projects %}
-            <div class="card my-3">
-                <div class="card-body">
-                    <h2 class="h4 card-title"><a href="{% url 'portfolio:index' %}">Looking for more?</a></h2>
-                    <p>Consider taking a look at my <a href="{% url 'portfolio:index' %}">project homepage</a> to see
-                        all of my projects.
-                    </p>
-                </div>
-            </div>
-        {% endif %}
-    </section>
+<section>
+    <h1 class="h1 mb-3">Recent projects</h1>
+    {% for page in portfolio_flatpages %}
+    <div class="mb-5">
+        <h2 class="h3"><a
+                href="{% url 'portfolio:project' page.url %}">{{ page.title }}</a></h2>
+        <p>{{ page.body|truncateparas_html|safe }}</p>
+    </div>
+    {% empty %}
+    <p>Nothing here! Something must have gone wrong...</p>
+    {% endfor %}
+    {% if portfolio_flatpages %}
+    <div class="my-5">
+        <h2 class="h3"><a href="{% url 'portfolio:index' %}">Looking for more?</a></h2>
+        <p>Consider taking a look at my <a href="{% url 'portfolio:index' %}">project homepage</a> to see
+            all of my projects.
+        </p>
+    </div>
+    {% endif %}
+</section>
 {% endblock %}

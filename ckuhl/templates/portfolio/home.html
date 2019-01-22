@@ -7,15 +7,11 @@
     {% endwith %}
 {% endblock %}
 {% block content %}
-    <h1 class="h1 my-3">Projects</h1>
-    {% for p in projects %}
-        <div class="card my-3">
-            <div class="card-body">
-                <h2 class="h4 card-title"><a href="{% url 'portfolio:project' p.url %}">{{ p.title }}</a>
-                </h2>
-                <p class="card-text">{{ p.body|truncateparas_html|safe }}</p>
-                <a class="btn btn-outline-primary" href="{% url 'portfolio:project' p.url %}">Read more</a>
-            </div>
+    <h1 class="h1 my-3 text-warning">Recent Projects</h1>
+    {% for page in flatpages %}
+        <div class="my-3">
+            <h2 class="h4"><a href="{% url 'portfolio:project' page.url %}">{{ page.title }}</a></h2>
+            {{ page.body|truncateparas_html|safe }}
         </div>
     {% empty %}
         <p>No projects right now... check back later!</p>

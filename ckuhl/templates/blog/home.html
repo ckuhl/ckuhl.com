@@ -7,21 +7,17 @@
     {% endwith %}
 {% endblock %}
 {% block content %}
-    <h1 class="h1 my-3">Recent blog posts</h1>
-    {% for post in posts %}
-        <div class="card my-3">
-            <div class="card-body">
-                <h2 class="h4 card-title"><a href="{% url 'blog:post' post.url %}">{{ post.title }}</a></h2>
-                <h3 class="h6 text-muted">Written {{ post.date }}</h3>
-                {{ post.body|truncateparas_html|safe }}
-                <a class="btn btn-outline-primary" href="{% url 'blog:post' post.url %}">Read more</a>
-            </div>
+    <h1 class="h1 my-3">Recent posts</h1>
+    {% for page in flatpages %}
+        <div class="my-3">
+            <h2 class="h4"><a href="{% url 'blog:post' page.url %}">{{ page.title }}</a></h2>
+            <h3 class="h6 text-muted">{{ page.date }}</h3>
+            {{ page.body|truncateparas_html|safe }}
         </div>
     {% empty %}
         <p>Nothing here! Something must have gone wrong...</p>
     {% endfor %}
 
-    <p>Not what you're looking for? Try checking out <a href="{% url 'blog:archive' %}">the
-        archive</a>.</p>
+    <p class="mt-5">Not what you're looking for? Try checking out <a href="{% url 'blog:archive' %}">the archive</a>.</p>
 
 {% endblock %}

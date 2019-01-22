@@ -7,12 +7,12 @@
 {% endblock %}
 {% block content %}
     <h1 class="h1 my-3">Posts tagged: {{ tag }}</h1>
-    {% for p in posts %}
+    {% for page in flatpages %}
         <div class="card my-3">
             <div class="card-body">
-                <h2 class="h4 card-title"><a href="{% url 'blog:post' p.path %}">{{ p.title }}</a></h2>
-                <h3 class="h6 text-muted">Written {{ p.date }}</h3>
-                {{ p.body|safe }}
+                <h2 class="h4 card-title"><a href="{% url 'blog:post' page.path %}">{{ page.title }}</a></h2>
+                <h3 class="h6 text-muted">Written {{ page.date }}</h3>
+                {{ page.body|safe }}
             </div>
         </div>
     {% empty %}
