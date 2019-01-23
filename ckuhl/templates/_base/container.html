@@ -1,21 +1,16 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Basic Page Needs -->
+    <!-- Page metadata -->
     <meta charset="utf-8">
     <title>{% block title %}Chris Kuhl{% endblock %}</title>
     <meta name="description" content="The personal site of Chris Kuhl">
     <meta name="author" content="Chris Kuhl">
-
-    <!-- Mobile Specific Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon-16x16.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
     <link rel="manifest" href="{% static 'site.webmanifest' %}">
 
     <!-- CSS -->
@@ -23,44 +18,38 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap-theme-lux.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     {% block pre_css %}{% endblock %}
-
     {% if not do_not_track %}
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115499636-1"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115499636-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-            function gtag() {
-                dataLayer.push(arguments);
-            }
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-            gtag('js', new Date());
-            gtag('config', 'UA-115499636-1');
-        </script>
-    {% endif %}
+        gtag('js', new Date());
+        gtag('config', 'UA-115499636-1');
+    </script>
+    {% else %}<!-- Do Not Track enabled, 3rd party tracking not loaded -->{% endif %}
 
     <!-- Immediate JS -->
     {% block pre_js %}{% endblock %}
 </head>
 
 <body>
+<!-- Actual content -->
 <div class="root d-flex flex-column">
-    <!-- Start of page layout -->
-    {% block header %}
-        {% include "_base/header.html" %}
-    {% endblock %}
-    <div class="container mb-auto">
-        {% block content %}{% endblock %}
-    </div>
+    {% block header %}{% include "_base/header.html" %}{% endblock %}
+    <div class="container mb-auto">{% block content %}{% endblock %}</div>
     {% include "_base/footer.html" %}
-    <!-- End of page layout -->
 </div>
 
-<!-- Lazy CSS -->
+<!-- Deferred CSS -->
 <link rel="stylesheet" href="{% static 'css/pygments.css' %}">
 {% block post_css %}{% endblock %}
 
-<!-- Lazy JS -->
+<!-- Deferred JS -->
 {# TODO <script src="{% url 'analytics:script' %}" type="text/javascript"></script> #}
 <script src="{% static 'js/jquery-3.3.1.min.js' %}" defer></script>
 <script src="{% static 'js/bootstrap.bundle.min.js' %}" defer></script>
