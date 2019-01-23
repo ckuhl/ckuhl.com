@@ -2,7 +2,6 @@
 title: Notes for an out-of-province student
 published: True
 category: blog
-tags: [co-op, advice]
 ---
 
 Last year at the end of November, I got an offer for a co-op placement with a

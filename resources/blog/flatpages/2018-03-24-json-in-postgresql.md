@@ -2,7 +2,6 @@
 title: JSON in PostgreSQL
 published: True
 category: blog
-tags: [technology, database, argument]
 ---
 
 Recently at work, I got into a discussion about whether it makes sense to store

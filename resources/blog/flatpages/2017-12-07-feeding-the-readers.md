@@ -2,7 +2,6 @@
 title: Feed-ing the Readers
 published: True
 category: blog
-tags: [news, dev, tweet+]
 ---
 
 Initially an MVP, I have been progressively fleshing out my blog as I have

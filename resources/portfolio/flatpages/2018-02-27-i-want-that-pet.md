@@ -3,7 +3,6 @@ title: I Want That Pet!
 published: True
 updated: 2018-11-02
 category: portfolio
-tags: [web, project, learning]
 ---
 
 A friend of mine reached out to me recently. Do I know of any easy way to monitor a website for changes? I knew that it would be fairly easy to do for myself. However setting up a server, cron, and a script to diff the site is not easy for someone who doesn't have the time to learn all that.

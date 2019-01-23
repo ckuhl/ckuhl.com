@@ -64,13 +64,6 @@ def post(request, post_url):
     return render(request, 'blog/post.html', context=context)
 
 
-def tags(request, tag_name):
-    """List of all pages with a given tag"""
-    # TODO: Create `tags` table and select from there
-    # tagged = BlogPost.objects.values(tag=tag_name)[:25]
-    return render(request, 'blog/tagged.html', context={'flatpages': []})
-
-
 def rss(request):
     """Feed of latest blog posts"""
     # TODO: Render RSS feed using FeedGenerator

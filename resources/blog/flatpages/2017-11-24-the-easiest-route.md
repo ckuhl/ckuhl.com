@@ -2,7 +2,6 @@
 title: The Easiest Route
 published: True
 category: blog
-tags: [dev, goals, tweet+]
 ---
 
 My most limited resource when it comes to side projects is

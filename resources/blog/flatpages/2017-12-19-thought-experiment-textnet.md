@@ -2,7 +2,6 @@
 title: "Thought Experiment: The TextNet"
 published: True
 category: blog
-tags: [thought experiment]
 ---
 
 On the forums I follow, there has been a growth in people begrudging the

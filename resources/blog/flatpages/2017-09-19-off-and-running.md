@@ -2,7 +2,6 @@
 title: Off and Running!
 published: True
 category: blog
-tags: [news, tweet+]
 ---
 
 With the recent addition of a working portfolio display, my website is

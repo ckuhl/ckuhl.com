@@ -2,7 +2,6 @@
 title: Explorable explanations
 published: True
 category: blog
-tags: [programming]
 scripts: [d3.v5.min.js, example-tools.js]
 styles: [example-tools.css]
 ---

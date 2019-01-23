@@ -3,7 +3,6 @@ title: Planning until it's painful
 published: True
 updated: 2018-11-01
 category: blog
-tags: [project, work practices]
 ---
 
 When I started at my current job, I just wanted to code. However, my supervisor kept asking me all these questions. How long did I think it would take? How will I accomplish it? What if it takes longer? I tried answering them, but each answer just led to more questions. I didn’t want to plan! I just wanted to write the code, dangit! Out of frustration, I eventually wrote up a page or so of bullets that answered every possible question I could imagine being asked, and then some more.

@@ -2,7 +2,6 @@
 title: How does Flask work?
 published: True
 category: blog
-tags: [technology, python]
 ---
 
 When you first start using the [Flask framework](http://flask.pocoo.org/) it

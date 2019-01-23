@@ -2,7 +2,6 @@
 title: Running python from a database
 published: True
 category: blog
-tags: [what-if, programming, python]
 ---
 
 While having my morning coffee, I had a strange idea. Is it possible to run

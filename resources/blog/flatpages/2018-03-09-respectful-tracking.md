@@ -2,7 +2,6 @@
 title: Respectful Tracking
 published: True
 category: blog
-tags: [technology, python, flask]
 ---
 
 As a university student in a co-op program, I am either working a co-op job, or

@@ -13,22 +13,7 @@
     <div>{{ page.body|safe }}</div>
     <p class="small">Written {{ page.date }}{% if page.updated %}, updated {{ page.updated }}{% endif %}</p>
 
-    {# Managing tags #}
-    {% if page.tags %}
-        <div>
-    {% endif %}
-{% if page.tags %}
-    <span class="fa fa-tags" aria-hidden="true"></span>
-    <span> Tags: </span>
-{% endif %}
-{% for tag in page.tags %}
-    <a class="badge badge-secondary" href="{% url 'blog:tags' tag %}">{{ tag }}</a>
-{% endfor %}
-{% if page.tags %}
-    </div>
-{% endif %}
-
-    {# Next / previous page #}
+    {# Next / previous flat page #}
     <div class="h5 mt-5 d-flex justify-content-between">
         {% if prev_page %}
             &#9664; <a class="ml-0 mr-auto" href="{% url 'blog:post' prev_page.url %}">{{ prev_page.title }}</a>

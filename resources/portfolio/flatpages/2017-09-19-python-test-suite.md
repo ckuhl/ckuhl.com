@@ -3,7 +3,6 @@ title: Python Test Suite
 published: True
 updated: 2018-11-02
 category: portfolio
-tags: [pts, portfolio]
 ---
 
 A while back, I had to write a rudimentary testing script for a class I was taking. While it was useful, but it had enough rough edges that I kept improving on it.

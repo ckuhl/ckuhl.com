@@ -2,7 +2,6 @@
 title: (Web) Extending my knowledge
 published: True
 category: blog
-tags: [dev, learning, tweet+]
 ---
 
 With the announcement that Firefox would be deprecating XUL extensions,

@@ -2,7 +2,6 @@
 title: Facebook cannot act in your best interest
 published: True
 category: blog
-tags: [human-computer interaction, social media]
 ---
 
 With the recent complaints about Facebook surfacing across the internet, now

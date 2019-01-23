@@ -2,7 +2,6 @@
 title: Minor updates
 published: True
 category: blog
-tags: [website, functionality]
 ---
 
 As a part of a as-of-yet unnamed overarching project, I've been updating my
