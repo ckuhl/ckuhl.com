@@ -15,7 +15,11 @@ class BlogPostRssFeed(Feed):
     feed_type: RssFeed = Rss201rev2Feed
 
     def items(self) -> List[models.BlogPost]:
-        return models.BlogPost.objects.order_by('-date')[:5]
+        return (
+            models.BlogPost.objects
+                .filter(published=True)
+                .order_by('-date')[:5]
+        )
 
     def item_title(self, item: models.BlogPost) -> str:
         return item.title
