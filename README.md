@@ -1,16 +1,15 @@
 # [ckuhl.com](https://ckuhl.com/)
 
 Personal website of Chris Kuhl. Written in Django for flexibility in what I
-can create with it. Deployed using Ansible to make updating the site painless.
+can create with it. Deployed using Ansible to make updating the site simpler.
 
 
 ## To - do
 
-### Apps
+### Site apps
 
 - [ ] Blog / Portfolio:
-	- [ ] On loading flatpages, rewrite URLs for images
-	- [ ] Get RSS feed working
+	- [ ] On loading flatpages, handle URLs for images
 - [ ] Analytics
 	- [ ] Create local analytics (for e.g. user-agents, etc.)
 - [ ] New app: Ideas
@@ -24,16 +23,15 @@ can create with it. Deployed using Ansible to make updating the site painless.
 	- [ ] Write more comprehensive tests
 		- [ ] Cover more cases
 		- [ ] Cover more code
-		- [ ] including for functions that hit the DB
-- [ ] Look at other Django blogs for structure ideas
-	- e.g. https://github.com/jacobian/jacobian.org
+		- [ ] Cover functions that hit the DB
 - [ ] Deployment
-	- [ ] Split "deploy" role into smaller roles
+	- [ ] Split `deploy` role into smaller roles
+- [ ] Structure
+    - [ ] Look into how other people's Django sites are structured
+	    - e.g. https://github.com/jacobian/jacobian.org
 
 
 ### Frontend
 
-- [ ] Use _less_ -- trim down Bootstrap CSS & theme to be smaller
-	- [ ] Or perhaps switch to [Tailwind](https://tailwindcss.com/)?
-- [ ] Establish build pipeline to minify resources
-
+- [ ] Use _less_ CSS
+    - Human-readable styles?

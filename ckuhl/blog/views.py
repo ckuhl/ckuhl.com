@@ -5,7 +5,7 @@ from django.conf import settings
 from django.http import Http404, HttpResponse
 from django.shortcuts import redirect, render
 
-from blog.models import BlogPost
+from blog import models
 
 log = logging.getLogger(__name__)
 
@@ -13,7 +13,7 @@ log = logging.getLogger(__name__)
 def root(request):
     """Render the blog home page"""
     context = {
-        'flatpages': BlogPost.objects.values()
+        'flatpages': models.BlogPost.objects.values()
                          .filter(published=True)
                          .order_by('-date')[:10],
     }
@@ -24,7 +24,7 @@ def archive(request):
     """Render the archive of all pages"""
     # TODO: Limit and paginate blog posts (i.e. 25 or 50 per page?
     context = {
-        'flatpages': BlogPost.objects.values()
+        'flatpages': models.BlogPost.objects.values()
             .filter(published=True)
             .order_by('-date'),
     }
@@ -39,20 +39,20 @@ def old_archive(request):
 def post(request, post_url):
     """Single blog post"""
     try:
-        page = BlogPost.objects.get(url=post_url, published=True)
-    except BlogPost.DoesNotExist:
+        page = models.BlogPost.objects.get(url=post_url, published=True)
+    except models.BlogPost.DoesNotExist:
         # TODO: Use local analytics to log this to a DB table
         log.error(f"User tried to get page {post_url} that doesn't exist")
         raise Http404("The blog post you're looking for does not exist")
 
     try:
         next_post = page.get_next_by_date()
-    except BlogPost.DoesNotExist:
+    except models.BlogPost.DoesNotExist:
         next_post = None
 
     try:
         prev_post = page.get_previous_by_date()
-    except BlogPost.DoesNotExist:
+    except models.BlogPost.DoesNotExist:
         prev_post = None
 
     context = {
@@ -62,13 +62,6 @@ def post(request, post_url):
     }
 
     return render(request, 'blog/post.html', context=context)
-
-
-def rss(request):
-    """Feed of latest blog posts"""
-    # TODO: Render RSS feed using FeedGenerator
-    # latest = BlogPost.objects.values().order_by('-date')[:25]
-    raise Http404("The RSS feed hasn't been implemented yet. Sorry!")
 
 
 def post_res(request, post_url, res_url):
