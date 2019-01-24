@@ -1,20 +1,20 @@
 {% extends "_base/container.html" %}
 {% block title %}Blog | Chris Kuhl{% endblock %}
 {% block content %}
-    <h1 class="h1 my-3">Blog Archive</h1>
-    {% if flatpages %}
-        <div class="list-group">{% endif %}
+	<h1 class="h1 my-3">Blog Archive</h1>
+	{% if flatpages %}
+		<div class="list-group">{% endif %}
 {% for page in flatpages %}
-    <a href="{% url 'blog:post' page.url %}" class="list-group-item list-group-item-action">
-        <div class="d-flex flex-wrap">
-            <p class="small text-muted mr-1 mb-1">
-                {{ page.date|date:'Y-m-d' }}
-            </p>
-            <p class="h5 flex-grow-1 mb-1">{{ page.title }}</p>
-        </div>
-    </a>
+	<a href="{% url 'blog:post' page.url %}" class="list-group-item list-group-item-action">
+		<div class="d-flex flex-wrap">
+			<p class="small text-muted mr-1 mb-1">
+				{{ page.date|date:'Y-m-d' }}
+			</p>
+			<p class="h5 flex-grow-1 mb-1">{{ page.title }}</p>
+		</div>
+	</a>
 {% empty %}
-    <p>Nothing here! Expect some writings in the future.</p>
+	<p>Nothing here! Expect some writings in the future.</p>
 {% endfor %}
 {% if flatpages %}</div>{% endif %}
 {% endblock %}

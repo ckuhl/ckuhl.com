@@ -2,49 +2,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Page metadata -->
-    <meta charset="utf-8">
-    <title>{% block title %}Chris Kuhl{% endblock %}</title>
-    <meta name="description" content="The personal site of Chris Kuhl">
-    <meta name="author" content="Chris Kuhl">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'site.webmanifest' %}">
+	<!-- Page metadata -->
+	<meta charset="utf-8">
+	<title>{% block title %}Chris Kuhl{% endblock %}</title>
+	<meta name="description" content="The personal site of Chris Kuhl">
+	<meta name="author" content="Chris Kuhl">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/apple-touch-icon.png' %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon-32x32.png' %}">
+	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon-16x16.png' %}">
+	<link rel="manifest" href="{% static 'site.webmanifest' %}">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap-theme-lux.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    {% block pre_css %}{% endblock %}
-    {% if not do_not_track %}
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115499636-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+	<!-- CSS -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap-theme-lux.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+	{% block pre_css %}{% endblock %}
+	{% if not do_not_track %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115499636-1"></script>
+		<script>
+            window.dataLayer = window.dataLayer || [];
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+            function gtag() {
+                dataLayer.push(arguments);
+            }
 
-        gtag('js', new Date());
-        gtag('config', 'UA-115499636-1');
-    </script>
-    {% else %}<!-- Do Not Track enabled, 3rd party tracking not loaded -->{% endif %}
+            gtag('js', new Date());
+            gtag('config', 'UA-115499636-1');
+		</script>
+		{% else %}<!-- Do Not Track enabled, 3rd party tracking not loaded -->{% endif %}
 
-    <!-- Immediate JS -->
-    {% block pre_js %}{% endblock %}
+	<!-- Immediate JS -->
+	{% block pre_js %}{% endblock %}
 </head>
 
 <!-- Actual content -->
 <body>
 <div class="root d-flex flex-column">
-    <div class="container mb-auto">
-        {% include "_base/header.html" %}
-        {% block content %}{% endblock %}
-        {% include "_base/footer.html" %}
-    </div>
+	<div class="container mb-auto">
+		{% include "_base/header.html" %}
+		{% block content %}{% endblock %}
+		{% include "_base/footer.html" %}
+	</div>
 </div>
 
 <!-- Deferred CSS -->

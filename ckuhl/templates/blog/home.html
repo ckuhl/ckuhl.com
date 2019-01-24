@@ -2,17 +2,18 @@
 {% load html_tags %}
 {% block title %}Blog | Chris Kuhl{% endblock %}
 {% block content %}
-    <h1 class="h1 my-3">Recent posts</h1>
-    {% for page in flatpages %}
-        <div class="my-3">
-            <h2 class="h4"><a href="{% url 'blog:post' page.url %}">{{ page.title }}</a></h2>
-            <h3 class="h6 text-muted">{{ page.date }}</h3>
-            {{ page.body|truncateparas_html|safe }}
-        </div>
-    {% empty %}
-        <p>Nothing here! Something must have gone wrong...</p>
-    {% endfor %}
+	<h1 class="h1 my-3">Recent posts</h1>
+	{% for page in flatpages %}
+		<div class="my-3">
+			<h2 class="h4"><a href="{% url 'blog:post' page.url %}">{{ page.title }}</a></h2>
+			<h3 class="h6 text-muted">{{ page.date }}</h3>
+			{{ page.body|truncateparas_html|safe }}
+		</div>
+	{% empty %}
+		<p>Nothing here! Something must have gone wrong...</p>
+	{% endfor %}
 
-    <p class="mt-5">Not what you're looking for? Try checking out <a href="{% url 'blog:archive' %}">the archive</a>.</p>
+	<p class="mt-5">Not what you're looking for? Try checking out <a href="{% url 'blog:archive' %}">the archive</a>.
+	</p>
 
 {% endblock %}
