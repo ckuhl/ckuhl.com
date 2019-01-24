@@ -46,12 +46,12 @@ def post(request, post_url):
         raise Http404("The blog post you're looking for does not exist")
 
     try:
-        next_post = page.get_next_by_date()
+        next_post = page.get_next_by_date(published=True)
     except models.BlogPost.DoesNotExist:
         next_post = None
 
     try:
-        prev_post = page.get_previous_by_date()
+        prev_post = page.get_previous_by_date(published=True)
     except models.BlogPost.DoesNotExist:
         prev_post = None
 
