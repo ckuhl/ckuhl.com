@@ -1,6 +1,6 @@
 ---
 title: Explorable explanations
-published: True
+published: False
 category: blog
 scripts: [d3.v5.min.js, example-tools.js]
 styles: [example-tools.css]

@@ -49,13 +49,8 @@
 
 <!-- Deferred CSS -->
 <link rel="stylesheet" href="{% static 'css/pygments.css' %}">
-{% block post_css %}{% endblock %}
 
 <!-- Deferred JS -->
 {# TODO <script src="{% url 'analytics:script' %}" type="text/javascript"></script> #}
-<script src="{% static 'js/jquery-3.3.1.min.js' %}" defer></script>
-<script src="{% static 'js/bootstrap.bundle.min.js' %}" defer></script>
-{% block post_js %}{% endblock %}
-
 </body>
 </html>
