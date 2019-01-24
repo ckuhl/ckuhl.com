@@ -1,11 +1,7 @@
 {% extends "_base/container.html" %}
 {% block title %}Blog | Chris Kuhl{% endblock %}
 {% block content %}
-	<h1 class="display-4 my-3">{{ category }}
-		<a href="{% url 'blog:rss' category %}" class="btn-btn-secondary">
-			<span class="fa fa-rss"></span>
-		</a>
-	</h1>
+	<h1 class="display-4 my-3">{{ category }}</h1>
 	{% for page in flatpages %}
 		<div class="my-3">
 			<h2 class="h4"><a href="{% url 'blog:post' page.url %}">{{ page.title }}</a></h2>

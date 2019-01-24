@@ -31,8 +31,9 @@
 		{% if blog_flatpages %}
 			<div class="my-3">
 				<h2 class="h3"><a href="{% url 'blog:index' %}">Looking for something else?</a></h2>
-				<p>To see more, take a look at the
-					<a href="{% url 'blog:index' %}">blog archive</a> to see all blog posts.
+				<p>
+					To see more, take a look at the <a href="{% url 'blog:index' %}">blog archive</a> to see all blog
+					posts.
 				</p>
 			</div>
 		{% endif %}
@@ -42,9 +43,8 @@
 		<h1 class="h1 mb-3">Recent projects</h1>
 		{% for page in portfolio_flatpages %}
 			<div class="mb-5">
-				<h2 class="h3"><a
-						href="{% url 'portfolio:project' page.url %}">{{ page.title }}</a></h2>
-				<p>{{ page.body|truncateparas_html|safe }}</p>
+				<h2 class="h3"><a href="{% url 'portfolio:project' page.url %}">{{ page.title }}</a></h2>
+				{{ page.body|truncateparas_html|safe }}
 			</div>
 		{% empty %}
 			<p>Nothing here! Something must have gone wrong...</p>
@@ -52,8 +52,9 @@
 		{% if portfolio_flatpages %}
 			<div class="my-5">
 				<h2 class="h3"><a href="{% url 'portfolio:index' %}">Looking for more?</a></h2>
-				<p>Consider taking a look at my <a href="{% url 'portfolio:index' %}">project homepage</a> to see
-					all of my projects.
+				<p>
+					Consider taking a look at my <a href="{% url 'portfolio:index' %}">project homepage</a> to see all
+					of my projects.
 				</p>
 			</div>
 		{% endif %}
