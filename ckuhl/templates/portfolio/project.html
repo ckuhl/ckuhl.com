@@ -1,10 +1,5 @@
 {% extends "_base/container.html" %}
 {% block title %}{{ post.title }}{% endblock %}
-{% block header %}
-    {% with True as in_portfolio %}
-        {{ block.super }}
-    {% endwith %}
-{% endblock %}
 {% block content %}
     <h1 class="h1 my-3">{{ page.title }}</h1>
     <div>{{ page.body|safe }}</div>

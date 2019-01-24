@@ -37,12 +37,14 @@
     {% block pre_js %}{% endblock %}
 </head>
 
-<body>
 <!-- Actual content -->
+<body>
 <div class="root d-flex flex-column">
-    {% block header %}{% include "_base/header.html" %}{% endblock %}
-    <div class="container mb-auto">{% block content %}{% endblock %}</div>
-    {% include "_base/footer.html" %}
+    <div class="container mb-auto">
+        {% include "_base/header.html" %}
+        {% block content %}{% endblock %}
+        {% include "_base/footer.html" %}
+    </div>
 </div>
 
 <!-- Deferred CSS -->

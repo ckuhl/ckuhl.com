@@ -1,10 +1,5 @@
 {% extends "_base/container.html" %}
 {% block title %}Blog | Chris Kuhl{% endblock %}
-{% block header %}
-    {% with True as in_blog %}
-        {{ block.super }}
-    {% endwith %}
-{% endblock %}
 {% block content %}
     <h1 class="display-4 my-3">{{ category }}
         <a href="{% url 'blog:rss' category %}" class="btn-btn-secondary">

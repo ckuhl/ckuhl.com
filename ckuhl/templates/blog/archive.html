@@ -1,13 +1,8 @@
 {% extends "_base/container.html" %}
 {% block title %}Blog | Chris Kuhl{% endblock %}
-{% block header %}
-    {% with True as in_blog %}
-        {{ block.super }}
-    {% endwith %}
-{% endblock %}
 {% block content %}
     <h1 class="h1 my-3">Blog Archive</h1>
-    {% if articles %}
+    {% if flatpages %}
         <div class="list-group">{% endif %}
 {% for page in flatpages %}
     <a href="{% url 'blog:post' page.url %}" class="list-group-item list-group-item-action">
@@ -21,5 +16,5 @@
 {% empty %}
     <p>Nothing here! Expect some writings in the future.</p>
 {% endfor %}
-{% if articles %}</div>{% endif %}
+{% if flatpages %}</div>{% endif %}
 {% endblock %}

@@ -1,9 +1,9 @@
-<nav id="footer" class="navbar navbar navbar-bottom mt-3 p-0">
-    <div class="mx-auto">
-        <a href="{% url 'core:about' %}" class="navbar-link navbar-text mx-2">© Chris Kuhl <script>document.write(new Date().getFullYear().toString())</script></a>
-        <a href="{% url 'blog:rss' %}" class="navbar-link navbar-text mx-2">RSS</a>
-        <a href="mailto:contact@ckuhl.com" class="navbar-link navbar-text mx-2">Email</a>
-        <a href="https://github.com/ckuhl/" class="navbar-link navbar-text mx-2">GitHub</a>
-        <a href="https://www.linkedin.com/in/c-kuhl/" class="navbar-link navbar-text mx-2">LinkedIn</a>
-    </div>
+<nav id="footer" class="navbar navbar-bottom navbar-expand-lg">
+    <ul class="navbar-nav">
+        <li class="nav-item"><a href="{% url 'core:about' %}" class="nav-link">© Chris Kuhl<script>document.write(new Date().getFullYear().toString())</script></a></li>
+        <li class="nav-item"><a href="{% url 'blog:rss' %}" class="nav-link">RSS</a>
+        <li class="nav-item"><a href="mailto:contact@ckuhl.com" class="nav-link">Email</a></li>
+        <li class="nav-item"><a href="https://github.com/ckuhl/" class="nav-link">GitHub</a></li>
+        <li class="nav-item"><a href="https://www.linkedin.com/in/c-kuhl/" class="nav-link">LinkedIn</a></li>
+    </ul>
 </nav>

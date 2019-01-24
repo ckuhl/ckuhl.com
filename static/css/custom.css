@@ -1,167 +1,126 @@
-/* Native font stacks yo */
+/* Global overrides vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv */
+/* Make the container _much_ narrower */
+@media (min-width: 768px) {
+	.container { max-width: 730px; }
+}
+
+/* Use native font stack to make things faster and nicer */
 :root {
-    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-}
-
-/* Minimum size: fill the window */
-html, body, div.root {
-    min-height: 100vh;
-}
-
-/* Fix font mangling */
-body {
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: #222222;
+	--font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	--font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /* Override bootstrap & theme font */
-body, .tooltip, .popover {
-    font-family: var(--font-family-sans-serif);
-}
+body, .tooltip, .popover { font-family: var(--font-family-sans-serif); }
 
-/* Make word mark big */
-.navbar-brand {
-    font-weight: 900 !important;
-    letter-spacing: 0;
-    font-size: 2rem;
-    line-height: normal;
-}
+/*
+Force each page to _at least_ be the size of the window.
 
-/* Mmm, them Apple-esque headers */
-h1, h2, h3, .h1, .h2, .h3 {
-    font-weight: 900 !important;
-    letter-spacing: 0;
-}
+This makes the footer go to the bottom of the page, and not just the bottom of the content.
+*/
+html, body, div.root { min-height: 100vh; }
 
-/* Mmm, them Apple-style headers */
-h4, h5, h6, .h4, .h5, .h6 {
-    font-weight: 800 !important;
-    letter-spacing: 0;
+/* Stylistic changes to make text more legible */
+body {
+	font-size: 1.1rem;
+	font-weight: 300;
+	color: #222222;
 }
 
 /* Make text more legible */
 p {
-    letter-spacing: initial;
-    font-size: larger;
+	letter-spacing: initial;
+	font-size: larger;
 }
 
-a.nav-link {
-    font-size: 1.25rem;
-    font-weight: 900;
-    padding: 0 0 0 0;
-    margin: 0 0 0 0;
+
+/* Style headers to look Apple-esque */
+h1, h2, h3, .h1, .h2, .h3 {
+	font-weight: 900 !important;
+	letter-spacing: 0;
 }
 
-li.nav-item {
-    margin-left: 0.25rem;
-    margin-right: 0.25rem;
+/* Style headers to look Apple-esque */
+h4, h5, h6, .h4, .h5, .h6 {
+	font-weight: 800 !important;
+	letter-spacing: 0;
 }
 
-/* make links visible */
-p a {
-    text-decoration: underline;
-}
+/* Make links more visible in paragraphs */
+p a { text-decoration: underline; }
 
-/* consistent code blocks */
+/* End of global overrides ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+/* Codehilite styles vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv */
 .codehilitetable {
-    width: 100%;
-    height: auto;
-    overflow: auto;
+	width: 100%;
+	height: auto;
+	overflow: auto;
 }
 
-/* Customize container */
-@media (min-width: 768px) {
-    .container {
-        max-width: 730px;
-    }
-}
+/* End of Codehilite styles ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
-.container-narrow > hr {
-    margin: 30px 0;
-}
-
+/* Jumbotron customization vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv */
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-right: 0;
-        padding-left: 0;
-    }
+	/* Remove the bottom border on the jumbotron for visual effect */
+	.jumbotron { border-bottom: 0; }
 
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
-
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
-    }
-
-    /* Fill text is extra-light to contrast extra-heavy header */
-    .jumbotron p {
-        font-weight: 200;
-    }
+	/* Fill text is extra-light to contrast extra-heavy header */
+	.jumbotron p { font-weight: 200; }
 }
 
-a.thumbnail-link {
-    display: inline-block;
-    padding: 2px;
-    border-radius: 4px;
+/* Prevent Jumbotron headers from being ALL CAPS */
+.jumbotron h1.display-4 { text-transform: initial; }
+
+/* End of Jumbotron customization ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+/* Header navbar vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv */
+/* Make word mark big */
+#header .navbar-brand {
+	font-weight: 900 !important;
+	letter-spacing: 0;
+	font-size: 2rem;
+	line-height: normal;
 }
 
-a.thumbnail-link:hover {
-    background-color: var(--info);
+#header a.nav-link {
+	font-size: 1.25rem;
+	font-weight: 900;
+	margin: 0 0 0 0;
 }
 
-img.thumbnail {
-    width: 7rem;
-    border-radius: 4px;
+#header li.nav-item {
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
 }
 
-/* homepage styles */
-h1.display-4 {
-    text-transform: initial;
-}
+/* Make navbar slimmer (p-0 on large devices, p-2 on small devices) */
 
-/* Make navbar slimmer
- * = p-0 on large devices, p-2 on small devices */
-
-/* Extra small devices (portrait phones, less than 576px) */
-/* default size, no media query needed */
-.navbar {
-    padding: 0.5rem;
-}
+/*
+Extra small devices (portrait phones, less than 576px)
+Default size, no media query needed
+*/
+.navbar { padding: 0.5rem; }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-    .navbar {
-        padding: 0.5rem;
-    }
+	.navbar { padding: 0.5rem; }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-    .navbar {
-        padding: 0.5rem;
-    }
+	.navbar { padding: 0.5rem; }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-    .navbar {
-        padding: 0;
-    }
+	.navbar { padding: 0; }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-    .navbar {
-        padding: 0;
-    }
+	.navbar { padding: 0; }
 }
 
+/* End of header navbar ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */

@@ -1,11 +1,6 @@
 {% extends "_base/container.html" %}
 {% load html_tags %}
 {% block title %}Blog | Chris Kuhl{% endblock %}
-{% block header %}
-    {% with True as in_blog %}
-        {{ block.super }}
-    {% endwith %}
-{% endblock %}
 {% block content %}
     <h1 class="h1 my-3">Recent posts</h1>
     {% for page in flatpages %}
