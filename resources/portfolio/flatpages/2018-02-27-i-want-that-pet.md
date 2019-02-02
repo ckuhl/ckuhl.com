@@ -1,11 +1,13 @@
 ---
 title: I Want That Pet!
 published: True
-updated: 2018-11-02
+updated: 2019-02-02
 category: portfolio
 ---
 
 A friend of mine reached out to me recently. Do I know of any easy way to monitor a website for changes? I knew that it would be fairly easy to do for myself. However setting up a server, cron, and a script to diff the site is not easy for someone who doesn't have the time to learn all that.
+
+![Screen Shot 2019-02-02 at 12.35.34 PM](assets/Screen Shot 2019-02-02 at 12.35.34 PM.png)
 
 So I had a project: create a website that would keep someone posted if the animal they wanted (but could not get due to their current lease) was adopted from the animal shelter. I came up with the following set of goals at the start of the project:
 
