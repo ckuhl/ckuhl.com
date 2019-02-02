@@ -26,6 +26,7 @@ can create with it. Deployed using Ansible to make updating the site simpler.
 		- [ ] Cover functions that hit the DB
 - [ ] Deployment
 	- [ ] Split `deploy` role into smaller roles
+	- [ ] Fix Let's Encrypt renewal script
 - [ ] Structure
     - [ ] Look into how other people's Django sites are structured
 	    - e.g. https://github.com/jacobian/jacobian.org
