@@ -17,6 +17,7 @@ def load_pages(app_config: AppConfig,
     log = logging.getLogger(__name__)
 
     # typing added to get IDE autocompletion
+    # we load the model this way to avoid circular imports
     model: models.Model = app_config.get_model(model_name)
 
     flatpage_root = settings.RESOURCEFILES_DIR / app_config.name / 'flatpages'

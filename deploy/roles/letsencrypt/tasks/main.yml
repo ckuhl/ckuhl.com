@@ -19,10 +19,10 @@
   become: yes
   register: challengeEndpointConfigured
 
-- name: Nginx config is valid
-  command: nginx -t
-  become: true
-  changed_when: false # this never changes, can only succeed or fail the script
+#- name: Nginx config is valid
+#  command: nginx -t
+#  become: true
+#  changed_when: false # this never changes, can only succeed or fail the script
 
 - name: Nginx config enabled
   file:
@@ -54,7 +54,7 @@
       --agree-tos \
       --non-interactive
   become: yes
-  when: letsencryptInstalled.stat.exists == false
+#  when: letsencryptInstalled.stat.exists == false
   # TODO: Add changed_when / failed_when ...
 
 - name: Nginx config disabled

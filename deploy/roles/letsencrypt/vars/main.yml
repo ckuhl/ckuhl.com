@@ -2,5 +2,6 @@
 letsencrypt:
   challenge_root: /var/www/letsencrypt-challenge
   cert_dir: /etc/letsencrypt/live
+  contact_email: letsencrypt@ckuhl.com
   cron:
     frequency:  0 */12 * * * # every 12 hours

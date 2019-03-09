@@ -36,6 +36,3 @@ path:
       requirements: /home/{{ user.name }}/{{ project.version }}/requirements.txt
       uwsgi_socket: /tmp/{{ project.versioned_name }}.sock
       db: /home/{{ user.name }}/db.sqlite3
-
-letsencrypt:
-  contact_email: letsencrypt@ckuhl.com
