@@ -2,7 +2,7 @@
 {% load html_tags %}
 {% block title %}Portfolio | Chris Kuhl{% endblock %}
 {% block content %}
-	<h1 class="h1 my-3">Recent Projects</h1>
+	<h1 class="h1 my-3">Projects</h1>
 	{% for page in flatpages %}
 		<div class="my-3">
 			<h2 class="h4"><a href="{% url 'portfolio:project' page.url %}">{{ page.title }}</a></h2>

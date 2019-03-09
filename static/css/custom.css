@@ -10,6 +10,9 @@
 	--font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
+/* Remove all-caps headers */
+* { text-transform: none; }
+
 /* Override bootstrap & theme font */
 body, .tooltip, .popover { font-family: var(--font-family-sans-serif); }
 
@@ -36,18 +39,23 @@ p {
 
 /* Style headers to look Apple-esque */
 h1, h2, h3, .h1, .h2, .h3 {
+	text-transform: none;
 	font-weight: 900 !important;
 	letter-spacing: 0;
 }
 
 /* Style headers to look Apple-esque */
 h4, h5, h6, .h4, .h5, .h6 {
+	text-transform: none;
 	font-weight: 800 !important;
 	letter-spacing: 0;
 }
 
 /* Make links more visible in paragraphs */
-p a { text-decoration: underline; }
+p a {
+	text-decoration: underline;
+	font-weight: bolder;
+}
 
 /* Fit images to width of paragraph */
 p img { max-width: 100%; }
