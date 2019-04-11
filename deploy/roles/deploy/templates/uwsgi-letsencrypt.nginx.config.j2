@@ -46,7 +46,7 @@ server {
     # If a URL _begins_ with the LetsEncrypt challenge root, redirect it
     location ^~ /.well-known/acme-challenge/ {
         default_type "text/plain";
-        root {{ letsencrypt.challenge_root }};
+        root {{ nginx.letsencrypt.challenge_root }};
     }
 
     # If a URL _is_ the LetsEncrypt challenge root, return a 404

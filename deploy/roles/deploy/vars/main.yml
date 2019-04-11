@@ -4,6 +4,8 @@ nginx:
   sites:
     available: /etc/nginx/sites-available
     enabled: /etc/nginx/sites-enabled
+  letsencrypt:
+    challenge_root: /var/www/letsencrypt-challenge
 
 SECRET_KEY: !vault |
   $ANSIBLE_VAULT;1.1;AES256
