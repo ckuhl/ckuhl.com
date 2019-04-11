@@ -1,6 +1,6 @@
 [uwsgi]
 chdir = {{ path.remote.dir.code }}
-module = _ckuhl.wsgi:application
+module = __django.wsgi:application
 virtualenv = {{ path.remote.dir.venv }}
 
 master = true

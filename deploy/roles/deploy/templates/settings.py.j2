@@ -7,7 +7,6 @@ SECRET_KEY = '{{ SECRET_KEY }}'
 
 DEBUG = False
 
-# Set these individually
 ALLOWED_HOSTS = [
     '{{ inventory_hostname }}',
 ]
@@ -38,7 +37,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = '_ckuhl.urls'
+ROOT_URLCONF = '__django.urls'
 
 # Templating ===============================================================
 TEMPLATES = [
@@ -62,7 +61,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = '_ckuhl.wsgi.application'
+WSGI_APPLICATION = '__django.wsgi.application'
 
 # Database =================================================================
 DATABASES = {
@@ -71,7 +70,7 @@ DATABASES = {
         'NAME': str(Path.home().absolute() / 'db.sqlite3'),
     },
 }
-print(DATABASES['default']['NAME'])
+
 # Password validation ======================================================
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -89,7 +88,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization =====================================================
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-ca'
 
 TIME_ZONE = 'UTC'
 
