@@ -74,7 +74,7 @@ class FlatPage(object):
 
         # TODO: Add optional validation here in the future?
 
-        return yaml.load('\n'.join(lines))
+        return yaml.load('\n'.join(lines), Loader=yaml.FullLoader)
 
     @staticmethod
     def __load_body(file: TextIO) -> str:
