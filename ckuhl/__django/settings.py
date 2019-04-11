@@ -38,7 +38,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = '_ckuhl.urls'
+ROOT_URLCONF = '__django.urls'
 
 # Templating ===============================================================
 TEMPLATES = [
@@ -62,7 +62,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = '_ckuhl.wsgi.application'
+WSGI_APPLICATION = '__django.wsgi.application'
 
 # Database =================================================================
 DATABASES = {
@@ -118,7 +118,7 @@ MEDIAFILES_DIRS = [
 # Local resources ==========================================================
 # Stores local files that shouldn't be served
 
-RESOURCEFILES_DIR = BASE_DIR.parent / 'resources'
+RESOURCEFILES_DIR: Path = BASE_DIR.parent / 'resources'
 
 # Logging ==================================================================
 LOGGING = {

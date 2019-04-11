@@ -31,7 +31,7 @@ path:
       code: /home/{{ user.name }}/{{ project.version }}/{{ project.name }}
 
     file:
-      settings: /home/{{ user.name }}/{{ project.version }}/{{ project.name }}/_ckuhl/settings.py
+      settings: /home/{{ user.name }}/{{ project.version }}/{{ project.name }}/__django/settings.py
       version: /home/{{ user.name }}/.version # records active version of the project
       requirements: /home/{{ user.name }}/{{ project.version }}/requirements.txt
       uwsgi_socket: /tmp/{{ project.versioned_name }}.sock
