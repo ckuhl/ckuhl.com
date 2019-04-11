@@ -6,7 +6,7 @@ ANSIBLE_PLAYBOOK=${PLAYBOOK} ${ARGS}
 DEPLOY_FILES_DIR=deploy/roles/deploy/files
 
 
-.PHONY: clean test run deploy update
+.PHONY: clean test run migrate deploy update
 clean: ## Remove temporary deployment files
 	rm -f ${DEPLOY_FILES_DIR}/*.zip
 	rm -f ${DEPLOY_FILES_DIR}/*.txt
@@ -14,7 +14,10 @@ clean: ## Remove temporary deployment files
 test:  ## Run all tests
 	pipenv run python ckuhl/manage.py test
 
-run:  ## Run the site locally
+run: migrate  ## Run the site locally
+	pipenv run python ckuhl/manage.py runserver
+
+migrate:  ## Apply migrations
 	pipenv run python ckuhl/manage.py runserver
 
 deploy: test  ## Deploy to fresh Ubuntu 18.04 server
