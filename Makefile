@@ -9,7 +9,7 @@ DEPLOY_FILES_DIR=deploy/roles/deploy/files
 
 .PHONY: clean test run migrate deploy update
 setup:  ## Set up local development environment
-	which pipenv || echo "Pipenv must be installed" && exit 1
+	which pipenv || exit 1
 	pipenv install --dev
 
 clean:  ## Remove temporary deployment files
