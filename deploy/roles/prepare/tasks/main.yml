@@ -33,7 +33,7 @@
     format: gz
 
 - name: requirements.txt generated
-  command: pipenv run pip freeze
+  command: pipenv lock -r
   register: projectRequirements
   changed_when: false
 
