@@ -89,9 +89,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization =====================================================
-LANGUAGE_CODE = 'en-ca'
+LANGUAGE_CODE = 'en-CA'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Toronto'
 
 USE_I18N = True
 

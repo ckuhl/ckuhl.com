@@ -3,10 +3,12 @@ from pathlib import Path
 
 BASE_DIR: Path = Path(__file__).parent.parent.parent.absolute()
 
+# XXX: This isn't actually the secret key, Ansible will template it in
 SECRET_KEY = '{{ SECRET_KEY }}'
 
 DEBUG = False
 
+# XXX: This isn't actually the hostname, Ansible will template it in
 ALLOWED_HOSTS = [
     '{{ inventory_hostname }}',
 ]
@@ -88,9 +90,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Internationalization =====================================================
-LANGUAGE_CODE = 'en-ca'
+LANGUAGE_CODE = 'en-CA'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Toronto'
 
 USE_I18N = True
 
@@ -122,7 +124,7 @@ RESOURCEFILES_DIR = Path.home().absolute() / 'resources'
 # Logging ==================================================================
 LOGGING = {
     'version': 1,
-    'disable_existing_loggers': True,
+    'disable_existing_loggers': False,
     'formatters': {
         'simple': {
             'format': '%(name)s:%(levelname)s: %(message)s',
@@ -132,15 +134,17 @@ LOGGING = {
         }
     },
     'handlers': {
-        'console': {
+        # Log to a fixed-size logfile
+        'file': {
             'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': Path.home().absolute() / 'debug.log',
+            'maxBytes': 10 * (2 ** 20)  # File is at most 10 MiB
         },
     },
     'loggers': {
-        '': {
-            'handlers': ['console'],
+        'django': {
+            'handlers': ['file'],
             'level': 'DEBUG',
             'propagate': True,
         },
