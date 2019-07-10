@@ -1,0 +1,17 @@
+{% extends "_base/container.html" %}
+{% block title %}Words | Chris Kuhl{% endblock %}
+{% block content %}
+<section>
+<h1>Words I have had to look up</h1>
+{% if dictionary %}
+	<dl>
+	{% for word in dictionary %}
+		<dt>{{ word.word }}</dt>
+		{% for defn in word.defs %}
+		<dd><em>{{ defn.part }}.</em> {{ defn.desc }}</dd>
+		{% endfor %}
+	{% endfor %}
+	</dl>
+{% endif %}
+</section>
+{% endblock %}
