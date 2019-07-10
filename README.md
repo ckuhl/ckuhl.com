@@ -30,9 +30,11 @@ can create with it. Deployed using Ansible to make updating the site simpler.
 - [ ] Structure
     - [ ] Look into how other people's Django sites are structured
 	    - e.g. https://github.com/jacobian/jacobian.org
+- [ ] Admin
+	- [ ] Allow better bootstrapping
 
 
 ### Frontend
 
 - [ ] Use _less_ CSS
-    - Human-readable styles?
+    - Use human-readable styles instead of minified bootstrap theme

@@ -1,10 +1,16 @@
-# Get the latest commit hash for tagging the deployment
+# Configure Ansible deployment command
+PLAYBOOK=$(shell pipenv run which ansible-playbook)
+## Get the latest commit hash for tagging the deployment
 DEPLOY_COMMIT=$(shell git rev-parse --short HEAD)
 ARGS=--extra-vars "version=${DEPLOY_COMMIT}"
-PLAYBOOK=pipenv run ansible-playbook
 ANSIBLE_PLAYBOOK=${PLAYBOOK} ${ARGS}
 
+# Configure Python command
+PYTHON=$(shell pipenv run which python)
+
+# Variables
 DEPLOY_FILES_DIR=deploy/roles/deploy/files
+
 
 
 .PHONY: clean test run migrate deploy update help
@@ -17,13 +23,13 @@ clean:  ## Remove temporary deployment files
 	rm -f ${DEPLOY_FILES_DIR}/*.txt
 
 test: setup  ## Run all tests
-	pipenv run python ckuhl/manage.py test
+	${PYTHON} ckuhl/manage.py test
 
 run: setup migrate  ## Run the site locally
-	pipenv run python ckuhl/manage.py runserver
+	${PYTHON} ckuhl/manage.py runserver
 
 migrate: setup  ## Apply migrations
-	pipenv run python ckuhl/manage.py runserver
+	${PYTHON} ckuhl/manage.py runserver
 
 deploy: test  ## Deploy to fresh Ubuntu 18.04 server
 	cd deploy/; ${ANSIBLE_PLAYBOOK} deploy.yml; cd -;
