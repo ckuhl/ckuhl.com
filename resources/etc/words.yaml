@@ -1,157 +1,157 @@
 - word: raiment
   defs:
-  - part: noun
-    desc: Clothing; garments.
+    - part: noun
+      desc: Clothing; garments.
 - word: obdurate
   defs:
-  - part: adjective
-    desc: 'Hardened in wrongdoing or wickedness; stubbornly impenitent: "obdurate conscience of the old sinner” ( Sir Walter Scott).'
-  - part: adjective
-    desc: 'Hardened against feeling; hardhearted: an obdurate miser.'
-  - part: adjective
-    desc: Not giving in to persuasion; intractable.
+    - part: adjective
+      desc: 'Hardened in wrongdoing or wickedness; stubbornly impenitent: "obdurate conscience of the old sinner” ( Sir Walter Scott).'
+    - part: adjective
+      desc: 'Hardened against feeling; hardhearted: an obdurate miser.'
+    - part: adjective
+      desc: Not giving in to persuasion; intractable.
 - word: reify
   defs:
-  - part: verb
-    desc: To regard or treat (an abstraction) as if it had concrete or material existence.
+    - part: verb
+      desc: To regard or treat (an abstraction) as if it had concrete or material existence.
 - word: mendacity
   defs:
-  - part: noun
-    desc: The condition of being mendacious; untruthfulness.
-  - part: noun
-    desc: A lie; a falsehood.
+    - part: noun
+      desc: The condition of being mendacious; untruthfulness.
+    - part: noun
+      desc: A lie; a falsehood.
 - word: blandishment
   defs:
-  - part: noun
-    desc: Flattering speech or actions designed to persuade or influence.
+    - part: noun
+      desc: Flattering speech or actions designed to persuade or influence.
 - word: enervate
   defs:
-  - part: verb
-    desc: 'To weaken or destroy the strength or vitality of: "the luxury which enervates and destroys nations” ( Henry David Thoreau).'
-  - part: verb
-    desc: Medicine To remove a nerve or part of a nerve.
-  - part: adjective
-    desc: Deprived of strength; debilitated.
+    - part: verb
+      desc: 'To weaken or destroy the strength or vitality of: "the luxury which enervates and destroys nations” ( Henry David Thoreau).'
+    - part: verb
+      desc: Medicine To remove a nerve or part of a nerve.
+    - part: adjective
+      desc: Deprived of strength; debilitated.
 - word: attrite
   defs:
-  - part: adjective
-    desc: regretful of one's wrongdoing merely due to fear of punishment (compare contrite)
+    - part: adjective
+      desc: regretful of one's wrongdoing merely due to fear of punishment (compare contrite)
 - word: bowdlerize
   defs:
-  - part: verb
-    desc: To remove material that is considered offensive or objectionable from (a book, for example).
+    - part: verb
+      desc: To remove material that is considered offensive or objectionable from (a book, for example).
 - word: Antean
   defs:
-  - part: adjective
-    desc: Exceptionally strong or large. After Antaeus, the mythological Greek giant.
+    - part: adjective
+      desc: Exceptionally strong or large. After Antaeus, the mythological Greek giant.
 - word: stultify
   defs:
-  - part: verb
-    desc: To render useless or ineffectual; cripple.
-  - part: verb
-    desc: To cause to appear stupid, inconsistent, or ridiculous.
-  - part: verb
-    desc: Law To allege or prove insane and so not legally responsible.
+    - part: verb
+      desc: To render useless or ineffectual; cripple.
+    - part: verb
+      desc: To cause to appear stupid, inconsistent, or ridiculous.
+    - part: verb
+      desc: Law To allege or prove insane and so not legally responsible.
 - word: exigency
   defs:
-  - part: noun
-    desc: The state or quality of requiring much effort or immediate action.
-  - part: noun
-    desc: A pressing or urgent situation.
-  - part: noun
-    desc: Urgent requirements; pressing needs. Often used in the plural.
+    - part: noun
+      desc: The state or quality of requiring much effort or immediate action.
+    - part: noun
+      desc: A pressing or urgent situation.
+    - part: noun
+      desc: Urgent requirements; pressing needs. Often used in the plural.
 - word: sequela
   defs:
-  - part: noun
-    desc: A pathological condition resulting from a disease.
-  - part: noun
-    desc: A secondary consequence or result.
+    - part: noun
+      desc: A pathological condition resulting from a disease.
+    - part: noun
+      desc: A secondary consequence or result.
 - word: supernal
   defs:
-  - part: adj.
-    desc: Celestial; heavenly.
-  - part: adjective
-    desc: Of, coming from, or being in the sky or high above.
+    - part: adj.
+      desc: Celestial; heavenly.
+    - part: adjective
+      desc: Of, coming from, or being in the sky or high above.
 - word: genuflect
   defs:
-  - part: verb
-    desc: lower one's body briefly by bending one knee to the ground, typically in worship or as a sign of respect
-  - part: verb
-    desc: show deference or servility
+    - part: verb
+      desc: lower one's body briefly by bending one knee to the ground, typically in worship or as a sign of respect
+    - part: verb
+      desc: show deference or servility
 - word: alate
   defs:
-  - part: adjective
-    desc: (chiefly of insects or seeds) having wings or winglike appendages
+    - part: adjective
+      desc: (chiefly of insects or seeds) having wings or winglike appendages
 - word: abstruse
   defs:
-  - part: adjective
-    desc: difficult to understand; obscure.
+    - part: adjective
+      desc: difficult to understand; obscure.
 - word: inchoate
   defs:
-  - part: adjective
-    desc: just begun and so not fully formed or developed; rudimentary.
-  - part: adjective
-    desc: (of an offense, such as incitement or conspiracy) anticipating a further criminal act.
+    - part: adjective
+      desc: just begun and so not fully formed or developed; rudimentary.
+    - part: adjective
+      desc: (of an offense, such as incitement or conspiracy) anticipating a further criminal act.
 - word: imbroglio
   defs:
-  - part: noun
-    desc: an extremely confused, complicated, or embarrassing situation.
+    - part: noun
+      desc: an extremely confused, complicated, or embarrassing situation.
 - word: concomitantly
   defs:
-  - part: adverb
-    desc: at the same time; simultaneously.
+    - part: adverb
+      desc: at the same time; simultaneously.
 - word: vociferously
   defs:
-  - part: adverb
-    desc: in a loud and forceful manner.
+    - part: adverb
+      desc: in a loud and forceful manner.
 - word: privation
   defs:
-  - part: noun
-    desc: a state in which things that are essential for human well-being such as food and warmth are scarce or lacking.
+    - part: noun
+      desc: a state in which things that are essential for human well-being such as food and warmth are scarce or lacking.
 - word: didactic
   defs:
-  - part: adjective
-    desc: intended to teach, particularly in having moral instruction as an ulterior motive.
-  - part: adjective
-    desc: in the manner of a teacher, particularly so as to treat someone in a patronizing way.
+    - part: adjective
+      desc: intended to teach, particularly in having moral instruction as an ulterior motive.
+    - part: adjective
+      desc: in the manner of a teacher, particularly so as to treat someone in a patronizing way.
   examples:
-  - "slow-paced, didactic lecturing"
+    - "slow-paced, didactic lecturing"
 - word: concupiscence
   defs:
-  - part: noun
-    desc: strong sexual desire; lust.
+    - part: noun
+      desc: strong sexual desire; lust.
 - word: codicil
   defs:
-  - part: noun
-    desc: an addition or supplement that explains, modifies, or revokes a will or part of one.
+    - part: noun
+      desc: an addition or supplement that explains, modifies, or revokes a will or part of one.
 - word: macadam
   defs:
-  - part: noun
-    desc: broken stone of even size used in successively compacted layers for surfacing roads and paths, and typically bound with tar or bitumen.
+    - part: noun
+      desc: broken stone of even size used in successively compacted layers for surfacing roads and paths, and typically bound with tar or bitumen.
 - word: preternaturally
   defs:
-  - part: adjective
-    desc: beyond what is normal or natural.
+    - part: adjective
+      desc: beyond what is normal or natural.
 - word: cogitation
   defs:
-  - part: noun
-    desc: the action of thinking deeply about something; contemplation.
+    - part: noun
+      desc: the action of thinking deeply about something; contemplation.
 - word: punctilious
   defs:
-  - part: adjective
-    desc: showing great attention to detail or correct behaviour
+    - part: adjective
+      desc: showing great attention to detail or correct behaviour
 - word: mandraulic
   defs:
-  - part: adjective
-    desc: (informal) labor-intensive
+    - part: adjective
+      desc: (informal) labor-intensive
 - word: avoirdupois
   defs:
-  - part: noun
-    desc: weight, heaviness
+    - part: noun
+      desc: weight, heaviness
 - word: perfidious
   defs:
-  - part: adjective
-    desc: deceitful and untrustworthy.
+    - part: adjective
+      desc: deceitful and untrustworthy.
 - word: sartorial
 - word: choleric
 - word: sanctimonious
