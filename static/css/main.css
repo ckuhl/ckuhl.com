@@ -1,0 +1,88 @@
+/* Use a native font stack */
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* Make h1 a bit bigger */
+h1 {
+	font-size: 2rem;
+}
+
+/* Make text marginally larger */
+p { font-size: 1.1rem; }
+
+/* Make headings a bit more compact */
+h1, h2, h3, h4, h5, h6 {
+	margin-bottom: 0;
+}
+
+/* Make navbar items really big */
+nav:first-of-type ul li a, nav:first-of-type a {
+	font-size: 2rem;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+/* Make footer items smaller */
+nav:last-of-type ul li a, nav:last-of-type a {
+	text-decoration: none;
+	font-variant: small-caps;
+}
+
+/* Create a nice navbar using a list */
+nav ul {
+	padding: 0;
+	list-style: none;
+
+	display: flex;
+	flex-direction: row;
+  	flex-wrap: nowrap;
+}
+nav ul li {
+	margin-left: auto;
+	margin-right: auto;
+}
+nav ul li:first-of-type { margin-left: 0; }
+nav ul li:last-of-type{ margin-right: 0; }
+
+
+/* Printing-related CSS rules */
+@media print {
+	/* Prevent page breaks between titles and items, or in lists or tables */
+	table {
+		page-break-inside: avoid;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		page-break-after: avoid;
+	}
+
+	li {
+		page-break-inside: avoid;
+	}
+}
+
+/* Add styles for dark mode users */
+/*
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: #222;
+		color: #eee;
+	}
+
+	a[href] {
+		color: #18d;
+	}
+
+	a[href]:hover {
+		color: #4ae;
+	}
+}
+*/
+
+/* Add some padding for big displays */
+@media screen and (min-width: 1000px) {
+	body {
+		margin: 0 25%;
+	}
+}
