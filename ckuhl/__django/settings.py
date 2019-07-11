@@ -52,8 +52,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-
-                '_commons.context_processors.do_not_track',
             ],
             'libraries': {
                 'html_tags': '_commons.templatetags.html_tags',

@@ -18,20 +18,6 @@
 	<link rel="stylesheet" href="{% static 'css/bootstrap-theme-lux.min.css' %}">
 	<link rel="stylesheet" href="{% static 'css/custom.css' %}">
 	{% block pre_css %}{% endblock %}
-	{% if not do_not_track %}
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115499636-1"></script>
-		<script>
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-
-            gtag('js', new Date());
-            gtag('config', 'UA-115499636-1');
-		</script>
-		{% else %}<!-- Do Not Track enabled, 3rd party tracking not loaded -->{% endif %}
 
 	<!-- Immediate JS -->
 	{% block pre_js %}{% endblock %}
@@ -49,8 +35,9 @@
 
 <!-- Deferred CSS -->
 <link rel="stylesheet" href="{% static 'css/pygments.css' %}">
+{% block post_css %}{% endblock %}
 
 <!-- Deferred JS -->
-{# TODO <script src="{% url 'analytics:script' %}" type="text/javascript"></script> #}
+{% block post_js %}{% endblock %}
 </body>
 </html>
