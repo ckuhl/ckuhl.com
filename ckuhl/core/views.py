@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.urls import reverse
 
 from blog.models import BlogPost
 from portfolio.models import PortfolioProject
@@ -19,9 +20,9 @@ def root(request):
 
 def contact(request):
     """Information about how to contact me"""
-    return render(request, 'core/contact.html')
+    return redirect(reverse('etc:contact_singleton'), permanent=True)
 
 
 def about(request):
     """A bio about myself"""
-    return render(request, 'core/about.html')
+    return redirect(reverse('etc:about_singleton'), permanent=True)

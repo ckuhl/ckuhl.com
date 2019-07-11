@@ -3,12 +3,12 @@
 {% block content %}
 <section>
 <h1>Words I have had to look up</h1>
-{% if dictionary %}
+{% if words %}
 	<dl>
-	{% for word in dictionary %}
+	{% for word in words %}
 		<dt>{{ word.word }}</dt>
-		{% for defn in word.defs %}
-		<dd><em>{{ defn.part }}.</em> {{ defn.desc }}</dd>
+		{% for definition in word.defs %}
+		<dd><em>{{ definition.part }}.</em> {{ definition.desc }}</dd>
 		{% endfor %}
 	{% endfor %}
 	</dl>

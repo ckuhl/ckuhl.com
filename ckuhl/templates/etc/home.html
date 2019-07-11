@@ -1,0 +1,32 @@
+{% extends "_base/container.html" %}
+{% block title %}Etc. | Chris Kuhl{% endblock %}
+{% block content %}
+<section>
+<h1>A collection of assorted things</h1>
+<p>
+	This is a collection of various pages and "things" I've acquired that I have
+	no better place to put.
+</p>
+<section>
+	<h2>Information and stuff</h2>
+	<p>
+		I collect tidbits of information, and figured I can stick it here so
+		other people could find it too.
+	</p>
+	<ul>
+		<li><a href="{% url 'etc:words_singleton' %}">Words!</a></li>
+	</ul>
+</section>
+<section>
+	<h2>Old pages</h2>
+	<p>
+		I don't really know what to do with these, but don't want to leave any
+		dead links laying around.
+	</p>
+	<ul>
+		<li><a href="{% url 'etc:about_singleton' %}">About me</a></li>
+		<li><a href="{% url 'etc:contact_singleton' %}">How to contact me</a></li>
+	</ul>
+</section>
+</section>
+{% endblock %}
