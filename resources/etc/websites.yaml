@@ -1,0 +1,54 @@
+- url: https://nora.codes/
+  author: Leonora Tindall
+
+- url: https://www.dampfkraft.com/
+  author: Paul McCann
+
+- url: https://chriskiehl.com/
+  author: Chris Kiehl
+
+- url: https://www.kickscondor.com/
+
+- url: https://shkspr.mobi/
+  author: Terence Eden
+
+- url: https://www.ctrl.blog/
+  author: Daniel Aleksandersen
+
+# TODO: The below vvv
+- url: https://box.matto.nl/
+- url: https://rachelbythebay.com/w/
+- url: https://yakshav.es/
+- url: http://blog.ikara.co/
+  is_dead: yes
+  archive: http://web.archive.org/web/20180420095135/http://blog.ikura.co/
+- url: https://wingolog.org/
+- url: http://wiki.nikhil.io/Home
+- url: https://prog21.dadgum.com/
+- url: https://www.outcoldman.com/
+- url: https://temochka.com/
+- url: https://haldean.org/
+- url: https://nicolas.perriault.net/
+- url: https://www.benkuhn.net/
+- url: https://danluu.com/
+- url: https://justinjackson.ca/
+- url: https://jvns.ca/
+- url: http://reinvanderwoerd.nl/index.html
+- url: https://sivers.org/
+- url: http://timharford.com/2017/02/what_makes_the_perfect_office/
+- url: https://blog.seangransee.com/
+- url: https://objectsandideas.com/projects/
+- url: https://daiyi.co/
+- url: http://thedarnedestthing.com/vimwiki%20cheatsheet
+- url: https://www.jw.pe/
+- url: https://www.hillelwayne.com/
+- url: https://grumpy.website
+- url: https://writing.markchristian.org/2019/04/29/personal-web-sites/?c=1
+- url: https://zacs.site/blog/own-your-platform.html
+# TODO: The above ^^^
+
+- url: https://fosterelli.co/
+  author: Chris Foster
+
+- url: https://blog.jessfraz.com/
+  author: Jess Frazelle
