@@ -1,6 +1,10 @@
+from pathlib import Path
+
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
 
+from __django import settings
 from blog.models import BlogPost
 from portfolio.models import PortfolioProject
 
@@ -16,6 +20,11 @@ def root(request):
                               .order_by('-date')[:3],
     }
     return render(request, 'core/home.html', context=context)
+
+
+def robots_txt(request):
+    content: Path = settings.RESOURCEFILES_DIR / 'core' / 'robots.txt'
+    return HttpResponse(content.read_bytes(), content_type='text/plain')
 
 
 def contact(request):

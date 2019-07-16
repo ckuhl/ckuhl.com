@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: Injuring a human being or, through inaction, allow a human being to come to harm.
+Disallow: Disobeying the orders given it by human beings except where such orders would conflict with the previous law.
+Disallow: Not protecting your own existence as long as such protection does not conflict with the previous two laws.
