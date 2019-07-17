@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 from django import test
 from django.urls import reverse
 
@@ -7,12 +9,23 @@ class TestCoreViews(test.TestCase):
 
     def test_home_page_loads(self):
         response = self.client.get(reverse('core:home'))
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(
+            response.status_code,
+            HTTPStatus.OK
+        )
 
-    def test_contact_page_loads(self):
+    def test_contact_page_redirects(self):
         response = self.client.get(reverse('core:contact'))
-        self.assertEqual(response.status_code, 200)
 
-    def test_about_page_loads(self):
+        self.assertEqual(
+            response.status_code,
+            HTTPStatus.MOVED_PERMANENTLY
+        )
+
+    def test_about_page_redirects(self):
         response = self.client.get(reverse('core:about'))
-        self.assertEqual(response.status_code, 200)
+
+        self.assertEqual(
+            response.status_code,
+            HTTPStatus.MOVED_PERMANENTLY
+        )
