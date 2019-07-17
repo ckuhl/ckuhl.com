@@ -202,3 +202,15 @@
   defs:
     - part: adjective
       desc: powerfully persuasive; appealing forcibly to the mind
+
+- word: brinkmanship
+  defs:
+    - part: noun
+      desc: the art or practice of pursuing a dangerous policy to the limits of safety before stopping, especially in politics
+
+- word: superannuate
+  defs:
+    - part: verb
+      desc: to set aside as, or remove as, obsolete or out-of-date
+    - part: verb
+      desc: to retire on a pension
