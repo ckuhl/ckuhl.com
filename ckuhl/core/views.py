@@ -23,8 +23,9 @@ def root(request):
 
 
 def robots_txt(request):
-    content: Path = settings.RESOURCEFILES_DIR / 'core' / 'robots.txt'
-    return HttpResponse(content.read_bytes(), content_type='text/plain')
+    robots_file: Path = settings.RESOURCEFILES_DIR / 'core' / 'robots.txt'
+
+    return HttpResponse(robots_file.read_bytes(), content_type='text/plain')
 
 
 def contact(request):

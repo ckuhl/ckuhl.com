@@ -9,6 +9,6 @@ urlpatterns = [
     path('about/', views.about, name='about'),
 
     # Live pages
-    path('robots.txt', views.robots_txt),
+    path('robots.txt', views.robots_txt, name='robots_txt'),
     path('', views.root, name='home'),
 ]
